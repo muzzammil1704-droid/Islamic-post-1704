@@ -1,0 +1,2662 @@
+<!DOCTYPE html>
+<html lang="ta">
+<html lang="ta"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>இஸ்லாமிய வினாடி வினா 👑</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:'Mukta Malar',sans-serif;background:#d1d5db;margin:0;padding:0;}
+  .app{width:100%;max-width:420px;height:100dvh;margin:0 auto;background:#f9fafb;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  @media(min-width:480px){.app{height:860px;margin:1.5rem auto;border-radius:2.5rem;box-shadow:0 25px 60px rgba(0,0,0,.3);}}
+  .screen{display:none;flex-direction:column;position:absolute;inset:0;background:#f9fafb;overflow:hidden;}
+  .screen.active{display:flex;}
+  .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .scroll::-webkit-scrollbar{display:none;}
+  @keyframes slideUp{from{transform:translateY(22px);opacity:0}to{transform:translateY(0);opacity:1}}
+  @keyframes pop{0%{transform:scale(.8)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+  @keyframes lockBounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}70%{transform:translateY(-2px)}}
+  .slide-up{animation:slideUp .35s ease-out;}
+  .pop{animation:pop .3s ease-out;}
+  .fade{animation:fadeIn .25s ease-out;}
+  .shake{animation:shake .4s ease-out;}
+  #toast{position:fixed;top:-60px;left:50%;transform:translateX(-50%);transition:top .35s ease;z-index:9999;white-space:nowrap;pointer-events:none;}
+  #toast.show{top:18px;}
+  .bp{transition:transform .1s;cursor:pointer;} .bp:active{transform:scale(.95);}
+  .door{border-radius:60px 60px 8px 8px;transition:transform .1s;} .door:active{transform:scale(.95);}
+  .star-btn{transition:transform .15s,box-shadow .15s;} .star-btn:active{transform:scale(.88);}
+  .chip{transition:transform .1s,opacity .2s;} .chip:active{transform:scale(.9);} .chip.used{opacity:.2;pointer-events:none;}
+  .adtab{transition:all .2s;}
+  .locked-overlay{position:absolute;inset:0;background:rgba(17,24,39,.75);border-radius:1.25rem;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;backdrop-filter:blur(2px);}
+  input[type=number]::-webkit-inner-spin-button{opacity:1;}
+</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+<body>
+
+<div id="toast" style="position:fixed;top:-60px;left:50%;transform:translateX(-50%);transition:top .35s;z-index:9999;white-space:nowrap;pointer-events:none;background:#1f2937;color:white;padding:.65rem 1.25rem;border-radius:9999px;font-weight:700;font-size:.85rem;box-shadow:0 8px 25px rgba(0,0,0,.35);">
+  <span id="toastMsg">...</span>
+</div>
+
+<div class="app">
+
+<div id="homeScreen" class="screen active fade">
+  <div id="homeHdr" style="background:linear-gradient(160deg,#059669,#047857);border-radius:0 0 1.5rem 1.5rem;padding:2.5rem 1.1rem 1.1rem;flex-shrink:0;box-shadow:0 4px 20px rgba(5,150,105,.3);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.9rem;">
+      <div>
+        <p style="color:#a7f3d0;font-size:.72rem;">அஸ்ஸலாமு அலைக்கும்!</p>
+        <h2 style="color:white;font-size:1.18rem;font-weight:800;margin:0;">இஸ்லாமிய வினாடி வினா 👑</h2>
+      </div>
+      <div style="display:flex;align-items:center;background:rgba(6,78,59,.5);border:1px solid rgba(251,191,36,.35);padding:.45rem .9rem;border-radius:9999px;">
+        <span style="font-size:1.3rem;margin-right:.35rem;">🪙</span>
+        <span id="homeCoins" style="color:white;font-weight:900;font-size:1.25rem;">500</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-bottom:.55rem;">
+      <button class="bp" onclick="goTo('tfScreen');startTF();" style="background:linear-gradient(135deg,#d97706,#92400e);border:2px solid #fbbf24;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:white;font-weight:800;font-size:.72rem;gap:.25rem;border:none;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="font-size:1.55rem;">⚖️</span>சரி / தவறு ✅❌
+      </button>
+      <button class="bp" onclick="goTo('sniperScreen');startSniper();" style="background:linear-gradient(135deg,#1e293b,#000);border:2px solid #65a30d;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:#a3e635;font-weight:800;font-size:.72rem;gap:.25rem;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="position:absolute;top:0;right:0;background:#65a30d;color:#000;font-size:.48rem;font-weight:900;padding:2px 5px;border-radius:0 0 0 .45rem;">🎯</span>
+        <span style="font-size:1.55rem;">🎯</span>Sniper Mode
+      </button>
+      <button class="bp" onclick="goTo('svScreen');startSV();" style="background:linear-gradient(135deg,#334155,#1e293b);border:2px solid #475569;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:white;font-weight:800;font-size:.72rem;gap:.25rem;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="font-size:1.55rem;">❤️</span>Survival ❤️
+      </button>
+      <button class="bp" onclick="goTo('rfScreen');startRF();" style="background:linear-gradient(135deg,#dc2626,#ea580c);border:2px solid #ef4444;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:white;font-weight:800;font-size:.72rem;gap:.25rem;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="font-size:1.55rem;">⚡</span>வேகம் ⚡
+      </button>
+      <button class="bp" onclick="goTo('scrambledScreen');startScrambled();" style="background:linear-gradient(135deg,#0f766e,#0c4a6e);border:2px solid #2dd4bf;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:white;font-weight:800;font-size:.72rem;gap:.25rem;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="position:absolute;top:0;right:0;background:#2dd4bf;color:#0f172a;font-size:.48rem;font-weight:900;padding:2px 5px;border-radius:0 0 0 .45rem;">NEW</span>
+        <span style="font-size:1.55rem;">🔀</span>Scrambled Ayat
+      </button>
+      <button class="bp" onclick="goTo('mazeScreen');startMaze();" style="background:linear-gradient(135deg,#92400e,#1c1917);border:2px solid #d97706;border-radius:.9rem;padding:.8rem .5rem;display:flex;flex-direction:column;align-items:center;color:white;font-weight:800;font-size:.72rem;gap:.25rem;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+        <span style="position:absolute;top:0;right:0;background:#d97706;color:#1c1917;font-size:.48rem;font-weight:900;padding:2px 5px;border-radius:0 0 0 .45rem;">NEW</span>
+        <span style="font-size:1.55rem;">🕌</span>Quran Maze
+      </button>
+    </div>
+    <button class="bp" onclick="goTo('archeryScreen');startArchery();" style="width:100%;background:linear-gradient(90deg,#1e1b4b,#2e1065,#1e1b4b);border:2px solid #6366f1;border-radius:.9rem;padding:.8rem 1rem;display:flex;align-items:center;justify-content:center;gap:.7rem;color:white;font-weight:800;font-size:.82rem;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+      <span style="position:absolute;top:0;right:0;background:#6366f1;color:white;font-size:.48rem;font-weight:900;padding:2px 5px;border-radius:0 0 0 .45rem;">NEW</span>
+      <span style="font-size:1.8rem;">🏹</span>
+      <div style="text-align:left;"><div>Ayat Archery 🏹</div><div style="color:#818cf8;font-size:.62rem;font-weight:600;">Night Sky Challenge ✨</div></div>
+      <span style="font-size:1.1rem;opacity:.75;margin-left:.35rem;">⭐🌟✨</span>
+    </button>
+  </div>
+
+  <div class="scroll" style="padding:1rem 1rem 5.5rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem;">
+      <h3 style="font-weight:900;font-size:1.05rem;color:#1f2937;margin:0;">📍 லெவல்கள்</h3>
+      <span id="totalQSpan" style="background:#e5e7eb;color:#6b7280;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:9999px;">90 கேள்விகள்</span>
+    </div>
+    <div id="levelList"><div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; border-radius: 1.4rem; margin-bottom: 0.7rem; border: 1.5px solid rgba(5, 150, 105, 0.267); background: linear-gradient(135deg, rgba(6, 78, 59, 0.133), rgba(5, 150, 105, 0.067)); overflow: hidden; box-shadow: rgba(5, 150, 105, 0.157) 0px 2px 16px;"><div style="position:absolute;top:.5rem;right:.5rem;background:#ecfdf5;color:#065f46;font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:.4rem;">✅ திறக்கப்பட்டது</div><div style="display:flex;align-items:center;gap:.7rem;"><div style="width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:linear-gradient(145deg,#059669,#064e3b);box-shadow:0 4px 12px #05966955,inset 0 1px 0 rgba(255,255,255,.3);border:1.5px solid #10b98166;">🕌</div><div><div style="font-weight:900;font-size:.95rem;color:#f9fafb;">நிலை 1</div><div style="font-size:.68rem;color:#10b981cc;">50 கேள்விகள்</div></div></div><div><button onclick="startQuiz(1)" style="width:2.6rem;height:2.6rem;background:linear-gradient(145deg,#059669,#064e3b);border-radius:50%;border:1.5px solid #10b98155;font-size:1.1rem;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px #05966955,inset 0 1px 0 rgba(255,255,255,.25);" class="bp">▶</button></div></div><div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; border-radius: 1.4rem; margin-bottom: 0.7rem; border: 1.5px solid rgba(79, 70, 229, 0.267); background: linear-gradient(135deg, rgba(30, 27, 75, 0.133), rgba(79, 70, 229, 0.067)); overflow: hidden; box-shadow: rgba(79, 70, 229, 0.157) 0px 2px 16px;"><div style="position:absolute;top:.5rem;right:.5rem;background:#ecfdf5;color:#065f46;font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:.4rem;">✅ திறக்கப்பட்டது</div><div style="display:flex;align-items:center;gap:.7rem;"><div style="width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:linear-gradient(145deg,#4f46e5,#1e1b4b);box-shadow:0 4px 12px #4f46e555,inset 0 1px 0 rgba(255,255,255,.3);border:1.5px solid #818cf866;">📖</div><div><div style="font-weight:900;font-size:.95rem;color:#f9fafb;">நிலை 2</div><div style="font-size:.68rem;color:#818cf8cc;">5 கேள்விகள்</div></div></div><div><button onclick="startQuiz(2)" style="width:2.6rem;height:2.6rem;background:linear-gradient(145deg,#4f46e5,#1e1b4b);border-radius:50%;border:1.5px solid #818cf855;font-size:1.1rem;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px #4f46e555,inset 0 1px 0 rgba(255,255,255,.25);" class="bp">▶</button></div></div><div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1rem; border-radius: 1.4rem; margin-bottom: 0.7rem; border: 1.5px solid rgba(217, 119, 6, 0.267); background: linear-gradient(135deg, rgba(120, 53, 15, 0.133), rgba(217, 119, 6, 0.067)); overflow: hidden; box-shadow: rgba(217, 119, 6, 0.157) 0px 2px 16px;"><div style="position:absolute;top:.5rem;right:.5rem;background:#ecfdf5;color:#065f46;font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:.4rem;">✅ திறக்கப்பட்டது</div><div style="display:flex;align-items:center;gap:.7rem;"><div style="width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:linear-gradient(145deg,#d97706,#78350f);box-shadow:0 4px 12px #d9770655,inset 0 1px 0 rgba(255,255,255,.3);border:1.5px solid #fbbf2466;">☪️</div><div><div style="font-weight:900;font-size:.95rem;color:#f9fafb;">நிலை 3</div><div style="font-size:.68rem;color:#fbbf24cc;">35 கேள்விகள்</div></div></div><div><button onclick="startQuiz(3)" style="width:2.6rem;height:2.6rem;background:linear-gradient(145deg,#d97706,#78350f);border-radius:50%;border:1.5px solid #fbbf2455;font-size:1.1rem;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px #d9770655,inset 0 1px 0 rgba(255,255,255,.25);" class="bp">▶</button></div></div></div>
+  </div>
+
+  <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-top:1px solid #f3f4f6;height:4rem;display:flex;align-items:center;justify-content:space-around;box-shadow:0 -8px 20px rgba(0,0,0,.06);">
+    <button onclick="goTo('homeScreen');renderLevels();" style="display:flex;flex-direction:column;align-items:center;color:#059669;background:none;border:none;cursor:pointer;padding:.5rem;">
+      <span style="font-size:1.4rem;">🏠</span><span style="font-size:.6rem;font-weight:900;">முகப்பு</span>
+    </button>
+    <button onclick="showWallet();" style="display:flex;flex-direction:column;align-items:center;color:#d97706;background:none;border:none;cursor:pointer;padding:.5rem;">
+      <span style="font-size:1.4rem;">👛</span><span style="font-size:.6rem;font-weight:700;">Wallet</span>
+    </button>
+    <button onclick="goTo('shareScreen');renderShare();" style="display:flex;flex-direction:column;align-items:center;color:#ec4899;background:none;border:none;cursor:pointer;padding:.5rem;position:relative;">
+      <span style="position:absolute;top:-2px;right:0;background:#ec4899;color:white;font-size:.42rem;font-weight:900;padding:1px 4px;border-radius:9999px;">+5K</span>
+      <span style="font-size:1.4rem;">📲</span><span style="font-size:.6rem;font-weight:700;">Share</span>
+    </button>
+    
+  </div>
+</div>
+
+<div id="quizScreen" class="screen">
+  <div style="background:white;padding:2.5rem 1rem 1rem;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.07);flex-shrink:0;">
+    <button onclick="finishGame('Quiz',quizScore*10)" style="width:2.2rem;height:2.2rem;background:#f3f4f6;border-radius:50%;border:none;font-size:1.1rem;cursor:pointer;font-weight:900;">✕</button>
+    <div style="text-align:center;"><p style="font-size:.68rem;color:#9ca3af;font-weight:700;margin:0;">Level <span id="qzLevel">1</span></p><p style="font-weight:900;color:#1f2937;margin:0;"><span id="qzIdx">1</span> / <span id="qzTotal">5</span></p></div>
+    <div style="display:flex;align-items:center;background:#ecfdf5;border:1px solid #a7f3d0;padding:.3rem .75rem;border-radius:9999px;"><span style="color:#fbbf24;margin-right:.3rem;">🪙</span><span id="qzScore" style="font-weight:900;color:#059669;font-size:.88rem;">+0</span></div>
+  </div>
+  <div style="height:5px;background:#e5e7eb;flex-shrink:0;"><div id="qzBar" style="height:100%;background:#10b981;transition:width .3s;width:0%;"></div></div>
+  <div class="scroll" style="padding:1.1rem 1rem 8rem;">
+    <div style="background:white;border-radius:1.4rem;padding:1.35rem;box-shadow:0 1px 8px rgba(0,0,0,.06);border:1px solid #f3f4f6;margin-bottom:1.1rem;" class="slide-up"><p id="qzQ" style="font-size:1.15rem;font-weight:800;color:#1f2937;line-height:1.4;margin:0;"></p></div>
+    <div id="qzOpts" style="display:flex;flex-direction:column;gap:.7rem;"></div>
+    <div id="qzExp" style="margin-top:1rem;max-height:0;overflow:hidden;transition:max-height .4s,opacity .3s;opacity:0;">
+      <div id="qzExpBox" style="padding:1rem;border-radius:1rem;border-left:4px solid #10b981;background:#ecfdf5;">
+        <p id="qzExpTitle" style="font-weight:900;margin:0 0 .35rem;font-size:.82rem;"></p>
+        <p id="qzExpText" style="color:#374151;font-size:.82rem;line-height:1.5;margin:0;"></p>
+      </div>
+    </div>
+  </div>
+  <div id="qzNextWrap" style="position:absolute;bottom:0;left:0;right:0;padding:.9rem 1rem;background:white;border-top:1px solid #f3f4f6;display:none;" class="slide-up">
+    <button onclick="nextQuiz()" style="width:100%;background:#059669;color:white;font-weight:900;font-size:1.05rem;padding:.95rem;border-radius:.9rem;border:none;cursor:pointer;" class="bp"><span id="qzNextTxt">அடுத்த கேள்வி →</span></button>
+  </div>
+</div>
+
+<div id="tfScreen" class="screen" style="background:linear-gradient(180deg,#78350f,#1c0a00);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(217,119,6,.2);flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(217,119,6,.2);border-radius:50%;border:none;color:#fcd34d;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <span style="color:#fbbf24;font-weight:900;font-size:.72rem;letter-spacing:.14em;">⚖️ சரி / தவறு</span>
+    <div style="background:rgba(0,0,0,.4);border:1px solid rgba(217,119,6,.45);padding:.28rem .75rem;border-radius:9999px;color:#fde68a;font-weight:900;font-size:.82rem;">🪙 <span id="tfCoins">0</span></div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.4rem;" class="slide-up">
+    <div style="background:rgba(0,0,0,.55);border:1px solid rgba(217,119,6,.3);padding:1.9rem 1.5rem;border-radius:1.4rem;width:100%;margin-bottom:1.2rem;box-shadow:0 0 28px rgba(202,138,4,.14);">
+      <span style="color:#d97706;font-size:.68rem;font-weight:900;text-transform:uppercase;">கேள்வி <span id="tfIdx">1</span> / <span id="tfTotal">5</span></span>
+      <p id="tfQ" style="color:#fffbeb;font-size:1.25rem;font-weight:900;margin:.7rem 0 0;line-height:1.4;"></p>
+    </div>
+
+    <!-- Result card - shown after answering -->
+    <div id="tfResult" style="display:none;width:100%;margin-bottom:1.2rem;" class="slide-up">
+      <div id="tfResultBox" style="border-radius:1.1rem;padding:1rem 1.2rem;display:flex;align-items:center;gap:.9rem;">
+        <div id="tfResultIcon" style="font-size:2.2rem;flex-shrink:0;"></div>
+        <div>
+          <div id="tfResultStatus" style="font-weight:900;font-size:.95rem;"></div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.7);margin-top:.18rem;">சரியான விடை:</div>
+          <div id="tfResultAnswer" style="font-weight:900;font-size:1.05rem;margin-top:.1rem;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:.9rem;width:100%;">
+      <button id="tfTrueBtn" onclick="handleTF(true)" class="bp" style="flex:1;padding:1.4rem .5rem;border-radius:.9rem;background:linear-gradient(180deg,#4ade80,#16a34a);border:2px solid #86efac;color:white;font-weight:900;font-size:1.25rem;cursor:pointer;box-shadow:0 5px 0 #14532d;transition:all .2s;">✅<br>சரி</button>
+      <button id="tfFalseBtn" onclick="handleTF(false)" class="bp" style="flex:1;padding:1.4rem .5rem;border-radius:.9rem;background:linear-gradient(180deg,#f87171,#b91c1c);border:2px solid #fca5a5;color:white;font-weight:900;font-size:1.25rem;cursor:pointer;box-shadow:0 5px 0 #7f1d1d;transition:all .2s;">❌<br>தவறு</button>
+    </div>
+  </div>
+</div>
+
+<div id="rfScreen" class="screen" style="background:linear-gradient(135deg,#dc2626,#ea580c);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(255,255,255,.15);flex-shrink:0;">
+    <button onclick="quitRF()" style="width:2.2rem;height:2.2rem;background:rgba(255,255,255,.2);border-radius:50%;border:none;color:white;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div id="rfTimer" style="font-size:1.75rem;font-weight:900;color:white;">⏱ 60</div>
+    <div style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.2);padding:.28rem .75rem;border-radius:9999px;color:white;font-weight:900;font-size:.82rem;">🪙 <span id="rfCoins">0</span></div>
+  </div>
+  <div style="height:5px;background:rgba(255,255,255,.2);flex-shrink:0;"><div id="rfBar" style="height:100%;background:#fbbf24;transition:width 1s linear;width:100%;"></div></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:1.1rem;justify-content:center;" class="slide-up">
+    <div style="background:white;border-radius:1.4rem;padding:1.4rem;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.2);margin-bottom:1.4rem;"><p id="rfQ" style="font-size:1.15rem;font-weight:900;color:#1f2937;line-height:1.4;margin:0;"></p></div>
+    <div id="rfOpts" style="display:flex;flex-direction:column;gap:.6rem;"></div>
+  </div>
+</div>
+
+<div id="svScreen" class="screen" style="background:linear-gradient(135deg,#1e293b,#0f172a);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(255,255,255,.1);border-radius:50%;border:none;color:white;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div id="svLives" style="display:flex;gap:.22rem;font-size:1.4rem;"></div>
+    <div style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);padding:.28rem .75rem;border-radius:9999px;color:white;font-weight:900;font-size:.82rem;">🪙 <span id="svCoins">0</span></div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:1.1rem;justify-content:center;" class="slide-up">
+    <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:1.4rem;border-radius:1.4rem;margin-bottom:1.4rem;text-align:center;">
+      <span style="color:#9ca3af;font-size:.68rem;font-weight:700;text-transform:uppercase;">கேள்வி <span id="svIdx">1</span></span>
+      <p id="svQ" style="color:white;font-size:1.15rem;font-weight:900;margin:.45rem 0 0;line-height:1.4;"></p>
+    </div>
+    <div id="svOpts" style="display:flex;flex-direction:column;gap:.6rem;"></div>
+  </div>
+</div>
+
+<div id="sniperScreen" class="screen" style="background:#020617;font-family:monospace;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(101,163,13,.2);flex-shrink:0;">
+    <button onclick="quitSniper()" style="width:2.2rem;height:2.2rem;background:rgba(101,163,13,.15);border-radius:50%;border:none;color:#84cc16;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div style="text-align:center;"><div style="color:#4d7c0f;font-size:.58rem;font-weight:900;letter-spacing:.15em;">ONE SHOT. ONE KILL.</div><div id="snTimer" style="font-size:1.75rem;font-weight:900;color:#84cc16;">🎯 10</div></div>
+    <div style="border:1px solid rgba(101,163,13,.4);background:black;padding:.28rem .75rem;border-radius:.25rem;color:#84cc16;font-weight:900;font-size:.82rem;">#<span id="snScore">0</span></div>
+  </div>
+  <div style="height:3px;background:#0f172a;flex-shrink:0;"><div id="snBar" style="height:100%;background:#84cc16;transition:width 1s linear;width:100%;"></div></div>
+  <div style="flex:1;display:flex;flex-direction:column;padding:1.1rem;justify-content:center;" class="slide-up">
+    <div style="border:1px solid rgba(101,163,13,.28);background:rgba(101,163,13,.05);padding:1.2rem;border-radius:.5rem;margin-bottom:1.75rem;position:relative;">
+      <div style="position:absolute;top:-.7rem;left:1rem;background:#020617;padding:0 .4rem;color:#4d7c0f;font-size:.58rem;font-weight:900;">◉ TARGET BRIEFING</div>
+      <p id="snQ" style="color:#ecfccb;font-size:1.05rem;font-weight:700;margin:0;line-height:1.5;"></p>
+    </div>
+    <div id="snOpts" style="display:flex;flex-direction:column;gap:.7rem;"></div>
+  </div>
+</div>
+
+<div id="scrambledScreen" class="screen" style="background:linear-gradient(160deg,#134e4a,#0c4a6e,#0d1d2e);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(45,212,191,.2);flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(45,212,191,.15);border-radius:50%;border:none;color:#2dd4bf;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div style="text-align:center;"><div style="color:#0d9488;font-size:.62rem;font-weight:900;text-transform:uppercase;">🔀 Scrambled Ayat</div><div id="saIdxDisp" style="color:white;font-weight:900;font-size:.88rem;">1 / 4</div></div>
+    <div style="background:rgba(0,0,0,.4);border:1px solid rgba(45,212,191,.25);padding:.28rem .75rem;border-radius:9999px;color:white;font-weight:900;font-size:.82rem;">🪙 <span id="saScore">0</span></div>
+  </div>
+  <div class="scroll" style="padding:.9rem 1rem 2rem;display:flex;flex-direction:column;">
+    <div style="text-align:center;margin-bottom:.7rem;"><span id="saRef" style="color:#5eead4;font-size:.68rem;font-weight:700;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.22);padding:.3rem .9rem;border-radius:9999px;"></span></div>
+    <p style="color:#0d9488;font-size:.72rem;text-align:center;margin-bottom:.6rem;font-weight:600;">வார்த்தைகளை சரியான வரிசையில் தட்டவும்</p>
+    <div id="saBuiltBox" style="background:rgba(45,212,191,.08);border:2px solid rgba(45,212,191,.25);border-radius:1.2rem;padding:.9rem;min-height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;">
+      <p id="saBuilt" style="color:rgba(94,234,212,.38);font-style:italic;font-size:.88rem;text-align:center;margin:0;line-height:1.5;">இங்கே தோன்றும்...</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem;">
+      <span id="saLeft" style="color:#0d9488;font-size:.68rem;font-weight:700;"></span>
+      <button onclick="saUndo()" style="background:rgba(45,212,191,.14);border:1px solid rgba(45,212,191,.22);color:#5eead4;font-size:.68rem;font-weight:900;padding:.32rem .8rem;border-radius:.6rem;cursor:pointer;" class="bp">⌫ நீக்கு</button>
+    </div>
+    <div id="saChips" style="display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin-bottom:.9rem;"></div>
+    <div id="saHint" style="display:none;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.22);border-radius:.9rem;padding:.9rem;text-align:center;" class="slide-up">
+      <p style="color:#0d9488;font-size:.62rem;font-weight:900;text-transform:uppercase;margin:0 0 .32rem;">✅ சரியான வரிசை:</p>
+      <p id="saCorrect" style="color:white;font-weight:700;margin:0;"></p>
+    </div>
+  </div>
+</div>
+
+<div id="mazeScreen" class="screen" style="background:linear-gradient(160deg,#78350f,#431407,#1c0a02);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(180,83,9,.28);flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(180,83,9,.25);border-radius:50%;border:none;color:#fcd34d;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div style="text-align:center;"><div style="color:#d97706;font-size:.58rem;font-weight:900;text-transform:uppercase;">🕌 Quran Maze</div><div id="mazeRoom" style="color:#fef3c7;font-weight:900;font-size:.82rem;"></div></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;">
+      <div id="mazeLives" style="font-size:.95rem;"></div>
+      <div style="background:rgba(0,0,0,.4);border:1px solid rgba(180,83,9,.38);padding:.22rem .55rem;border-radius:9999px;color:white;font-weight:900;font-size:.72rem;">🪙 <span id="mazeCoins">0</span></div>
+    </div>
+  </div>
+  <div id="mazePath" style="display:flex;align-items:center;justify-content:center;gap:.3rem;padding:.6rem 1rem;flex-shrink:0;"></div>
+  <div class="scroll" style="padding:.9rem 1.1rem 2rem;display:flex;flex-direction:column;justify-content:center;">
+    <div style="position:relative;margin-bottom:1.1rem;">
+      <div id="mazeRoomName" style="position:absolute;top:-.8rem;left:50%;transform:translateX(-50%);background:#b45309;border:1px solid #d97706;color:#fef3c7;font-size:.58rem;font-weight:900;padding:.22rem .9rem;border-radius:9999px;white-space:nowrap;z-index:1;"></div>
+      <div style="border:2px solid rgba(180,83,9,.45);border-radius:1.2rem;padding:1.4rem 1.1rem 1.1rem;text-align:center;background:linear-gradient(180deg,rgba(120,53,15,.62),rgba(28,10,2,.85));">
+        <p id="mazeQ" style="color:#fffbeb;font-size:1.05rem;font-weight:900;margin:0;line-height:1.4;"></p>
+      </div>
+    </div>
+    <p style="color:#92400e;font-size:.62rem;text-align:center;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem;">சரியான வாயிலை தேர்ந்தெடு</p>
+    <div id="mazeDoors" style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;"></div>
+  </div>
+</div>
+
+<div id="archeryScreen" class="screen" style="background:radial-gradient(ellipse at 50% 0%,#1e1b4b 0%,#0f0a1e 50%,#000 100%);">
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1px 1px at 8% 12%,white,transparent),radial-gradient(1px 1px at 30% 6%,white,transparent),radial-gradient(2px 2px at 62% 18%,rgba(255,255,255,.8),transparent),radial-gradient(1px 1px at 85% 8%,white,transparent),radial-gradient(1px 1px at 18% 45%,rgba(255,255,255,.5),transparent),radial-gradient(2px 2px at 92% 35%,rgba(255,255,255,.7),transparent);"></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;border-bottom:1px solid rgba(234,179,8,.14);flex-shrink:0;position:relative;z-index:1;">
+    <button onclick="quitArchery()" style="width:2.2rem;height:2.2rem;background:rgba(234,179,8,.14);border-radius:50%;border:none;color:#ca8a04;font-size:1.05rem;cursor:pointer;font-weight:900;">✕</button>
+    <div style="text-align:center;"><div style="color:#713f12;font-size:.58rem;font-weight:900;text-transform:uppercase;">🏹 Ayat Archery</div><div id="archTimer" style="font-size:1.55rem;font-weight:900;color:#facc15;">⏳ 12</div></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;">
+      <div id="archLives" style="font-size:.88rem;"></div>
+      <div style="background:rgba(0,0,0,.5);border:1px solid rgba(234,179,8,.18);padding:.22rem .55rem;border-radius:9999px;color:white;font-weight:900;font-size:.72rem;">🪙 <span id="archCoins">0</span></div>
+    </div>
+  </div>
+  <div style="height:2px;background:rgba(99,102,241,.18);flex-shrink:0;position:relative;z-index:1;"><div id="archBar" style="height:100%;background:#eab308;transition:width 1s linear;width:100%;"></div></div>
+  <div style="padding:.8rem 1rem .45rem;position:relative;z-index:1;flex-shrink:0;">
+    <div style="background:rgba(30,27,96,.75);border:1px solid rgba(99,102,241,.28);border-radius:.95rem;padding:.95rem;position:relative;">
+      <div style="position:absolute;top:-.62rem;left:1rem;background:rgba(15,10,30,.9);border:1px solid rgba(99,102,241,.28);color:#818cf8;font-size:.52rem;font-weight:900;padding:.14rem .55rem;border-radius:9999px;">TARGET QUESTION</div>
+      <p id="archQ" style="color:white;font-size:.98rem;font-weight:900;text-align:center;margin:0;line-height:1.45;"></p>
+    </div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:.65rem 1rem;position:relative;z-index:1;">
+    <p style="color:#713f12;font-size:.62rem;font-weight:900;text-align:center;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;">✦ சரியான நட்சத்திரத்தை தட்டு ✦</p>
+    <div id="archOpts" style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;"></div>
+  </div>
+  <div style="padding:.65rem 1.1rem .9rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;flex-shrink:0;">
+    <span id="archRound" style="color:#713f12;font-size:.72rem;font-weight:700;"></span>
+    <span style="color:#713f12;font-size:.72rem;font-weight:700;">🏹 <span id="archPts" style="color:#facc15;font-weight:900;font-size:.95rem;">0</span> pts</span>
+  </div>
+</div>
+
+<div id="walletScreen" class="screen" style="background:linear-gradient(160deg,#1a1100,#0d0d00);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(255,255,255,.1);border-radius:50%;border:none;color:white;font-size:1.05rem;cursor:pointer;font-weight:900;">◀</button>
+    <h2 style="color:#fde68a;font-weight:900;font-size:1.05rem;margin:0;">👛 என் Wallet</h2>
+    <div style="width:2.2rem;"></div>
+  </div>
+  <div class="scroll" style="padding:.7rem 1rem 2rem;">
+    <div style="background:rgba(234,179,8,.1);border:2px solid rgba(234,179,8,.22);border-radius:1.4rem;padding:1.4rem;text-align:center;margin-bottom:.9rem;">
+      <p style="color:#ca8a04;font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;margin:0 0 .45rem;">மொத்த காயின்கள்</p>
+      <div style="font-size:3.2rem;font-weight:900;color:#fde68a;">🪙 <span id="wCoins">500</span></div>
+      <p style="color:#713f12;font-size:.68rem;margin:.22rem 0 0;">இஸ்லாமிய கல்வி நாணயங்கள் 🌙</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.45rem;margin-bottom:.9rem;">
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:.9rem;padding:.7rem;text-align:center;color:white;"><div style="font-size:1.4rem;margin-bottom:.2rem;">🎮</div><div id="wGames" style="font-weight:900;font-size:1.05rem;">0</div><div style="color:#6b7280;font-size:.58rem;text-transform:uppercase;">Games</div></div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:.9rem;padding:.7rem;text-align:center;color:white;"><div style="font-size:1.4rem;margin-bottom:.2rem;">📈</div><div id="wBest" style="font-weight:900;font-size:1.05rem;">+0</div><div style="color:#6b7280;font-size:.58rem;text-transform:uppercase;">Best Win</div></div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:.9rem;padding:.7rem;text-align:center;color:white;"><div style="font-size:1.4rem;margin-bottom:.2rem;">📲</div><div id="wShares" style="font-weight:900;font-size:1.05rem;">0/5</div><div style="color:#6b7280;font-size:.58rem;text-transform:uppercase;">Shares</div></div>
+    </div>
+    <h3 style="color:#92400e;font-weight:900;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;margin:0 0 .6rem;">⏰ வரலாறு</h3>
+    <div id="wHistory"></div>
+    <!-- Daily Coin Calendar -->
+    <div style="background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(16,185,129,.12));border:1.5px solid rgba(124,58,237,.35);border-radius:1.4rem;padding:1rem;margin-bottom:.9rem;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
+        <div>
+          <h3 style="color:#c4b5fd;font-weight:900;font-size:.9rem;margin:0;">📅 Daily Coin</h3>
+          <p style="color:#8b5cf6;font-size:.62rem;margin:.1rem 0 0;">தினமும் login பண்ணி சம்பாடி!</p>
+        </div>
+        <div style="text-align:right;">
+          <div id="dcStreak" style="background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.35);border-radius:.6rem;padding:.22rem .6rem;color:#fbbf24;font-size:.72rem;font-weight:900;">🔥 0 நாள்</div>
+        </div>
+      </div>
+      <!-- Month nav -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;">
+        <button onclick="dcPrevMonth()" class="bp" style="width:2rem;height:2rem;background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.3);border-radius:50%;color:#c4b5fd;font-size:.9rem;cursor:pointer;border:none;">◀</button>
+        <span id="dcMonthLabel" style="color:#e9d5ff;font-weight:900;font-size:.82rem;"></span>
+        <button onclick="dcNextMonth()" class="bp" style="width:2rem;height:2rem;background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.3);border-radius:50%;color:#c4b5fd;font-size:.9rem;cursor:pointer;border:none;">▶</button>
+      </div>
+      <!-- Calendar grid -->
+      <div id="dcGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:.22rem;margin-bottom:.75rem;"></div>
+      <!-- Claim button -->
+      <div id="dcClaimArea"></div>
+    </div>
+
+    <div style="background:rgba(219,39,119,.1);border:1px solid rgba(219,39,119,.18);border-radius:1.2rem;padding:.9rem;margin-top:.7rem;">
+      <h4 style="color:#f9a8d4;font-weight:900;font-size:.82rem;margin:0 0 .7rem;">🚀 இன்னும் சம்பாதிக்க!</h4>
+      <div id="earnList"></div>
+      <button onclick="goTo('shareScreen');renderShare();" class="bp" style="width:100%;margin-top:.7rem;background:linear-gradient(90deg,#db2777,#e11d48);color:white;font-weight:900;padding:.72rem;border-radius:.72rem;border:none;cursor:pointer;font-size:.82rem;">📲 Share செய்து சம்பாடி!</button>
+    </div>
+  </div>
+</div>
+
+<div id="shareScreen" class="screen" style="background:linear-gradient(160deg,#1a0533,#0d1333,#001a0d);">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:2.5rem 1rem .7rem;flex-shrink:0;">
+    <button onclick="goTo('homeScreen');renderLevels();" style="width:2.2rem;height:2.2rem;background:rgba(255,255,255,.1);border-radius:50%;border:none;color:white;font-size:1.05rem;cursor:pointer;font-weight:900;">◀</button>
+    <h2 style="color:#f9a8d4;font-weight:900;font-size:1rem;margin:0;">📲 Share &amp; Earn 💰</h2>
+    <div style="background:rgba(0,0,0,.4);border:1px solid rgba(219,39,119,.22);padding:.28rem .7rem;border-radius:9999px;color:#fde68a;font-weight:900;font-size:.78rem;">🪙 <span id="shCoins">500</span></div>
+  </div>
+  <div class="scroll" style="padding:.7rem 1rem 2rem;">
+    <div style="background:linear-gradient(135deg,rgba(131,24,67,.5),rgba(136,19,55,.5));border:2px solid rgba(236,72,153,.32);border-radius:1.4rem;padding:1.2rem;text-align:center;margin-bottom:.9rem;">
+      <div style="font-size:2.8rem;margin-bottom:.45rem;">🎁</div>
+      <h3 style="color:white;font-weight:900;font-size:1.3rem;margin:0 0 .22rem;">5,000 காயின்கள்!</h3>
+      <p style="color:#f9a8d4;font-size:.82rem;margin:0 0 .6rem;">5 நண்பர்களுக்கு Share செய்தால்</p>
+      <span style="background:rgba(236,72,153,.18);border:1px solid rgba(236,72,153,.22);padding:.3rem .8rem;border-radius:.6rem;color:#fbcfe8;font-size:.72rem;font-weight:700;">ஒவ்வொரு Share = <b style="color:#facc15;">+1,000 🪙</b></span>
+    </div>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:1.2rem;padding:.95rem;margin-bottom:.9rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.45rem;"><span style="color:#9ca3af;font-size:.68rem;font-weight:700;text-transform:uppercase;">முன்னேற்றம்</span><span id="shProgress" style="color:white;font-weight:900;font-size:.88rem;">0 / 5</span></div>
+      <div style="background:rgba(255,255,255,.05);border-radius:9999px;height:9px;margin-bottom:.8rem;overflow:hidden;"><div id="shBar" style="height:100%;background:linear-gradient(90deg,#ec4899,#f43f5e);border-radius:9999px;transition:width .7s;width:0%;"></div></div>
+      <div id="shCircles" style="display:flex;justify-content:space-between;"></div>
+    </div>
+    <div id="shTiers" style="display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem;"></div>
+    <div id="shAction">
+      <button id="shBtn" onclick="doShare()" class="bp" style="width:100%;background:linear-gradient(90deg,#db2777,#e11d48);color:white;font-weight:900;font-size:1.05rem;padding:1.2rem;border-radius:1.2rem;border:1px solid rgba(236,72,153,.32);cursor:pointer;box-shadow:0 0 22px rgba(236,72,153,.28);margin-bottom:.45rem;">📲 <span id="shBtnTxt">நண்பர்களுக்கு Share செய்!</span></button>
+
+      <!-- Claim box — shown after 8s countdown -->
+      <div id="shClaimBox" style="display:none;margin-bottom:.5rem;">
+        <div style="background:linear-gradient(135deg,rgba(6,78,59,.9),rgba(5,46,22,.95));border:1.5px solid #4ade80;border-radius:1.1rem;padding:1rem 1.1rem;text-align:center;">
+          <div style="font-size:1.6rem;margin-bottom:.3rem;">🎉</div>
+          <p style="color:#a7f3d0;font-size:.82rem;font-weight:700;margin:0 0 .65rem;">WhatsApp-ல் Share பண்ணிட்டீங்களா?<br><span style="color:#6ee7b7;font-size:.72rem;">Share பண்ணினா மட்டும் Coin வாங்குங்க!</span></p>
+          <button onclick="claimShareCoin()" class="bp" style="width:100%;background:linear-gradient(90deg,#059669,#047857);color:white;font-weight:900;font-size:1rem;padding:.9rem;border-radius:.9rem;border:1px solid #34d399;cursor:pointer;box-shadow:0 0 16px rgba(5,150,105,.4);">✅ ஆமா Share பண்ணிட்டேன்! +1,000 🪙 வாங்கு</button>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:#4b5563;font-size:.72rem;margin:0;">WhatsApp-ல் Share செய்யுங்கள்</p>
+    </div>
+    <div id="shDone" style="display:none;text-align:center;padding:1.4rem 0;" class="slide-up">
+      <div style="font-size:3.8rem;margin-bottom:.7rem;">🎊</div>
+      <h3 style="color:#fde68a;font-weight:900;font-size:1.35rem;margin:0 0 .32rem;">அல்ஹம்துலில்லாஹ்! 🌙</h3>
+      <p style="color:#34d399;font-weight:700;margin:0 0 .45rem;">5,000 காயின்கள் கிடைத்தது!</p>
+      <p style="color:#4b5563;font-size:.72rem;margin:0;">ஜஸாக்கல்லாஹ் கைரன் 🤲</p>
+    </div>
+  </div>
+</div>
+
+<div id="resultScreen" class="screen" style="background:#059669;justify-content:center;align-items:center;padding:1.4rem;">
+  <div style="background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:2rem;padding:1.9rem;width:100%;text-align:center;color:white;box-shadow:0 8px 40px rgba(0,0,0,.28);" class="slide-up">
+    <div id="resIcon" style="font-size:5rem;margin-bottom:.9rem;"></div>
+    <h2 id="resTitle" style="font-weight:900;font-size:1.5rem;margin:0 0 .45rem;"></h2>
+    <p id="resSubtitle" style="color:#a7f3d0;margin:0 0 1.4rem;font-size:.9rem;"></p>
+    <div style="background:rgba(4,120,87,.4);border-radius:1.2rem;padding:.95rem;margin-bottom:1.4rem;border:1px solid rgba(167,243,208,.14);">
+      <p style="color:#6ee7b7;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;margin:0 0 .32rem;">வென்ற காயின்கள்</p>
+      <div id="resCoins" style="font-size:2.4rem;font-weight:900;color:#fbbf24;">🪙 +0</div>
+    </div>
+    <button onclick="goTo('homeScreen');renderLevels();" class="bp" style="width:100%;background:white;color:#047857;font-weight:900;font-size:1.05rem;padding:.95rem;border-radius:.9rem;border:none;cursor:pointer;">🏠 முகப்புக்குத் திரும்பு</button>
+  </div>
+</div>
+
+</div>
+
+<script id="game-data">
+let appData = {
+    "1": [
+        "1. இஸ்லாத்தின் ஐம்பெரும் கடமைகளில் முதலாவது எது?|தொழுகை|ஈமான் (இறைநம்பிக்கை)|ஜகாத்|ஹஜ்|1|அல்லாஹ்வையும் அவனது தூதரையும் நாவால் மொழிந்து உள்ளத்தால் நம்புவதே இஸ்லாத்தின் முதல் அடித்தளமாகும்.",
+        "2. திருக்குர்ஆனில் மொத்தம் எத்தனை அத்தியாயங்கள் (சூராக்கள்) உள்ளன?|114|6666|30|540|0|திருக்குர்ஆனில் ஆரம்ப சூராவான அல்-ஃபாத்திஹா முதல் இறுதி சூராவான அந்-நாஸ் வரை மொத்தம் 114 அத்தியாயங்கள் உள்ளன.",
+        "3. இறுதி இறைத்தூதர் முஹம்மது (ஸல்) அவர்கள் எங்கு பிறந்தார்கள்?|மதீனா|ஜெருசலம்|மக்கா|தாஇஃப்|2|முஹம்மது (ஸல்) அவர்கள் சவூதி அரேபியாவில் உள்ள புனிதமிக்க மக்கா நகரில் பிறந்தார்கள்.",
+        "4. இஸ்லாமிய நாட்காட்டியின் (ஹிஜிரி) முதல் மாதம் எது?|ரமலான்|முஹர்ரம்|துல்ஹஜ்|ரபியுல் அவ்வல்|1|முஹர்ரம் என்பது இஸ்லாமிய ஆண்டின் முதல் மாதமாகும்.",
+        "5. குர்ஆனில் மிக நீண்ட அத்தியாயம் (சூரா) எது?|சூரா யாசீன்|சூரா அல்-பகரா|சூரா ஆல இம்ரான்|சூரா அல்-மாயிதா|1|286 வசனங்களைக் கொண்ட சூரா அல்-பகரா (பசு மாடு) திருக்குர்ஆனின் மிக நீண்ட அத்தியாயமாகும்.",
+        "6. முஸ்லிம்கள் ஒரு நாளைக்கு எத்தனை முறை கடமையாக தொழ வேண்டும்?|3|4|5|6|2|ஃபஜ்ர், ளுஹர், அஸர், மக்ரிப், இஷா என ஒரு நாளைக்கு ஐந்து வேளை தொழுவது கடமையாக்கப்பட்டுள்ளது.",
+        "7. குர்ஆனின் எந்த சூரா 'குர்ஆனின் இதயம்' என்று அழைக்கப்படுகிறது?|சூரா அல்-ஃபாத்திஹா|சூரா யாசீன்|சூரா அல்-இக்லாஸ்|சூரா முல்க்|1|சூரா யாசீன் திருக்குர்ஆனின் இதயம் என்று நபிகள் நாயகம் (ஸல்) அவர்களால் குறிப்பிடப்பட்டுள்ளது.",
+        "8. அல்லாஹ்வின் தூதர்களில் முதல் மனிதர் யார்?|முஹம்மது (ஸல்)|ஈஸா (அலை)|மூஸா (அலை)|ஆதம் (அலை)|3|அல்லாஹ்வினால் முதன்முதலில் படைக்கப்பட்டு, பூமிக்கு அனுப்பப்பட்ட முதல் மனிதரும் முதல் நபியும் ஆதம் (அலை) ஆவர்.",
+        "9. முஹம்மது (ஸல்) அவர்களின் தாயாரின் பெயர் என்ன?|ஹலிமா|ஆமினா|கதீஜா|பாத்திமா|1|நபிகள் நாயகம் (ஸல்) அவர்களின் அருமைத் தாயாரின் பெயர் ஆமினா என்பதாகும்.",
+        "10. திருக்குர்ஆன் எந்த மாதத்தில் முதன்முதலில் அருளப்பட்டது?|ரபியுல் அவ்வல்|முஹர்ரம்|ரமலான்|ஷஃபான்|2|புனித ரமலான் மாதத்தின் லைலத்துல் கத்ர் இரவில் தான் குர்ஆன் அருளப்படத் தொடங்கியது.",
+        "11. இறைத்தூதர்களிடம் இறைச்செய்தியை (வஹீ) கொண்டு வரும் வானவர் யார்?|மீகாயீல்|இஸ்ராஃபீல்|மலக்குல் மவ்த்|ஜிப்ரீல்|3|அல்லாஹ்வின் கட்டளைப்படி அனைத்து இறைத்தூதர்களுக்கும் வஹீ கொண்டு வந்த முதன்மை வானவர் ஜிப்ரீல் (அலை) ஆவர்.",
+        "12. இஸ்லாத்தின் இரண்டாவது கலீஃபா (ஆட்சியாளர்) யார்?|அபூபக்கர் (ரலி)|உமர் (ரலி)|உஸ்மான் (ரலி)|அலி (ரலி)|1|அபூபக்கர் (ரலி) அவர்களுக்குப் பிறகு இஸ்லாமிய அரசின் இரண்டாவது கலீஃபாவாக உமர் இப்னு கத்தாப் (ரலி) பொறுப்பேற்றார்கள்.",
+        "13. கஃபாவை முதன்முதலில் கட்டியவர்/புதுப்பித்தவர் யார்?|இப்ராஹீம் (அலை)|மூஸா (அலை)|ஈஸா (அலை)|நூஹ் (அலை)|0|அல்லாஹ்வின் கட்டளைப்படி இப்ராஹீம் (அலை) அவர்களும் அவர்களின் மகன் இஸ்மாயீல் (அலை) அவர்களும் கஃபாவை எழுப்பினார்கள்.",
+        "14. குர்ஆனின் மிகச்சிறிய சூரா எது?|சூரா அந்-நாஸ்|சூரா அல்-கவ்ஸர்|சூரா அல்-இக்லாஸ்|சூரா அல்-ஃபலக்|1|சூரா அல்-கவ்ஸர் வெறும் 3 வசனங்களை மட்டுமே கொண்ட மிகச்சிறிய அத்தியாயமாகும்.",
+        "15. தொழுகைக்காக மக்களை அழைக்கும் அழைப்பிற்கு என்ன பெயர்?|இகாமத்|தக்பீர்|அதான் (பாங்கு)|துஆ|2|தொழுகை நேரம் வந்ததும் முஸ்லிம்களை தொழுகையின் பக்கம் அழைப்பதற்கு 'அதான்' அல்லது பாங்கு என்று பெயர்.",
+        "16. கடமையான தர்மத்திற்கு இஸ்லாத்தில் என்ன பெயர்?|ஸதகா|ஜகாத்|ஹதியா|ஃபித்ரா|1|வசதியுள்ள ஒவ்வொரு முஸ்லிமும் தன் சொத்திலிருந்து குறிப்பிட்ட பங்கை ஏழைகளுக்கு வழங்குவது 'ஜகாத்' எனும் கடமையாகும்.",
+        "17. முஹம்மது (ஸல்) அவர்களின் முதல் மனைவி யார்?|ஆயிஷா (ரலி)|ஹஃப்ஸா (ரலி)|கதீஜா (ரலி)|ஜைனப் (ரலி)|2|நபியவர்களின் 25-வது வயதில், தங்களை விட வயதில் மூத்த அன்னை கதீஜா (ரலி) அவர்களை முதன்முதலில் திருமணம் செய்தார்கள்.",
+        "18. திருக்குர்ஆன் எந்த மொழியில் அருளப்பட்டது?|ஹீப்ரு|பாரசீகம்|உருது|அரபு|3|திருக்குர்ஆன் தெளிவான அரபு மொழியில் அல்லாஹ்வினால் அருளப்பட்டது.",
+        "19. உலகிலேயே மிக புனிதமான நீர் எது?|கங்கை நீர்|ஸம்ஸம் நீர்|நைல் நதி நீர்|மழை நீர்|1|மக்காவில் உள்ள கஃபாவுக்கு அருகில் அமைந்துள்ள கிணற்றிலிருந்து சுரக்கும் ஸம்ஸம் நீரே உலகிலேயெ மிக புனிதமான நீராகும்.",
+        "20. இஸ்லாமிய வரலாற்றில் முதல் பாங்கு (அதான்) சொல்லியவர் யார்?|பிலால் (ரலி)|அபூபக்கர் (ரலி)|உமர் (ரலி)|அலி (ரலி)|0|நபிகள் நாயகம் (ஸல்) அவர்களின் கட்டளைப்படி ஹழ்ரத் பிலால் இப்னு ரபாஹ் (ரலி) அவர்கள் முதல் முஅத்தின் (பாங்கு சொல்பவர்) ஆனார்.",
+        "21. நபிகள் நாயகம் (ஸல்) அவர்களின் தந்தை பெயர் என்ன?|அபூதாலிப்|அப்துல் முத்தலிப்|அப்துல்லாஹ்|அபூலஹப்|2|நபியவர்கள் பிறப்பதற்கு முன்பே மரணித்துவிட்ட அவர்களின் தந்தையின் பெயர் அப்துல்லாஹ் ஆகும்.",
+        "22. எந்த தூதருக்காக நெருப்பு குளிர்ந்த பூஞ்சோலையாக மாறியது?|இப்ராஹீம் (அலை)|மூஸா (அலை)|நூஹ் (அலை)|யூஸுஃப் (அலை)|0|நம்ரூத் மன்னன் இப்ராஹீம் (அலை) அவர்களை நெருப்புக் குண்டத்தில் தூக்கி எறிந்தபோது, அல்லாஹ்வின் கட்டளையால் நெருப்பு குளிர்ந்தது.",
+        "23. சுவர்க்கத்தின் கதவுகளில் 'ரய்யான்' என்ற கதவு யாருக்காக ஒதுக்கப்பட்டுள்ளது?|தொழுதார்களுக்காக|நோன்பு நோற்றவர்களுக்காக|ஜகாத் கொடுத்தவர்களுக்காக|ஹஜ் செய்தவர்களுக்காக|1|மறுமை நாளில் நோன்பாளிகள் மட்டுமே நுழைவதற்காக சொர்க்கத்தில் 'பாபுர் ரய்யான்' என்ற பிரத்யேக கதவு உள்ளது.",
+        "24. முஹம்மது (ஸல்) அவர்களுக்கு முதன்முதலில் வஹீ (இறைச்செய்தி) அருளப்பட்ட இடம் எது?|ஹிரா குகை|ஸவ்ர் குகை|மஸ்ஜிதுந் நபவி|மஸ்ஜிதுல் அக்ஸா|0|மக்காவில் உள்ள ஜபலன்னூர் மலையின் 'ஹிரா' குகையில் தியானத்தில் இருந்தபோதுதான் முதல் வஹீ அருளப்பட்டது.",
+        "25. குர்ஆனில் 'பிஸ்மில்லாஹ்' என்று ஆரம்பிக்காத ஒரே சூரா எது?|சூரா யூனுஸ்|சூரா தவ்பா|சூரா ஹூத்|சூரா கஹ்ஃப்|1|திருக்குர்ஆனின் 9-வது அத்தியாயமான சூரா அத்தவ்பா-விற்கு ஆரம்பத்தில் பிஸ்மில்லாஹ் இருக்காது.",
+        "26. இஸ்லாமிய வரலாற்றில் முஸ்லிம்கள் எதிர்கொண்ட முதல் பெரும் போர் எது?|உஹத் போர்|கந்தக் போர்|பத்ரு போர்|கைபர் போர்|2|ஹிஜிரி 2-ஆம் ஆண்டு மக்கா குரைஷிகளுக்கும் முஸ்லிம்களுக்கும் இடையே நடந்த பத்ரு போரே முதல் போராகும்.",
+        "27. எந்த நபியின் கப்பல் பிரளயத்தில் இருந்து ஈமான் கொண்டவர்களைக் காப்பாற்றியது?|ஹூத் (அலை)|ஸாலிஹ் (அலை)|நூஹ் (அலை)|லூத் (அலை)|2|அல்லாஹ்வின் கட்டளைப்படி நூஹ் (அலை) அவர்கள் செய்த பெரிய கப்பல், பெரும் வெள்ளப் பிரளயத்திலிருந்து நல்லவர்களைக் காப்பாற்றியது.",
+        "28. குர்ஆனில் இரண்டு முறை 'பிஸ்மில்லாஹ்' இடம்பெற்றுள்ள சூரா எது?|சூரா நம்ல்|சூரா ரஹ்மான்|சூரா யாசீன்|சூரா பகரா|0|சூரா அந்-நம்ல் அத்தியாயத்தின் ஆரம்பத்திலும், நடுவில் ஸுலைமான் (அலை) அவர்களின் கடிதத்தைக் குறிப்பிடும் இடத்திலும் பிஸ்மில்லாஹ் வருகிறது.",
+        "29. முஹம்மது (ஸல்) அவர்களின் செல்ல மகள் மற்றும் அலி (ரலி) அவர்களின் மனைவி யார்?|ஆயிஷா|பாத்திமா|ருகையா|உம்மு குல்தூம்|1|நபியவர்களின் மிக அன்பிற்குரிய மகள் அன்னை பாத்திமா (ரலி) ஆவர்.",
+        "30. மறுமை நாளில் மனிதர்களின் செயல்கள் எதன் மூலம் எடைபோடப்படும்?|மீஸான் தராசு|புத்தகம்|கண்ணாடி|வாள்|0|மறுமையில் நன்மைகளையும் தீமைகளையும் துல்லியமாக எடைபோடும் தராசிற்கு 'மீஸான்' என்று பெயர்.",
+        "31. குர்ஆனை முழுமையாக மனனம் செய்தவருக்கு இஸ்லாத்தில் என்ன பெயர்?|ஆலிம்|ஹாஃபிழ்|முஃப்தி|காரீ|1|திருக்குர்ஆனின் 30 ஜுஸ்உகளையும் முழுமையாக நெஞ்சில் சுமந்து மனனம் செய்தவர் 'ஹாஃபிழ்' எனப்படுவார்.",
+        "32. எந்த நபியைக் கிணற்றில் வீசி அவரது சகோதரர்கள் சதி செய்தார்கள்?|மூஸா (அலை)|ஈஸா (அலை)|யூஸுஃப் (அலை)|யாகூப் (அலை)|2|அழகிய தோற்றம் கொண்ட யூஸுஃப் (அலை) அவர்களைப் பொறாமை காரணமாக அவர்களது சகோதரர்கள் கிணற்றில் வீசினர்.",
+        "33. இஸ்லாத்தின் மூன்றாவது கலீஃபா யார்?|அலி (ரலி)|உமர் (ரலி)|அபூபக்கர் (ரலி)|உஸ்மான் (ரலி)|3|உமர் (ரலி) அவர்களின் மறைவுக்குப் பிறகு உஸ்மான் இப்னு அஃப்பான் (ரலி) அவர்கள் கலீஃபாவாகத் தேர்ந்தெடுக்கப்பட்டார்கள்.",
+        "34. முஸ்லிம்களின் முதல் கிப்லா (தொழும் திசை) எதுவாக இருந்தது?|கஃபா (மக்கா)|மஸ்ஜிதுல் அக்ஸா (ஜெருசலம்)|மஸ்ஜிதுந் நபவி (மதீனா)|மஸ்ஜிதுல் குபா|1|ஆரம்ப காலத்தில் முஸ்லிம்கள் ஜெருசலத்தில் உள்ள மஸ்ஜிதுல் அக்ஸாவை நோக்கியே தொழுது வந்தனர், பின்னர் கஃபாவுக்கு மாற்றப்பட்டது.",
+        "35. முஹம்மது (ஸல்) அவர்கள் மக்காவிலிருந்து மதீனாவிற்கு குடியேறிய நிகழ்வுக்கு என்ன பெயர்?|மிஃராஜ்|ஹிஜிரத்|பியாத்|ஜிஹாத்|1|இஸ்லாமிய வரலாற்றில் திருப்புமுனையாக அமைந்த நபியவர்களின் மக்கா-மதீனா குடியேற்றத்திற்கு 'ஹிஜிரத்' என்று பெயர்.",
+        "36. எந்த தூதருக்கு கடலின் நடுவே அல்லாஹ் பாதையை ஏற்படுத்திக் கொடுத்தான்?|ஈஸா (அலை)|மூஸா (அலை)|நோஹ் (அலை)|இப்ராஹீம் (அலை)|1|ஃபிர்அவ்னிடமிருந்து இஸ்ரவேலர்களைக் காப்பாற்ற, மூஸா (அலை) அவர்களின் தடியின் மூலம் செங்கடலில் அல்லாஹ் பாதைகளை உருவாக்கினான்.",
+        "37. 'அல்-அமீன்' (நம்பிக்கையாளர்) என்று மக்கா மக்களால் அழைக்கப்பட்டவர் யார்?|அபூபக்கர் (ரலி)|முஹம்மது (ஸல்)|உமர் (ரலி)|அப்துல் முத்தலிப்|1|நபியவர்களின் அசாத்தியமான நேர்மை மற்றும் நாணயத்தைக் கண்டு இஸ்லாத்திற்கு முன்பே மக்கா மக்கள் அவர்களை 'அல்-அமீன்' என்று அழைத்தனர்.",
+        "38. வெள்ளிக்கிழமை லுகர் தொழுகைக்குப் பகரமாக தொழப்படும் தொழுகை எது?|தஹஜ்ஜுத்|ஈத் தொழுகை|ஜுமுஆ தொழுகை|ஜனாஸா தொழுகை|2|வெள்ளிக்கிழமை மதிய வேளையில் கூட்டுத் தொழுகையாகவும், பிரசங்கத்துடனும் (குத்பா) தொழப்படுவது ஜுமுஆ தொழுகையாகும்.",
+        "39. கியாமத் நாளின் (மறுமை நாள்) போது சூர் (எக்காளம்) ஊதும் வானவர் யார்?|ஜிப்ரீல்|மீகாயீல்|இஸ்ராஃபீல்|அஸ்ராயீல்|2|அல்லாஹ்வின் கட்டளைப்படி உலகை அழிக்கவும், மீண்டும் மனிதர்களை எழுப்பவும் இருமுறை சூர் ஊதுபவர் வானவர் இஸ்ராஃபீல் (அலை) ஆவார்.",
+        "40. குர்ஆனில் எந்த நபியின் பெயர் மிக அதிக முறை குறிப்பிடப்பட்டுள்ளது?|முஹம்மது (ஸல்)|ஈஸா (அலை)|மூஸா (அலை)|இப்ராஹீம் (அலை)|2|மூஸா (அலை) அவர்களின் பெயர் மற்றும் அவர்களது வரலாற்று நிகழ்வுகள் திருக்குர்ஆனில் 136 இடங்களில் மிக அதிகமாகக் கூறப்பட்டுள்ளது.",
+        "41. இஸ்லாத்தில் கடமையான நோன்பு எந்த மாதத்தில் வைக்கப்படுகிறது?|ஷஃபான்|ரமலான்|ஷவ்வால்|துல்ஹஜ்|1|இஸ்லாத்தின் கடமைகளில் ஒன்றான முப்பது நாள் நோன்பு ரமலான் மாதத்தில் மட்டுமே வைக்கப்படுகிறது.",
+        "42. நபிகள் நாயகம் (ஸல்) அவர்கள் விண்வெளிப் பயணம் மேற்கொண்ட அற்புத நிகழ்வின் பெயர் என்ன?|ஹிஜிரத்|இஸ்ரா மற்றும் மிஃராஜ்|பத்ரு|ஹுதைபிய்யா|1|ஒரே இரவில் மக்காவிலிருந்து ஜெருசலம் சென்று, அங்கிருந்து ஏழு வானங்களையும் கடந்து அல்லாஹ்வைச் சந்தித்த நிகழ்வு மிஃராஜ் ஆகும்.",
+        "43. குர்ஆனின் முதல் அத்தியாயம் (சூரா) எது?|சூரா அல்-பகரா|சூரா அல்-ஃபாத்திஹா|சூரா அல்-இக்லாஸ்|சூரா அந்-நாஸ்|1|திருக்குர்ஆனின் தோற்றுவாய் அல்லது திறப்பு என்று அழைக்கப்படும் சூரா அல்-ஃபாத்திஹா முதல் சூராவாகும்.",
+        "44. எந்த நபியைக் விழுங்கிய பிறகும் திமிங்கலம் உயிருடன் கரையில் சேர்த்தது?|யூனுஸ் (அலை)|யூஸுஃப் (அலை)|அய்யூப் (அலை)|யஹ்யா (அலை)|0|அல்லாஹ்வின் சோதனையாக திமிங்கலத்தின் வயிற்றில் சில நாட்கள் இருந்த யூனுஸ் (அலை) அவர்கள், துஆ செய்ததன் மூலம் மீட்கப்பட்டார்கள்.",
+        "45. நோயுற்ற காலத்தில் மிகக் கடுமையான பொறுமையைக் கையாண்ட இறைத்தூதர் யார்?|மூஸா (அலை)|அய்யூப் (அலை)|ஈஸா (அலை)|தாவூத் (அலை)|1|அய்யூப் (அலை) அவர்கள் தங்களுக்கு ஏற்பட்ட கடுமையான நோய் மற்றும் இழப்புகளின் போதும் எல்லையற்ற பொறுமையைக் கடைப்பிடித்தார்கள்.",
+        "46. இறந்துபோன பிரேதத்திற்காக தொழப்படும் கூட்டுத் தொழுகைக்கு என்ன பெயர்?|ஹாஜத் தொழுகை|இஸ்திகாரா தொழுகை|ஜனாஸா தொழுகை|வித்பு தொழுகை|2|மரணமடைந்த முஸ்லிம்களின் மறுமை நல்வாழ்விற்காகத் தொழப்படும் கூட்டுப் பிரார்த்தனைத் தொழுகை 'ஜனாஸா' ஆகும்.",
+        "47. ஹஜ் கடமையின் போது முஸ்லிம்கள் எதனைச் சுற்றி வலம் (தவாஃப்) வருகிறார்கள்?|மகாமு இப்ராஹீம்|ஸஃபா மருவா மலை|கஃபா|அரஃபா மைதானம்|2|புனித மக்காவில் அமைந்துள்ள இறை இல்லமான கஃபாவை ஏழு முறை இடப்பக்கமாகச் சுற்றி வருவதே தவாஃப் ஆகும்.",
+        "48. பறவைகள் மற்றும் ஜின்களுடன் பேசும் ஆற்றல் யாருக்கு வழங்கப்பட்டிருந்தது?|ஸுலைமான் (அலை)|தாவூத் (அலை)|ஆதம் (அலை)|இஸ்மாயீல் (அலை)|0|அல்லாஹ் ஸுலைமான் (அலை) அவர்களுக்கு விலங்கினங்களின் மொழியையும், ஜின்களை ஆளும் அதிகாரத்தையும் வழங்கியிருந்தான்.",
+        "49. இஸ்லாத்தின் நான்காவது கலீஃபா யார்?|உஸ்மான் (ரலி)|அலி (ரலி)|முஆவியா (ரலி)|ஸைத் (ரலி)|1|நபியவர்களின் மருமகனும், இஸ்லாத்தை ஏற்ற சிறுவர்களில் முதலாமவருமான அலி (ரலி) நான்காவது நேர்வழி நடந்த கலீஃபா ஆவார்.",
+        "50. குர்ஆனின் எந்த சூரா ஒருமுறை ஓதினால் குர்ஆனின் மூன்றில் ஒரு பகுதி ஓதியதற்குச் சமம்?|சூரா யாசீன்|சூரா அல்-ஃபாத்திஹா|சூரா அல்-இக்லாஸ்|சூரா முல்க்|2|சூரா அல்-இக்லாஸ் (குல்ஹுவல்லாஹு அஹத்) தவ்ஹீதை (இறை ஒருமைப்பாட்டை) விளக்குவதால், அது குர்ஆனின் 1/3 பகுதிக்கு நிகராகும்."
+    ],
+    "2": [
+        "முதல் மனிதர் மற்றும் முதல் நபி யார்?|நூஹ் (அலை)|இப்ராஹீம் (அலை)|ஆதம் (அலை)|ஈஸா (அலை)|2|அல்லாஹ் முதன்முதலில் ஆதம் (அலை) அவர்களைப் படைத்தான்.",
+        "குர்ஆனில் பிஸ்மில்லாஹ் இல்லாமல் தொடங்கும் சூரா எது?|தவ்பா|யாஸீன்|கஹ்ஃப்|பகரா|0|சூரா அத்-தவ்பா மட்டுமே 'பிஸ்மில்லாஹ்' இல்லாமல் தொடங்குகிறது.",
+        "இஸ்லாமியர்களின் புனித கிப்லா எங்கு உள்ளது?|ஜெருசலேம்|மதீனா|கஅபா|கெய்ரோ|2|உலக முஸ்லிம்கள் அனைவரும் மக்காவில் உள்ள கஅபாவை நோக்கியே தொழுகின்றனர்.",
+        "நபிகள் நாயகம் (ஸல்) அவர்களின் தாயார் பெயர் என்ன?|கதீஜா|ஆயிஷா|ஃபாத்திமா|ஆமினா|3|நபிகளாரின் அன்புத் தாயார் அன்னை ஆமினா (ரழி).",
+        "நபிகள் நாயகம் (ஸல்) அவர்களின் தந்தையின் பெயர் என்ன?|அப்துல்லாஹ்|அபூதாலிப்|ஹம்ஸா|அப்துல் முத்தலிப்|0|நபிகளாரின் தந்தை அப்துல்லாஹ் அவர்கள் ஆவார்கள்."
+    ],
+    "3": [
+        "ஈஸா (அலை) அவர்களுக்கு அருளப்பட்ட வேதம் எது?|தவ்ராத்|இஞ்சீல்|ஸபூர்|குர்ஆன்|1|ஈஸா (அலை) அவர்களுக்கு இஞ்சீல் வேதம் அருளப்பட்டது.",
+        "மூஸா (அலை) அவர்களுக்கு அருளப்பட்ட வேதம் எது?|தவ்ராத்|இஞ்சீல்|குர்ஆன்|ஸபூர்|0|மூஸா (அலை) அவர்களுக்கு தவ்ராத் வேதம் அருளப்பட்டது.",
+        "குர்ஆனின் இதயம் என்று அழைக்கப்படும் சூரா எது?|ரஹ்மான்|யாஸீன்|முல்க்|இக்லாஸ்|1|நபிகள் நாயகம் (ஸல்) அவர்கள் சூரா யாஸீனை குர்ஆனின் இதயம் என்று குறிப்பிட்டுள்ளார்கள்.",
+        "இறுதி நபி யார்?|ஈஸா (அலை)|மூஸா (அலை)|முஹம்மது (ஸல்)|இப்ராஹீம் (அலை)|2|முஹம்மது (ஸல்) அவர்களே அல்லாஹ்வால் அனுப்பப்பட்ட இறுதி நபி.",
+        "இஸ்லாத்தில் மிகச் சிறந்த திக்ரு எது?|சுப்ஹானல்லாஹ்|அல்லாஹு அக்பர்|அல்ஹம்துலில்லாஹ்|லா இலாஹ இல்லல்லாஹ்|3|'லா இலாஹ இல்லல்லாஹ்' என்பதே திக்ருகளில் மிகவும் சிறந்தது.",
+        "\"திருக்குர்ஆனில் ஒரு சூராவுக்கு ஒரு பெண்ணின் பெயர் சூட்டப்பட்டுள்ளது, அது எந்த சூரா?|சூரா பாத்திமா|சூரா கதீஜா|சூரா மர்யம்|சூரா ஆயிஷா|2|ஈஸா (அலை) அவர்களின் தாயாரான மர்யம் (அலை) பெயரால் ஒரு சூரா குர்ஆனில் உள்ளது.\"",
+        "\"இஸ்லாத்தின் முதல் ஷஹீத் (மார்க்கத்திற்காக வீர மரணம் அடைந்தவர்) யார்?|யாஸிர் (ரலி)|சுமய்யா (ரலி)|ஹம்ஸா (ரலி)|உமர் (ரலி)|1|அபூஜஹ்லால் ஈட்டியால் குத்திக் கொல்லப்பட்ட இஸ்லாத்தின் முதல் தியாகி (ஷஹீத்) சுமய்யா (ரலி) ஆவார்கள்.\"",
+        "\"திருக்குர்ஆனில் பெயர் நேரடியாகக் குறிப்பிடப்பட்டுள்ள ஒரே ஸஹாபி (நபித்தோழர்) யார்?|அபூபக்கர் (ரலி)|உமர் (ரலி)|ஸைத் பின் ஹாரிஸா (ரலி)|அலி (ரலி)|2|சூரா அல்-அஹ்ஸாப்பில் (33:37) ஸைத் (ரலி) அவர்களின் பெயர் மட்டுமே குர்ஆனில் குறிப்பிடப்பட்டுள்ளது.\"",
+        "\"பேனா மூலம் எழுதும் கலையை முதன்முதலில் உலகுக்கு அறிமுகப்படுத்திய நபி யார்?|நூஹ் (அலை)|இத்ரீஸ் (அலை)|ஆதம் (அலை)|தாவூத் (அலை)|1|இத்ரீஸ் (அலை) அவர்களே முதன்முதலில் பேனாவால் எழுதும் முறையைக் கற்றுத்தந்தார்கள்.\"",
+        "\"'உம்மஹாத்துல் முஃமினீன்' (இறைநம்பிக்கையாளர்களின் அன்னையர்) என்று அழைக்கப்படுபவர்கள் யார்?|நபிமார்களின் மனைவியர்|நபி (ஸல்) அவர்களின் மகள்கள்|நபி (ஸல்) அவர்களின் மனைவியர்|ஸஹாபியப் பெண்கள்|2|நபி (ஸல்) அவர்களின் மனைவியரை 'முஃமின்களின் அன்னையர்' என குர்ஆன் கண்ணியப்படுத்துகிறது.\"",
+        "\"இரண்டு முறை 'பிஸ்மில்லாஹிர் ரஹ்மானிர் ரஹீம்' இடம்பெற்றுள்ள குர்ஆனின் சூரா எது?|சூரா அல்-பகரா|சூரா அல்-கஹ்ஃப்|சூரா அந்-நம்ல்|சூரா அல்-அஃராஃப்|2|சூரா அந்-நம்ல்-ன் துவக்கத்திலும், சுலைமான் (அலை) அவர்களின் கடிதத்தைக் குறிக்கும் வசனத்திலும் பிஸ்மில்லாஹ் உள்ளது.\"",
+        "\"மலக்குகளும் (வானவர்கள்) வெட்கப்படும் அளவிற்கு அதிக கூச்ச சுபாவம் கொண்ட ஸஹாபி யார்?|அபூபக்கர் (ரலி)|உஸ்மான் (ரலி)|அலி (ரலி)|அப்துர் ரஹ்மான் பின் அவ்ஃப் (ரலி)|1|உஸ்மான் (ரலி) அவர்களைக் கண்டு மலக்குகள் வெட்கப்படுகின்றனர் என நபி (ஸல்) கூறியுள்ளார்கள்.\"",
+        "\"மனிதர்களின் தோள்களில் அமர்ந்து அவர்களின் நன்மை தீமைகளை ஏடுகளில் எழுதும் வானவர்கள் எவ்வாறு அழைக்கப்படுகின்றனர்?|கிராமன் காத்திபீன்|முன்கர் நக்கீர்|ஹாரூத் மாரூத்|மாலிக் மற்றும் ரித்வான்|0|நமது வலது மற்றும் இடது புறங்களில் அமர்ந்து செயல்களைப் பதிவு செய்யும் வானவர்கள் 'கிராமன் காத்திபீன்' ஆவார்கள்.\"",
+        "\"நபி (ஸல்) அவர்கள் மக்காவிலிருந்து மதீனாவிற்கு ஹிஜ்ரத் செய்தபோது, முதன்முதலில் கட்டப்பட்ட பள்ளிவாசல் எது?|மஸ்ஜிதுந் நபவி|மஸ்ஜிதுல் ஹராம்|மஸ்ஜிதுல் குபா|மஸ்ஜிதுல் கிப்லத்தைன்|2|மதீனாவின் எல்லையில் உள்ள குபா என்ற இடத்தில் கட்டப்பட்ட பள்ளிவாசலே இஸ்லாத்தின் முதல் பள்ளியாகும்.\"",
+        "\"'ஆது' சமூகத்தினருக்கு நேர்வழி காட்ட அல்லாஹ்வால் அனுப்பப்பட்ட நபி யார்?|ஸாலிஹ் (அலை)|ஹூத் (அலை)|லூத் (அலை)|ஷுஐப் (அலை)|1|பிரம்மாண்டமான உடலமைப்பைக் கொண்ட ஆது கூட்டத்தினருக்கு ஹூத் (அலை) நபியாக அனுப்பப்பட்டார்கள்.\"",
+        "\"'ஸமூது' சமூகத்தினருக்கு நேர்வழி காட்ட அனுப்பப்பட்ட நபி யார்?|ஸாலிஹ் (அலை)|ஹூத் (அலை)|லூத் (அலை)|யூனுஸ் (அலை)|0|பாறையைக் குடைந்து வீடுகளை அமைத்த ஸமூது கூட்டத்திற்கு ஸாலிஹ் (அலை) நபியாக அனுப்பப்பட்டார்கள்.\"",
+        "\"எந்த நபியின் சமூகத்தினர் ஓரினச்சேர்க்கை போன்ற கொடிய பாவங்களில் ஈடுபட்டதால் இறைவனால் அழிக்கப்பட்டனர்?|நூஹ் (அலை)|லூத் (அலை)|ஷுஐப் (அலை)|ஸாலிஹ் (அலை)|1|லூத் (அலை) அவர்களின் சமூகம் செய்த இயற்கைக்கு மாற்றமான பாலியல் பாவத்தால் அல்லாஹ் அவர்களை அழித்தான்.\"",
+        "\"'அமீனுல் உம்மா' (இந்த சமுதாயத்தின் நம்பிக்கைக்குரியவர்) என நபி (ஸல்) அவர்களால் சிறப்பிக்கப்பட்ட ஸஹாபி யார்?|அபூ உபைதா பின் அல்-ஜர்ராஹ் (ரலி)|ஸஅத் பின் அபீவக்காஸ் (ரலி)|அப்துர் ரஹ்மான் பின் அவ்ஃப் (ரலி)|தல்ஹா (ரலி)|0|ஒவ்வொரு சமுதாயத்திற்கும் ஒரு நம்பிக்கைக்குரியவர் உண்டு, இந்த சமுதாயத்தின் நம்பிக்கைக்குரியவர் அபூ உபைதா என நபி (ஸல்) கூறினார்கள்.\"",
+        "\"வியாபாரத்தில் அளவையிலும் நிறுவையிலும் மோசடி செய்ததால் அழிக்கப்பட்ட 'மத்யன்' வாசிகளை திருத்த வந்த நபி யார்?|லூத் (அலை)|ஷுஐப் (அலை)|ஹூத் (அலை)|தாவூத் (அலை)|1|ஷுஐப் (அலை) அவர்கள் பொருளாதார மோசடிகளில் ஈடுபட்ட மத்யன் வாசிகளுக்கு நேர்வழி காட்ட அனுப்பப்பட்டார்கள்.\"",
+        "\"தண்ணீர் கிடைக்காத நேரங்களில் அல்லது நோயின் போது உளு செய்வதற்குப் பதிலாக தூய்மையான மண்ணை வைத்துச் சுத்தம் செய்வது எவ்வாறு அழைக்கப்படும்?|தயம்மும்|இஸ்திஞ்சா|தஹாரத்|குஸ்ல்|0|தண்ணீர் இல்லாத அவசர நிலை அல்லது உடல்நலக் குறைவின் போது தயம்மும் செய்ய இஸ்லாம் அனுமதிக்கிறது.\"",
+        "\"மறுமை நாளில் நரகத்தின் மீது மக்கள் கடந்து செல்வதற்காக அமைக்கப்பட்டிருக்கும் பாலத்தின் பெயர் என்ன?|ஹவ்ளுல் கவ்ஸர்|ஸிராத் (ஸிராத்துல் முஸ்தகீம்)|ஜன்னத்துல் பிர்தவ்ஸ்|மீஸான்|1|நரகத்தின் மீது அமைக்கப்பட்டுள்ள இருளைக் கிழிக்கும் கூர்மையான அந்தப் பாலம் ஸிராத் எனப்படும்.\"",
+        "\"மறுமையில் மனிதர்களின் நன்மை தீமைகளை நிறுத்துப் பார்ப்பதற்காகப் பயன்படுத்தப்படும் தராசு எவ்வாறு அழைக்கப்படும்?|ஸிராத்|மீஸான்|கவ்ஸர்|அரஃப்|1|கியாமத் நாளில் மனிதர்களின் செயல்கள் 'மீஸான்' என்ற தராசில் நிறுத்தப்படும்.\"",
+        "\"நபிகள் நாயகம் (ஸல்) அவர்களுக்கு சுவர்க்கத்தில் வழங்கப்பட்டுள்ள சிறப்பு மிக்க நீர் தடாகத்தின் (அருவி) பெயர் என்ன?|ஸம்ஸம்|தஸ்னீம்|சல்சபீல்|அல்-கவ்ஸர்|3|நபி (ஸல்) அவர்களுக்கு அல்லாஹ் அருளியுள்ள 'அல்-கவ்ஸர்' தடாகத்திலிருந்து நீர் அருந்துபவர்களுக்கு அதன்பின் தாகமே ஏற்படாது.\"",
+        "\"தொழுகையின் திசை (கிப்லா) மஸ்ஜிதுல் அக்ஸாவிலிருந்து மக்காவில் உள்ள கஃபாவிற்கு மாற்றப்பட்ட போது நபி (ஸல்) அவர்கள் எந்தப் பள்ளிவாசலில் தொழுது கொண்டிருந்தார்கள்?|மஸ்ஜிதுல் குபா|மஸ்ஜிதுந் நபவி|மஸ்ஜிதுல் கிப்லத்தைன்|மஸ்ஜிதுல் ஜும்ஆ|2|இரண்டு கிப்லாக்களைக் கொண்ட பள்ளிவாசல் எனப் பொருள்படும் மஸ்ஜிதுல் கிப்லத்தைனில் வைத்துதான் திசை மாற்றும் கட்டளை வந்தது.\"",
+        "\"கட்டாய தானமான ஜகாத்திற்குப் பதிலாக, ஒருவர் தன் மனமுவந்து ஏழைகளுக்கு செய்யும் உபரியான தர்மம் எவ்வாறு அழைக்கப்படும்?|ஃபித்ரா|சதகா|உஷ்ரு|கஃப்பாரா|1|எவ்விதக் கட்டுப்பாடும் இன்றி அல்லாஹ்வுக்காக விருப்பப்பட்டு வழங்கப்படும் தர்மம் சதகா ஆகும்.\"",
+        "\"நபி (ஸல்) அவர்கள் பிறந்த இஸ்லாமிய மாதம் எது?|ரஜப்|ரபீஉல் அவ்வல்|முஹர்ரம்|ரமலான்|1|நபி (ஸல்) அவர்கள் ரபீஉல் அவ்வல் மாதம் 12-ம் நாள் திங்கட்கிழமை பிறந்தார்கள் என்பது பிரபலமான கருத்தாகும்.\"",
+        "\"இஸ்லாமிய அரபு மாதங்களில் 8-வது மாதமான, ரமலானுக்கு முந்தைய மாதம் எது?|ரஜப்|ஷவ்வால்|ஷஅபான்|துல்கஃதா|2|ரமலானுக்கு முன்பாக வரக்கூடிய மாதம் ஷஅபான் ஆகும்.\"",
+        "\"தொழுகைக்கு அழைக்கப்படும் பாங்கு வாசகங்களில் 'ஹய்ய அலல் ஃபலாஹ்' என்பதன் பொருள் என்ன?|தொழுகையின் பக்கம் வாருங்கள்|வெற்றியின் பக்கம் வாருங்கள்|அல்லாஹ் மிகப் பெரியவன்|அல்லாஹ்வைத் தவிர வேறு இறைவன் இல்லை|1|ஹய்ய அலல் ஃபலாஹ் என்றால் 'வெற்றியின் பக்கம் வாருங்கள்' என்று பொருளாகும்.\"",
+        "\"இஸ்லாத்தில் அனுமதிக்கப்பட்ட ஆனால் அல்லாஹ்வுக்கு மிகக் கோபத்தை ஏற்படுத்தும் செயல் எது?|திருமணம்|விவாகரத்து (தலாக்)|வியாபாரம்|பயணம்|1|அனுமதிக்கப்பட்ட (ஹலாலான) காரியங்களில் அல்லாஹ்வுக்கு மிகவும் வெறுப்பான செயல் விவாகரத்து ஆகும்.\"",
+        "\"நபி (ஸல்) அவர்கள் எந்தப் போரில் காயமுற்று தனது பல்லை (முன்பற்கள்) இழந்தார்கள்?|பத்ரு|உஹத்|அகழ் (கந்தக்)|ஹுனைன்|1|உஹத் போரில் நடந்த கடுமையான தாக்குதலில் நபி (ஸல்) அவர்களின் பல் ஷஹீதாக்கப்பட்டது.\"",
+        "\"இஸ்லாமிய மார்க்கத்தில் தச்சராக (மரவேலை செய்பவராக) பணியாற்றிய நபி யார்?|நூஹ் (அலை)|ஈஸா (அலை)|ஜகரிய்யா (அலை)|மூஸா (அலை)|2|ஜகரிய்யா (அலை) அவர்கள் தச்சுத் தொழிலைச் செய்து வந்தார்கள் என ஹதீஸ்கள் கூறுகின்றன.\"",
+        "\"நபி (ஸல்) அவர்களுக்கு மிகவும் விருப்பமான, 'ஏழைகளின் தாய்' (உம்முல் மஸாகீன்) என்று அழைக்கப்பட்ட நபி மனைவி யார்?|ஆயிஷா (ரலி)|ஹப்ஸா (ரலி)|ஜைனப் பின்த் குஸைமா (ரலி)|உம்மு சலமா (ரலி)|2|ஏழைகள் மீது அதிக இரக்கமும் தர்ம சிந்தனையும் கொண்டிருந்ததால் ஜைனப் (ரலி) அவர்களுக்கு இந்தப் பெயர் கிடைத்தது.\"",
+        "\"ஏழைகளுக்கான நோன்புப் பெருநாள் தர்மமான 'ஸதகத்துல் ஃபித்ர்' (ஃபித்ரா) எப்போது கொடுக்கப்பட வேண்டும்?|பெருநாள் தொழுகைக்குப் பின்பு|பெருநாள் தொழுகைக்குச் செல்வதற்கு முன்பு|ரமலான் 15-ல்|ஷவ்வால் மாத இறுதியில்|1|நோன்பில் ஏற்பட்ட குறைகளை நீக்கவும் ஏழைகள் பெருநாள் கொண்டாடவும் பெருநாள் தொழுகைக்கு முன்பே ஃபித்ரா கொடுக்கப்பட வேண்டும்.\"",
+        "\"மரணித்தவரை மையவாடியில் (கப்ருஸ்தானில்) அடக்கம் செய்த பின்பு, கப்ரில் அவரிடம் கேள்வி கேட்க வரும் இரண்டு மலக்குகள் யார்?|கிராமன், காத்திபீன்|முன்கர், நக்கீர்|ஹாரூத், மாரூத்|ரக்கீப், அதீத்|1|கப்ரில் 'உன் இறைவன் யார்? உன் மார்க்கம் என்ன? உன் நபி யார்?' என்று முன்கர், நக்கீர் மலக்குகள் விசாரணை செய்வார்கள்.\"",
+        "\"நபிகள் நாயகம் (ஸல்) அவர்களின் முதல் மனைவியான கதீஜா (ரலி) அவர்களை திருமணம் செய்யும்போது நபிகளாரின் வயது என்ன?|20|25|30|40|1|நபி (ஸல்) அவர்கள் தமது 25-வது வயதில்தான் 40 வயதான அன்னை கதீஜா (ரலி) அவர்களைத் திருமணம் செய்தார்கள்.\""
+    ],
+    "arch": [
+        "1. இஸ்லாத்தின் ஐம்பெரும் கடமைகளில் முதலாவது எது?|தொழுகை|ஈமான் (இறைநம்பிக்கை)|ஜகாத்|ஹஜ்|1|அல்லாஹ்வையும் அவனது தூதரையும் நாவால் மொழிந்து உள்ளத்தால் நம்புவதே இஸ்லாத்தின் முதல் அடித்தளமாகும்.",
+        "2. திருக்குர்ஆனில் மொத்தம் எத்தனை அத்தியாயங்கள் (சூராக்கள்) உள்ளன?|114|6666|30|540|0|திருக்குர்ஆனில் ஆரம்ப சூராவான அல்-ஃபாத்திஹா முதல் இறுதி சூராவான அந்-நாஸ் வரை மொத்தம் 114 அத்தியாயங்கள் உள்ளன.",
+        "3. இறுதி இறைத்தூதர் முஹம்மது (ஸல்) அவர்கள் எங்கு பிறந்தார்கள்?|மதீனா|ஜெருசலம்|மக்கா|தாஇஃப்|2|முஹம்மது (ஸல்) அவர்கள் சவூதி அரேபியாவில் உள்ள புனிதமிக்க மக்கா நகரில் பிறந்தார்கள்.",
+        "4. இஸ்லாமிய நாட்காட்டியின் (ஹிஜிரி) முதல் மாதம் எது?|ரமலான்|முஹர்ரம்|துல்ஹஜ்|ரபியுல் அவ்வல்|1|முஹர்ரம் என்பது இஸ்லாமிய ஆண்டின் முதல் மாதமாகும்.",
+        "5. குர்ஆனில் மிக நீண்ட அத்தியாயம் (சூரா) எது?|சூரா யாசீன்|சூரா அல்-பகரா|சூரா ஆல இம்ரான்|சூரா அல்-மாயிதா|1|286 வசனங்களைக் கொண்ட சூரா அல்-பகரா (பசு மாடு) திருக்குர்ஆனின் மிக நீண்ட அத்தியாயமாகும்.",
+        "6. முஸ்லிம்கள் ஒரு நாளைக்கு எத்தனை முறை கடமையாக தொழ வேண்டும்?|3|4|5|6|2|ஃபஜ்ர், ளுஹர், அஸர், மக்ரிப், இஷா என ஒரு நாளைக்கு ஐந்து வேளை தொழுவது கடமையாக்கப்பட்டுள்ளது.",
+        "7. குர்ஆனின் எந்த சூரா 'குர்ஆனின் இதயம்' என்று அழைக்கப்படுகிறது?|சூரா அல்-ஃபாத்திஹா|சூரா யாசீன்|சூரா அல்-இக்லாஸ்|சூரா முல்க்|1|சூரா யாசீன் திருக்குர்ஆனின் இதயம் என்று நபிகள் நாயகம் (ஸல்) அவர்களால் குறிப்பிடப்பட்டுள்ளது.",
+        "8. அல்லாஹ்வின் தூதர்களில் முதல் மனிதர் யார்?|முஹம்மது (ஸல்)|ஈஸா (அலை)|மூஸா (அலை)|ஆதம் (அலை)|3|அல்லாஹ்வினால் முதன்முதலில் படைக்கப்பட்டு, பூமிக்கு அனுப்பப்பட்ட முதல் மனிதரும் முதல் நபியும் ஆதம் (அலை) ஆவர்.",
+        "9. முஹம்மது (ஸல்) அவர்களின் தாயாரின் பெயர் என்ன?|ஹலிமா|ஆமினா|கதீஜா|பாத்திமா|1|நபிகள் நாயகம் (ஸல்) அவர்களின் அருமைத் தாயாரின் பெயர் ஆமினா என்பதாகும்.",
+        "10. திருக்குர்ஆன் எந்த மாதத்தில் முதன்முதலில் அருளப்பட்டது?|ரபியுல் அவ்வல்|முஹர்ரம்|ரமலான்|ஷஃபான்|2|புனித ரமலான் மாதத்தின் லைலத்துல் கத்ர் இரவில் தான் குர்ஆன் அருளப்படத் தொடங்கியது.",
+        "11. இறைத்தூதர்களிடம் இறைச்செய்தியை (வஹீ) கொண்டு வரும் வானவர் யார்?|மீகாயீல்|இஸ்ராஃபீல்|மலக்குல் மவ்த்|ஜிப்ரீல்|3|அல்லாஹ்வின் கட்டளைப்படி அனைத்து இறைத்தூதர்களுக்கும் வஹீ கொண்டு வந்த முதன்மை வானவர் ஜிப்ரீல் (அலை) ஆவர்.",
+        "12. இஸ்லாத்தின் இரண்டாவது கலீஃபா (ஆட்சியாளர்) யார்?|அபூபக்கர் (ரலி)|உமர் (ரலி)|உஸ்மான் (ரலி)|அலி (ரலி)|1|அபூபக்கர் (ரலி) அவர்களுக்குப் பிறகு இஸ்லாமிய அரசின் இரண்டாவது கலீஃபாவாக உமர் இப்னு கத்தாப் (ரலி) பொறுப்பேற்றார்கள்.",
+        "13. கஃபாவை முதன்முதலில் கட்டியவர்/புதுப்பித்தவர் யார்?|இப்ராஹீம் (அலை)|மூஸா (அலை)|ஈஸா (அலை)|நூஹ் (அலை)|0|அல்லாஹ்வின் கட்டளைப்படி இப்ராஹீம் (அலை) அவர்களும் அவர்களின் மகன் இஸ்மாயீல் (அலை) அவர்களும் கஃபாவை எழுப்பினார்கள்.",
+        "14. குர்ஆனின் மிகச்சிறிய சூரா எது?|சூரா அந்-நாஸ்|சூரா அல்-கவ்ஸர்|சூரா அல்-இக்லாஸ்|சூரா அல்-ஃபலக்|1|சூரா அல்-கவ்ஸர் வெறும் 3 வசனங்களை மட்டுமே கொண்ட மிகச்சிறிய அத்தியாயமாகும்.",
+        "15. தொழுகைக்காக மக்களை அழைக்கும் அழைப்பிற்கு என்ன பெயர்?|இகாமத்|தக்பீர்|அதான் (பாங்கு)|துஆ|2|தொழுகை நேரம் வந்ததும் முஸ்லிம்களை தொழுகையின் பக்கம் அழைப்பதற்கு 'அதான்' அல்லது பாங்கு என்று பெயர்.",
+        "16. கடமையான தர்மத்திற்கு இஸ்லாத்தில் என்ன பெயர்?|ஸதகா|ஜகாத்|ஹதியா|ஃபித்ரா|1|வசதியுள்ள ஒவ்வொரு முஸ்லிமும் தன் சொத்திலிருந்து குறிப்பிட்ட பங்கை ஏழைகளுக்கு வழங்குவது 'ஜகாத்' எனும் கடமையாகும்.",
+        "17. முஹம்மது (ஸல்) அவர்களின் முதல் மனைவி யார்?|ஆயிஷா (ரலி)|ஹஃப்ஸா (ரலி)|கதீஜா (ரலி)|ஜைனப் (ரலி)|2|நபியவர்களின் 25-வது வயதில், தங்களை விட வயதில் மூத்த அன்னை கதீஜா (ரலி) அவர்களை முதன்முதலில் திருமணம் செய்தார்கள்.",
+        "18. திருக்குர்ஆன் எந்த மொழியில் அருளப்பட்டது?|ஹீப்ரு|பாரசீகம்|உருது|அரபு|3|திருக்குர்ஆன் தெளிவான அரபு மொழியில் அல்லாஹ்வினால் அருளப்பட்டது.",
+        "19. உலகிலேயே மிக புனிதமான நீர் எது?|கங்கை நீர்|ஸம்ஸம் நீர்|நைல் நதி நீர்|மழை நீர்|1|மக்காவில் உள்ள கஃபாவுக்கு அருகில் அமைந்துள்ள கிணற்றிலிருந்து சுரக்கும் ஸம்ஸம் நீரே உலகிலேயெ மிக புனிதமான நீராகும்.",
+        "20. இஸ்லாமிய வரலாற்றில் முதல் பாங்கு (அதான்) சொல்லியவர் யார்?|பிலால் (ரலி)|அபூபக்கர் (ரலி)|உமர் (ரலி)|அலி (ரலி)|0|நபிகள் நாயகம் (ஸல்) அவர்களின் கட்டளைப்படி ஹழ்ரத் பிலால் இப்னு ரபாஹ் (ரலி) அவர்கள் முதல் முஅத்தின் (பாங்கு சொல்பவர்) ஆனார்.",
+        "21. நபிகள் நாயகம் (ஸல்) அவர்களின் தந்தை பெயர் என்ன?|அபூதாலிப்|அப்துல் முத்தலிப்|அப்துல்லாஹ்|அபூலஹப்|2|நபியவர்கள் பிறப்பதற்கு முன்பே மரணித்துவிட்ட அவர்களின் தந்தையின் பெயர் அப்துல்லாஹ் ஆகும்.",
+        "22. எந்த தூதருக்காக நெருப்பு குளிர்ந்த பூஞ்சோலையாக மாறியது?|இப்ராஹீம் (அலை)|மூஸா (அலை)|நூஹ் (அலை)|யூஸுஃப் (அலை)|0|நம்ரூத் மன்னன் இப்ராஹீம் (அலை) அவர்களை நெருப்புக் குண்டத்தில் தூக்கி எறிந்தபோது, அல்லாஹ்வின் கட்டளையால் நெருப்பு குளிர்ந்தது.",
+        "23. சுவர்க்கத்தின் கதவுகளில் 'ரய்யான்' என்ற கதவு யாருக்காக ஒதுக்கப்பட்டுள்ளது?|தொழுதார்களுக்காக|நோன்பு நோற்றவர்களுக்காக|ஜகாத் கொடுத்தவர்களுக்காக|ஹஜ் செய்தவர்களுக்காக|1|மறுமை நாளில் நோன்பாளிகள் மட்டுமே நுழைவதற்காக சொர்க்கத்தில் 'பாபுர் ரய்யான்' என்ற பிரத்யேக கதவு உள்ளது.",
+        "24. முஹம்மது (ஸல்) அவர்களுக்கு முதன்முதலில் வஹீ (இறைச்செய்தி) அருளப்பட்ட இடம் எது?|ஹிரா குகை|ஸவ்ர் குகை|மஸ்ஜிதுந் நபவி|மஸ்ஜிதுல் அக்ஸா|0|மக்காவில் உள்ள ஜபலன்னூர் மலையின் 'ஹிரா' குகையில் தியானத்தில் இருந்தபோதுதான் முதல் வஹீ அருளப்பட்டது.",
+        "25. குர்ஆனில் 'பிஸ்மில்லாஹ்' என்று ஆரம்பிக்காத ஒரே சூரா எது?|சூரா யூனுஸ்|சூரா தவ்பா|சூரா ஹூத்|சூரா கஹ்ஃப்|1|திருக்குர்ஆனின் 9-வது அத்தியாயமான சூரா அத்தவ்பா-விற்கு ஆரம்பத்தில் பிஸ்மில்லாஹ் இருக்காது.",
+        "26. இஸ்லாமிய வரலாற்றில் முஸ்லிம்கள் எதிர்கொண்ட முதல் பெரும் போர் எது?|உஹத் போர்|கந்தக் போர்|பத்ரு போர்|கைபர் போர்|2|ஹிஜிரி 2-ஆம் ஆண்டு மக்கா குரைஷிகளுக்கும் முஸ்லிம்களுக்கும் இடையே நடந்த பத்ரு போரே முதல் போராகும்.",
+        "27. எந்த நபியின் கப்பல் பிரளயத்தில் இருந்து ஈமான் கொண்டவர்களைக் காப்பாற்றியது?|ஹூத் (அலை)|ஸாலிஹ் (அலை)|நூஹ் (அலை)|லூத் (அலை)|2|அல்லாஹ்வின் கட்டளைப்படி நூஹ் (அலை) அவர்கள் செய்த பெரிய கப்பல், பெரும் வெள்ளப் பிரளயத்திலிருந்து நல்லவர்களைக் காப்பாற்றியது.",
+        "28. குர்ஆனில் இரண்டு முறை 'பிஸ்மில்லாஹ்' இடம்பெற்றுள்ள சூரா எது?|சூரா நம்ல்|சூரா ரஹ்மான்|சூரா யாசீன்|சூரா பகரா|0|சூரா அந்-நம்ல் அத்தியாயத்தின் ஆரம்பத்திலும், நடுவில் ஸுலைமான் (அலை) அவர்களின் கடிதத்தைக் குறிப்பிடும் இடத்திலும் பிஸ்மில்லாஹ் வருகிறது.",
+        "29. முஹம்மது (ஸல்) அவர்களின் செல்ல மகள் மற்றும் அலி (ரலி) அவர்களின் மனைவி யார்?|ஆயிஷா|பாத்திமா|ருகையா|உம்மு குல்தூம்|1|நபியவர்களின் மிக அன்பிற்குரிய மகள் அன்னை பாத்திமா (ரலி) ஆவர்.",
+        "30. மறுமை நாளில் மனிதர்களின் செயல்கள் எதன் மூலம் எடைபோடப்படும்?|மீஸான் தராசு|புத்தகம்|கண்ணாடி|வாள்|0|மறுமையில் நன்மைகளையும் தீமைகளையும் துல்லியமாக எடைபோடும் தராசிற்கு 'மீஸான்' என்று பெயர்.",
+        "31. குர்ஆனை முழுமையாக மனனம் செய்தவருக்கு இஸ்லாத்தில் என்ன பெயர்?|ஆலிம்|ஹாஃபிழ்|முஃப்தி|காரீ|1|திருக்குர்ஆனின் 30 ஜுஸ்உகளையும் முழுமையாக நெஞ்சில் சுமந்து மனனம் செய்தவர் 'ஹாஃபிழ்' எனப்படுவார்.",
+        "32. எந்த நபியைக் கிணற்றில் வீசி அவரது சகோதரர்கள் சதி செய்தார்கள்?|மூஸா (அலை)|ஈஸா (அலை)|யூஸுஃப் (அலை)|யாகூப் (அலை)|2|அழகிய தோற்றம் கொண்ட யூஸுஃப் (அலை) அவர்களைப் பொறாமை காரணமாக அவர்களது சகோதரர்கள் கிணற்றில் வீசினர்.",
+        "33. இஸ்லாத்தின் மூன்றாவது கலீஃபா யார்?|அலி (ரலி)|உமர் (ரலி)|அபூபக்கர் (ரலி)|உஸ்மான் (ரலி)|3|உமர் (ரலி) அவர்களின் மறைவுக்குப் பிறகு உஸ்மான் இப்னு அஃப்பான் (ரலி) அவர்கள் கலீஃபாவாகத் தேர்ந்தெடுக்கப்பட்டார்கள்.",
+        "34. முஸ்லிம்களின் முதல் கிப்லா (தொழும் திசை) எதுவாக இருந்தது?|கஃபா (மக்கா)|மஸ்ஜிதுல் அக்ஸா (ஜெருசலம்)|மஸ்ஜிதுந் நபவி (மதீனா)|மஸ்ஜிதுல் குபா|1|ஆரம்ப காலத்தில் முஸ்லிம்கள் ஜெருசலத்தில் உள்ள மஸ்ஜிதுல் அக்ஸாவை நோக்கியே தொழுது வந்தனர், பின்னர் கஃபாவுக்கு மாற்றப்பட்டது.",
+        "35. முஹம்மது (ஸல்) அவர்கள் மக்காவிலிருந்து மதீனாவிற்கு குடியேறிய நிகழ்வுக்கு என்ன பெயர்?|மிஃராஜ்|ஹிஜிரத்|பியாத்|ஜிஹாத்|1|இஸ்லாமிய வரலாற்றில் திருப்புமுனையாக அமைந்த நபியவர்களின் மக்கா-மதீனா குடியேற்றத்திற்கு 'ஹிஜிரத்' என்று பெயர்.",
+        "36. எந்த தூதருக்கு கடலின் நடுவே அல்லாஹ் பாதையை ஏற்படுத்திக் கொடுத்தான்?|ஈஸா (அலை)|மூஸா (அலை)|நோஹ் (அலை)|இப்ராஹீம் (அலை)|1|ஃபிர்அவ்னிடமிருந்து இஸ்ரவேலர்களைக் காப்பாற்ற, மூஸா (அலை) அவர்களின் தடியின் மூலம் செங்கடலில் அல்லாஹ் பாதைகளை உருவாக்கினான்.",
+        "37. 'அல்-அமீன்' (நம்பிக்கையாளர்) என்று மக்கா மக்களால் அழைக்கப்பட்டவர் யார்?|அபூபக்கர் (ரலி)|முஹம்மது (ஸல்)|உமர் (ரலி)|அப்துல் முத்தலிப்|1|நபியவர்களின் அசாத்தியமான நேர்மை மற்றும் நாணயத்தைக் கண்டு இஸ்லாத்திற்கு முன்பே மக்கா மக்கள் அவர்களை 'அல்-அமீன்' என்று அழைத்தனர்.",
+        "38. வெள்ளிக்கிழமை லுகர் தொழுகைக்குப் பகரமாக தொழப்படும் தொழுகை எது?|தஹஜ்ஜுத்|ஈத் தொழுகை|ஜுமுஆ தொழுகை|ஜனாஸா தொழுகை|2|வெள்ளிக்கிழமை மதிய வேளையில் கூட்டுத் தொழுகையாகவும், பிரசங்கத்துடனும் (குத்பா) தொழப்படுவது ஜுமுஆ தொழுகையாகும்.",
+        "39. கியாமத் நாளின் (மறுமை நாள்) போது சூர் (எக்காளம்) ஊதும் வானவர் யார்?|ஜிப்ரீல்|மீகாயீல்|இஸ்ராஃபீல்|அஸ்ராயீல்|2|அல்லாஹ்வின் கட்டளைப்படி உலகை அழிக்கவும், மீண்டும் மனிதர்களை எழுப்பவும் இருமுறை சூர் ஊதுபவர் வானவர் இஸ்ராஃபீல் (அலை) ஆவார்.",
+        "40. குர்ஆனில் எந்த நபியின் பெயர் மிக அதிக முறை குறிப்பிடப்பட்டுள்ளது?|முஹம்மது (ஸல்)|ஈஸா (அலை)|மூஸா (அலை)|இப்ராஹீம் (அலை)|2|மூஸா (அலை) அவர்களின் பெயர் மற்றும் அவர்களது வரலாற்று நிகழ்வுகள் திருக்குர்ஆனில் 136 இடங்களில் மிக அதிகமாகக் கூறப்பட்டுள்ளது.",
+        "41. இஸ்லாத்தில் கடமையான நோன்பு எந்த மாதத்தில் வைக்கப்படுகிறது?|ஷஃபான்|ரமலான்|ஷவ்வால்|துல்ஹஜ்|1|இஸ்லாத்தின் கடமைகளில் ஒன்றான முப்பது நாள் நோன்பு ரமலான் மாதத்தில் மட்டுமே வைக்கப்படுகிறது.",
+        "42. நபிகள் நாயகம் (ஸல்) அவர்கள் விண்வெளிப் பயணம் மேற்கொண்ட அற்புத நிகழ்வின் பெயர் என்ன?|ஹிஜிரத்|இஸ்ரா மற்றும் மிஃராஜ்|பத்ரு|ஹுதைபிய்யா|1|ஒரே இரவில் மக்காவிலிருந்து ஜெருசலம் சென்று, அங்கிருந்து ஏழு வானங்களையும் கடந்து அல்லாஹ்வைச் சந்தித்த நிகழ்வு மிஃராஜ் ஆகும்.",
+        "43. குர்ஆனின் முதல் அத்தியாயம் (சூரா) எது?|சூரா அல்-பகரா|சூரா அல்-ஃபாத்திஹா|சூரா அல்-இக்லாஸ்|சூரா அந்-நாஸ்|1|திருக்குர்ஆனின் தோற்றுவாய் அல்லது திறப்பு என்று அழைக்கப்படும் சூரா அல்-ஃபாத்திஹா முதல் சூராவாகும்.",
+        "44. எந்த நபியைக் விழுங்கிய பிறகும் திமிங்கலம் உயிருடன் கரையில் சேர்த்தது?|யூனுஸ் (அலை)|யூஸுஃப் (அலை)|அய்யூப் (அலை)|யஹ்யா (அலை)|0|அல்லாஹ்வின் சோதனையாக திமிங்கலத்தின் வயிற்றில் சில நாட்கள் இருந்த யூனுஸ் (அலை) அவர்கள், துஆ செய்ததன் மூலம் மீட்கப்பட்டார்கள்.",
+        "45. நோயுற்ற காலத்தில் மிகக் கடுமையான பொறுமையைக் கையாண்ட இறைத்தூதர் யார்?|மூஸா (அலை)|அய்யூப் (அலை)|ஈஸா (அலை)|தாவூத் (அலை)|1|அய்யூப் (அலை) அவர்கள் தங்களுக்கு ஏற்பட்ட கடுமையான நோய் மற்றும் இழப்புகளின் போதும் எல்லையற்ற பொறுமையைக் கடைப்பிடித்தார்கள்.",
+        "46. இறந்துபோன பிரேதத்திற்காக தொழப்படும் கூட்டுத் தொழுகைக்கு என்ன பெயர்?|ஹாஜத் தொழுகை|இஸ்திகாரா தொழுகை|ஜனாஸா தொழுகை|வித்பு தொழுகை|2|மரணமடைந்த முஸ்லிம்களின் மறுமை நல்வாழ்விற்காகத் தொழப்படும் கூட்டுப் பிரார்த்தனைத் தொழுகை 'ஜனாஸா' ஆகும்.",
+        "47. ஹஜ் கடமையின் போது முஸ்லிம்கள் எதனைச் சுற்றி வலம் (தவாஃப்) வருகிறார்கள்?|மகாமு இப்ராஹீம்|ஸஃபா மருவா மலை|கஃபா|அரஃபா மைதானம்|2|புனித மக்காவில் அமைந்துள்ள இறை இல்லமான கஃபாவை ஏழு முறை இடப்பக்கமாகச் சுற்றி வருவதே தவாஃப் ஆகும்.",
+        "48. பறவைகள் மற்றும் ஜின்களுடன் பேசும் ஆற்றல் யாருக்கு வழங்கப்பட்டிருந்தது?|ஸுலைமான் (அலை)|தாவூத் (அலை)|ஆதம் (அலை)|இஸ்மாயீல் (அலை)|0|அல்லாஹ் ஸுலைமான் (அலை) அவர்களுக்கு விலங்கினங்களின் மொழியையும், ஜின்களை ஆளும் அதிகாரத்தையும் வழங்கியிருந்தான்.",
+        "49. இஸ்லாத்தின் நான்காவது கலீஃபா யார்?|உஸ்மான் (ரலி)|அலி (ரலி)|முஆவியா (ரலி)|ஸைத் (ரலி)|1|நபியவர்களின் மருமகனும், இஸ்லாத்தை ஏற்ற சிறுவர்களில் முதலாமவருமான அலி (ரலி) நான்காவது நேர்வழி நடந்த கலீஃபா ஆவார்.",
+        "50. குர்ஆனின் எந்த சூரா ஒருமுறை ஓதினால் குர்ஆனின் மூன்றில் ஒரு பகுதி ஓதியதற்குச் சமம்?|சூரா யாசீன்|சூரா அல்-ஃபாத்திஹா|சூரா அல்-இக்லாஸ்|சூரா முல்க்|2|சூரா அல்-இக்லாஸ் (குல்ஹுவல்லாஹு அஹத்) தவ்ஹீதை (இறை ஒருமைப்பாட்டை) விளக்குவதால், அது குர்ஆனின் 1/3 பகுதிக்கு நிகராகும்."
+    ]
+};
+
+let levelPrices = {
+    "1": 1000,
+    "2": 2000,
+    "3": 3000,
+    "4": 350,
+    "5": 500
+};
+
+let tfCustom = [
+    {
+        "q": "இஸ்லாத்தின் முதல் பெண் ஷஹீத் (தியாகி) சுமையா (ரலி) ஆவார்.",
+        "a": true
+    },
+    {
+        "q": "திருக்குர்ஆனில் மொத்தம் 25 நபிகளின் பெயர்கள் குறிப்பிடப்பட்டுள்ளன.",
+        "a": true
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களுக்கு மொத்தம் நான்கு மகன்கள் இருந்தனர்.",
+        "a": false
+    },
+    {
+        "q": "பெருநாட்களில் நோன்பு நோற்பது இஸ்லாத்தில் ஹராம் (தடுக்கப்பட்டது) ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாமிய நாட்காட்டியில் (ஹிஜிரி) ஒன்பதாவது மாதம் ரமலான் ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "குர்ஆனில் 'பிஸ்மில்லாஹ்' இரண்டு முறை வரும் சூரா 'சூரா அன்-நம்ல்' ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "மதீனாவின் பழைய பெயர் 'யத்ரிப்' என்பதாகும்.",
+        "a": true
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களின் வளர்ப்பு மகனின் பெயர் ஜைத் பின் ஹாரிஸா (ரலி).",
+        "a": true
+    },
+    {
+        "q": "சுவர்க்கத்தின் வாசல்களில் மிக உயரிய சுவர்க்கம் 'ஜன்னத்துல் ஃபிர்தவ்ஸ்' ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "ஸகாத் கடமையாவதற்கான குறைந்தபட்ச செல்வத்தின் அளவுக்கு 'நிஸாப்' என்று பெயர்.",
+        "a": true
+    },
+    {
+        "q": "நபி யூனுஸ் (அலை) அவர்கள் மீனின் வயிற்றில் 40 நாட்கள் இருந்ததாகக் கூறப்படுகிறது.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாத்தின் இரண்டாவது கலீஃபா உமர் ஃபாரூக் (ரலி) அவர்கள் ஆவார்கள்.",
+        "a": true
+    },
+    {
+        "q": "தொழுகையில் அத்தஹியாத் அமர்வில் சுட்டு விரலை உயர்த்துவது சுன்னத் ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "குர்ஆனில் உள்ள அத்தியாயங்களில் மக்கீ சூராக்களை விட மதனி சூராக்கள் தான் அதிகம்.",
+        "a": false
+    },
+    {
+        "q": "முஸ்லிம்கள் மீது ஐவேளை தொழுகை கடமையாக்கப்பட்ட நிகழ்வு 'மிஃராஜ்' ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "நபி இப்றாஹீம் (அலை) அவர்களின் மூத்த மகனின் பெயர் இஸ்ஹாக் (அலை).",
+        "a": false
+    },
+    {
+        "q": "திருக்குர்ஆனை ஓதத் தொடங்கும் போது 'அவூது' ஓதுவது வாஜிப் (கடமை) ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களின் முதல் மனைவி கதீஜா (ரலி) அவர்கள்.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாமிய வரலாற்றில் 'நூருல் ஐனைன்' (இரு ஒளிகளின் உரிமையாளர்) எனப்படுபவர் உதுமான் (ரலி).",
+        "a": true
+    },
+    {
+        "q": "லைலத்துல் கத்ர் இரவு ஆயிரம் மாதங்களை விடச் சிறந்தது.",
+        "a": true
+    },
+    {
+        "q": "நோன்பு திறக்கும் போது ஓதும் துஆவிற்கு 'தஸ்பீஹ்' என்று பெயர்.",
+        "a": false
+    },
+    {
+        "q": "குர்ஆனில் ஒரே ஒரு பெண்ணின் பெயர் மட்டுமே நேரடியாகக் கூறப்பட்டுள்ளது, அது மர்யம்.",
+        "a": true
+    },
+    {
+        "q": "மனிதனின் வலது தோளில் இருக்கும் மலக்கு நன்மைகளை எழுதுகிறார்.",
+        "a": true
+    },
+    {
+        "q": "மறுமையில் நரகத்தின் கதவுகள் மொத்தம் 8 திறக்கப்படும்.",
+        "a": false
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களின் பாட்டனார் (தாத்தா) பெயர் அப்துல் முத்தலிப்.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாத்தின்படி ஜோதிடம் பார்ப்பதும், ஜாதகம் நம்புவதும் அடியோடே தடை செய்யப்பட்டுள்ளது.",
+        "a": true
+    },
+    {
+        "q": "தொழுகையில் ஆரம்பத்தில் ஓதும் தக்பீருக்கு 'தக்பீரதுல் இஹ்ராம்' என்று பெயர்.",
+        "a": true
+    },
+    {
+        "q": "நபி யூசுப் (அலை) அவர்களின் தந்தை பெயர் நபி யஃகூப் (அலை).",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாத்தில் மொத்தம் 6 ஈமான் (விசுவாசக்) கொள்கைகள் உள்ளன.",
+        "a": true
+    },
+    {
+        "q": "ஒருவர் கோபமாக இருக்கும் போது உளு (Wudu) செய்வது கோபத்தை தணிக்கும்.",
+        "a": true
+    },
+    {
+        "q": "குர்ஆனின் கடைசி சூரா 'சூரா அல்-இக்லாஸ்' ஆகும்.",
+        "a": false
+    },
+    {
+        "q": "ஸகாத் பணத்தை மஸ்ஜித் (பள்ளிவாசல்) கட்டுவதற்குப் பயன்படுத்தலாம்.",
+        "a": false
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களின் இறுதிப் பேருரை 'ஹஜ்ஜத்துல் விதா' என்று அழைக்கப்படும்.",
+        "a": true
+    },
+    {
+        "q": "நபி மூஸா (அலை) அவர்களின் சகோதரர் பெயர் ஹாரூன் (அலை).",
+        "a": true
+    },
+    {
+        "q": "கஅபா திசையை நோக்கித் தொழுவதற்கு 'கிப்லா' என்று பெயர்.",
+        "a": true
+    },
+    {
+        "q": "நோன்பு நோற்பது பணக்காரர்களுக்கு மட்டுமே கடமையான ஒன்றாகும்.",
+        "a": false
+    },
+    {
+        "q": "மறுமை நாளில் முதல் கேள்வி தொழுகையைப் பற்றித்தான் கேட்கப்படும்.",
+        "a": true
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்கள் மொத்தம் 63 வருடங்கள் உயிரோடு வாழ்ந்தார்கள்.",
+        "a": true
+    },
+    {
+        "q": "நபி லூத் (அலை) அவர்களின் சமூகம் பூகம்பத்தாலும் கல் மழையாலும் அழிக்கப்பட்டது.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாமிய மார்க்கத்தில் தற்கொலை செய்து கொள்வது பெரும் பாவமாகும்.",
+        "a": true
+    },
+    {
+        "q": "திருக்குர்ஆனில் உள்ள மொத்த வசனங்கள் (ஆயத்துகள்) 6666 ஆகும்.",
+        "a": false
+    },
+    {
+        "q": "பிலால் (ரலி) அவர்கள் ஹபஷா (அபிசீனியா) நாட்டைச் சேர்ந்தவர் ஆவார்.",
+        "a": true
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களின் முத்திரை மோதிரத்தில் 'முஹம்மது ரசூலுல்லாஹ்' என இருந்தது.",
+        "a": true
+    },
+    {
+        "q": "அஸர் தொழுகையின் சுன்னத்தான ரக்அத்கள் மொத்தம் 4 ஆகும்.",
+        "a": true
+    },
+    {
+        "q": "சுவர்க்கவாசிகளின் தலைவியராக பாத்திமா (ரலி) மற்றும் கதீஜா (ரலி) திகழ்வர்.",
+        "a": true
+    },
+    {
+        "q": "குர்ஆனை தஜ்வீத் (முறைப்படி) விதிகளுடன் ஓதுவது கட்டாயமில்லை.",
+        "a": false
+    },
+    {
+        "q": "நபிகள் நாயகம் (ஸல்) அவர்களுக்குப் பின் 'அபூபக்கர் (ரலி)' முதல் கலீஃபாவானார்.",
+        "a": true
+    },
+    {
+        "q": "இஸ்லாமிய வரலாற்றில் ஒட்டகப் போர் ஆயிஷா (ரலி) அவர்களுக்கும் அலி (ரலி) அவர்களுக்கும் இடையே நடந்தது.",
+        "a": true
+    },
+    {
+        "q": "நோன்பு காலத்தில் தெரியாமல் சாப்பிட்டுவிட்டால் நோன்பு முறிந்துவிடும்.",
+        "a": false
+    },
+    {
+        "q": "ஒவ்வொரு நற்காரியத்தையும் 'பிஸ்மில்லாஹ்' கூறித் தொடங்குவது சுன்னத் ஆகும்.",
+        "a": true
+    }
+];
+
+let scrCustom = [
+    {
+        "words": [
+            "இஸ்லாத்தின்",
+            "அடிப்படைக்",
+            "கடமைகள்",
+            "எத்தனை?"
+        ],
+        "ref": "ஐந்து"
+    },
+    {
+        "words": [
+            "குர்ஆனில்",
+            "உள்ள",
+            "மொத்த",
+            "அத்தியாயங்கள்",
+            "எத்தனை?"
+        ],
+        "ref": "114"
+    },
+    {
+        "words": [
+            "முஹம்மது",
+            "நபி",
+            "(ஸல்)",
+            "அவர்கள்",
+            "பிறந்த",
+            "ஊர்",
+            "எது?"
+        ],
+        "ref": "மக்கா"
+    },
+    {
+        "words": [
+            "இஸ்லாமிய",
+            "நாட்காட்டியின்",
+            "முதல்",
+            "மாதம்",
+            "எது?"
+        ],
+        "ref": "முஹர்ரம்"
+    },
+    {
+        "words": [
+            "நோன்பு",
+            "நோற்பது",
+            "எந்த",
+            "மாதத்தில்",
+            "கடமையாக்கப்பட்டுள்ளது?"
+        ],
+        "ref": "ரமலான்"
+    },
+    {
+        "words": [
+            "குர்ஆன்",
+            "முதன்முதலில்",
+            "அருளப்பட்ட",
+            "குகை",
+            "எது?"
+        ],
+        "ref": "ஹிரா"
+    },
+    {
+        "words": [
+            "முதல்",
+            "மனிதர்",
+            "மற்றும்",
+            "முதல்",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "ஆதம் (அலை)"
+    },
+    {
+        "words": [
+            "குர்ஆனில்",
+            "பிஸ்மில்லாஹ்",
+            "இல்லாமல்",
+            "தொடங்கும்",
+            "சூரா",
+            "எது?"
+        ],
+        "ref": "தவ்பா"
+    },
+    {
+        "words": [
+            "இஸ்லாமியர்களின்",
+            "புனித",
+            "கிப்லா",
+            "எங்கு",
+            "உள்ளது?"
+        ],
+        "ref": "கஅபா"
+    },
+    {
+        "words": [
+            "நபிகள்",
+            "நாயகம்",
+            "(ஸல்)",
+            "அவர்களின்",
+            "தாயார்",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "ஆமினா"
+    },
+    {
+        "words": [
+            "நபிகள்",
+            "நாயகம்",
+            "(ஸல்)",
+            "அவர்களின்",
+            "தந்தையின்",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "அப்துல்லாஹ்"
+    },
+    {
+        "words": [
+            "ஈஸா",
+            "(அலை)",
+            "அவர்களுக்கு",
+            "அருளப்பட்ட",
+            "வேதம்",
+            "எது?"
+        ],
+        "ref": "இஞ்சீல்"
+    },
+    {
+        "words": [
+            "மூஸா",
+            "(அலை)",
+            "அவர்களுக்கு",
+            "அருளப்பட்ட",
+            "வேதம்",
+            "எது?"
+        ],
+        "ref": "தவ்ராத்"
+    },
+    {
+        "words": [
+            "தாவூத்",
+            "(அலை)",
+            "அவர்களுக்கு",
+            "அருளப்பட்ட",
+            "வேதம்",
+            "எது?"
+        ],
+        "ref": "ஸபூர்"
+    },
+    {
+        "words": [
+            "குர்ஆனின்",
+            "இதயம்",
+            "என்று",
+            "அழைக்கப்படும்",
+            "சூரா",
+            "எது?"
+        ],
+        "ref": "யாஸீன்"
+    },
+    {
+        "words": [
+            "இறுதி",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "முஹம்மது (ஸல்)"
+    },
+    {
+        "words": [
+            "இஸ்லாத்தில்",
+            "மிகச்",
+            "சிறந்த",
+            "திக்ரு",
+            "எது?"
+        ],
+        "ref": "லா இலாஹ இல்லல்லாஹ்"
+    },
+    {
+        "words": [
+            "வஹீ",
+            "கொண்டு",
+            "வரும்",
+            "மலக்கின்",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "ஜிப்ரீல் (அலை)"
+    },
+    {
+        "words": [
+            "மழையை",
+            "நிர்வகிக்கும்",
+            "பொறுப்புள்ள",
+            "மலக்",
+            "யார்?"
+        ],
+        "ref": "மீக்காயீல் (அலை)"
+    },
+    {
+        "words": [
+            "உயிரைக்",
+            "கைப்பற்றும்",
+            "மலக்கின்",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "இஸ்ராயீல் (அலை)"
+    },
+    {
+        "words": [
+            "கியாமத்",
+            "நாளில்",
+            "சூர்",
+            "ஊதும்",
+            "மலக்",
+            "யார்?"
+        ],
+        "ref": "இஸ்ராஃபீல் (அலை)"
+    },
+    {
+        "words": [
+            "குர்ஆனில்",
+            "உள்ள",
+            "மிகச்",
+            "சிறிய",
+            "சூரா",
+            "எது?"
+        ],
+        "ref": "கவ்ஸர்"
+    },
+    {
+        "words": [
+            "குர்ஆனில்",
+            "உள்ள",
+            "மிகப்",
+            "பெரிய",
+            "சூரா",
+            "எது?"
+        ],
+        "ref": "பகரா"
+    },
+    {
+        "words": [
+            "இஸ்லாத்தின்",
+            "முதல்",
+            "முஅத்தின்",
+            "(பாங்கு",
+            "சொல்பவர்)",
+            "யார்?"
+        ],
+        "ref": "பிலால் (ரழி)"
+    },
+    {
+        "words": [
+            "மதீனாவின்",
+            "பழைய",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "யத்ரிப்"
+    },
+    {
+        "words": [
+            "பத்ரு",
+            "போரில்",
+            "கலந்துகொண்ட",
+            "முஸ்லிம்களின்",
+            "எண்ணிக்கை",
+            "என்ன?"
+        ],
+        "ref": "313"
+    },
+    {
+        "words": [
+            "குர்ஆனில்",
+            "பெயர்",
+            "கூறப்பட்டுள்ள",
+            "ஒரே",
+            "பெண்மணி",
+            "யார்?"
+        ],
+        "ref": "மர்யம் (அலை)"
+    },
+    {
+        "words": [
+            "எந்த",
+            "நபியின்",
+            "காலத்தில்",
+            "பெருவெள்ளம்",
+            "ஏற்பட்டது?"
+        ],
+        "ref": "நூஹ் (அலை)"
+    },
+    {
+        "words": [
+            "எந்த",
+            "நபி",
+            "மீனால்",
+            "விழுங்கப்பட்டார்?"
+        ],
+        "ref": "யூனுஸ் (அலை)"
+    },
+    {
+        "words": [
+            "பொறுமைக்கு",
+            "உதாரணமாகக்",
+            "கூறப்படும்",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "அய்யூப் (அலை)"
+    },
+    {
+        "words": [
+            "நெருப்பில்",
+            "எறியப்பட்டும்",
+            "வேதனையடையாத",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "இப்ராஹீம் (அலை)"
+    },
+    {
+        "words": [
+            "நபிகள்",
+            "நாயகம்",
+            "(ஸல்)",
+            "அவர்கள்",
+            "மக்காவிலிருந்து",
+            "மதீனா",
+            "சென்ற",
+            "பயணம்",
+            "எவ்வாறு",
+            "அழைக்கப்படுகிறது?"
+        ],
+        "ref": "ஹிஜ்ரத்"
+    },
+    {
+        "words": [
+            "இஸ்லாத்தின்",
+            "முதல்",
+            "கலிமா",
+            "எவ்வாறு",
+            "அழைக்கப்படுகிறது?"
+        ],
+        "ref": "தய்யிப்"
+    },
+    {
+        "words": [
+            "அரஃபா",
+            "மைதானத்தில்",
+            "கூடும்",
+            "நாள்",
+            "எது?"
+        ],
+        "ref": "ஹஜ்ஜுப் பெருநாள் முன்தினம்"
+    },
+    {
+        "words": [
+            "ஜகாத்",
+            "கொடுப்பது",
+            "இஸ்லாத்தின்",
+            "எத்தனையாவது",
+            "கடமை?"
+        ],
+        "ref": "மூன்றாவது"
+    },
+    {
+        "words": [
+            "லைலத்துல்",
+            "கத்ர்",
+            "இரவு",
+            "எந்த",
+            "மாதத்தில்",
+            "வரும்?"
+        ],
+        "ref": "ரமலான்"
+    },
+    {
+        "words": [
+            "குர்ஆன்",
+            "அருளப்பட்ட",
+            "மாதம்",
+            "எது?"
+        ],
+        "ref": "ரமலான்"
+    },
+    {
+        "words": [
+            "பிஸ்மில்லாஹ்",
+            "இரண்டு",
+            "முறை",
+            "இடம்பெற்றுள்ள",
+            "சூரா",
+            "எது?"
+        ],
+        "ref": "நம்ல்"
+    },
+    {
+        "words": [
+            "எந்த",
+            "நபியின்",
+            "தடியை",
+            "பாம்பாக",
+            "மாற்றுமாறு",
+            "அல்லாஹ்",
+            "கட்டளையிட்டான்?"
+        ],
+        "ref": "மூஸா (அலை)"
+    },
+    {
+        "words": [
+            "கனவுகளுக்கு",
+            "பலன்",
+            "சொல்லும்",
+            "ஆற்றல்",
+            "பெற்ற",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "யூஸுஃப் (அலை)"
+    },
+    {
+        "words": [
+            "தஜ்ஜாலை",
+            "அழிக்கும்",
+            "நபி",
+            "யார்?"
+        ],
+        "ref": "ஈஸா (அலை)"
+    },
+    {
+        "words": [
+            "தஹஜ்ஜுத்",
+            "தொழுகை",
+            "எப்போது",
+            "தொழப்படும்?"
+        ],
+        "ref": "இரவின் இறுதிப் பகுதி"
+    },
+    {
+        "words": [
+            "சுவர்க்கத்தின்",
+            "வாசல்கள்",
+            "எத்தனை?"
+        ],
+        "ref": "எட்டு"
+    },
+    {
+        "words": [
+            "நரகத்தின்",
+            "வாசல்கள்",
+            "எத்தனை?"
+        ],
+        "ref": "ஏழு"
+    },
+    {
+        "words": [
+            "இஸ்லாத்தின்",
+            "முதல்",
+            "கலீஃபா",
+            "யார்?"
+        ],
+        "ref": "அபூபக்கர் (ரழி)"
+    },
+    {
+        "words": [
+            "உமர்",
+            "(ரழி)",
+            "அவர்களின்",
+            "சிறப்புப்",
+            "பெயர்",
+            "என்ன?"
+        ],
+        "ref": "ஃபாரூக்"
+    },
+    {
+        "words": [
+            "இஸ்லாத்தில்",
+            "கடமையாக்கப்பட்ட",
+            "தொழுகைகள்",
+            "எத்தனை?"
+        ],
+        "ref": "ஐந்து"
+    },
+    {
+        "words": [
+            "வெள்ளிக்கிழமை",
+            "தொழப்படும்",
+            "சிறப்புத்",
+            "தொழுகை",
+            "எது?"
+        ],
+        "ref": "ஜும்ஆ"
+    },
+    {
+        "words": [
+            "தராவீஹ்",
+            "தொழுகை",
+            "எந்த",
+            "மாதத்தில்",
+            "தொழப்படும்?"
+        ],
+        "ref": "ரமலான்"
+    },
+    {
+        "words": [
+            "நபிகள்",
+            "நாயகம்",
+            "(ஸல்)",
+            "அவர்களின்",
+            "அடக்கஸ்தலம்",
+            "எங்குள்ளது?"
+        ],
+        "ref": "மதீனா"
+    }
+];
+
+let mazeCustom = [
+    {
+        "q": "கஃபா எந்த நகரத்தில் உள்ளது?",
+        "o": [
+            "மதீனா",
+            "மக்கா",
+            "ஜெருசலேம்",
+            "கெய்ரோ"
+        ],
+        "a": "மக்கா",
+        "room": "நுழைவாயில் 🚪"
+    },
+    {
+        "q": "குர்ஆன் எத்தனை ஜுஸ்களாக உள்ளது?",
+        "o": [
+            "20",
+            "25",
+            "30",
+            "40"
+        ],
+        "a": "30",
+        "room": "நூலக கக்ஷம் 📚"
+    },
+    {
+        "q": "இஸ்லாத்தின் மூன்றாவது தூண் என்ன?",
+        "o": [
+            "தொழுகை",
+            "ஸகாத்",
+            "ஹஜ்",
+            "நோன்பு"
+        ],
+        "a": "ஸகாத்",
+        "room": "தூண் கோபுரம் 🏛️"
+    },
+    {
+        "q": "நபிகளாரின் மசூதி எங்கே உள்ளது?",
+        "o": [
+            "மக்கா",
+            "ஜெருசலேம்",
+            "மதீனா",
+            "தாயிஃப்"
+        ],
+        "a": "மதீனா",
+        "room": "வரலாற்று அறை 🕌"
+    },
+    {
+        "q": "இஸ்லாத்தின் முதல் மனித நபி யார்?",
+        "o": [
+            "இப்றாஹீம்(அலை)",
+            "முஹம்மது(ஸல்)",
+            "ஆதம்(அலை)",
+            "நூஹ்(அலை)"
+        ],
+        "a": "ஆதம்(அலை)",
+        "room": "வரலாற்று கோட்டம் 🏰"
+    },
+    {
+        "q": "'குர்ஆனின் இதயம்' எனப்படும் சூரா?",
+        "o": [
+            "அல்-பகரா",
+            "யாஸீன்",
+            "அல்-கஹ்ஃப்",
+            "அல்-இக்லாஸ்"
+        ],
+        "a": "யாஸீன்",
+        "room": "இரகசிய அறை 🗝️"
+    },
+    {
+        "q": "குர்ஆனின் முதல் சூரா எது?",
+        "o": [
+            "அல்-பகரா",
+            "அல்-இக்லாஸ்",
+            "அல்-ஃபாத்திஹா",
+            "அல்-அலக்"
+        ],
+        "a": "அல்-ஃபாத்திஹா",
+        "room": "🕋 கஃபா — இறுதி வாயில்"
+    },
+    {
+        "q": "\"நபிகள் நாயகம் (ஸல்) அவர்களின் ஒட்டகத்தின் பெயர் என்ன?",
+        "o": [
+            "கஸ்வா",
+            "புராக்",
+            "துல்துல்",
+            "யாஃபூர்"
+        ],
+        "a": "0",
+        "room": "மதீனா ஹிஜ்ரத்தின் போது நபி (ஸல்) அவர்கள் 'கஸ்வா' என்ற ஒட்டகத்தின் மீதே பயணம் செய்தார்கள்.\""
+    },
+    {
+        "q": "\"குர்ஆனில் மொத்தம் எத்தனை ஜுஸு (பாகங்கள்) உள்ளன?",
+        "o": [
+            "10",
+            "20",
+            "30",
+            "40"
+        ],
+        "a": "2",
+        "room": "குர்ஆன் ஓதுவதற்கு எளிதாக 30 சமமான பாகங்களாக (ஜுஸு) பிரிக்கப்பட்டுள்ளது.\""
+    },
+    {
+        "q": "\"உலகிலேயே மிகவும் தொன்மையானதும், இஸ்லாமிய வரலாற்றில் சிறப்பு மிக்கதுமான 'ஸம்ஸம்' கிணறு யாருடைய காலடியில் தோன்றியது?",
+        "o": [
+            "இப்ராஹீம் (அலை)",
+            "இஸ்மாயீல் (அலை)",
+            "ஹாஜரா (அலை)",
+            "மூஸா (அலை)"
+        ],
+        "a": "1",
+        "room": "பச்சிளங் குழந்தையான இஸ்மாயீல் (அலை) அவர்கள் தாகத்தால் அழுதபோது அவர்களின் காலடியில் ஸம்ஸம் நீர் பீறிட்டு வந்தது.\""
+    },
+    {
+        "q": "\"இஸ்லாமிய நாட்காட்டியில் (ஹிஜ்ரி) 'ஆஷூரா' தினம் எந்த மாதத்தில் அனுசரிக்கப்படுகிறது?",
+        "o": [
+            "ரமலான்",
+            "முஹர்ரம்",
+            "ஸஃபர்",
+            "ஷவ்வால்"
+        ],
+        "a": "1",
+        "room": "முஹர்ரம் மாதத்தின் 10-ம் நாள் 'ஆஷூரா' தினமாக அனுசரிக்கப்பட்டு நோன்பு நோற்பது சுன்னத் ஆகும்.\""
+    },
+    {
+        "q": "\"சுவர்க்கம் (ஜன்னத்) யாருடைய காலடியில் இருப்பதாக நபி (ஸல்) அவர்கள் கூறியுள்ளார்கள்?",
+        "o": [
+            "தந்தையின்",
+            "தாயின்",
+            "கணவனின்",
+            "அறிஞர்களின்"
+        ],
+        "a": "1",
+        "room": "தாயின் காலடியில்தான் சுவர்க்கம் இருக்கிறது என இஸ்லாம் தாய்க்கு மாபெரும் சிறப்பை வழங்கியுள்ளது.\""
+    },
+    {
+        "q": "\"சொர்க்கத்தின் மிக உயர்ந்த பதவியான (அந்தஸ்து) 'ஜன்னத்துல் பிர்தவ்ஸ்' யாருக்குரியது என குர்ஆன் கூறுகிறது?",
+        "o": [
+            "செல்வந்தர்களுக்கு",
+            "ஷஹீத்களுக்கு (உயிர்த்தியாகிகளுக்கு)",
+            "உண்மையான முஃமின்களுக்கு",
+            "கல்வியாளர்களுக்கு"
+        ],
+        "a": "2",
+        "room": "ஈமான் கொண்டு, தொழுகையை பேணி, ஜகாத் கொடுத்து நற்செயல் புரியும் முஃமின்களுக்கு பிர்தவ்ஸ் வழங்கப்படும் என சூரா அல்-முஃமினூன் கூறுகிறது.\""
+    },
+    {
+        "q": "\"இஸ்லாத்தில் எந்த உறவை முறித்துக் கொள்பவன் சுவர்க்கத்தில் நுழைய மாட்டான் என எச்சரிக்கப்பட்டுள்ளது?",
+        "o": [
+            "நட்புறவு",
+            "இரத்தப் பந்தம் (உறவினர்கள்)",
+            "பக்கத்து வீட்டுக்காரர்",
+            "வியாபாரத் தொடர்பு"
+        ],
+        "a": "1",
+        "room": "இரத்தப் பந்த உறவுகளை (ஸிலத்துர் ரஹ்ம்) துண்டிப்பவன் சுவர்க்கம் செல்ல மாட்டான் என ஹதீஸ் எச்சரிக்கிறது.\""
+    },
+    {
+        "q": "\"நபிகள் நாயகம் (ஸல்) அவர்கள் மக்காவிலிருந்து பைத்துல் முகத்தஸ் சென்று, அங்கிருந்து விண்ணுலகம் சென்ற பயணத்தின் பெயர் என்ன?",
+        "o": [
+            "ஹிஜ்ரத்",
+            "இஸ்ரா மற்றும் மிஃராஜ்",
+            "உம்ரா",
+            "தவாஃப்"
+        ],
+        "a": "1",
+        "room": "அல்லாஹ்வின் அழைப்பை ஏற்று நபி (ஸல்) அவர்கள் மேற்கொண்ட இந்த அற்புதமான இரவுப் பயணமே 'இஸ்ரா - மிஃராஜ்' ஆகும்.\""
+    },
+    {
+        "q": "\"இஸ்லாமிய வரலாற்றில் எந்தப் போரில் மலக்குகள் (வானவர்கள்) முஸ்லிம்களுக்கு உதவியாகப் போர்க்களத்தில் இறங்கினர்?",
+        "o": [
+            "உஹத் போர்",
+            "பத்ருப் போர்",
+            "அகழ்ப்போர்",
+            "முஅத்தா போர்"
+        ],
+        "a": "1",
+        "room": "பத்ருப் போரில் 3000 முதல் 5000 வரையிலான வானவர்களை அனுப்பி அல்லாஹ் முஸ்லிம்களுக்கு உதவி செய்தான்.\""
+    },
+    {
+        "q": "\"'சுவர்க்கத்தின் நற்செய்தி கூறப்பட்ட பத்து ஸஹாபாக்கள்' (அஷரத்துல் முபஷ்ஷரா) என்ற சிறப்புப் பட்டியலில் இடம்பெறாதவர் யார்?",
+        "o": [
+            "அபூபக்கர் (ரலி)",
+            "உமர் (ரலி)",
+            "காலித் பின் வலீத் (ரலி)",
+            "அலி (ரலி)"
+        ],
+        "a": "2",
+        "room": "காலித் பின் வலீத் (ரலி) சிறந்த தளபதியாக இருந்தாலும், அந்த 10 பேரின் பட்டியலில் அவர் பெயரில்லை.\""
+    },
+    {
+        "q": "\"எந்த சூராவை வெள்ளிக்கிழமைகளில் (ஜும்ஆ) ஓதுவது சுன்னத் என நபி (ஸல்) அவர்கள் கூறியுள்ளார்கள்?",
+        "o": [
+            "சூரா யாஸீன்",
+            "சூரா அல்-கஹ்ஃப்",
+            "சூரா அர்-ரஹ்மான்",
+            "சூரா அல்-முல்க்"
+        ],
+        "a": "1",
+        "room": "வெள்ளிக்கிழமையன்று சூரா அல்-கஹ்ஃப் ஓதுபவருக்கு இரண்டு வெள்ளிக்கிழமைகளுக்கு இடைப்பட்ட காலம் முழுவதும் ஒளி (நூர்) பிரகாசிக்கும்.\""
+    },
+    {
+        "q": "\"ஒரு மனிதனின் உடலிலுள்ள எந்த உறுப்பு சீராக இருந்தால் முழு உடலும் சீராக இருக்கும் என நபி (ஸல்) கூறினார்கள்?",
+        "o": [
+            "மூளை",
+            "கண்கள்",
+            "இதயம் (கல்ப்)",
+            "நாக்கு"
+        ],
+        "a": "2",
+        "room": "உடலில் ஒரு சதைத்துண்டு உள்ளது, அது சீராகிவிட்டால் உடல் முழுவதும் சீராகிவிடும், அதுவே இதயம் என்றார்கள்.\""
+    },
+    {
+        "q": "\"திருக்குர்ஆனில் தேனீக்களின் பெயரால் அமைந்துள்ள சூரா எது?",
+        "o": [
+            "சூரா அந்-நஹ்ல்",
+            "சூரா அந்-நம்ல்",
+            "சூரா அல்-அன்கபூத்",
+            "சூரா அல்-பகரா"
+        ],
+        "a": "0",
+        "room": "சூரா அந்-நஹ்ல் என்பது குர்ஆனின் 16-வது சூராவாகும், 'நஹ்ல்' என்றால் அரபியில் தேனீ என்று பொருள்.\""
+    },
+    {
+        "q": "\"திருக்குர்ஆனில் எறும்புகளின் பெயரால் அமைந்துள்ள சூரா எது?",
+        "o": [
+            "சூரா அந்-நஹ்ல்",
+            "சூரா அந்-நம்ல்",
+            "சூரா அல்-அன்கபூத்",
+            "சூரா அல்-பகரா"
+        ],
+        "a": "1",
+        "room": "சூரா அந்-நம்ல் என்பது குர்ஆனின் 27-வது சூராவாகும், 'நம்ல்' என்றால் எறும்பு என்று பொருள்.\""
+    },
+    {
+        "q": "\"சிலந்திப்பூச்சியின் பெயரால் அமைந்துள்ள குர்ஆனின் சூரா எது?",
+        "o": [
+            "சூரா அந்-நஹ்ல்",
+            "சூரா அந்-நம்ல்",
+            "சூரா அல்-அன்கபூத்",
+            "சூரா அல்-பகரா"
+        ],
+        "a": "2",
+        "room": "'அன்கபூத்' என்றால் சிலந்தி என்று பொருள், இது குர்ஆனின் 29-வது சூராவாகும்.\""
+    },
+    {
+        "q": "\"மூஸா (அலை) அவர்களின் காலத்தில் இருந்த கொடுங்கோல் மன்னனின் பெயர் என்ன?",
+        "o": [
+            "நும்ரூத்",
+            "ஃபிர்அவ்ன் (பாரோ)",
+            "அபூஜஹல்",
+            "காரூன்"
+        ],
+        "a": "1",
+        "room": "தன்னை இறைவன் என வாதிட்ட ஃபிர்அவ்னை செங்கடலில் மூழ்கடித்து அல்லாஹ் அழித்தான்.\""
+    },
+    {
+        "q": "\"மூஸா (அலை) அவர்களின் கையில் இருந்த கைத்தடி (அஸா) என்னவாக மாறும் அற்புதம் வழங்கப்பட்டிருந்தது?",
+        "o": [
+            "வாளாக மாறும்",
+            "பாம்பாக மாறும்",
+            "பறவையாக மாறும்",
+            "மரமாய் வளரும்"
+        ],
+        "a": "1",
+        "room": "ஃபிர்அவ்னின் சூனியக்காரர்களை முறியடிக்க, அந்தத் தடியை அல்லாஹ் ஒரு பெரிய பாம்பாக மாறச் செய்தான்.\""
+    },
+    {
+        "q": "\"இஸ்லாமிய நம்பிக்கையின்படி, எந்த இறைத்தூதர் இன்னும் மரணிக்கவில்லை, வானத்திற்கு உயர்த்தப்பட்டுள்ளார்?",
+        "o": [
+            "மூஸா (அலை)",
+            "இப்ராஹீம் (அலை)",
+            "ஈஸா (அலை)",
+            "நூஹ் (அலை)"
+        ],
+        "a": "2",
+        "room": "யூதர்கள் ஈஸா (அலை) அவர்களைச் சிலுவையில் அறைய முயன்றபோது, அல்லாஹ் அவரைத் தன்னிடம் உயர்த்திக்கொண்டான்.\""
+    },
+    {
+        "q": "\"நபி (ஸல்) அவர்களின் மகளான பாத்திமா (ரலி) அவர்களைத் திருமணம் செய்துகொண்ட ஸஹாபி யார்?",
+        "o": [
+            "உஸ்மான் (ரலி)",
+            "உமர் (ரலி)",
+            "அபூபக்கர் (ரலி)",
+            "அலி (ரலி)"
+        ],
+        "a": "3",
+        "room": "நபி (ஸல்) அவர்கள் தமது அன்புமகள் பாத்திமா (ரலி) அவர்களை அலி (ரலி) அவர்களுக்குத் திருமணம் செய்து வைத்தார்கள்.\""
+    },
+    {
+        "q": "\"அலி (ரலி) மற்றும் பாத்திமா (ரலி) தம்பதியரின் மகன்கள் (நபிகளாரின் பேரன்கள்) யார்?",
+        "o": [
+            "ஹசன் மற்றும் ஹுஸைன்",
+            "காஸிம் மற்றும் அப்துல்லாஹ்",
+            "இப்ராஹீம் மற்றும் ஸைத்",
+            "உஸாமா மற்றும் தல்ஹா"
+        ],
+        "a": "0",
+        "room": "சுவர்க்கத்து இளைஞர்களின் தலைவர்கள் என ஹசன் (ரலி) மற்றும் ஹுஸைன் (ரலி) ஆகியோரை நபி (ஸல்) சிறப்பித்துள்ளனர்.\""
+    },
+    {
+        "q": "\"நபி (ஸல்) அவர்களுக்கு நபித்துவம் கிடைப்பதற்கு முன்பே மக்கா மக்களால் வழங்கப்பட்ட நற்பெயர் என்ன?",
+        "o": [
+            "அல்-ஃபாரூக்",
+            "அஸ்-ஸித்தீக்",
+            "அல்-அமீன் (நம்பிக்கையாளர்)",
+            "அசதுல்லாஹ்"
+        ],
+        "a": "2",
+        "room": "நபி (ஸல்) அவர்களின் நேர்மையைக் கண்டு குறைஷிகள் அவர்களை 'அல்-அமீன்' மற்றும் 'அஸ்-ஸாதிக்' என அழைத்தனர்.\""
+    },
+    {
+        "q": "\"இஸ்லாத்தில் தடை செய்யப்பட்ட (ஹராமாக்கப்பட்ட) வருமானங்களில் ஒன்று எது?",
+        "o": [
+            "வியாபாரம்",
+            "கூலி வேலை",
+            "வட்டி (ரிபா)",
+            "பரிசுப் பொருட்கள்"
+        ],
+        "a": "2",
+        "room": "வட்டி வாங்குவதும், கொடுப்பதும், அதற்கு சாட்சியாக இருப்பதும் இஸ்லாத்தில் பெரும் பாவமாகும்.\""
+    },
+    {
+        "q": "\"தஜ்ஜாலை அடையாளம் காண அவனது இரு கண்களுக்கு இடையே என்ன வார்த்தை எழுதப்பட்டிருக்கும் என நபி (ஸல்) கூறினார்கள்?",
+        "o": [
+            "அல்லாஹ்",
+            "காஃபிர் (நிராகரிப்பவன்)",
+            "முனாஃபிக்",
+            "ஷைத்தான்"
+        ],
+        "a": "1",
+        "room": "தஜ்ஜாலின் நெற்றியில் 'காஃபிர்' (க,ஃப,ர) என எழுதப்பட்டிருக்கும், அதனை ஒவ்வொரு முஃமினும் படிப்பான்.\""
+    },
+    {
+        "q": "\"இஸ்லாமிய நாட்காட்டியில் (ஹிஜ்ரி) 'ஷவ்வால்' மாதம் எந்த மாதத்திற்குப் பிறகு வருகிறது?",
+        "o": [
+            "ரஜப்",
+            "முஹர்ரம்",
+            "ரமலான்",
+            "துல்ஹஜ்"
+        ],
+        "a": "2",
+        "room": "ரமலான் மாதம் முடிந்து பிறை தெரிந்ததும் ஷவ்வால் மாதம் தொடங்கும், இதன் முதல் நாள் நோன்புப் பெருநாள்.\""
+    },
+    {
+        "q": "\"உமர் (ரலி) அவர்களின் சகோதரி வீட்டில் ஓதப்பட்ட எந்தக் குர்ஆன் வசனங்களைக் கேட்டு அவர்கள் இஸ்லாத்தை ஏற்றார்கள்?",
+        "o": [
+            "சூரா தாஹா",
+            "சூரா யாஸீன்",
+            "சூரா அல்-பகரா",
+            "சூரா அல்-முல்க்"
+        ],
+        "a": "0",
+        "room": "சூரா தாஹாவின் ஆரம்ப வசனங்களை செவியுற்ற உமர் (ரலி) அவர்களின் கல்நெஞ்சம் கரைந்து இஸ்லாத்தை ஏற்றார்கள்.\""
+    },
+    {
+        "q": "\"அஸ்ஹாபுல் கஹ்ஃப் (குகைவாசிகள்) எந்த இறைத்தூதரின் காலத்திற்குப் பிறகு வந்தவர்கள்?",
+        "o": [
+            "மூஸா (அலை)",
+            "இப்ராஹீம் (அலை)",
+            "ஈஸா (அலை)",
+            "முஹம்மது (ஸல்)"
+        ],
+        "a": "2",
+        "room": "ஈஸா (அலை) அவர்களுக்குப் பிறகு வாழ்ந்த சில இளைஞர்கள் தங்கள் ஈமானைக் காக்க குகையில் தஞ்சம் புகுந்தனர்.\""
+    },
+    {
+        "q": "\"இப்ராஹீம் (அலை) அவர்களின் தந்தை (அல்லது சித்தப்பா) பெயர் என்ன, அவர் என்ன தொழில் செய்தார்?",
+        "o": [
+            "அபூதாலிப், வியாபாரி",
+            "ஆஸர், சிலை செதுக்குபவர்",
+            "காரூன், பொற்கொல்லர்",
+            "ஃபிர்அவ்ன், அரசன்"
+        ],
+        "a": "1",
+        "room": "ஆஸர் என்பவர் சிலைகளை செதுக்கி விற்கும் தொழில் செய்து வந்தார், அவரை இப்ராஹீம் (அலை) தடுத்தார்கள்.\""
+    },
+    {
+        "q": "\"மதீனாவிற்கு ஹிஜ்ரத் சென்ற மக்கா முஸ்லிம்கள் (முஹாஜிர்கள்) மற்றும் அவர்களுக்கு உதவிய மதீனா முஸ்லிம்கள் எவ்வாறு அழைக்கப்படுகின்றனர்?",
+        "o": [
+            "அன்ஸாரிகள்",
+            "குறைஷிகள்",
+            "பனூ ஹாஷிம்",
+            "கவாரிக்"
+        ],
+        "a": "0",
+        "room": "'அன்ஸார்' என்றால் 'உதவியாளர்கள்' என்று பொருள். மதீனா முஸ்லிம்கள் முஹாஜிர்களுக்கு அனைத்து வகையிலும் உதவினர்.\""
+    },
+    {
+        "q": "\"வுளு (தொழுகைக்கான தூய்மை) செய்யும் போது எந்த உறுப்பைக் கழுவுவதுடன் வுளு முடிவடைகிறது?",
+        "o": [
+            "முகம்",
+            "கைகள்",
+            "தலைக்கு மஸஹ் செய்தல்",
+            "கால்கள்"
+        ],
+        "a": "3",
+        "room": "வுளுவின் இறுதியில் இரண்டு கால்களையும் கரண்டைக்கால் வரை கழுவ வேண்டும்.\""
+    },
+    {
+        "q": "\"கியாமத் நாளில் (மறுமையில்) மனிதன் எந்தச் செயலுக்காக முதலில் விசாரிக்கப்படுவான்?",
+        "o": [
+            "நோன்பு",
+            "ஹஜ்",
+            "தொழுகை",
+            "ஜகாத்"
+        ],
+        "a": "2",
+        "room": "மறுமை நாளில் ஒரு அடியானிடம் முதன்முதலில் அவனது தொழுகையைப்பற்றியே விசாரிக்கப்படும் என ஹதீஸ் கூறுகிறது.\""
+    }
+];
+</script>
+
+<script>
+// ═══════════════════════════════════════
+// APP STATE & LOGIC
+// ═══════════════════════════════════════
+// PREFIX FOR LOCAL STORAGE - UPDATED DYNAMICALLY FOR DOWNLOADED FILES
+let StoragePrefix = 'isq_public_68752_';
+
+let coins=500, unlockedLevels=[1], gamesPlayed=0, bestWin=0, shareCount=0, coinHistory=[];
+let dailyClaimed={}, dailyStreak=0, dcViewYear=0, dcViewMonth=0;
+let quizData={}, totalQ=0;
+
+// Game states
+let quizLevel=1,quizIdx=0,quizScore=0,quizQs=[],quizAnswered=false;
+let tfIdx=0,tfScore=0,tfData=[],tfAnswered=false;
+let rfTimer=null,rfTime=60,rfScore=0,rfQs=[],rfIdx=0,rfBusy=false;
+let svLives=3,svScore=0,svQs=[],svIdx=0,svBusy=false;
+let snTimer=null,snTime=10,snScore=0,snQs=[],snIdx=0,snBusy=false;
+let saIdx=0,saScore=0,saBuilt=[],saUsed=new Set(),saCurrentWords=[];
+let mazeIdx=0,mazeLives=3,mazeScore=0,mazeBusy=false;
+let archTimer=null,archTime=12,archScore=0,archLives=3,archQs=[],archIdx=0,archBusy=false;
+
+// ═══════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════
+const $=id=>document.getElementById(id);
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+
+function goTo(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');}
+
+function toast(msg){
+  $('toastMsg').textContent=msg;
+  const t=$('toast');t.style.top='18px';
+  clearTimeout(t._t);t._t=setTimeout(()=>t.style.top='-60px',2500);
+}
+
+function saveState(){
+  localStorage.setItem(StoragePrefix+'coins',coins);
+  localStorage.setItem(StoragePrefix+'unlocked',JSON.stringify(unlockedLevels));
+  localStorage.setItem(StoragePrefix+'games',gamesPlayed);
+  localStorage.setItem(StoragePrefix+'best',bestWin);
+  localStorage.setItem(StoragePrefix+'shares',shareCount);
+  localStorage.setItem(StoragePrefix+'history',JSON.stringify(coinHistory.slice(-50)));
+  localStorage.setItem(StoragePrefix+'dailyClaimed',JSON.stringify(dailyClaimed));
+  localStorage.setItem(StoragePrefix+'dailyStreak',dailyStreak);
+  
+  // App data is saved ONLY IF it is the admin file!
+  if(StoragePrefix === 'isq_public_68752_') {
+    localStorage.setItem(StoragePrefix+'appdata',JSON.stringify(appData));
+    localStorage.setItem(StoragePrefix+'prices',JSON.stringify(levelPrices));
+    localStorage.setItem(StoragePrefix+'tf',JSON.stringify(tfCustom));
+    localStorage.setItem(StoragePrefix+'scr',JSON.stringify(scrCustom));
+    localStorage.setItem(StoragePrefix+'maze',JSON.stringify(mazeCustom));
+  }
+}
+
+function loadState(){
+  coins=parseInt(localStorage.getItem(StoragePrefix+'coins')||500);
+  unlockedLevels=JSON.parse(localStorage.getItem(StoragePrefix+'unlocked')||'[1]');
+  gamesPlayed=parseInt(localStorage.getItem(StoragePrefix+'games')||0);
+  bestWin=parseInt(localStorage.getItem(StoragePrefix+'best')||0);
+  shareCount=parseInt(localStorage.getItem(StoragePrefix+'shares')||0);
+  coinHistory=JSON.parse(localStorage.getItem(StoragePrefix+'history')||'[]');
+  dailyClaimed=JSON.parse(localStorage.getItem(StoragePrefix+'dailyClaimed')||'{}');
+  dailyStreak=parseInt(localStorage.getItem(StoragePrefix+'dailyStreak')||0);
+  
+  // Custom Data is loaded ONLY IF it's the admin file
+  if(StoragePrefix === 'isq_public_68752_') {
+    const ad=localStorage.getItem(StoragePrefix+'appdata');if(ad)appData=JSON.parse(ad);
+    const pr=localStorage.getItem(StoragePrefix+'prices');if(pr)levelPrices=JSON.parse(pr);
+    const tf=localStorage.getItem(StoragePrefix+'tf');if(tf)tfCustom=JSON.parse(tf);
+    const sc=localStorage.getItem(StoragePrefix+'scr');if(sc)scrCustom=JSON.parse(sc);
+    const mz=localStorage.getItem(StoragePrefix+'maze');if(mz)mazeCustom=JSON.parse(mz);
+  }
+}
+
+function addCoins(amt,icon,label){
+  if(amt<=0)return;
+  coins+=amt;if(amt>bestWin)bestWin=amt;
+  const n=new Date();
+  const t=`${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+  coinHistory.push({icon,label,coins:amt,time:t});
+  if(coinHistory.length>50)coinHistory.shift();
+  $('homeCoins').textContent=coins;
+  saveState();
+}
+
+function finishGame(title,earned){
+  gamesPlayed++;if(earned>bestWin)bestWin=earned;saveState();
+  $('resIcon').textContent=earned>0?'🥳':'😔';
+  $('resTitle').textContent=earned>0?'அல்ஹம்துலில்லாஹ்!':'மீண்டும் முயல்க!';
+  $('resSubtitle').textContent=title;
+  $('resCoins').textContent='🪙 +'+earned;
+  goTo('resultScreen');
+}
+
+function getAllQs(){let all=[];for(let k in quizData){if(!isNaN(parseInt(k)))all.push(...quizData[k]);}return sh(all);}
+
+// ═══════════════════════════════════════
+// INIT DATA
+// ═══════════════════════════════════════
+function initData(){
+  quizData={};totalQ=0;let maxL=0;
+  for(let lvl in appData){
+    const n=parseInt(lvl);
+    if(isNaN(n)){quizData[lvl]=[];appData[lvl].forEach(str=>{const p=str.split('|');if(p.length>=7)quizData[lvl].push({q:p[0],o:[p[1],p[2],p[3],p[4]],a:[p[1],p[2],p[3],p[4]][parseInt(p[5])],exp:p[6]});});continue;}
+    if(n>maxL)maxL=n;
+    quizData[n]=[];
+    appData[lvl].forEach(str=>{
+      const p=str.split('|');
+      if(p.length>=7){quizData[n].push({q:p[0],o:[p[1],p[2],p[3],p[4]],a:[p[1],p[2],p[3],p[4]][parseInt(p[5])],exp:p[6]});totalQ++;}
+    });
+  }
+  if(!unlockedLevels.includes(1))unlockedLevels.push(1);
+  $('totalQSpan').textContent=totalQ+' கேள்விகள்';
+  renderLevels();
+}
+
+// ═══════════════════════════════════════
+// LEVELS WITH LOCK
+// ═══════════════════════════════════════
+function getLevelPrice(lvl){return levelPrices[lvl]!==undefined?levelPrices[lvl]:lvl*100;}
+
+const LEVEL_ICONS=['🕌','📖','☪️','🤲','👑','🌙','⭐','🕋','📿','🌟','🔮','🏆','💎','🦁','🌺','🌸','🌊','🎯','🔥','💫'];
+const LEVEL_COLORS=[
+  ['#064e3b','#059669','#10b981'],['#1e1b4b','#4f46e5','#818cf8'],
+  ['#78350f','#d97706','#fbbf24'],['#4c1d95','#7c3aed','#c4b5fd'],
+  ['#1e3a5f','#0284c7','#38bdf8'],['#134e4a','#0d9488','#2dd4bf'],
+  ['#7f1d1d','#dc2626','#f87171'],['#1c1917','#57534e','#a8a29e'],
+  ['#1a2e05','#4d7c0f','#a3e635'],['#0c4a6e','#0369a1','#38bdf8'],
+];
+
+function renderLevels(){
+  $('homeCoins').textContent=coins;
+  const c=$('levelList');c.innerHTML='';
+  const numericKeys=Object.keys(quizData).filter(k=>!isNaN(parseInt(k)));
+  const maxL=numericKeys.length>0?Math.max(...numericKeys.map(Number)):1;
+  for(let i=1;i<=maxL;i++){
+    const unlocked=unlockedLevels.includes(i);
+    const price=getLevelPrice(i);
+    const qs=quizData[i]||[];const hasQ=qs.length>0;
+    const isFree=price===0;
+    const icon=LEVEL_ICONS[(i-1)%LEVEL_ICONS.length];
+    const col=LEVEL_COLORS[(i-1)%LEVEL_COLORS.length];
+    const d=document.createElement('div');
+    d.style.cssText='position:relative;display:flex;align-items:center;justify-content:space-between;padding:.85rem 1rem;border-radius:1.4rem;margin-bottom:.7rem;border:1.5px solid '+(unlocked?col[1]+'44':'#d1d5db')+';background:'+(unlocked?'linear-gradient(135deg,'+col[0]+'22,'+col[1]+'11)':'#f3f4f6')+';overflow:hidden;'+(unlocked&&hasQ?'box-shadow:0 2px 16px '+col[1]+'28;':'');
+
+    let badge='';
+    if(!isFree&&!unlocked){badge=`<div style="position:absolute;top:.5rem;right:.5rem;background:#fbbf24;color:#78350f;font-size:.6rem;font-weight:900;padding:.18rem .5rem;border-radius:.4rem;">🔒 ${price} 🪙</div>`;}
+    else if(isFree&&!unlocked){badge=`<div style="position:absolute;top:.5rem;right:.5rem;background:#d1fae5;color:#065f46;font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:.4rem;">FREE</div>`;}
+    else if(unlocked){badge=`<div style="position:absolute;top:.5rem;right:.5rem;background:#ecfdf5;color:#065f46;font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:.4rem;">✅ திறக்கப்பட்டது</div>`;}
+
+    // 3D icon circle
+    const iconEl=`<div style="width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:${unlocked?'linear-gradient(145deg,'+col[1]+','+col[0]+')':'linear-gradient(145deg,#9ca3af,#6b7280)'};box-shadow:${unlocked?'0 4px 12px '+col[1]+'55,inset 0 1px 0 rgba(255,255,255,.3)':'0 3px 8px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.2)'};border:1.5px solid ${unlocked?col[2]+'66':'#9ca3af44'};">${icon}</div>`;
+
+    let right='';
+    if(unlocked&&hasQ){right=`<button onclick="startQuiz(${i})" style="width:2.6rem;height:2.6rem;background:linear-gradient(145deg,${col[1]},${col[0]});border-radius:50%;border:1.5px solid ${col[2]}55;font-size:1.1rem;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px ${col[1]}55,inset 0 1px 0 rgba(255,255,255,.25);" class="bp">▶</button>`;}
+    else if(unlocked&&!hasQ){right=`<span style="background:#e5e7eb;color:#9ca3af;font-size:.62rem;font-weight:700;padding:.22rem .55rem;border-radius:9999px;">காலி</span>`;}
+    else if(!unlocked&&isFree){right=`<button onclick="freeUnlock(${i})" style="background:#10b981;color:white;font-weight:700;padding:.42rem .8rem;border-radius:.7rem;border:none;cursor:pointer;font-size:.78rem;" class="bp">🔓 திறக்க</button>`;}
+    else{right=`<button onclick="unlockLvl(${i},${price})" style="display:flex;align-items:center;gap:.28rem;background:#fbbf24;color:#78350f;font-weight:900;padding:.42rem .75rem;border-radius:.7rem;border:none;cursor:pointer;font-size:.78rem;" class="bp">🔑 ${price} 🪙</button>`;}
+
+    d.innerHTML=`${badge}<div style="display:flex;align-items:center;gap:.7rem;">${iconEl}<div><div style="font-weight:900;font-size:.95rem;color:${unlocked?'#f9fafb':'#9ca3af'};">நிலை ${i}</div><div style="font-size:.68rem;color:${unlocked?col[2]+'cc':'#9ca3af'};">${qs.length} கேள்விகள்${!unlocked&&price>0?' • 🪙'+price+' தேவை':''}</div></div></div><div>${right}</div>`;
+    c.appendChild(d);
+  }
+}
+
+function quickEditPrice(lvl){
+  const cur=getLevelPrice(lvl);
+  const val=prompt('நிலை '+lvl+' - புதிய விலை (0 = Free):',cur);
+  if(val===null)return;
+  const n=parseInt(val);
+  if(isNaN(n)||n<0){toast('❌ சரியான எண் உள்ளிடவும்!');return;}
+  levelPrices[String(lvl)]=n;saveState();
+  toast('✅ நிலை '+lvl+' விலை: '+(n===0?'FREE':n+' 🪙')+' save ஆகியது!');
+  renderLevels();
+}
+
+function unlockLvl(lvl,price){
+  if(coins>=price){coins-=price;unlockedLevels.push(lvl);saveState();toast('🎉 Level '+lvl+' திறக்கப்பட்டது!');renderLevels();}
+  else toast('😢 போதிய காயின் இல்லை! '+price+' 🪙 தேவை.');
+}
+function freeUnlock(lvl){unlockedLevels.push(lvl);saveState();toast('🔓 Level '+lvl+' திறக்கப்பட்டது!');renderLevels();}
+
+// ═══════════════════════════════════════
+// QUIZ GAME
+// ═══════════════════════════════════════
+function startQuiz(level){quizLevel=level;quizQs=sh(quizData[level]);quizIdx=0;quizScore=0;quizAnswered=false;goTo('quizScreen');loadQuiz();}
+function loadQuiz(){
+  quizAnswered=false;const q=quizQs[quizIdx];
+  $('qzLevel').textContent=quizLevel;$('qzIdx').textContent=quizIdx+1;$('qzTotal').textContent=quizQs.length;
+  $('qzScore').textContent='+'+quizScore*10;
+  $('qzBar').style.width=(quizIdx/quizQs.length*100)+'%';
+  $('qzQ').textContent=q.q;
+  $('qzExp').style.maxHeight='0';$('qzExp').style.opacity='0';$('qzNextWrap').style.display='none';
+  const c=$('qzOpts');c.innerHTML='';
+  sh(q.o).forEach(opt=>{
+    const b=document.createElement('button');
+    b.innerHTML=`<span>${opt}</span><span style="font-size:1.2rem;"></span>`;
+    b.className='bp';
+    b.style.cssText='width:100%;text-align:left;padding:.95rem 1rem;border-radius:.9rem;border:2px solid #e5e7eb;background:white;font-size:.98rem;font-weight:700;color:#374151;display:flex;justify-content:space-between;align-items:center;cursor:pointer;';
+    b.onclick=()=>answerQuiz(opt,q.a,q.exp,b);c.appendChild(b);
+  });
+  $('qzNextTxt').textContent=(quizIdx+1===quizQs.length)?'முடிவைக் காண் 🏆':'அடுத்த கேள்வி →';
+}
+function answerQuiz(sel,cor,exp,btn){
+  if(quizAnswered)return;quizAnswered=true;
+  const ok=sel===cor;
+  document.querySelectorAll('#qzOpts button').forEach(b=>{
+    const txt=b.querySelector('span').textContent;const icon=b.querySelectorAll('span')[1];
+    if(txt===cor){b.style.background='#ecfdf5';b.style.borderColor='#10b981';b.style.color='#065f46';icon.textContent='✅';}
+    else if(txt===sel&&!ok){b.style.background='#fef2f2';b.style.borderColor='#ef4444';b.style.color='#7f1d1d';icon.textContent='❌';}
+    else b.style.opacity='.38';
+    b.disabled=true;
+  });
+  if(ok){quizScore++;addCoins(10,'🎮','Level '+quizLevel+' - சரியான விடை');$('qzScore').textContent='+'+quizScore*10;}
+  const eb=$('qzExpBox');
+  eb.style.background=ok?'#ecfdf5':'#fef2f2';eb.style.borderColor=ok?'#10b981':'#ef4444';
+  $('qzExpTitle').textContent=ok?'✅ சரியான விடை!':'❌ தவறான விடை!';
+  $('qzExpTitle').style.color=ok?'#065f46':'#7f1d1d';
+  $('qzExpText').textContent=exp;
+  setTimeout(()=>{$('qzExp').style.maxHeight='200px';$('qzExp').style.opacity='1';$('qzNextWrap').style.display='block';},100);
+}
+function nextQuiz(){quizIdx++;if(quizIdx<quizQs.length)loadQuiz();else finishGame('நிலை '+quizLevel+' முடிந்தது! 🏆',quizScore*10);}
+
+// ═══════════════════════════════════════
+// TRUE/FALSE
+// ═══════════════════════════════════════
+function startTF(){tfData=sh(tfCustom);tfIdx=0;tfScore=0;tfAnswered=false;$('tfCoins').textContent=0;loadTF();}
+function loadTF(){
+  tfAnswered=false;
+  $('tfIdx').textContent=tfIdx+1;$('tfTotal').textContent=tfData.length;
+  const q=$('tfQ');q.textContent=tfData[tfIdx].q;q.classList.remove('pop');void q.offsetWidth;q.classList.add('pop');
+  // Hide result card
+  $('tfResult').style.display='none';
+  const tb=$('tfTrueBtn'),fb=$('tfFalseBtn');
+  tb.disabled=false;fb.disabled=false;
+  tb.style.cssText='flex:1;padding:1.4rem .5rem;border-radius:.9rem;background:linear-gradient(180deg,#4ade80,#16a34a);border:2px solid #86efac;color:white;font-weight:900;font-size:1.25rem;cursor:pointer;box-shadow:0 5px 0 #14532d;transition:all .2s;opacity:1;transform:scale(1);';
+  fb.style.cssText='flex:1;padding:1.4rem .5rem;border-radius:.9rem;background:linear-gradient(180deg,#f87171,#b91c1c);border:2px solid #fca5a5;color:white;font-weight:900;font-size:1.25rem;cursor:pointer;box-shadow:0 5px 0 #7f1d1d;transition:all .2s;opacity:1;transform:scale(1);';
+}
+function handleTF(ans){
+  if(tfAnswered)return;tfAnswered=true;
+  const ok=ans===tfData[tfIdx].a;
+  const tb=$('tfTrueBtn'),fb=$('tfFalseBtn');
+  tb.disabled=true;fb.disabled=true;
+  const correctIsTrue=tfData[tfIdx].a===true;
+  const correctBtn=correctIsTrue?tb:fb;
+  const wrongBtn=correctIsTrue?fb:tb;
+
+  // Glow correct button
+  correctBtn.style.boxShadow='0 0 22px rgba(74,222,128,.7),0 5px 0 #14532d';
+  correctBtn.style.border='3px solid #86efac';
+  correctBtn.style.transform='scale(1.06)';
+  if(!ok){wrongBtn.style.opacity='0.38';wrongBtn.style.transform='scale(.94)';}
+
+  // Show result card
+  const box=$('tfResultBox');
+  const isCorrect=ok;
+  if(isCorrect){
+    box.style.background='linear-gradient(135deg,rgba(22,101,52,.85),rgba(5,46,22,.9))';
+    box.style.border='1.5px solid #4ade80';
+    $('tfResultIcon').textContent='🎉';
+    $('tfResultStatus').textContent='சரியான விடை!';
+    $('tfResultStatus').style.color='#4ade80';
+    $('tfResultAnswer').textContent=correctIsTrue?'✅ சரி (True)':'❌ தவறு (False)';
+    $('tfResultAnswer').style.color='#86efac';
+  }else{
+    box.style.background='linear-gradient(135deg,rgba(127,29,29,.85),rgba(69,10,10,.9))';
+    box.style.border='1.5px solid #f87171';
+    $('tfResultIcon').textContent='😔';
+    $('tfResultStatus').textContent='தவறான விடை!';
+    $('tfResultStatus').style.color='#f87171';
+    $('tfResultAnswer').textContent=correctIsTrue?'✅ சரி (True)':'❌ தவறு (False)';
+    $('tfResultAnswer').style.color='#fca5a5';
+  }
+  $('tfResult').style.display='block';
+
+  if(ok){tfScore+=5;addCoins(5,'✅','சரி/தவறு - சரியான விடை');$('tfCoins').textContent=tfScore;}
+  tfIdx++;if(tfIdx<tfData.length)setTimeout(loadTF,1500);else setTimeout(()=>finishGame('சரி / தவறு சவால் 🏆',tfScore),1500);
+}
+
+// ═══════════════════════════════════════
+// RAPID FIRE
+// ═══════════════════════════════════════
+function startRF(){
+  clearInterval(rfTimer);rfTime=60;rfScore=0;rfIdx=0;rfBusy=false;
+  rfQs=getAllQs();if(!rfQs.length){toast('கேள்விகள் இல்லை!');return;}
+  $('rfCoins').textContent=0;$('rfBar').style.width='100%';$('rfBar').style.background='#fbbf24';
+  $('rfTimer').style.color='white';loadRF();
+  rfTimer=setInterval(()=>{rfTime--;$('rfTimer').textContent='⏱ '+rfTime+'s';$('rfBar').style.width=(rfTime/60*100)+'%';if(rfTime<=10){$('rfTimer').style.color='#fca5a5';$('rfBar').style.background='#ef4444';}if(rfTime<=0){clearInterval(rfTimer);finishGame('வேகப் போட்டி ⚡ முடிந்தது!',rfScore);}},1000);
+}
+function quitRF(){clearInterval(rfTimer);goTo('homeScreen');renderLevels();}
+function loadRF(){rfBusy=false;const q=rfQs[rfIdx%rfQs.length];$('rfQ').textContent=q.q;const c=$('rfOpts');c.innerHTML='';sh(q.o).forEach(opt=>{const b=document.createElement('button');b.textContent=opt;b.className='bp';b.style.cssText='width:100%;padding:.88rem;border-radius:.82rem;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.12);color:white;font-size:.98rem;font-weight:700;cursor:pointer;';b.onclick=()=>answerRF(opt,q.a,b);c.appendChild(b);});}
+function answerRF(sel,cor,btn){
+  if(rfBusy||rfTime<=0)return;rfBusy=true;
+  const ok=sel===cor;
+  btn.style.background=ok?'rgba(34,197,94,.6)':'rgba(239,68,68,.6)';
+  if(ok){rfScore+=2;addCoins(2,'⚡','வேகப்போட்டி - சரியான விடை');$('rfCoins').textContent=rfScore;toast('✅ +2 🪙');}
+  else{toast('❌ தவறு!');Array.from($('rfOpts').children).forEach(b=>{if(b.textContent===cor)b.style.background='rgba(34,197,94,.6)';});}
+  setTimeout(()=>{rfIdx++;loadRF();},520);
+}
+
+// ═══════════════════════════════════════
+// SURVIVAL
+// ═══════════════════════════════════════
+function startSV(){svLives=3;svScore=0;svIdx=0;svBusy=false;svQs=getAllQs();if(!svQs.length){toast('கேள்விகள் இல்லை!');return;}$('svCoins').textContent=0;updateSVLives();loadSV();}
+function updateSVLives(){$('svLives').innerHTML=[0,1,2].map(i=>i<svLives?'❤️':'🖤').join('');}
+function loadSV(){svBusy=false;const q=svQs[svIdx];$('svIdx').textContent=svIdx+1;$('svQ').textContent=q.q;const c=$('svOpts');c.innerHTML='';sh(q.o).forEach(opt=>{const b=document.createElement('button');b.textContent=opt;b.className='bp';b.style.cssText='width:100%;text-align:left;padding:.95rem;border-radius:.82rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#e5e7eb;font-size:.98rem;font-weight:700;cursor:pointer;';b.onclick=()=>answerSV(opt,q.a,b);c.appendChild(b);});}
+function answerSV(sel,cor,btn){
+  if(svBusy)return;svBusy=true;const ok=sel===cor;
+  btn.style.background=ok?'rgba(34,197,94,.2)':'rgba(239,68,68,.2)';btn.style.borderColor=ok?'#22c55e':'#ef4444';btn.style.color=ok?'#86efac':'#fca5a5';
+  if(!ok)Array.from($('svOpts').children).forEach(b=>{if(b.textContent===cor){b.style.background='rgba(34,197,94,.2)';b.style.borderColor='#22c55e';b.style.color='#86efac';}});
+  if(ok){svScore+=3;addCoins(3,'❤️','Survival - சரியான விடை');$('svCoins').textContent=svScore;toast('✅ +3 🪙');}else{svLives--;updateSVLives();toast('❌ உயிர் போயிற்று!');}
+  setTimeout(()=>{if(!ok&&svLives<=0){finishGame('Game Over 💔',svScore);return;}svIdx++;if(svIdx<svQs.length)loadSV();else finishGame('Survival Champion 🏆',svScore);},ok?700:1200);
+}
+function quitSV(){goTo('homeScreen');renderLevels();}
+
+// ═══════════════════════════════════════
+// SNIPER
+// ═══════════════════════════════════════
+function startSniper(){clearInterval(snTimer);snScore=0;snIdx=0;snBusy=false;snQs=getAllQs();if(!snQs.length){toast('கேள்விகள் இல்லை!');return;}$('snScore').textContent=0;loadSniperQ();}
+function loadSniperQ(){
+  clearInterval(snTimer);snBusy=false;snTime=10;
+  const q=snQs[snIdx%snQs.length];$('snQ').textContent=q.q;
+  $('snTimer').textContent='🎯 10';$('snTimer').style.color='#84cc16';$('snBar').style.width='100%';$('snBar').style.background='#84cc16';
+  const c=$('snOpts');c.innerHTML='';
+  sh(q.o).forEach(opt=>{const b=document.createElement('button');b.textContent='🎯 '+opt;b.className='bp';b.style.cssText='width:100%;padding:.82rem;border-radius:.42rem;border:2px solid rgba(101,163,13,.28);background:#0f172a;color:#84cc16;font-size:.92rem;font-weight:700;cursor:pointer;font-family:monospace;';b.onclick=()=>answerSniper(opt,q.a,b);c.appendChild(b);});
+  snTimer=setInterval(()=>{snTime--;$('snTimer').textContent='🎯 '+snTime;$('snBar').style.width=(snTime/10*100)+'%';if(snTime<=3){$('snTimer').style.color='#f87171';$('snBar').style.background='#ef4444';}if(snTime<=0){clearInterval(snTimer);finishGame('Sniper Misfire! 💀',snScore);}},1000);
+}
+function answerSniper(sel,cor,btn){
+  if(snBusy||snTime<=0)return;snBusy=true;clearInterval(snTimer);
+  const ok=sel===cor;
+  btn.style.background=ok?'#84cc16':'#dc2626';btn.style.color=ok?'#000':'white';
+  if(ok){snScore+=5;addCoins(5,'🎯','Sniper - Headshot!');$('snScore').textContent=snScore;toast('🎯 Headshot! +5 🪙');setTimeout(()=>{snIdx++;loadSniperQ();},800);}
+  else{toast('💀 Miss! Game Over!');setTimeout(()=>finishGame('Target Missed! 💀',snScore),1000);}
+}
+function quitSniper(){clearInterval(snTimer);goTo('homeScreen');renderLevels();}
+
+// ═══════════════════════════════════════
+// SCRAMBLED
+// ═══════════════════════════════════════
+function startScrambled(){saIdx=0;saScore=0;loadScrambled();}
+function loadScrambled(){
+  saBuilt=[];saUsed=new Set();
+  const d=scrCustom[saIdx];
+  saCurrentWords=sh(d.words).map((w,i)=>({w,i,id:i+'_'+saIdx}));
+  $('saIdxDisp').textContent=(saIdx+1)+' / '+scrCustom.length;
+  $('saRef').textContent=d.ref;$('saScore').textContent=saScore;
+  $('saHint').style.display='none';
+  renderSABuilt();renderSAChips();
+}
+function renderSABuilt(){
+  const b=$('saBuilt');
+  if(saBuilt.length===0){b.textContent='இங்கே தோன்றும்...';b.style.color='rgba(94,234,212,.38)';b.style.fontStyle='italic';b.style.fontSize='.88rem';}
+  else{b.textContent=saBuilt.map(x=>x.w).join(' ');b.style.color='white';b.style.fontStyle='normal';b.style.fontSize='1.05rem';b.style.fontWeight='900';}
+  $('saLeft').textContent=(saCurrentWords.length-saBuilt.length)+' வார்த்தைகள் மீதம்';
+}
+function renderSAChips(){
+  const c=$('saChips');c.innerHTML='';
+  saCurrentWords.forEach(chip=>{
+    const b=document.createElement('button');b.textContent=chip.w;
+    b.className='chip'+(saUsed.has(chip.id)?' used':'');
+    b.style.cssText='padding:.45rem .9rem;border-radius:9999px;font-weight:700;font-size:.82rem;border:2px solid;cursor:pointer;'+(saUsed.has(chip.id)?'border-color:rgba(45,212,191,.18);background:rgba(45,212,191,.04);color:rgba(94,234,212,.28);pointer-events:none;':'border-color:#2dd4bf;background:rgba(45,212,191,.14);color:#ccfbf1;');
+    if(!saUsed.has(chip.id))b.onclick=()=>saPickWord(chip);
+    c.appendChild(b);
+  });
+}
+function saPickWord(chip){if(saUsed.has(chip.id))return;saUsed.add(chip.id);saBuilt.push(chip);renderSABuilt();renderSAChips();if(saBuilt.length===saCurrentWords.length)setTimeout(checkSA,300);}
+function saUndo(){if(!saBuilt.length)return;const last=saBuilt.pop();saUsed.delete(last.id);renderSABuilt();renderSAChips();$('saHint').style.display='none';}
+function checkSA(){
+  const user=saBuilt.map(x=>x.w).join(' ');const correct=scrCustom[saIdx].words.join(' ');
+  if(user===correct){saScore+=10;addCoins(10,'🔀','Scrambled - சரியான வரிசை!');$('saScore').textContent=saScore;$('saBuilt').style.color='#2dd4bf';toast('✅ சரியான வரிசை! +10 🪙');setTimeout(()=>{saIdx++;if(saIdx<scrCustom.length)loadScrambled();else finishGame('Scrambled Ayat 🔀 முடிந்தது!',saScore);},1100);}
+  else{$('saBuilt').classList.add('shake');setTimeout(()=>$('saBuilt').classList.remove('shake'),500);$('saCorrect').textContent=correct;$('saHint').style.display='block';toast('❌ தவறான வரிசை!');setTimeout(()=>{saIdx++;if(saIdx<scrCustom.length)loadScrambled();else finishGame('Scrambled Ayat 🔀',saScore);},2400);}
+}
+
+// ═══════════════════════════════════════
+// MAZE
+// ═══════════════════════════════════════
+function startMaze(){mazeIdx=0;mazeLives=3;mazeScore=0;mazeBusy=false;loadMaze();}
+function updateMazeLives(){$('mazeLives').textContent=[0,1,2].map(i=>i<mazeLives?'❤️':'🖤').join('');}
+function loadMaze(){
+  mazeBusy=false;updateMazeLives();
+  const q=mazeCustom[mazeIdx];
+  $('mazeRoom').textContent='கக்ஷம் '+(mazeIdx+1)+' / '+mazeCustom.length;
+  $('mazeRoomName').textContent='◆ '+q.room+' ◆';
+  $('mazeQ').textContent=q.q;$('mazeCoins').textContent=mazeScore;
+  const path=$('mazePath');path.innerHTML='';
+  mazeCustom.forEach((_,i)=>{
+    const dot=document.createElement('div');
+    if(i<mazeIdx)dot.style.cssText='width:1.1rem;height:1.1rem;border-radius:50%;background:#d97706;color:#000;font-size:.52rem;font-weight:900;display:flex;align-items:center;justify-content:center;';
+    else if(i===mazeIdx)dot.style.cssText='width:1.4rem;height:1.4rem;border-radius:50%;background:#fbbf24;color:#000;font-size:.68rem;display:flex;align-items:center;justify-content:center;';
+    else dot.style.cssText='width:.9rem;height:.9rem;border-radius:50%;background:rgba(180,83,9,.18);border:1px solid rgba(180,83,9,.18);';
+    dot.textContent=i<mazeIdx?'✓':i===mazeIdx?'🧭':'';
+    path.appendChild(dot);
+    if(i<mazeCustom.length-1){const line=document.createElement('div');line.style.cssText='height:2px;width:.9rem;background:'+(i<mazeIdx?'#d97706':'rgba(180,83,9,.18)')+';';path.appendChild(line);}
+  });
+  const dc=$('mazeDoors');dc.innerHTML='';
+  sh(q.o).forEach(opt=>{
+    const b=document.createElement('button');b.className='door bp';
+    b.style.cssText='padding:.95rem .7rem 1rem;text-align:center;font-weight:700;font-size:.88rem;color:#fef3c7;cursor:pointer;border:2px solid rgba(180,83,9,.4);background:linear-gradient(180deg,rgba(120,53,15,.58),rgba(28,10,2,.85));position:relative;';
+    b.innerHTML=`<div style="position:absolute;top:.38rem;left:50%;transform:translateX(-50%);width:.72rem;height:.72rem;border-radius:50%;background:#b45309;border:1px solid #d97706;"></div>${opt}`;
+    b.onclick=()=>answerMaze(opt,q.a,b);dc.appendChild(b);
+  });
+}
+function answerMaze(sel,cor,btn){
+  if(mazeBusy)return;mazeBusy=true;const ok=sel===cor;
+  btn.style.background=ok?'linear-gradient(180deg,rgba(22,101,52,.6),rgba(5,46,22,.85))':'linear-gradient(180deg,rgba(153,27,27,.6),rgba(69,10,10,.85))';
+  btn.style.borderColor=ok?'#22c55e':'#dc2626';
+  if(!ok)Array.from($('mazeDoors').children).forEach(b=>{if(b.textContent.trim().replace('🧭','')===cor){b.style.background='linear-gradient(180deg,rgba(22,101,52,.4),rgba(5,46,22,.7))';b.style.borderColor='#22c55e';}});
+  if(ok){mazeScore+=10;addCoins(10,'🕌','Quran Maze - சரியான வாயில்');$('mazeCoins').textContent=mazeScore;toast('🚪 சரியான வாயில்! +10 🪙');}
+  else{mazeLives--;updateMazeLives();toast('🚫 தவறான வாயில்! ❌');}
+  setTimeout(()=>{if(!ok&&mazeLives<=0){finishGame('Game Over — வழி தவறிவிட்டீர்! 😔',mazeScore);return;}mazeIdx++;if(mazeIdx<mazeCustom.length)loadMaze();else finishGame('Quran Maze 🕌 — مَاشَاءَ اللَّه',mazeScore);},ok?950:1350);
+}
+
+// ═══════════════════════════════════════
+// ARCHERY
+// ═══════════════════════════════════════
+function startArchery(){
+  clearInterval(archTimer);archScore=0;archLives=3;archIdx=0;archBusy=false;
+  archQs=getAllQs().slice(0,5);if(!archQs.length){toast('கேள்விகள் இல்லை!');return;}
+  $('archCoins').textContent=0;$('archPts').textContent=0;updateArchLives();loadArchQ();
+}
+function updateArchLives(){$('archLives').textContent=[0,1,2].map(i=>i<archLives?'⭐':'☆').join('');}
+function loadArchQ(){
+  clearInterval(archTimer);archBusy=false;archTime=12;
+  if(archIdx>=archQs.length){finishGame('Ayat Archery 🏹✨',archScore);return;}
+  const q=archQs[archIdx];
+  $('archQ').textContent=q.q;$('archRound').textContent='சுற்று '+(archIdx+1)+' / '+archQs.length;
+  $('archTimer').textContent='⏳ 12';$('archTimer').style.color='#facc15';$('archBar').style.width='100%';$('archBar').style.background='#eab308';
+  const COLS=[{bg:'linear-gradient(135deg,#1e1b4b,#312e81)',br:'#6366f1',c:'#c7d2fe'},{bg:'linear-gradient(135deg,#1a1a2e,#2d1b69)',br:'#7c3aed',c:'#ddd6fe'},{bg:'linear-gradient(135deg,#172554,#1e3a8a)',br:'#3b82f6',c:'#bfdbfe'},{bg:'linear-gradient(135deg,#1e1b4b,#4c1d95)',br:'#a855f7',c:'#e9d5ff'}];
+  const oc=$('archOpts');oc.innerHTML='';
+  sh(q.o).forEach((opt,i)=>{
+    const col=COLS[i%COLS.length];const b=document.createElement('button');b.className='star-btn';
+    b.style.cssText=`padding:.95rem .7rem;border-radius:.95rem;border:2px solid ${col.br};background:${col.bg};color:${col.c};font-weight:700;font-size:.88rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.38rem;box-shadow:0 0 12px ${col.br}40;`;
+    b.innerHTML=`<span style="font-size:1.4rem;">⭐</span><span style="text-align:center;line-height:1.3;">${opt}</span>`;
+    b.onclick=()=>answerArch(opt,q.a,b);oc.appendChild(b);
+  });
+  archTimer=setInterval(()=>{archTime--;$('archTimer').textContent='⏳ '+archTime;$('archBar').style.width=(archTime/12*100)+'%';if(archTime<=4){$('archTimer').style.color='#f87171';$('archBar').style.background='#ef4444';}if(archTime<=0){clearInterval(archTimer);toast('⏰ நேரம் முடிந்தது!');archLives--;updateArchLives();if(archLives<=0){finishGame('Archery Over 🌑',archScore);return;}setTimeout(()=>{archIdx++;loadArchQ();},1000);}},1000);
+}
+function answerArch(sel,cor,btn){
+  if(archBusy||archTime<=0)return;archBusy=true;clearInterval(archTimer);
+  const ok=sel===cor;
+  btn.style.background=ok?'#eab308':'#dc2626';btn.style.borderColor=ok?'#fbbf24':'#f87171';btn.style.color=ok?'#000':'white';
+  if(ok){archScore+=10;addCoins(10,'🏹','Archery - 🎯 Hit!');$('archCoins').textContent=archScore;$('archPts').textContent=archScore;toast('🎯 Target Hit! +10 🪙');}
+  else{archLives--;updateArchLives();toast('💨 Miss! ❌');}
+  setTimeout(()=>{if(!ok&&archLives<=0){finishGame('Archery Game Over 🌑',archScore);return;}archIdx++;loadArchQ();},ok?850:1100);
+}
+function quitArchery(){clearInterval(archTimer);goTo('homeScreen');renderLevels();}
+
+// ═══════════════════════════════════════
+// WALLET
+// ═══════════════════════════════════════
+function showWallet(){
+  $('wCoins').textContent=coins;$('wGames').textContent=gamesPlayed;$('wBest').textContent='+'+bestWin;$('wShares').textContent=shareCount+'/5';
+  const rates=[['🎮 சரியான விடை','+10 🪙'],['⚡ வேகப்போட்டி','+2 🪙'],['❤️ Survival','+3 🪙'],['🎯 Sniper','+5 🪙'],['🏹 Archery','+10 🪙'],['📅 Daily Coin','+1,000~3,000 🪙'],['📲 1 Share','+1,000 🪙'],['🎉 5 Share Bonus','+5,000 🪙']];
+  $('earnList').innerHTML=rates.map(([l,v])=>`<div style="display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid rgba(219,39,119,.12);"><span style="color:#9ca3af;font-size:.72rem;">${l}</span><span style="color:#fbbf24;font-weight:900;font-size:.72rem;">${v}</span></div>`).join('');
+  const h=$('wHistory');
+  if(!coinHistory.length){h.innerHTML='<p style="color:#4b5563;font-size:.82rem;text-align:center;padding:1.4rem 0;">இன்னும் எந்த game-உம் விளையாடவில்லை 🎮</p>';}
+  else{h.innerHTML=[...coinHistory].reverse().slice(0,10).map(e=>`<div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:.7rem;padding:.7rem .85rem;margin-bottom:.45rem;"><div style="display:flex;align-items:center;gap:.55rem;"><span style="font-size:1.15rem;">${e.icon}</span><div><p style="color:white;font-size:.78rem;font-weight:700;margin:0;">${e.label}</p><p style="color:#4b5563;font-size:.62rem;margin:0;">${e.time}</p></div></div><span style="color:#fbbf24;font-weight:900;font-size:.82rem;">+${e.coins} 🪙</span></div>`).join('');}
+  initDC();renderDC();
+  goTo('walletScreen');
+}
+
+// ═══════════════════════════════════════
+// SHARE
+// ═══════════════════════════════════════
+function renderShare(){
+  $('shCoins').textContent=coins;const pct=shareCount/5*100;
+  $('shBar').style.width=pct+'%';$('shProgress').textContent=shareCount+' / 5';
+  const cc=$('shCircles');cc.innerHTML='';
+  for(let i=0;i<5;i++){const done=i<shareCount;const d=document.createElement('div');d.style.cssText='display:flex;flex-direction:column;align-items:center;gap:.22rem;';d.innerHTML=`<div style="width:2.6rem;height:2.6rem;border-radius:50%;border:2px solid ${done?'#ec4899':'#374151'};background:${done?'rgba(236,72,153,.2)':'rgba(255,255,255,.04)'};display:flex;align-items:center;justify-content:center;font-size:1.1rem;${done?'box-shadow:0 0 9px rgba(236,72,153,.4);':''}">${done?'✅':'👤'}</div><span style="font-size:.58rem;font-weight:700;color:${done?'#f9a8d4':'#4b5563'};">${done?'Done!':'நண்பர் '+(i+1)}</span>`;cc.appendChild(d);}
+  $('shTiers').innerHTML=[1,2,3,4,5].map(n=>{const done=n<=shareCount;return`<div style="display:flex;align-items:center;justify-content:space-between;padding:.7rem .95rem;border-radius:.7rem;border:1px solid ${done?'rgba(34,197,94,.35)':n===5?'rgba(236,72,153,.28)':'rgba(255,255,255,.08)'};background:${done?'rgba(6,78,59,.22)':n===5?'rgba(131,24,67,.18)':'rgba(255,255,255,.04)'};"><div style="display:flex;align-items:center;gap:.7rem;"><div style="width:1.9rem;height:1.9rem;border-radius:50%;background:${done?'#059669':n===5?'#be185d':'rgba(255,255,255,.1)'};color:white;font-weight:900;font-size:.82rem;display:flex;align-items:center;justify-content:center;">${n}</div><span style="color:#d1d5db;font-size:.88rem;font-weight:700;">${n} நண்பர்${n>1?'கள்':''}${n===5?' 🎉':''}</span></div><span style="font-weight:900;font-size:.88rem;color:${done?'#34d399':'#fbbf24'};">${done?'✅ கிடைத்தது!':'+'+n+',000 🪙'}</span></div>`;}).join('');
+  if(shareCount>=5){$('shAction').style.display='none';$('shDone').style.display='block';}
+  else{$('shAction').style.display='block';$('shDone').style.display='none';$('shBtnTxt').textContent=shareCount===0?'நண்பர்களுக்கு Share செய்!':'இன்னும் '+(5-shareCount)+' பேருக்கு Share செய்!';}
+}
+let sharePending=false,shareTimer=null;
+function doShare(){
+  if(shareCount>=5)return;
+  if(sharePending){toast('⏳ Countdown முடியட்டும்!');return;}
+
+  const txt='🕌 இஸ்லாமிய வினாடி வினா!\n7 Games | Quiz | Sniper | Maze | Archery | Scrambled | Survival | True/False\nஜஸாக்கல்லாஹ் கைரன் 🤲';
+  const waUrl='https://api.whatsapp.com/send?text='+encodeURIComponent(txt);
+  window.open(waUrl,'_blank');
+
+  sharePending=true;
+  const btn=$('shBtn');
+  btn.disabled=true;btn.style.opacity='0.5';
+  $('shClaimBox').style.display='none';
+
+  let secs=8;
+  $('shBtnTxt').textContent='⏳ '+secs+'s — WhatsApp-ல் Share பண்ணுங்க...';
+
+  shareTimer=setInterval(()=>{
+    secs--;
+    if(secs>0){
+      $('shBtnTxt').textContent='⏳ '+secs+'s — WhatsApp-ல் Share பண்ணுங்க...';
+    } else {
+      clearInterval(shareTimer);shareTimer=null;
+      btn.disabled=false;btn.style.opacity='1';
+      $('shBtnTxt').textContent='மீண்டும் Share செய்!';
+      sharePending=false;
+      // Show claim button
+      $('shClaimBox').style.display='block';
+    }
+  },1000);
+}
+
+function claimShareCoin(){
+  const box=$('shClaimBox');box.style.display='none';
+  const nc=shareCount+1;shareCount=nc;
+  addCoins(1000,'📲','நண்பர் '+nc+'-க்கு Share');
+  saveState();
+  toast('🎉 +1,000 காயின்! ஜஸாக்கல்லாஹ் கைரன்! ('+nc+'/5)');
+  if(nc>=5)setTimeout(()=>{addCoins(5000,'🎊','5 பேர் Bonus!');saveState();toast('🎊 BONUS +5,000! அல்ஹம்துலில்லாஹ்!');},1000);
+  renderShare();$('shCoins').textContent=coins;
+}
+
+// ═══════════════════════════════════════
+// DAILY COIN SYSTEM
+// ═══════════════════════════════════════
+const TAMIL_MONTHS=['ஜனவரி','பிப்ரவரி','மார்ச்','ஏப்ரல்','மே','ஜூன்','ஜூலை','ஆகஸ்ட்','செப்டம்பர்','அக்டோபர்','நவம்பர்','டிசம்பர்'];
+const DC_DAYS=['ஞா','தி','செ','பு','வி','வெ','ச'];
+
+// Coin reward per day-of-month (1..31)
+function dcReward(day){
+  if(day<=7)   return 1000;
+  if(day<=14)  return 1500;
+  if(day<=21)  return 2000;
+  if(day<=28)  return 2500;
+  return 3000; // 29,30,31
+}
+
+function dcKey(y,m,d){return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
+
+function todayKey(){const n=new Date();return dcKey(n.getFullYear(),n.getMonth(),n.getDate());}
+
+function initDC(){
+  const n=new Date();
+  dcViewYear=n.getFullYear();
+  dcViewMonth=n.getMonth();
+}
+
+function dcPrevMonth(){
+  dcViewMonth--;
+  if(dcViewMonth<0){dcViewMonth=11;dcViewYear--;}
+  renderDC();
+}
+function dcNextMonth(){
+  const n=new Date();
+  if(dcViewYear>n.getFullYear()||(dcViewYear===n.getFullYear()&&dcViewMonth>=n.getMonth()))return;
+  dcViewMonth++;
+  if(dcViewMonth>11){dcViewMonth=0;dcViewYear++;}
+  renderDC();
+}
+
+function renderDC(){
+  const n=new Date();
+  const todayY=n.getFullYear(),todayM=n.getMonth(),todayD=n.getDate();
+  const isCurrentMonth=(dcViewYear===todayY&&dcViewMonth===todayM);
+
+  $('dcMonthLabel').textContent=TAMIL_MONTHS[dcViewMonth]+' '+dcViewYear;
+  $('dcStreak').textContent='🔥 '+dailyStreak+' நாள்';
+
+  const grid=$('dcGrid');grid.innerHTML='';
+
+  // Day headers
+  DC_DAYS.forEach(d=>{
+    const h=document.createElement('div');
+    h.style.cssText='text-align:center;font-size:.5rem;font-weight:900;color:#8b5cf6;padding:.15rem 0;';
+    h.textContent=d;grid.appendChild(h);
+  });
+
+  // Days in month
+  const daysInMonth=new Date(dcViewYear,dcViewMonth+1,0).getDate();
+  const firstDay=new Date(dcViewYear,dcViewMonth,1).getDay();
+
+  // Empty cells before 1st
+  for(let i=0;i<firstDay;i++){
+    const e=document.createElement('div');grid.appendChild(e);
+  }
+
+  for(let d=1;d<=daysInMonth;d++){
+    const key=dcKey(dcViewYear,dcViewMonth,d);
+    const claimed=!!dailyClaimed[key];
+    const isToday=isCurrentMonth&&d===todayD;
+    const isFuture=dcViewYear>todayY||(dcViewYear===todayY&&dcViewMonth>todayM)||(isCurrentMonth&&d>todayD);
+    const reward=dcReward(d);
+
+    const cell=document.createElement('div');
+    cell.style.cssText=`position:relative;aspect-ratio:1;border-radius:.45rem;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.58rem;font-weight:900;cursor:${(!claimed&&isToday)?'pointer':'default'};
+      background:${claimed?'linear-gradient(135deg,#065f46,#047857)':isToday?'linear-gradient(135deg,#5b21b6,#7c3aed)':isFuture?'rgba(255,255,255,.04)':'rgba(255,255,255,.08)'};
+      border:1.5px solid ${claimed?'#34d399':isToday?'#a78bfa':isFuture?'rgba(255,255,255,.06)':'rgba(255,255,255,.12)'};
+      color:${claimed?'#a7f3d0':isToday?'#e9d5ff':isFuture?'#374151':'#9ca3af'};
+      box-shadow:${isToday?'0 0 10px rgba(124,58,237,.5)':'none'};
+      opacity:${isFuture?'0.4':'1'};`;
+
+    cell.innerHTML=`<span>${claimed?'✅':isFuture?'🔒':isToday?'🪙':d}</span><span style="font-size:.42rem;margin-top:.08rem;">${claimed||isFuture?'':d}</span>`;
+
+    if(!claimed&&isToday){
+      cell.innerHTML=`<span style="font-size:.85rem;">🪙</span><span style="font-size:.45rem;margin-top:.05rem;">${d}</span>`;
+      cell.onclick=()=>claimDailyCoins(key,d,reward);
+    } else if(claimed){
+      cell.innerHTML=`<span style="font-size:.8rem;">✅</span><span style="font-size:.42rem;margin-top:.05rem;">${d}</span>`;
+    } else if(!isFuture){
+      cell.innerHTML=`<span style="font-size:.72rem;color:#6b7280;">${d}</span>`;
+    } else {
+      cell.innerHTML=`<span style="font-size:.62rem;color:#374151;">${d}</span>`;
+    }
+
+    grid.appendChild(cell);
+  }
+
+  // Claim area
+  const ca=$('dcClaimArea');
+  const tKey=todayKey();
+  const alreadyClaimed=!!dailyClaimed[tKey];
+  const todayReward=dcReward(todayD);
+  if(alreadyClaimed){
+    ca.innerHTML=`<div style="text-align:center;background:rgba(6,78,59,.3);border:1px solid #34d399;border-radius:.8rem;padding:.7rem;">
+      <span style="font-size:1.2rem;">✅</span>
+      <p style="color:#a7f3d0;font-size:.75rem;font-weight:700;margin:.2rem 0 0;">இன்று claim பண்ணிட்டீங்க! +${todayReward.toLocaleString()} 🪙</p>
+      <p style="color:#6b7280;font-size:.62rem;margin:.1rem 0 0;">நாளை திரும்பி வாங்க 🌙</p>
+    </div>`;
+  } else {
+    ca.innerHTML=`<button onclick="claimDailyCoins('${tKey}',${todayD},${todayReward})" class="bp" style="width:100%;background:linear-gradient(90deg,#7c3aed,#059669);color:white;font-weight:900;font-size:.9rem;padding:.85rem;border-radius:.9rem;border:none;cursor:pointer;box-shadow:0 0 18px rgba(124,58,237,.4);">
+      🪙 இன்றைய Coin வாங்கு! +${todayReward.toLocaleString()} 🪙
+    </button>`;
+  }
+}
+
+function claimDailyCoins(key,day,reward){
+  if(dailyClaimed[key])return;
+  // Check streak — yesterday claimed?
+  const n=new Date();
+  const yesterday=new Date(n);yesterday.setDate(n.getDate()-1);
+  const yKey=dcKey(yesterday.getFullYear(),yesterday.getMonth(),yesterday.getDate());
+  if(dailyClaimed[yKey]||dailyStreak===0){dailyStreak++;}
+  else{dailyStreak=1;}
+  dailyClaimed[key]=true;
+  addCoins(reward,'📅','Daily Coin - நாள் '+day);
+  saveState();
+  toast('🎉 +'+reward.toLocaleString()+' Daily Coin! 🔥 '+dailyStreak+' நாள் streak!');
+  renderDC();
+  $('wCoins').textContent=coins;
+}
+
+// ═══════════════════════════════════════
+// ═══════════════════════════════════════
+const AD_TABS=['tabQuiz','tabTF','tabScr','tabMaze','tabArch','tabTools'];
+const AD_BTNS=['tabBtnQuiz','tabBtnTF','tabBtnScr','tabBtnMaze','tabBtnArch','tabBtnTools'];
+
+function switchAdTab(id){
+  AD_TABS.forEach((t,i)=>{
+    $(t).style.display=(t===id)?'block':'none';
+    const btn=$(AD_BTNS[i]);
+    btn.style.borderBottomColor=t===id?'#7c3aed':'transparent';
+    btn.style.color=t===id?'#7c3aed':'#6b7280';
+    btn.style.fontWeight=t===id?'800':'700';
+  });
+}
+
+function renderAdmin(){
+  switchAdTab('tabQuiz');
+  renderLevelPriceList();
+  renderQuizList();
+  renderTFList();renderScrList();renderMazeList();renderArchList();
+}
+
+// Level price list in admin
+function renderLevelPriceList(){
+  const c=$('levelPriceList');if(!c)return;c.innerHTML='';
+  const numericKeys=Object.keys(quizData).filter(k=>!isNaN(parseInt(k)));
+  const maxL=numericKeys.length>0?Math.max(...numericKeys.map(Number)):1;
+  for(let i=1;i<=maxL;i++){
+    const price=getLevelPrice(i);
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:.5rem;margin-bottom:.45rem;';
+    row.innerHTML=`<div style="width:2rem;height:2rem;border-radius:50%;background:${unlockedLevels.includes(i)?'#059669':'#d1d5db'};color:${unlockedLevels.includes(i)?'white':'#6b7280'};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;flex-shrink:0;">${i}</div><span style="font-size:.78rem;font-weight:700;color:#374151;flex:1;">நிலை ${i}</span><input type="number" value="${price}" min="0" onchange="updateLevelPrice(${i},this.value)" style="width:5rem;border:1px solid #e5e7eb;border-radius:.5rem;padding:.3rem .4rem;font-size:.78rem;font-weight:700;text-align:center;color:#d97706;outline:none;"><span style="font-size:.7rem;color:#9ca3af;">🪙</span>${unlockedLevels.includes(i)?`<span style="color:#059669;font-size:.7rem;">✅</span>`:`<button onclick="unlockedLevels.push(${i});saveState();renderLevelPriceList();renderLevels();" style="background:#fbbf24;color:#78350f;font-size:.62rem;font-weight:700;padding:.22rem .45rem;border-radius:.4rem;border:none;cursor:pointer;">Unlock</button>`}`;
+    c.appendChild(row);
+  }
+}
+
+function updateLevelPrice(lvl,val){
+  levelPrices[String(lvl)]=parseInt(val)||0;saveState();toast('Level '+lvl+' விலை: '+val+' 🪙');
+}
+
+function saveLevelPrice(){
+  const lvl=$('bLevel').value,price=parseInt($('bLevelPrice').value)||0;
+  levelPrices[String(lvl)]=price;saveState();toast('Level '+lvl+' விலை '+price+' 🪙 save ஆகியது!');renderLevelPriceList();renderLevels();
+}
+
+// ── Add TF Questions ──
+function addTFQuestions(){
+  const raw=$('tfInput').value;if(!raw.trim()){toast('கேள்விகளை உள்ளிடவும்!');return;}
+  let added=0;
+  raw.split('\n').map(l=>l.trim()).filter(l=>l).forEach(line=>{
+    const p=line.split('|');if(p.length<2)return;
+    const ans=p[1].trim().toLowerCase();
+    // Accept English: true/false, Tamil: சரி/தவறு, Numbers: 1/0
+    const isTrue  = ans==='true'  || ans==='சரி'   || ans==='1' || ans==='yes';
+    const isFalse = ans==='false' || ans==='தவறு'  || ans==='0' || ans==='no';
+    if(isTrue||isFalse){tfCustom.push({q:p[0].trim(),a:isTrue});added++;}
+  });
+  if(added>0){saveState();toast('✅ '+added+' TF கேள்விகள் சேர்க்கப்பட்டன!');$('tfInput').value='';renderTFList();}
+  else toast('❌ Format தவறு! கேள்வி|சரி அல்லது கேள்வி|தவறு');
+}
+
+function renderTFList(){
+  $('tfCount').textContent=tfCustom.length;const c=$('tfList');c.innerHTML='';
+  tfCustom.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:center;justify-content:space-between;background:#f9fafb;border:1px solid #e5e7eb;border-radius:.6rem;padding:.55rem .7rem;';
+    d.innerHTML=`<div style="flex:1;"><p style="font-size:.75rem;font-weight:700;color:#374151;margin:0;">${q.q}</p><span style="font-size:.62rem;font-weight:700;color:${q.a?'#059669':'#dc2626'};">${q.a?'✅ சரி':'❌ தவறு'}</span></div><button onclick="tfCustom.splice(${i},1);saveState();renderTFList();" style="color:#dc2626;background:#fee2e2;border:none;border-radius:.4rem;padding:.22rem .45rem;font-size:.68rem;cursor:pointer;flex-shrink:0;margin-left:.4rem;">🗑️</button>`;
+    c.appendChild(d);
+  });
+}
+
+// ── Add Scrambled Questions ──
+function addScrQuestions(){
+  const raw=$('scrInput').value;if(!raw.trim()){toast('கேள்விகளை உள்ளிடவும்!');return;}
+  let added=0;
+  raw.split('\n').map(l=>l.trim()).filter(l=>l).forEach(line=>{
+    const p=line.split('|');if(p.length<1)return;
+    const words=p[0].trim().split(/\s+/).filter(w=>w);
+    const ref=p[1]?p[1].trim():'பொது';
+    if(words.length>=2){scrCustom.push({words,ref});added++;}
+  });
+  if(added>0){saveState();toast('✅ '+added+' Scrambled கேள்விகள் சேர்க்கப்பட்டன!');$('scrInput').value='';renderScrList();}
+  else toast('❌ குறைந்தது 2 வார்த்தைகள் தேவை!');
+}
+
+function renderScrList(){
+  $('scrCount').textContent=scrCustom.length;const c=$('scrList');c.innerHTML='';
+  scrCustom.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:center;justify-content:space-between;background:#f0fdfa;border:1px solid #99f6e4;border-radius:.6rem;padding:.55rem .7rem;';
+    d.innerHTML=`<div style="flex:1;"><p style="font-size:.72rem;font-weight:700;color:#0f766e;margin:0;">${q.words.join(' ')}</p><span style="font-size:.6rem;color:#0d9488;">${q.ref}</span></div><button onclick="scrCustom.splice(${i},1);saveState();renderScrList();" style="color:#dc2626;background:#fee2e2;border:none;border-radius:.4rem;padding:.22rem .45rem;font-size:.68rem;cursor:pointer;flex-shrink:0;margin-left:.4rem;">🗑️</button>`;
+    c.appendChild(d);
+  });
+}
+
+// ── Add Maze Questions ──
+function addMazeQuestions(){
+  const raw=$('mazeInput').value;if(!raw.trim()){toast('கேள்விகளை உள்ளிடவும்!');return;}
+  let added=0;
+  raw.split('\n').map(l=>l.trim()).filter(l=>l).forEach(line=>{
+    const p=line.split('|');if(p.length<7)return;
+    mazeCustom.push({q:p[0],o:[p[1],p[2],p[3],p[4]],a:p[5],room:p[6]});added++;
+  });
+  if(added>0){saveState();toast('✅ '+added+' Maze கேள்விகள் சேர்க்கப்பட்டன!');$('mazeInput').value='';renderMazeList();}
+  else toast('❌ Format தவறு! 7 பகுதிகள் தேவை');
+}
+
+function renderMazeList(){
+  $('mazeCount').textContent=mazeCustom.length;const c=$('mazeList');c.innerHTML='';
+  mazeCustom.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:center;justify-content:space-between;background:#fffbeb;border:1px solid #fde68a;border-radius:.6rem;padding:.55rem .7rem;';
+    d.innerHTML=`<div style="flex:1;"><p style="font-size:.72rem;font-weight:700;color:#92400e;margin:0;">${q.q}</p><span style="font-size:.6rem;color:#b45309;">✅ ${q.a} | ${q.room}</span></div><button onclick="mazeCustom.splice(${i},1);saveState();renderMazeList();" style="color:#dc2626;background:#fee2e2;border:none;border-radius:.4rem;padding:.22rem .45rem;font-size:.68rem;cursor:pointer;flex-shrink:0;margin-left:.4rem;">🗑️</button>`;
+    c.appendChild(d);
+  });
+}
+
+// ── Add Archery Questions (uses quiz format, adds to appData) ──
+function addArchQuestions(){
+  const raw=$('archInput').value;if(!raw.trim()){toast('கேள்விகளை உள்ளிடவும்!');return;}
+  let added=0;
+  if(!appData['arch'])appData['arch']=[];
+  raw.split('\n').map(l=>l.trim()).filter(l=>l).forEach(line=>{
+    const p=line.split('|');if(p.length>=7){appData['arch'].push(line);added++;}
+  });
+  if(added>0){initData();saveState();toast('✅ '+added+' Archery கேள்விகள் சேர்க்கப்பட்டன!');$('archInput').value='';renderArchList();}
+  else toast('❌ Format தவறு!');
+}
+
+function renderArchList(){
+  const archRaw=appData['arch']||[];
+  $('archCount').textContent=archRaw.length;
+  const c=$('archList');c.innerHTML='';
+  if(!archRaw.length){c.innerHTML='<p style="color:#9ca3af;font-size:.78rem;text-align:center;padding:.7rem 0;">இன்னும் Archery கேள்விகள் இல்லை</p>';return;}
+  archRaw.forEach((raw,i)=>{
+    const p=raw.split('|');
+    const q=p[0]||'';const a=p[[parseInt(p[5])]+1]||p[1]||'';
+    const correctIdx=parseInt(p[5]);
+    const correctAns=[p[1],p[2],p[3],p[4]][correctIdx]||p[1]||'';
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:flex-start;justify-content:space-between;background:#eef2ff;border:1px solid #c7d2fe;border-radius:.6rem;padding:.55rem .7rem;gap:.4rem;';
+    d.innerHTML=`<div style="flex:1;min-width:0;"><p style="font-size:.72rem;font-weight:700;color:#3730a3;margin:0;word-break:break-word;">${q}</p><span style="font-size:.6rem;color:#4338ca;font-weight:700;">✅ ${correctAns}</span></div><button onclick="deleteArchQ(${i})" style="color:#dc2626;background:#fee2e2;border:none;border-radius:.4rem;padding:.22rem .45rem;font-size:.68rem;cursor:pointer;flex-shrink:0;margin-top:.1rem;">🗑️</button>`;
+    c.appendChild(d);
+  });
+}
+
+function deleteArchQ(i){
+  if(!appData['arch'])return;
+  appData['arch'].splice(i,1);
+  initData();saveState();renderArchList();
+  toast('🗑️ Archery கேள்வி அழிக்கப்பட்டது!');
+}
+
+function renderQuizList(){
+  const numericKeys=Object.keys(appData).filter(k=>!isNaN(parseInt(k))).sort((a,b)=>parseInt(a)-parseInt(b));
+  // Populate dropdown
+  const sel=$('quizListLevel');
+  const prev=sel.value;
+  sel.innerHTML='';
+  numericKeys.forEach(k=>{
+    const opt=document.createElement('option');
+    opt.value=k;opt.textContent='Level '+k;
+    sel.appendChild(opt);
+  });
+  if(prev&&numericKeys.includes(prev))sel.value=prev;
+  const lvl=sel.value;
+  $('quizListLevelNum').textContent=lvl||'—';
+  const rawList=appData[lvl]||[];
+  $('quizQCount').textContent=rawList.length;
+  const c=$('quizQList');c.innerHTML='';
+  if(!rawList.length){c.innerHTML='<p style="color:#9ca3af;font-size:.78rem;text-align:center;padding:.7rem 0;">இந்த level-ல் கேள்விகள் இல்லை</p>';return;}
+  rawList.forEach((raw,i)=>{
+    const p=raw.split('|');
+    const q=p[0]||'';
+    const correctIdx=parseInt(p[5]);
+    const opts=[p[1],p[2],p[3],p[4]];
+    const correctAns=opts[correctIdx]||p[1]||'';
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:flex-start;justify-content:space-between;background:#f5f3ff;border:1px solid #ddd6fe;border-radius:.65rem;padding:.55rem .7rem;gap:.4rem;';
+    d.innerHTML=`<div style="flex:1;min-width:0;"><p style="font-size:.72rem;font-weight:700;color:#5b21b6;margin:0 0 .18rem;word-break:break-word;">${q}</p><span style="font-size:.6rem;color:#7c3aed;font-weight:700;">✅ ${correctAns}</span></div><button onclick="deleteQuizQ('${lvl}',${i})" style="color:#dc2626;background:#fee2e2;border:none;border-radius:.4rem;padding:.22rem .45rem;font-size:.68rem;cursor:pointer;flex-shrink:0;margin-top:.1rem;" class="bp">🗑️</button>`;
+    c.appendChild(d);
+  });
+}
+
+function deleteQuizQ(lvl,i){
+  if(!appData[lvl])return;
+  appData[lvl].splice(i,1);
+  if(appData[lvl].length===0)delete appData[lvl];
+  initData();saveState();renderQuizList();renderLevelPriceList();
+  toast('🗑️ கேள்வி அழிக்கப்பட்டது!');
+}
+function adminAddCoins(){
+  const amt=parseInt($('adminCoinAmt').value)||0;
+  if(amt<=0){toast('சரியான தொகையை உள்ளிடவும்!');return;}
+  addCoins(amt,'🛠️','Admin - Coins Added');toast('💰 +'+amt+' காயின்கள் சேர்க்கப்பட்டன!');$('homeCoins').textContent=coins;
+}
+
+// ── Save Level Price from input ──
+function buildLevel(){
+  const raw=$('bInput').value,lvl=$('bLevel').value;
+  if(!lvl||lvl<1){toast('சரியான Level எண்!');return;}
+  const lines=raw.split('\n').map(l=>l.trim()).filter(l=>l);
+  const valid=[],bad=[];
+  lines.forEach(l=>{if(l.split('|').length>=7)valid.push(l);else if(l)bad.push(l);});
+  if(bad.length){toast(bad.length+' வரிகள் format தவறு! ❌');return;}
+  if(!valid.length){toast('கேள்விகளை Paste செய்யவும்!');return;}
+  if(!appData[lvl])appData[lvl]=[];
+  appData[lvl].push(...valid);
+  initData();$('bInput').value='';saveState();
+  // Switch level selector to newly added level and refresh list
+  const sel=$('quizListLevel');
+  renderQuizList();
+  if(sel)sel.value=lvl;
+  renderQuizList();
+  toast('✅ Level '+lvl+': '+valid.length+' கேள்விகள் சேர்க்கப்பட்டன!');
+  renderLevelPriceList();
+}
+
+function clearLevel(){
+  const l=$('bLevel').value;
+  if(!appData[l]){toast('Level '+l+' காலி!');return;}
+  if(confirm('Level '+l+' அழிக்கலாமா?')){delete appData[l];initData();saveState();toast('🧹 Level '+l+' அழிக்கப்பட்டது!');renderLevelPriceList();}
+}
+
+// ── Reset functions ──
+function resetAll(){if(confirm('எல்லா questions அழிக்கவா?')){appData={"1":["குர்ஆனில் மொத்த சூராக்கள் எத்தனை?|110|114|120|144|1|114 அத்தியாயங்கள் உள்ளன."]};initData();saveState();toast('🗑️ அழிக்கப்பட்டது!');}}
+function resetCoins(){coins=500;saveState();$('homeCoins').textContent=500;toast('🪙 Coins 500-ஆக reset ஆகியது!');}
+function resetLevels(){unlockedLevels=[1];saveState();renderLevels();toast('🔒 Level progress reset ஆகியது!');}
+
+// ── HTML Import ──
+function importFromHTML(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const html=e.target.result;
+    try{
+      // Extract appData
+      const m1=html.match(/let appData\s*=\s*(\{[\s\S]*?\});\s*\n\s*\n?\s*(let levelPrices|const TF_DATA|\/\/)/);
+      if(m1){
+        const parsed=JSON.parse(m1[1]);
+        let imported=0;
+        for(let k in parsed){
+          if(!appData[k])appData[k]=[];
+          const newQ=parsed[k].filter(q=>!appData[k].includes(q));
+          appData[k].push(...newQ);imported+=newQ.length;
+        }
+        initData();saveState();
+        $('importStatus').innerHTML=`<div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:.6rem;padding:.6rem .8rem;color:#065f46;font-size:.78rem;font-weight:700;">✅ ${imported} Quiz கேள்விகள் import ஆகியது!</div>`;
+      }
+      // Extract tfCustom
+      const m2=html.match(/let tfCustom\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+      if(m2){const parsed=JSON.parse(m2[1]);const newTF=parsed.filter(q=>!tfCustom.some(e=>e.q===q.q));tfCustom.push(...newTF);saveState();}
+      // Extract scrCustom
+      const m3=html.match(/let scrCustom\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+      if(m3){const parsed=JSON.parse(m3[1]);const newS=parsed.filter(q=>!scrCustom.some(e=>e.words.join(' ')===q.words.join(' ')));scrCustom.push(...newS);saveState();}
+      // Extract mazeCustom
+      const m4=html.match(/let mazeCustom\s*=\s*(\[[\s\S]*?\]);\s*\n/);
+      if(m4){const parsed=JSON.parse(m4[1]);const newM=parsed.filter(q=>!mazeCustom.some(e=>e.q===q.q));mazeCustom.push(...newM);saveState();}
+      // Extract levelPrices
+      const m5=html.match(/let levelPrices\s*=\s*(\{[\s\S]*?\});\s*\n/);
+      if(m5){const parsed=JSON.parse(m5[1]);Object.assign(levelPrices,parsed);saveState();}
+
+      toast('📤 HTML import வெற்றி! 🎉');
+      renderTFList();renderScrList();renderMazeList();renderArchList();renderLevelPriceList();
+    }catch(err){
+      $('importStatus').innerHTML=`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:.6rem;padding:.6rem .8rem;color:#7f1d1d;font-size:.78rem;font-weight:700;">❌ Import தவறு: சரியான file-ஐ தேர்வு செய்யவும்!</div>`;
+    }
+  };
+  reader.readAsText(file);
+  input.value='';
+}
+
+// ── 🔥 THE FIX: Bulletproof Generate & Download ──
+function generateAndDownload(){
+  const code=generateHTML();
+  const b=new Blob([code],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='IslamicQuiz_Public.html';a.click();
+  toast('⬇️ Public Game Download ஆகிறது!');
+}
+async function generateAndShare(){
+  const code=generateHTML();
+  const file=new File([code],'IslamicQuiz_Public.html',{type:'text/html'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file]});}catch(e){}}
+  else{generateAndDownload();}
+}
+
+function generateHTML(){
+  let clone = document.documentElement.cloneNode(true);
+
+  // Remove Admin button
+  let adminBtn = clone.querySelector('button[onclick*="adminScreen"]');
+  if(adminBtn) adminBtn.remove();
+
+  // Remove Admin Screen
+  let adminScreen = clone.querySelector('#adminScreen');
+  if(adminScreen) adminScreen.remove();
+
+  // Keep Home Screen Active
+  clone.querySelectorAll('.screen').forEach(s => s.classList.remove('active', 'fade'));
+  let home = clone.querySelector('#homeScreen');
+  if(home) home.classList.add('active', 'fade');
+
+  // Inject data directly into the specific script tag safely
+  let dataScript = clone.querySelector('#game-data');
+  if(dataScript) {
+      let safeJson = (obj) => JSON.stringify(obj, null, 4).replace(/</g, '\\u003c');
+      
+      dataScript.textContent = `\n` +
+      `let appData = ${safeJson(appData)};\n\n` +
+      `let levelPrices = ${safeJson(levelPrices)};\n\n` +
+      `let tfCustom = ${safeJson(tfCustom)};\n\n` +
+      `let scrCustom = ${safeJson(scrCustom)};\n\n` +
+      `let mazeCustom = ${safeJson(mazeCustom)};\n`;
+  }
+
+  let htmlString = clone.outerHTML;
+  
+  // 🔥🔥🔥 The Ultimate Fix 🔥🔥🔥
+  // Download செய்யும் File-க்கு Local Storage பெயரை Random-ஆக மாற்றிவிடுகிறோம்!
+  // இதனால் உங்கள் Browser Memory குறுக்கே வராது!
+  let randomID = Math.floor(Math.random() * 100000);
+  htmlString = htmlString.replace(/isq_public_68752_/g, 'isq_public_' + randomID + '_');
+
+  return '<!DOCTYPE html>\n<html lang="ta">\n' + htmlString + '\n</html>';
+}
+
+// ═══════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════
+window.onload=()=>{loadState();initData();};
+</script>
+
+
+</body></html>
+</html>
