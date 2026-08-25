@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "num": 1,
+    "en": "The Book of Purification",
+    "ta": "தூய்மை",
+    "ar": "كتاب الطهارة",
+    "first": 1,
+    "last": 324
+  },
+  {
+    "id": 2,
+    "num": 2,
+    "en": "The Book of Water",
+    "ta": "நீர்",
+    "ar": "كتاب المياه",
+    "first": 325,
+    "last": 347
+  },
+  {
+    "id": 3,
+    "num": 3,
+    "en": "The Book of Menstruation and Istihadah",
+    "ta": "மாதவிடாய் · இஸ்திஹாதா",
+    "ar": "كتاب الحيض والاستحاضة",
+    "first": 348,
+    "last": 395
+  },
+  {
+    "id": 4,
+    "num": 4,
+    "en": "The Book of Ghusl and Tayammum",
+    "ta": "குஸ்ல் · தயம்மும்",
+    "ar": "كتاب الغسل والتيمم",
+    "first": 396,
+    "last": 447
+  },
+  {
+    "id": 5,
+    "num": 5,
+    "en": "The Book of Salah",
+    "ta": "தொழுகை",
+    "ar": "كتاب الصلاة",
+    "first": 448,
+    "last": 493
+  },
+  {
+    "id": 6,
+    "num": 6,
+    "en": "The Book of the Times (of Prayer)",
+    "ta": "தொழுகை நேரங்கள்",
+    "ar": "كتاب المواقيت",
+    "first": 494,
+    "last": 625
+  },
+  {
+    "id": 7,
+    "num": 7,
+    "en": "The Book of the Adhan (The Call to Prayer)",
+    "ta": "அதான்",
+    "ar": "كتاب الأذان",
+    "first": 626,
+    "last": 687
+  },
+  {
+    "id": 8,
+    "num": 8,
+    "en": "The Book of the Masjids",
+    "ta": "பள்ளிவாசல்கள்",
+    "ar": "كتاب المساجد",
+    "first": 688,
+    "last": 741
+  },
+  {
+    "id": 9,
+    "num": 9,
+    "en": "The Book of the Qiblah",
+    "ta": "கிப்லா",
+    "ar": "كتاب القبلة",
+    "first": 742,
+    "last": 776
+  },
+  {
+    "id": 10,
+    "num": 10,
+    "en": "The Book of Leading the Prayer (Al-Imamah)",
+    "ta": "இமாமத்",
+    "ar": "كتاب الإمامة",
+    "first": 777,
+    "last": 875
+  },
+  {
+    "id": 11,
+    "num": 11,
+    "en": "The Book of the Commencement of the Prayer",
+    "ta": "தொழுகை தொடக்கம்",
+    "ar": "كتاب الافتتاح",
+    "first": 876,
+    "last": 1028
+  },
+  {
+    "id": 12,
+    "num": 12,
+    "en": "The Book of The At-Tatbiq (Clasping One's Hands Together)",
+    "ta": "அத்-தத்பீக்",
+    "ar": "كتاب التطبيق",
+    "first": 1029,
+    "last": 1178
+  },
+  {
+    "id": 13,
+    "num": 13,
+    "en": "The Book of Forgetfulness (In Prayer)",
+    "ta": "மறதி (ஸஹ்வ்)",
+    "ar": "كتاب السهو",
+    "first": 1179,
+    "last": 1366
+  },
+  {
+    "id": 14,
+    "num": 14,
+    "en": "The Book of Jumu'ah (Friday Prayer)",
+    "ta": "ஜும்ஆ",
+    "ar": "كتاب الجمعة",
+    "first": 1367,
+    "last": 1432
+  },
+  {
+    "id": 15,
+    "num": 15,
+    "en": "The Book of Shortening the Prayer When Traveling",
+    "ta": "பயணத்தில் சுருக்குதல்",
+    "ar": "كتاب تقصير الصلاة",
+    "first": 1433,
+    "last": 1458
+  },
+  {
+    "id": 16,
+    "num": 16,
+    "en": "The Book of Eclipses",
+    "ta": "கிரகணம்",
+    "ar": "كتاب الكسوف",
+    "first": 1459,
+    "last": 1503
+  },
+  {
+    "id": 17,
+    "num": 17,
+    "en": "The Book of Praying for Rain (Al-Istisqa')",
+    "ta": "மழை வேண்டல்",
+    "ar": "كتاب الاستسقاء",
+    "first": 1504,
+    "last": 1528
+  },
+  {
+    "id": 18,
+    "num": 18,
+    "en": "The Book of the Fear Prayer",
+    "ta": "பயத் தொழுகை",
+    "ar": "كتاب صلاة الخوف",
+    "first": 1529,
+    "last": 1555
+  },
+  {
+    "id": 19,
+    "num": 19,
+    "en": "The Book of the Prayer for the Two 'Eids",
+    "ta": "ஈத் தொழுகைகள்",
+    "ar": "كتاب صلاة العيدين",
+    "first": 1556,
+    "last": 1597
+  },
+  {
+    "id": 20,
+    "num": 20,
+    "en": "The Book of Qiyam Al-Lail (The Night Prayer) and Voluntary Prayers During the Day",
+    "ta": "இரவுத் தொழுகை · சுன்னத்",
+    "ar": "كتاب قيام الليل",
+    "first": 1598,
+    "last": 1817
+  },
+  {
+    "id": 21,
+    "num": 21,
+    "en": "The Book of Funerals",
+    "ta": "ஜனாஸா",
+    "ar": "كتاب الجنائز",
+    "first": 1818,
+    "last": 2089
+  },
+  {
+    "id": 22,
+    "num": 22,
+    "en": "The Book of Fasting",
+    "ta": "நோன்பு",
+    "ar": "كتاب الصيام",
+    "first": 2090,
+    "last": 2434
+  },
+  {
+    "id": 23,
+    "num": 23,
+    "en": "The Book of Zakah",
+    "ta": "ஜகாத்",
+    "ar": "كتاب الزكاة",
+    "first": 2435,
+    "last": 2618
+  },
+  {
+    "id": 24,
+    "num": 24,
+    "en": "The Book of Hajj",
+    "ta": "ஹஜ்",
+    "ar": "كتاب الحج",
+    "first": 2619,
+    "last": 3084
+  },
+  {
+    "id": 25,
+    "num": 25,
+    "en": "The Book of Jihad",
+    "ta": "ஜிஹாத்",
+    "ar": "كتاب الجهاد",
+    "first": 3085,
+    "last": 3195
+  },
+  {
+    "id": 26,
+    "num": 26,
+    "en": "The Book of Marriage",
+    "ta": "திருமணம்",
+    "ar": "كتاب النكاح",
+    "first": 3196,
+    "last": 3388
+  },
+  {
+    "id": 27,
+    "num": 27,
+    "en": "The Book of Divorce",
+    "ta": "விவாகரத்து",
+    "ar": "كتاب الطلاق",
+    "first": 3389,
+    "last": 3560
+  },
+  {
+    "id": 28,
+    "num": 28,
+    "en": "The Book of Horses, Races and Shooting",
+    "ta": "குதிரை · போட்டி",
+    "ar": "كتاب الخيل",
+    "first": 3561,
+    "last": 3593
+  },
+  {
+    "id": 29,
+    "num": 29,
+    "en": "The Book of Endowments",
+    "ta": "வக்ஃப்",
+    "ar": "كتاب الأحباس",
+    "first": 3594,
+    "last": 3610
+  },
+  {
+    "id": 30,
+    "num": 30,
+    "en": "The Book of Wills",
+    "ta": "உயில்",
+    "ar": "كتاب الوصايا",
+    "first": 3611,
+    "last": 3671
+  },
+  {
+    "id": 31,
+    "num": 31,
+    "en": "The Book of Presents",
+    "ta": "பரிசுகள்",
+    "ar": "كتاب النحل",
+    "first": 3672,
+    "last": 3687
+  },
+  {
+    "id": 32,
+    "num": 32,
+    "en": "The Book of Gifts",
+    "ta": "கொடைகள்",
+    "ar": "كتاب الهبة",
+    "first": 3688,
+    "last": 3705
+  },
+  {
+    "id": 33,
+    "num": 33,
+    "en": "The Book of ar-Ruqba",
+    "ta": "ருக்பா",
+    "ar": "كتاب الرقبى",
+    "first": 3706,
+    "last": 3719
+  },
+  {
+    "id": 34,
+    "num": 34,
+    "en": "The Book of 'Umra",
+    "ta": "உம்ரா",
+    "ar": "كتاب العمرى",
+    "first": 3720,
+    "last": 3760
+  },
+  {
+    "id": 35,
+    "num": 35,
+    "en": "The Book of Agriculture",
+    "ta": "விவசாயம்",
+    "ar": "كتاب المزارعة",
+    "first": 3761,
+    "last": 3856
+  },
+  {
+    "id": 36,
+    "num": 36,
+    "en": "The Book of the Kind Treatment of Women",
+    "ta": "பெண்களிடம் நல்லொழுக்கம்",
+    "ar": "كتاب عشرة النساء",
+    "first": 3939,
+    "last": 3965
+  },
+  {
+    "id": 37,
+    "num": 37,
+    "en": "The Book of Fighting [The Prohibition of Bloodshed]",
+    "ta": "போர் · இரத்தம் தடை",
+    "ar": "كتاب تحريم الدم",
+    "first": 3966,
+    "last": 4132
+  },
+  {
+    "id": 38,
+    "num": 38,
+    "en": "The Book of Distribution of Al-Fay'",
+    "ta": "ஃபை பங்கீடு",
+    "ar": "كتاب قسم الفيء",
+    "first": 4133,
+    "last": 4148
+  },
+  {
+    "id": 39,
+    "num": 39,
+    "en": "The Book of al-Bay'ah",
+    "ta": "பைஅத்",
+    "ar": "كتاب البيعة",
+    "first": 4149,
+    "last": 4211
+  },
+  {
+    "id": 40,
+    "num": 40,
+    "en": "The Book of al-'Aqiqah",
+    "ta": "அகீகா",
+    "ar": "كتاب العقيقة",
+    "first": 4212,
+    "last": 4221
+  },
+  {
+    "id": 41,
+    "num": 41,
+    "en": "The Book of al-Fara' and al-'Atirah",
+    "ta": "ஃபரா · அதீரா",
+    "ar": "كتاب الفرع والعتيرة",
+    "first": 4222,
+    "last": 4262
+  },
+  {
+    "id": 42,
+    "num": 42,
+    "en": "The Book of Hunting and Slaughtering",
+    "ta": "வேட்டை · அறுத்தல்",
+    "ar": "كتاب الصيد والذبائح",
+    "first": 4263,
+    "last": 4360
+  },
+  {
+    "id": 43,
+    "num": 43,
+    "en": "The Book of ad-Dahaya (Sacrifices)",
+    "ta": "குர்பானி",
+    "ar": "كتاب الضحايا",
+    "first": 4361,
+    "last": 4448
+  },
+  {
+    "id": 44,
+    "num": 44,
+    "en": "The Book of Financial Transactions",
+    "ta": "வியாபாரம்",
+    "ar": "كتاب البيوع",
+    "first": 4449,
+    "last": 4705
+  },
+  {
+    "id": 45,
+    "num": 45,
+    "en": "The Book of Oaths (qasamah), Retaliation and Blood Money",
+    "ta": "சத்தியம் · கிசாஸ் · தியத்",
+    "ar": "كتاب القسامة",
+    "first": 4706,
+    "last": 4869
+  },
+  {
+    "id": 46,
+    "num": 46,
+    "en": "The Book of Cutting off the Hand of the Thief",
+    "ta": "திருடனின் கை வெட்டுதல்",
+    "ar": "كتاب قطع السارق",
+    "first": 4870,
+    "last": 4984
+  },
+  {
+    "id": 47,
+    "num": 47,
+    "en": "The Book Of Faith and its Signs",
+    "ta": "ஈமான் · அடையாளங்கள்",
+    "ar": "كتاب الإيمان",
+    "first": 4985,
+    "last": 5039
+  },
+  {
+    "id": 48,
+    "num": 48,
+    "en": "The Book of Adornment",
+    "ta": "அலங்காரம்",
+    "ar": "كتاب الزينة",
+    "first": 5040,
+    "last": 5378
+  },
+  {
+    "id": 49,
+    "num": 49,
+    "en": "The Book of the Etiquette of Judges",
+    "ta": "நீதிபதி ஒழுக்கம்",
+    "ar": "كتاب آداب القضاة",
+    "first": 5379,
+    "last": 5427
+  },
+  {
+    "id": 50,
+    "num": 50,
+    "en": "The Book of Seeking Refuge with Allah",
+    "ta": "அல்லாஹ்விடம் அடைக்கலம்",
+    "ar": "كتاب الاستعاذة",
+    "first": 5428,
+    "last": 5539
+  },
+  {
+    "id": 51,
+    "num": 51,
+    "en": "The Book of Drinks",
+    "ta": "பானங்கள்",
+    "ar": "كتاب الأشربة",
+    "first": 5540,
+    "last": 5758
+  }
+]
