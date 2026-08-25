@@ -1,0 +1,284 @@
+/* ============================================================
+   FX PREMIUM — global 3D + animation boost layer
+   Additive only. Does not modify any existing rule.
+   ============================================================ */
+
+html{ scroll-behavior:smooth; }
+body{ perspective:1200px; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+  }
+  .fxp-particle, .fxp-orbit, .fxp-star{ display:none !important; }
+}
+
+/* ---------- Splash: 3D bismillah reveal ---------- */
+.app-splash{
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255,183,3,.16), transparent 55%),
+    radial-gradient(circle at 50% 65%, rgba(0,212,255,.12), transparent 60%),
+    #060a1a !important;
+  overflow:hidden;
+  perspective:900px;
+}
+.app-splash .splash-inner{
+  transform-style:preserve-3d;
+  animation:fxpSplashIn 1.1s cubic-bezier(.2,.9,.25,1.15) both;
+}
+@keyframes fxpSplashIn{
+  0%{ opacity:0; transform:rotateY(60deg) translateZ(-140px) scale(.7); filter:blur(6px); }
+  60%{ opacity:1; filter:blur(0); }
+  100%{ opacity:1; transform:rotateY(0deg) translateZ(0) scale(1); }
+}
+.app-splash .splash-icon{
+  animation:fxpSplashFloat 2.6s ease-in-out .8s infinite, fxpSplashGlow 2.4s ease-in-out .8s infinite;
+  filter:drop-shadow(0 10px 26px rgba(255,183,3,.45));
+  transform-style:preserve-3d;
+}
+@keyframes fxpSplashFloat{
+  0%,100%{ transform:translateY(0) rotateX(0deg); }
+  50%{ transform:translateY(-10px) rotateX(6deg); }
+}
+@keyframes fxpSplashGlow{
+  0%,100%{ filter:drop-shadow(0 10px 26px rgba(255,183,3,.35)); }
+  50%{ filter:drop-shadow(0 14px 38px rgba(0,212,255,.55)); }
+}
+.app-splash .splash-text{
+  animation:fxpTextShimmer 2.2s linear .6s infinite;
+  background:linear-gradient(90deg,var(--gold-light,#ffe066),#fff,var(--blue-glow,#7ef0ff),var(--gold-light,#ffe066));
+  background-size:300% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+@keyframes fxpTextShimmer{
+  0%{ background-position:0% 0; }
+  100%{ background-position:300% 0; }
+}
+.app-splash::before, .app-splash::after{
+  content:''; position:absolute; left:50%; top:38%;
+  width:220px; height:220px; margin:-110px 0 0 -110px;
+  border-radius:50%;
+  border:1px solid rgba(255,183,3,.25);
+  animation:fxpRing 3.2s ease-out infinite;
+  pointer-events:none;
+}
+.app-splash::after{ animation-delay:1.1s; border-color:rgba(0,212,255,.22); }
+@keyframes fxpRing{
+  0%{ transform:scale(.4); opacity:0; }
+  35%{ opacity:.8; }
+  100%{ transform:scale(1.9); opacity:0; }
+}
+
+/* Ambient sparkle dust (JS injects .fxp-star spans) */
+.fxp-star{
+  position:absolute; width:3px; height:3px; border-radius:50%;
+  background:#fff; opacity:0;
+  box-shadow:0 0 6px 1px rgba(255,255,255,.8);
+  animation:fxpTwinkle 2.6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes fxpTwinkle{
+  0%,100%{ opacity:0; transform:scale(.5); }
+  50%{ opacity:1; transform:scale(1.2); }
+}
+
+/* ---------- Screen transitions: 3D depth swap ---------- */
+.screen{ transform-style:preserve-3d; will-change:transform,opacity; }
+.screen.active.fxp-in{
+  animation:fxpScreenIn3D .5s cubic-bezier(.22,1,.36,1) both !important;
+}
+@keyframes fxpScreenIn3D{
+  0%{ opacity:0; transform:translateY(18px) translateZ(-60px) rotateX(6deg); filter:blur(3px); }
+  100%{ opacity:1; transform:translateY(0) translateZ(0) rotateX(0deg); filter:blur(0); }
+}
+
+/* ---------- Home hero: parallax glow + floating arch ---------- */
+.home-hero{ perspective:800px; }
+.home-hero-arch{
+  transform-style:preserve-3d;
+  animation:fxpHeroFloat 4.5s ease-in-out infinite;
+}
+@keyframes fxpHeroFloat{
+  0%,100%{ transform:translateY(0) rotateX(0deg); }
+  50%{ transform:translateY(-5px) rotateX(2deg); }
+}
+.home-hero-glow{
+  animation:fxpGlowPulse 3.6s ease-in-out infinite;
+}
+@keyframes fxpGlowPulse{
+  0%,100%{ opacity:.55; transform:scale(1); }
+  50%{ opacity:.95; transform:scale(1.12); }
+}
+.home-hero-title{
+  text-shadow:0 0 18px rgba(255,183,3,.4);
+  animation:fxpTitleBreathe 3s ease-in-out infinite;
+}
+@keyframes fxpTitleBreathe{
+  0%,100%{ text-shadow:0 0 12px rgba(255,183,3,.32); }
+  50%{ text-shadow:0 0 26px rgba(0,212,255,.5); }
+}
+
+/* ---------- Universal 3D press physics for buttons/tiles ---------- */
+button, .icon-btn, .home-tile, .opt-btn, .mode-btn, .back-btn,
+.stat-pill, .s3d-card, .level-tile, .badge-card, .theme-swatch{
+  transform-style:preserve-3d;
+  transition:transform .16s cubic-bezier(.34,1.56,.64,1), box-shadow .16s ease, filter .16s ease !important;
+}
+.fxp-tilt{ will-change:transform; }
+.fxp-press{
+  transform:scale(.94) translateY(1px) !important;
+  filter:brightness(.92);
+}
+.fxp-ripple-layer{
+  position:absolute; inset:0; overflow:hidden; border-radius:inherit;
+  pointer-events:none; z-index:2;
+}
+.fxp-ripple{
+  position:absolute; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 70%);
+  transform:scale(0); opacity:.9;
+  animation:fxpRippleOut .6s ease-out forwards;
+  pointer-events:none;
+}
+@keyframes fxpRippleOut{
+  to{ transform:scale(2.6); opacity:0; }
+}
+
+/* ---------- Home tile 3D hover tilt (pointer-tracked via JS custom props) ---------- */
+.home-tile{
+  transform:
+    perspective(700px)
+    rotateX(calc(var(--fxp-ry, 0) * 1deg))
+    rotateY(calc(var(--fxp-rx, 0) * -1deg))
+    translateZ(0);
+}
+.home-tile:active{ transform:scale(.95) translateZ(0) !important; }
+
+/* ---------- Achievement / correct-answer confetti pieces ---------- */
+.fxp-confetti{
+  position:fixed; width:8px; height:12px; top:0; left:0;
+  z-index:99998; pointer-events:none;
+  animation:fxpConfettiFall 1.5s cubic-bezier(.35,.6,.5,1) forwards;
+  transform-style:preserve-3d;
+}
+@keyframes fxpConfettiFall{
+  0%{ transform:translate(0,0) rotate3d(1,1,0,0deg); opacity:1; }
+  100%{ transform:translate(var(--fxp-dx,0), var(--fxp-dy,420px)) rotate3d(1,1,0,540deg); opacity:0; }
+}
+
+/* ---------- Badge / card 3D idle float ---------- */
+.badge-card:not(.locked){
+  animation:fxpBadgeFloat 3.2s ease-in-out infinite;
+}
+.badge-card:nth-child(even){ animation-delay:.5s; }
+@keyframes fxpBadgeFloat{
+  0%,100%{ transform:translateY(0) rotateY(0deg); }
+  50%{ transform:translateY(-4px) rotateY(6deg); }
+}
+
+/* ---------- Coin / streak extra glow ---------- */
+.stat-pill{
+  box-shadow:0 0 0 rgba(255,183,3,0);
+  animation:fxpPillGlow 2.8s ease-in-out infinite;
+}
+@keyframes fxpPillGlow{
+  0%,100%{ box-shadow:0 0 0 rgba(255,183,3,0); }
+  50%{ box-shadow:0 0 14px rgba(255,183,3,.35); }
+}
+
+/* ---------- Offline banner ---------- */
+.fxp-offline-banner{
+  position:fixed; left:50%; top:-80px; transform:translateX(-50%);
+  max-width:92%; width:420px;
+  background:linear-gradient(135deg,#7c2d12,#b45309);
+  color:#fff; font-size:12px; font-weight:700; line-height:1.4;
+  padding:10px 16px; border-radius:0 0 14px 14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+  z-index:99999;
+  text-align:center;
+  transition:top .35s cubic-bezier(.22,1,.36,1);
+}
+.fxp-offline-banner.fxp-show{ top:0; }
+
+/* ---------- Juz Amma offline download FAB ---------- */
+.fxp-download-fab{
+  position:fixed; right:14px; bottom:18px; z-index:99997;
+  display:flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--gold,#ffb703),var(--gold-deep,#e08600));
+  color:#1a1200; border:none; border-radius:16px;
+  padding:10px 14px;
+  font-size:11px; font-weight:800; line-height:1.3; text-align:left;
+  box-shadow:0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.5);
+  cursor:pointer;
+  animation:fxpFabIn .4s cubic-bezier(.34,1.56,.64,1) both, fxpFabPulse 2.6s ease-in-out 1s infinite;
+}
+.fxp-fab-icon{ font-size:20px; }
+@keyframes fxpFabIn{
+  from{ opacity:0; transform:translateY(20px) scale(.8); }
+  to{ opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes fxpFabPulse{
+  0%,100%{ box-shadow:0 8px 20px rgba(0,0,0,.35), 0 0 0 rgba(255,183,3,0); }
+  50%{ box-shadow:0 8px 20px rgba(0,0,0,.35), 0 0 16px rgba(255,183,3,.55); }
+}
+.fxp-download-fab:active{ transform:scale(.95); }
+
+/* ---------- Juz-by-Juz download panel ---------- */
+.fxp-juz-panel{
+  position:fixed; inset:0; z-index:99998;
+  background:rgba(6,10,26,.72);
+  backdrop-filter:blur(3px);
+  display:flex; align-items:flex-end; justify-content:center;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease;
+}
+.fxp-juz-panel.fxp-show{ opacity:1; pointer-events:auto; }
+.fxp-juz-panel-inner{
+  width:100%; max-width:480px; max-height:82vh;
+  background:#0e1530; border-radius:20px 20px 0 0;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 -10px 30px rgba(0,0,0,.5);
+  display:flex; flex-direction:column;
+  transform:translateY(20px);
+  transition:transform .3s cubic-bezier(.22,1,.36,1);
+}
+.fxp-juz-panel.fxp-show .fxp-juz-panel-inner{ transform:translateY(0); }
+.fxp-juz-panel-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 16px 8px; font-weight:800; font-size:14px; color:var(--gold-light,#ffe066);
+}
+.fxp-juz-close{
+  background:#1a2340; color:#fff; border:none; border-radius:10px;
+  width:30px; height:30px; font-size:14px; cursor:pointer;
+}
+.fxp-juz-panel-sub{
+  padding:0 16px 10px; font-size:11px; color:var(--blue-glow,#7ef0ff); opacity:.85;
+}
+.fxp-juz-list{
+  overflow-y:auto; padding:0 12px 16px; display:flex; flex-direction:column; gap:6px;
+}
+.fxp-juz-row{
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+  border-radius:12px; padding:10px 12px;
+  transition:background .2s ease, border-color .2s ease;
+}
+.fxp-juz-row.fxp-juz-active{ border-color:rgba(255,183,3,.5); }
+.fxp-juz-row.fxp-juz-done{ opacity:.6; }
+.fxp-juz-label{ font-size:12px; font-weight:700; color:#fff; }
+.fxp-juz-label small{ color:#94a3b8; font-weight:600; }
+.fxp-juz-dl-btn{
+  background:linear-gradient(135deg,var(--gold,#ffb703),var(--gold-deep,#e08600));
+  border:none; border-radius:10px; width:42px; height:32px;
+  font-size:12px; font-weight:800; color:#1a1200; cursor:pointer;
+}
+.fxp-juz-row.fxp-juz-done .fxp-juz-dl-btn{ background:#1a2340; color:#12e07a; }
+
+/* ---------- Header entrance ---------- */
+header{ animation:fxpHeaderDrop .5s cubic-bezier(.22,1,.36,1) both; }
+@keyframes fxpHeaderDrop{
+  0%{ opacity:0; transform:translateY(-14px); }
+  100%{ opacity:1; transform:translateY(0); }
+}
