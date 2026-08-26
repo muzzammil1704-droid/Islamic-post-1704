@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#060a1a">
+<title data-i18n="app_title">Quran Garden</title>
+<link rel="preconnect" href="https://verses.quran.foundation">
+<link rel="preload" href="https://verses.quran.foundation/fonts/quran/hafs/uthmanic_hafs/UthmanicHafs1Ver18.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Noto+Naskh+Arabic:wght@400;700&family=Noto+Sans+Tamil:wght@400;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="icons/app-icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fx-premium.css">
+
+<style id="data-lang-css">
+html[lang="en"] [data-lang="ta"] { display: none !important; }
+html[lang="en"] [data-lang="en"] { display: block !important; }
+html[lang="ta"] [data-lang="en"] { display: none !important; }
+html[lang="ta"] [data-lang="ta"] { display: unset !important; }
+html[lang="en"] span[data-lang="en"] { display: inline !important; }
+html[lang="ta"] span[data-lang="ta"] { display: inline !important; }
+html[lang="en"] strong[data-lang="en"] { display: inline !important; }
+html[lang="ta"] strong[data-lang="ta"] { display: inline !important; }
+</style>
+</head>
+<body class="theme-midnight">
+
+<!-- App splash — Bismillah 5s -->
+<div id="appSplash" class="app-splash" aria-hidden="false">
+  <div class="splash-inner">
+    <img src="icons/bismillah-splash.png" alt="Bismillah" class="splash-icon">
+    <p class="splash-text">بِسْمِ ٱللّٰهِ</p>
+  </div>
+</div>
+
+<div id="bootSplash" style="position:fixed;inset:0;z-index:99999;background:#060a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:sans-serif;transition:opacity .3s">
+  <div style="margin-top:10px"><img src="icons/quran-garden-banner.png" alt="குர்ஆன் தோட்டம்" style="width:min(280px,80vw);height:auto"></div>
+  <div style="font-size:12px;color:#94a3b8;margin-top:6px" data-i18n="loading">ஏற்றுகிறது…</div>
+</div>
+<script>
+setTimeout(function(){
+  var s=document.getElementById('bootSplash');
+  if(s){ s.style.opacity='0'; setTimeout(function(){try{s.remove()}catch(e){}},400); }
+}, 500);
+</script>
+
+
+<style id="hdr-gold-rim">
+header .hdr-gold,
+header .stat-pill,
+header #coinPill,
+header #streakPill,
+header #soundBtn,
+header #headerLangBtn {
+  border: 2.5px solid #f0d078 !important;
+  border-top-color: #ffe9a8 !important;
+  border-bottom-color: #8a6a12 !important;
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 3px 0 rgba(0,0,0,.35) !important;
+  background: linear-gradient(165deg, #3b1d6e 0%, #1a1438 100%) !important;
+  overflow: visible !important;
+}
+#coinPill{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 12px !important;
+  overflow: visible !important;
+  min-width: 72px !important;
+}
+/* Coin: NO rotateY (edge-on hides half). Soft horizontal flip keeps full face. */
+#coinPill .coin-spin{
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  min-height: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background: none !important;
+  background-image: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  animation: coinFlipSoft 1.8s ease-in-out infinite !important;
+  transform-origin: center center !important;
+}
+#coinPill .coin-spin img,
+#coinPill .hdr-coin-img{
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  display: block !important;
+  animation: none !important;
+  transform: none !important;
+  background: none !important;
+  border-radius: 50% !important;
+}
+@keyframes coinFlipSoft{
+  0%   { transform: scaleX(1); }
+  50%  { transform: scaleX(0.4); }
+  100% { transform: scaleX(1); }
+}
+header #soundBtn, header #headerLangBtn{
+  width: 42px !important; height: 42px !important; min-width: 42px !important;
+  padding: 0 !important; display: inline-flex !important;
+  align-items: center !important; justify-content: center !important;
+  overflow: visible !important;
+}
+</style>
+<header>
+  <h1 class="header-brand" aria-label="குர்ஆன் தோட்டம்"><img src="icons/quran-garden-banner.png" alt="குர்ஆன் தோட்டம்" class="header-banner-img"></h1>
+  <div class="stat-pill hdr-gold" id="coinPill"><span class="coin-spin" aria-hidden="true"><img src="icons/coin.png" alt="" class="hdr-coin-img"></span> <span id="coinCount">0</span></div>
+  <div class="stat-pill hdr-gold" id="streakPill"><img src="icons/fire.png" alt="" class="streak-fire-icon"> <span id="streakCount">0</span></div>
+  <button class="icon-btn hdr-gold" id="soundBtn" title="Sound" data-i18n-title="nav_sound"><img src="icons/sound.png" alt="" class="header-sound-icon"></button>
+  <button class="icon-btn header-lang-btn hdr-gold" id="headerLangBtn" type="button" title="Language / மொழி" aria-label="Language">
+      <img src="icons/lang-globe.png" alt="Language" class="lang-globe-icon">
+      <span class="lang-badge" id="headerLangBadge">EN</span>
+    </button>
+</header>
+
+<main>
+  <section class="screen active" id="screenSelect">
+    <!-- NEW HOME HUB -->
+    <div class="home-hub" id="homeHub">
+      <div class="home-hero">
+        <div class="home-hero-glow"></div>
+        <div class="home-hero-arch">
+          <img src="icons/quran-garden-banner.png" alt="குர்ஆன் தோட்டம்" class="home-banner-img">
+        </div>
+      </div>
+
+            
+      <div class="home-prayer-strip" id="homePrayerStrip" role="button" title="தொழுகை நேரம்">
+        <div class="hps-icon">🕌</div>
+        <div class="hps-body">
+          <div class="hps-label">அடுத்த தொழுகை</div>
+          <div class="hps-name" id="hpsName">—</div>
+        </div>
+        <div class="hps-count" id="hpsCount">--:--:--</div>
+      </div>
+
+            <div class="home-grid">
+        <button type="button" class="home-tile" data-go="garden">
+          <span class="home-tile-icon"><img src="icons/garden.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_garden">தோட்டம்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenMilad">
+          <span class="home-tile-icon"><img src="icons/milad.png" alt="Milad"></span>
+          <span class="home-tile-label" data-i18n="nav_milad">மீலாது நிகழ்வு</span>
+        </button>
+        <button type="button" class="home-tile" data-go="garden">
+          <span class="home-tile-icon"><img src="icons/surah.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_surahs">சூராக்கள்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenJuz">
+          <span class="home-tile-icon"><img src="icons/juz.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_juz">ஜுஸ்வு</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenGames">
+          <span class="home-tile-icon"><img src="icons/games.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_games">விளையாட்டு</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenQuiz">
+          <span class="home-tile-icon"><img src="icons/quiz.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_quiz">கேள்வி &amp; பதில்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenDuel">
+          <span class="home-tile-icon"><img src="icons/multiplayer-vs.png" alt="VS"></span>
+          <span class="home-tile-label">Multiplayer Quiz</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenBadges">
+          <span class="home-tile-icon" style="width:72px;height:72px"><img src="icons/achievements.png" alt="Achievements" style="width:68px;height:68px;object-fit:contain"></span>
+          <span class="home-tile-label" data-i18n="nav_badges">சாதனைகள்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenDhikr">
+          <span class="home-tile-icon"><img src="icons/dhikr.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_dhikr">திக்ர்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenDua">
+          <span class="home-tile-icon"><img src="icons/dua.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_rabbana">ரப்பனா துஆ</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenNabiDua">
+          <span class="home-tile-icon"><img src="icons/nabi-dua.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_nabi_dua">நபி துஆக்கள்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenSalawat">
+          <span class="home-tile-icon"><img src="icons/salawat.png" alt="Salawat"></span>
+          <span class="home-tile-label" data-i18n="nav_salawat">நபி மீது ஸலவாத்</span>
+        </button>
+        <button type="button" class="home-tile" data-go="screenPrayer">
+          <span class="home-tile-icon"><img src="icons/prayer.png" alt=""></span>
+          <span class="home-tile-label" data-i18n="nav_prayer">தொழுகை நேரம்</span>
+        </button>
+
+        <button type="button" class="home-tile" data-go="screenPrayerLog">
+          <span class="home-tile-icon"><img src="icons/prayer-log.png" alt="Prayer Log"></span>
+          <span class="home-tile-label">தொழுகை அட்டவணை</span>
+        </button>
+
+        <button type="button" class="home-tile" data-go="screenHadees">
+          <span class="home-tile-icon"><img src="icons/hadees.png" alt="ஹதீஸ்"></span>
+          <span class="home-tile-label" data-i18n="nav_hadees">ஹதீஸ்</span>
+        </button>
+
+      </div>
+
+      <div class="home-daily">
+        <div class="home-daily-left">
+          <img src="icons/rank1.png" alt="" class="home-daily-trophy" onerror="this.style.display='none'">
+          <div>
+            <div class="home-daily-title" data-i18n="home_daily">🔥 தினசரி சவால் 🔥</div>
+            <div class="home-daily-sub"><span id="homeDailyLabel">0 / 5</span></div>
+          </div>
+        </div>
+        <button type="button" class="home-daily-play" id="homeDailyPlay" aria-label="Play">▶</button>
+        <div class="home-daily-coins"><img src="icons/coin.png" alt=""><span>+25</span></div>
+      </div>
+    </div>
+
+    <!-- Levels / Surahs (shown when தோட்டம் / குர்ஆன் tapped) -->
+    <div class="home-levels" id="homeLevels" style="display:none">
+      <button type="button" class="home-back-hub back-btn-ico" id="homeBackHub" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+      <div class="surah-level-wrap">
+        <div class="surah-level-head">
+          <span data-i18n="levels_label">🎮 Levels (10 சூரா / Level)</span>
+          <button type="button" id="editPlayerNameBtn" class="slv-name-btn" data-i18n="btn_name">👤 பெயர்</button>
+        </div>
+        <div id="surahLevelBar" class="surah-level-bar"></div>
+      </div>
+      <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" id="surahSearchInput" placeholder="சூரா தேடுங்கள்..." data-i18n-placeholder="search_surah">
+      </div>
+      <div id="plotsGrid"></div>
+      <div id="homeHadithBox" class="home-hadith-wrap"></div>
+    </div>
+
+    <!-- Bottom nav -->
+    <nav class="home-bottom-nav" id="homeBottomNav">
+      <button type="button" class="hbn-item active" data-bn="home">
+        <span class="hbn-ico">🏠</span>
+        <span data-i18n="bn_home">முகப்பு</span>
+      </button>
+      <button type="button" class="hbn-item" data-bn="screenGames">
+        <span class="hbn-ico">🎮</span>
+        <span data-i18n="nav_games">விளையாட்டு</span>
+      </button>
+      <button type="button" class="hbn-item" data-bn="screenBadges">
+        <span class="hbn-ico">🏆</span>
+        <span data-i18n="nav_badges">சாதனைகள்</span>
+      </button>
+      <button type="button" class="hbn-item" data-bn="settings">
+        <span class="hbn-ico">⚙️</span>
+        <span data-i18n="bn_settings">அமைப்புகள்</span>
+      </button>
+    </nav>
+  </section>
+
+  <section class="screen" id="screenGarden">
+    <button type="button" class="back-btn-ico back-btn" id="backBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <div class="lvl-header">
+      <div>
+        <h2 id="gardenNameAr" class="lvl-ar"></h2>
+        <small id="gardenNameTa" class="lvl-ta"></small>
+      </div>
+      <button class="reset-btn" id="resetBtn" data-i18n="btn_reset_full">🔄 ரீசெட்</button>
+    </div>
+    <div class="lvl-meta" id="progressLabel"></div>
+    <div class="lvl-daily"><span data-i18n="daily_goal_label">இன்றைய இலக்கு</span>: <span id="dailyLabel">0 / 5</span></div>
+    <div class="daily-bar"><div class="daily-fill" id="dailyFill" style="width:0%"></div></div>
+
+    <div class="lvl-path" id="levelPath"></div>
+
+    <!-- hidden legacy bits used by JS -->
+    <div class="surah-progress-card" id="surahProgressCard" style="display:none">
+      <div class="sp-ring-wrap">
+        <svg class="sp-ring" viewBox="0 0 110 110">
+          <circle class="sp-ring-bg" cx="55" cy="55" r="50"></circle>
+          <circle class="sp-ring-fg" id="spRingFg" cx="55" cy="55" r="50"></circle>
+        </svg>
+        <div class="sp-ring-center">
+          <div class="sp-pct" id="spPct">0%</div>
+          <div class="sp-pct-label" data-i18n="done_label">முடிந்தது</div>
+        </div>
+      </div>
+      <div class="sp-stars" id="spStars">☆☆☆</div>
+      <div class="sp-count" id="spCount">0 / 0 ஆயத்துகள்</div>
+    </div>
+    <div class="complete-banner" id="completeBanner" style="display:none" data-i18n="surah_complete">🎉 சூரா முடிந்தது!</div>
+    <div style="display:none;text-align:center;margin:8px 0">
+      <button class="mode-btn active" data-mode="next">➡️ Next</button>
+      <button class="mode-btn" data-mode="blank">✏️ Blank</button>
+      <button class="mode-btn" data-mode="reverse">🔄 Reverse</button>
+    </div>
+    <div style="display:none;text-align:center;margin:6px 0">
+      <button class="play-all-btn" id="playSurahAllBtn" data-i18n="msg_listen_surah">சூரா முழுவதும் கேளுங்கள்</button>
+    </div>
+    <div class="ayah-dots" id="ayahDots" style="display:none"></div>
+  </section>
+
+
+  
+
+  
+  
+  <section class="screen" id="screenQuiz">
+    <button type="button" class="back-btn-ico back-btn" id="quizBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 class="quiz-title" data-i18n="title_quiz">🕌 கேள்வி &amp; பதில்</h2>
+    <p class="quiz-sub" data-i18n="quiz_sub">நபி முஹம்மது ﷺ — 100 கேள்விகள்</p>
+
+    <div id="quizHome" class="quiz-home">
+      <div class="quiz-intro-card">
+        <p data-i18n="quiz_intro">நபி ﷺ அவர்களைப் பற்றிய 100 Multiple Choice கேள்விகள். ஒவ்வொன்றிலும் 4 விருப்பங்கள் — சரியானதைத் தேர்ந்தெடுங்கள்.</p>
+        <div class="quiz-meta-row">
+          <span>📝 100</span>
+          <span>✅ 4 options</span>
+          <span>🏆 Score</span>
+        </div>
+        <button type="button" class="quiz-start-btn" id="quizStartBtn" data-i18n="quiz_start">தொடங்கு / Start</button>
+        <div class="quiz-tg-note" id="quizTgNote">
+          <div class="quiz-tg-note-title">📌 குறிப்பு</div>
+          <p>முதலில் <b>Telegram சேனலில்</b> join செய்து சேர வேண்டும். பிறகு 100 கேள்விகள் முடிந்ததும் share செய்யச் சொன்னால், <b>என் சேனலில்</b> share செய்யுங்கள்.</p>
+          <a href="https://t.me/islamic_post_1704" target="_blank" rel="noopener noreferrer" class="quiz-tg-join-btn">✈️ Telegram சேனலில் சேர / Join</a>
+          <div class="quiz-tg-link">https://t.me/islamic_post_1704</div>
+        </div>
+      </div>
+      <div id="quizLeaderboard" class="quiz-lb-wrap"></div>
+    </div>
+
+    <div id="quizPlay" class="quiz-play" style="display:none">
+      <div class="quiz-progress">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+      <div class="quiz-counter"><span id="quizNum">1</span> / <span id="quizTotal">100</span> · <span data-i18n="quiz_score">மதிப்பெண்</span>: <b id="quizScore">0</b></div>
+      <div class="quiz-q-card">
+        <div class="quiz-q-text" id="quizQuestion"></div>
+        <div class="quiz-opts" id="quizOpts"></div>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback" style="display:none"></div>
+      <button type="button" class="quiz-next-btn" id="quizNextBtn" style="display:none" data-i18n="quiz_next">அடுத்து →</button>
+    </div>
+
+    <div id="quizResult" class="quiz-result" style="display:none">
+      <div class="quiz-result-card">
+        <div class="quiz-result-emoji">🎉</div>
+        <h3 data-i18n="quiz_done">முடிந்தது!</h3>
+        <p class="quiz-result-score"><span id="quizFinalScore">0</span> / <span id="quizFinalTotal">100</span></p>
+        <p class="quiz-result-msg" id="quizResultMsg"></p>
+        <a class="quiz-start-btn" id="quizShareTgBtn" href="#" target="_blank" rel="noopener" style="display:none;text-align:center;text-decoration:none;background:linear-gradient(180deg,#2AABEE,#229ED9);color:#fff">✈️ Telegram-ல் பகிர்</a>
+        <button type="button" class="quiz-start-btn" id="quizRetryBtn" data-i18n="quiz_retry">மீண்டும்</button>
+        <button type="button" class="quiz-start-btn secondary" id="quizHomeBtn" data-i18n="quiz_home">முகப்பு</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screenGames">
+    <button type="button" class="back-btn-ico back-btn" id="gamesBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 style="text-align:center;font-size:18px;margin:6px 0 4px" data-i18n="title_games">விளையாட்டுகள்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:0 0 10px" data-i18n="games_sub">ஹிஃப்ஸ் பயிற்சி · coins சம்பாதிக்கவும்</p>
+    <div class="games-grid" id="gamesMenu">
+      <div class="game-card" data-game="memory">
+        <div class="gc-icon"><img src="icons/game-memory.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_memory_title">Memory Match</div>
+        <div class="gc-desc" data-i18n="game_memory_desc">அஸ்மாஉல் ஹுஸ்னா · அரபி ↔ தமிழ் பெயர் · +15 coins</div>
+      </div>
+      <div class="game-card" data-game="speed">
+        <div class="gc-icon"><img src="icons/game-speed.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_speed_title">Speed Quiz</div>
+        <div class="gc-desc" data-i18n="game_speed_desc">30 வினாடி · ஆயத்து எந்த சூரா? · +20 coins</div>
+      </div>
+      <div class="game-card" data-game="order">
+        <div class="gc-icon"><img src="icons/game-order.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_order_title">Ayah Order</div>
+        <div class="gc-desc" data-i18n="game_order_desc">ஆயத்துகளை சரியான வரிசையில் அடுக்குங்கள் · +25 coins</div>
+      </div>
+      <div class="game-card" data-game="blank">
+        <div class="gc-icon"><img src="icons/game-blank.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_blank_title">Missing Word</div>
+        <div class="gc-desc" data-i18n="game_blank_desc">ஆயத்தில் மறைந்த சொல்லை கண்டுபிடியுங்கள் · +20 coins</div>
+      </div>
+      <div class="game-card" data-game="surah">
+        <div class="gc-icon"><img src="icons/game-surah.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_surah_title">Which Surah?</div>
+        <div class="gc-desc" data-i18n="game_surah_desc">ஆயத்தைப் பார்த்து சூராவை அடையாளம் காணுங்கள் · +20 coins</div>
+      </div>
+      <div class="game-card" data-game="tf">
+        <div class="gc-icon"><img src="icons/game-tf.png" alt="" style="width:64px;height:64px;object-fit:contain"></div>
+        <div class="gc-title" data-i18n="game_tf_title">True / False</div>
+        <div class="gc-desc" data-i18n="game_tf_desc">ஆயத்து + சூரா சரியா தவறா · +15 coins</div>
+      </div>
+    </div>
+    <div id="gamePlayArea" style="display:none">
+      <div class="game-hud">
+        <span class="gh-score" id="gameScore">⭐ 0</span>
+        <span id="gameTitle">Game</span>
+        <span class="gh-timer" id="gameTimer">⏱ —</span>
+      </div>
+      <div id="gameBody"></div>
+      <div style="text-align:center;margin-top:14px">
+        <button type="button" class="back-btn-ico back-btn" id="gameQuitBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="screenBadges">
+    <button type="button" class="back-btn back-btn-ico" id="badgesBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_badges">🏆 சாதனைகள்</h2>
+        <div class="plb" id="premLeaderboard">
+      <div class="plb-bg"></div>
+      <header class="plb-header">
+        <div class="plb-crown">👑</div>
+        <h1 class="plb-title" data-i18n="title_leaderboard" data-i18n="title_leaderboard">🏆 தரவரிசை</h1>
+        <p class="plb-sub" data-i18n="plb_who">யார் முன்னிலையில்?</p>
+      </header>
+      <div class="plb-filters" id="lbFilters">
+        <button type="button" class="plb-filter active" data-filter="daily" data-i18n="filter_daily">தினசரி</button>
+        <button type="button" class="plb-filter" data-filter="weekly" data-i18n="filter_weekly">வாராந்திர</button>
+        <button type="button" class="plb-filter" data-filter="all" data-i18n="filter_all">மொத்தம்</button>
+      </div>
+      <div class="plb-levels" id="lbLevelTabs"></div>
+      <div class="plb-podium" id="lbPodium"></div>
+      <div class="plb-list" id="lbList"></div>
+      <div class="plb-you" id="lbYou"></div>
+    </div>
+    <h3 class="prem-badge-title" data-i18n="badges_title">🎖️ பதக்கங்கள்</h3>
+    <div class="badge-grid" id="badgeGrid"></div>
+  </section>
+
+  <section class="screen" id="screenProfile">
+    <button type="button" class="back-btn back-btn-ico" id="profileBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 class="settings-title" data-i18n="bn_settings">⚙️ அமைப்புகள்</h2>
+    <div class="settings-grid">
+      <button type="button" class="settings-tile" data-set="font">
+        <span class="settings-tile-icon"><img src="icons/font.png" alt=""></span>
+        <span class="settings-tile-label" data-i18n="nav_font">எழுத்து வடிவம்</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="themes">
+        <span class="settings-tile-icon"><img src="icons/theme.png" alt=""></span>
+        <span class="settings-tile-label" data-i18n="nav_themes">தீம்கள்</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="about">
+        <span class="settings-tile-icon"><img src="icons/contact.png" alt=""></span>
+        <span class="settings-tile-label" data-i18n="nav_about">என்னை பற்றி</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="sound" id="settingsSoundBtn">
+        <span class="settings-tile-icon"><img src="icons/sound.png" alt=""></span>
+        <span class="settings-tile-label" data-i18n="nav_sound">சப்தம்</span>
+        <span class="settings-sound-state" id="settingsSoundState">ON</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="lang">
+        <span class="settings-tile-icon"><img src="icons/lang-globe.png" alt="" class="side-lang-globe"></span>
+        <span class="settings-tile-label" data-i18n="nav_lang">மொழி</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="fullscreen" id="settingsFullscreenBtn">
+        <span class="settings-tile-icon"><img src="icons/fullscreen.png" alt="Full Screen"></span>
+        <span class="settings-tile-label" data-i18n="nav_fullscreen">Full Screen</span>
+        <span class="settings-sound-state" id="settingsFsState">OFF</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="offline" id="settingsOfflineBtn">
+        <span class="settings-tile-icon"><img src="icons/offline.png" alt="Offline"></span>
+        <span class="settings-tile-label" data-i18n="nav_offline">Offline Download</span>
+        <span class="settings-sound-state" id="offlineStatus">—</span>
+      </button>
+      <button type="button" class="settings-tile" data-set="install" id="settingsInstallBtn">
+        <span class="settings-tile-icon"><img src="icons/install.png" alt="Install"></span>
+        <span class="settings-tile-label" data-i18n="nav_install">App Install</span>
+      </button>
+    </div>
+    <div id="offlineProgressWrap" style="display:none;padding:8px 14px 14px">
+      <div style="font-size:12px;color:#c4b5fd;margin-bottom:6px" id="offlineProgressText">Downloading…</div>
+      <div style="height:10px;border-radius:8px;background:rgba(0,0,0,.35);overflow:hidden;border:1px solid rgba(212,175,55,.4)">
+        <div id="offlineProgressBar" style="height:100%;width:0%;background:linear-gradient(90deg,#a78bfa,#fbbf24);transition:width .25s ease"></div>
+      </div>
+    </div>
+    <div id="settingsThemesPanel" class="settings-panel">
+      <h3 class="settings-sub" data-i18n="nav_themes">🎨 தீம்கள்</h3>
+<h2 style="text-align:center;font-size:17px" data-i18n="title_themes">🎨 தீம்கள்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:0 0 12px">நிறம் மட்டும் · மற்ற அமைப்புகள் தனி மெனுவில்</p>
+    <h3 style="margin:8px 0 4px;font-size:14px;color:var(--blue-glow)" id="themeSectionTitle" data-i18n="theme_section">🎨 தீம்</h3>
+    <div class="theme-grid" id="themeGrid"></div>
+    <div style="font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px" id="themeLabel">Normal · Midnight</div>
+    </div>
+  </section>
+
+<section class="screen" id="screenFont">
+    <button type="button" class="back-btn-ico back-btn" id="fontBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_font">✍️ எழுத்து வடிவம்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:0 0 12px">குர்ஆன் எழுத்து முறை · இங்கே மட்டும்</p>
+    <h3 style="margin:16px 0 4px;font-size:14px;color:var(--blue-glow)" data-i18n="font_script">✍️ குர்ஆன் எழுத்து முறை</h3>
+    <div class="script-grid" id="scriptGrid">
+      <button type="button" class="script-btn" data-script="indopak">
+        <div class="script-sample" style="font-family:'AlMajeed',serif;direction:rtl;font-size:18px">بِسْمِ اللهِ الرَّحْمٰنِ</div>
+        <div class="script-name">Indo-Pak</div>
+        <div class="script-desc" data-i18n="font_desc">தெற்காசிய · தாஜ் முஷாஃப்</div>
+      </button>
+      <button type="button" class="script-btn" data-script="uthmani">
+        <div class="script-sample" style="font-family:'UthmanicHafs',serif;direction:rtl;font-size:18px">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ</div>
+        <div class="script-name">Uthmani</div>
+        <div class="script-desc" data-i18n="madinah_desc">மதீனா · King Fahd</div>
+      </button>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px" id="scriptLabel">Indo-Pak</div>
+
+
+    <h3 style="margin:18px 10px 6px;font-size:14px;color:var(--gold)">அரபி எழுத்துரு</h3>
+    <p style="text-align:center;font-size:11px;color:var(--text-dim);margin:0 10px 6px">ஹதீஸ் · பொது அரபி</p>
+    <div class="ar-font-grid" id="arFontGrid">
+      <button type="button" class="ar-font-btn active" data-arfont="default">
+        <div class="ar-font-sample" style="font-family:var(--font-ar)">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">இயல்பு (Default)</div>
+      </button>
+      <button type="button" class="ar-font-btn" data-arfont="Lateef">
+        <div class="ar-font-sample" style="font-family:'Lateef',serif">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">Lateef</div>
+      </button>
+      <button type="button" class="ar-font-btn" data-arfont="Marhey">
+        <div class="ar-font-sample" style="font-family:'Marhey',serif">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">Marhey</div>
+      </button>
+      <button type="button" class="ar-font-btn" data-arfont="ScheherazadeNew">
+        <div class="ar-font-sample" style="font-family:'ScheherazadeNew',serif">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">Scheherazade</div>
+      </button>
+      <button type="button" class="ar-font-btn" data-arfont="NotoNaskhArabic">
+        <div class="ar-font-sample" style="font-family:'NotoNaskhArabic',serif">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">Noto Naskh</div>
+      </button>
+      <button type="button" class="ar-font-btn" data-arfont="Vazirmatn">
+        <div class="ar-font-sample" style="font-family:'Vazirmatn',serif">بِسْمِ اللّٰهِ الرَّحْمٰنِ</div>
+        <div class="ar-font-name">Vazirmatn</div>
+      </button>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:12px" id="arFontLabel">இயல்பு (Default)</div>
+
+    <h3 style="margin:18px 10px 6px;font-size:14px;color:var(--blue-glow)">தமிழ் எழுத்துரு</h3>
+    <p style="text-align:center;font-size:11px;color:var(--text-dim);margin:0 10px 6px">மொழிபெயர்ப்பு · UI · ஹதீஸ் தமிழ்</p>
+    <div class="tamil-font-grid" id="tamilFontGrid">
+      <button type="button" class="tamil-font-btn active" data-tafont="default">
+        <div class="tamil-font-sample" style="font-family:'TamilTechSai',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">இயல்பு (Default)</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil001">
+        <div class="tamil-font-sample" style="font-family:'Tamil001',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 1</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil002">
+        <div class="tamil-font-sample" style="font-family:'Tamil002',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 2</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil003">
+        <div class="tamil-font-sample" style="font-family:'Tamil003',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 3</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil004">
+        <div class="tamil-font-sample" style="font-family:'Tamil004',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 4</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil005">
+        <div class="tamil-font-sample" style="font-family:'Tamil005',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 5</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil006">
+        <div class="tamil-font-sample" style="font-family:'Tamil006',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 6</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil007">
+        <div class="tamil-font-sample" style="font-family:'Tamil007',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 7</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil008">
+        <div class="tamil-font-sample" style="font-family:'Tamil008',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 8</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil009">
+        <div class="tamil-font-sample" style="font-family:'Tamil009',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 9</div>
+      </button>
+      <button type="button" class="tamil-font-btn" data-tafont="Tamil010">
+        <div class="tamil-font-sample" style="font-family:'Tamil010',sans-serif">அல்லாஹ்வின் பெயரால்</div>
+        <div class="tamil-font-name">தமிழ் 10</div>
+      </button>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);text-align:center;margin-bottom:16px" id="tamilFontLabel">இயல்பு (Default)</div>
+  </section>
+
+<section class="screen" id="screenJuz">
+    <button type="button" class="back-btn-ico back-btn" id="juzBackFilterBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_juz">30 ஜுஸ்வு</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:0 0 10px;line-height:1.45" data-i18n="juz_sub">
+      Juz only · ayah range · not surah / audio menu
+    </p>
+    <div style="display:none" id="juzFilterLabel"></div>
+    <button type="button" class="submit-btn prayer-btn secondary" id="juzFilterAllBtn" style="display:none">✨</button>
+    <div class="juz-filter-wrap">
+      <div class="juz-filter-row" id="juzFilterGrid" style="display:none"></div>
+      <div class="juz-settings-list" id="juzSettingsList"></div>
+    <div class="juz-player-card rp-card" id="juzPlayerBar" style="display:none">
+      <div class="rp-glow"></div>
+      <div class="rp-badge">بِسْمِ ٱللّٰهِ</div>
+      <div class="juz-now-playing rp-now" id="juzNowPlaying" data-i18n="pick_ayah">ஆயத்தைத் தேர்ந்தெடுக்கவும்</div>
+      <div class="rp-progress-wrap">
+        <div class="juz-progress-bar rp-bar"><div class="juz-progress-fill rp-fill" id="juzProgressFill"></div></div>
+      </div>
+      <div class="juz-controls rp-controls">
+        <button type="button" class="juz-ctrl-btn icon-btn-3d rp-side" id="juzPrevBtn" aria-label="Previous">
+          <img src="icons/icon-prev.png" alt="Prev" class="ctrl-icon">
+        </button>
+        <button type="button" class="juz-ctrl-btn play icon-btn-3d icon-btn-3d-lg rp-play" id="juzPlayBtn" aria-label="Play">
+          <img src="icons/icon-heart.png" alt="Play" class="ctrl-icon" id="juzPlayIcon">
+        </button>
+        <button type="button" class="juz-ctrl-btn icon-btn-3d rp-side" id="juzNextBtn" aria-label="Next">
+          <img src="icons/icon-next.png" alt="Next" class="ctrl-icon">
+        </button>
+      </div>
+      <div class="rp-track" id="juzTrackInfo">—</div>
+    </div>
+    <div class="juz-ayah-panel" id="juzAyahPanel"></div>
+    <div id="juzLoading" style="display:none;text-align:center;padding:20px;color:var(--text-dim)">⏳ ஏற்றுகிறது...</div>
+    <!-- kept for JS compatibility; never shown as separate audio menu -->
+    <h2 style="display:none" id="juzScreenTitle"></h2>
+    <div style="display:none" id="juzSurahListTitle"></div>
+    <div class="juz-num-grid" id="juzNumGrid" style="display:none"></div>
+    <div class="juz-surah-grid" id="juzSurahGrid" style="display:none"></div>
+    <button type="button" class="back-btn-ico back-btn" id="juzBackBtn" style="display:none" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    </div>
+  </section>
+
+<section class="screen" id="screenPrayer">
+    <button type="button" class="back-btn-ico back-btn" id="prayerScreenBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_prayer">🕌 தொழுகை நேரம்</h2>
+    <h3 style="margin:16px 0 4px;font-size:14px;color:var(--blue-glow)" data-i18n="title_prayer">🕌 தொழுகை நேரம்</h3>
+    <p style="font-size:11px;color:var(--text-dim);margin:0 0 8px;line-height:1.4"><span data-i18n="prayer_hint">தமிழ்நாடு · மாநிலங்கள் · ஹனஃபி / ஷாஃபி</span></p>
+    <div class="prayer-card" id="prayerCard">
+      <div class="madhab-row">
+        <span class="madhab-label" data-i18n="madhab_label">மத்ஹப்</span>
+        <div class="madhab-toggle">
+          <button type="button" class="madhab-btn active" id="madhabShafi">ஷாஃபி</button>
+          <button type="button" class="madhab-btn" id="madhabHanafi">ஹனஃபி</button>
+        </div>
+      </div>
+      <div class="prayer-place-pick">
+        <label class="prayer-select-label">மாநிலம்<select id="prayerStateSelect" class="prayer-select"></select></label>
+        <label class="prayer-select-label">மாவட்டம் / நகரம்<select id="prayerCitySelect" class="prayer-select"></select></label>
+        <button type="button" class="submit-btn prayer-btn" id="prayerCityGoBtn">🕌 இந்த இட நேரம்</button>
+      </div>
+      <div class="prayer-toolbar">
+        <button type="button" class="submit-btn prayer-btn" id="prayerLocateBtn">📍 GPS</button>
+        <button type="button" class="submit-btn prayer-btn secondary" id="prayerRefreshBtn">🔄 புதுப்பி</button>
+      </div>
+      <div class="prayer-meta" id="prayerMeta">இடம் தேர்வு செய்யுங்கள்…</div>
+      <div class="prayer-list" id="prayerList">
+        <div class="prayer-row"><span>ஃபஜ்ர்</span><strong>—</strong></div>
+        <div class="prayer-row"><span>ளுஹர்</span><strong>—</strong></div>
+        <div class="prayer-row"><span>அஸர்</span><strong>—</strong></div>
+        <div class="prayer-row"><span>மக்ரிப்</span><strong>—</strong></div>
+        <div class="prayer-row"><span>இஷா</span><strong>—</strong></div>
+      </div>
+      <div class="prayer-next" id="prayerNext"></div>
+    </div>
+    </section>
+
+  <section class="screen" id="screenPrayerLog">
+    <style>
+      #screenPrayerLog.screen.active{display:block!important;min-height:100vh;padding:12px 14px 48px;background:linear-gradient(180deg,#1e1b4b,#0f172a)}
+      .plg-title{text-align:center;color:#fbbf24;font-size:20px;font-weight:900;margin:6px 0 4px}
+      .plg-sub{text-align:center;color:#c4b5fd;font-size:12px;margin:0 0 8px}
+      .plg-date{text-align:center;color:#86efac;font-size:12px;font-weight:700;margin-bottom:12px}
+      .plg-list{max-width:400px;margin:0 auto}
+      .plg-card{background:linear-gradient(165deg,#4c1d95,#2e1065);border:2px solid #d4af37;border-radius:16px;padding:12px 14px;margin:0 0 10px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 4px 0 rgba(0,0,0,.3)}
+      .plg-card.done{border-color:#22c55e;background:linear-gradient(165deg,#14532d,#166534)}
+      .plg-card.missed{border-color:#ef4444;background:linear-gradient(165deg,#7f1d1d,#991b1b)}
+      .plg-name{color:#fde68a;font-weight:800;font-size:16px}
+      .plg-ar{color:#e9d5ff;font-size:12px;margin-top:2px}
+      .plg-st{font-size:11px;font-weight:700;color:#fef3c7;margin-top:6px}
+      .plg-btns{display:flex;gap:8px;margin-top:10px}
+      .plg-btns button{flex:1;padding:11px 8px;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer;border:2px solid rgba(255,255,255,.15)}
+      .plg-yes{background:linear-gradient(180deg,#86efac,#16a34a);color:#052e16}
+      .plg-no{background:linear-gradient(180deg,#fca5a5,#dc2626);color:#fff}
+      .plg-reset{display:block;margin:16px auto 0;padding:10px 18px;border-radius:12px;border:2px solid #d4af37;background:#1e1b4b;color:#fde68a;font-weight:800;cursor:pointer}
+      .plg-msg{display:none;position:fixed;left:50%;top:38%;transform:translate(-50%,-50%);z-index:99999;max-width:90%;width:310px;padding:20px 16px;border-radius:18px;text-align:center;font-weight:800;font-size:15px;line-height:1.45;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+      .plg-msg.on{display:block}
+      .plg-msg.ok{background:linear-gradient(165deg,#14532d,#166534);border:2px solid #86efac;color:#dcfce7}
+      .plg-msg.bad{background:linear-gradient(165deg,#7f1d1d,#991b1b);border:2px solid #fca5a5;color:#fee2e2}
+    </style>
+    <button type="button" class="back-btn back-btn-ico" id="prayerLogBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <div class="plg-title">📋 தொழுகை அட்டவணை</div>
+    <div class="plg-sub">ஐந்து நேரத் தொழுகை · Tick பதிவு</div>
+    <div class="plg-date" id="plgDate"></div>
+    <div class="plg-list" id="plgList"></div>
+    <button type="button" class="plg-reset" id="plgReset">இன்றையை மீட்டமை</button>
+    <div class="plg-msg" id="plgMsg"></div>
+    <script>
+    (function(){
+      var PRAYERS_BASE=[
+        {id:'fajr',ta:'ஃபஜ்ர்',ar:'الفجر'},
+        {id:'dhuhr',ta:'லுஹர்',ar:'الظهر'},
+        {id:'asr',ta:'அஸ்ர்',ar:'العصر'},
+        {id:'maghrib',ta:'மஃக்ரிப்',ar:'المغرب'},
+        {id:'isha',ta:'இஷா',ar:'العشاء'}
+      ];
+      function getPrayers(){
+        var list=PRAYERS_BASE.map(function(p){ return {id:p.id,ta:p.ta,ar:p.ar}; });
+        // Friday (getDay()===5): Dhuhr -> Jumu'ah
+        if(new Date().getDay()===5){
+          list[1]={id:'jumuah',ta:'ஜும்ஆ',ar:'الجمعة'};
+        }
+        return list;
+      }
+      var KEY='qg_prayer_tick_v1';
+      function todayKey(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+      function load(){try{var o=JSON.parse(localStorage.getItem(KEY)||'{}');if(o.date!==todayKey())return{date:todayKey(),status:{}};return o;}catch(e){return{date:todayKey(),status:{}};}}
+      function save(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+      function $(id){return document.getElementById(id);}
+      function showMsg(text,ok){
+        var el=$('plgMsg'); if(!el) return;
+        el.className='plg-msg on '+(ok?'ok':'bad');
+        el.textContent=text;
+        clearTimeout(showMsg._t);
+        showMsg._t=setTimeout(function(){ el.classList.remove('on'); }, 2800);
+      }
+      function render(){
+        var data=load();
+        var d=new Date();
+        if($('plgDate')) $('plgDate').textContent=d.toLocaleDateString('ta-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+        var list=$('plgList'); if(!list) return;
+        list.innerHTML='';
+        getPrayers().forEach(function(p){
+          var st=data.status[p.id]||'';
+          var card=document.createElement('div');
+          card.className='plg-card'+(st==='done'?' done':st==='missed'?' missed':'');
+          var stTxt=st==='done'?'✅ தொழுதார்':st==='missed'?'❌ தொழவில்லை':'— இன்னும் tick இல்லை';
+          var friNote=(p.id==='jumuah')?' <span style="color:#fbbf24;font-size:10px">(வெள்ளி)</span>':'';
+          card.innerHTML='<div class="plg-name">'+p.ta+friNote+'</div><div class="plg-ar">'+p.ar+'</div><div class="plg-st">'+stTxt+'</div><div class="plg-btns"><button type="button" class="plg-yes" data-id="'+p.id+'" data-act="done">✅ தொழுதேன்</button><button type="button" class="plg-no" data-id="'+p.id+'" data-act="missed">❌ தொழவில்லை</button></div>';
+          list.appendChild(card);
+        });
+        list.querySelectorAll('button[data-act]').forEach(function(btn){
+          btn.onclick=function(){
+            var id=btn.getAttribute('data-id');
+            var act=btn.getAttribute('data-act');
+            var data=load(); data.date=todayKey(); data.status=data.status||{}; data.status[id]=act; save(data);
+            if(act==='done') showMsg('அல்லாஹ்வின் அருள் கிடைத்துவிட்டது. 🤲', true);
+            else showMsg('அல்லாஹ்வின் தண்டனைக்குப் பயந்துகொள். ⚠️ தொழுகையை நிறைவேற்றுங்கள்.', false);
+            render();
+          };
+        });
+      }
+      function bind(){
+        var b=$('prayerLogBackBtn');
+        if(b) b.onclick=function(){
+          if(typeof switchScreen==='function') switchScreen('screenSelect');
+          if(typeof showHomeHub==='function') showHomeHub(true);
+        };
+        var r=$('plgReset');
+        if(r) r.onclick=function(){
+          if(confirm('இன்றைய ticks அழிக்கவா?')){ save({date:todayKey(),status:{}}); render(); }
+        };
+        render();
+      }
+      window.initPrayerLog=bind;
+      if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bind);
+      else bind();
+      setTimeout(bind, 400);
+    })();
+    </script>
+  </section>
+
+
+  <section class="screen" id="screenDhikr">
+    <button type="button" class="back-btn back-btn-ico" id="dhikrBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_dhikr">திக்ர்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:-4px 0 12px" data-i18n="dhikr_sub">தொட்டு எண்ணுங்கள் · அல்லாஹ்வை நினைவுகூருங்கள்</p>
+
+    <div class="dhikr-section-title">✨ <span data-i18n="dhikr_daily">அன்றாட திக்ர்கள்</span></div>
+    <div id="dhikrList"></div>
+
+    <div class="dhikr-section-title">🕌 <span data-i18n="dhikr_salah">தொழுகைக்குப் பின் திக்ர்</span></div>
+    <div class="dhikr-counter-box" id="dhikrTapArea">
+      <div class="dhikr-count-label" id="dhikrStepLabel">سُبْحَانَ اللَّهِ</div>
+      <div class="dhikr-ar" id="dhikrStepAr" class="dhikr-ar" style="margin:10px 0">سُبْحَانَ اللَّهِ</div>
+      <div class="dhikr-ta" id="dhikrStepTa" style="margin-bottom:4px">சுப்ஹானல்லாஹ்</div>
+      <div class="dhikr-bead" id="dhikrBead">0</div>
+      <div class="dhikr-count-num" id="dhikrCount" style="display:none">0</div>
+      <div class="dhikr-progress"><i id="dhikrBar"></i></div>
+      <div style="font-size:11px;color:var(--text-dim)" id="dhikrTarget">0 / ∞</div>
+      <div class="dhikr-mode-hint" id="dhikrModeHint" data-i18n="dhikr_hint">மேலே உள்ள திக்ரைத் தேர்ந்தெடுங்கள் · பெட்டியைத் தொட்டு எண்ணுங்கள்</div>
+      <div class="dhikr-count-btns" style="margin-top:12px">
+        <button type="button" id="dhikrMinus">−1</button>
+        <button type="button" class="primary" id="dhikrPlus">+1</button>
+        <button type="button" id="dhikrReset" data-i18n="btn_reset_dhikr">↺ மீள்</button>
+        <button type="button" id="dhikrSalahMode" data-i18n="dhikr_salah_btn">🕌 தொழுகை பின்</button>
+        <button type="button" id="dhikrSoundBtn" data-i18n="nav_sound">ஒலி</button>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--text-dim);text-align:center;margin-top:4px;line-height:1.5">
+      <span data-i18n="dhikr_sequence">வரிசை: சுப்ஹானல்லாஹ் 33 → அல்ஹம்து 33 → அல்லாஹு அக்பர் 33 → தஹ்லீல் (100)</span>
+    </div>
+  </section>
+
+  <section class="screen" id="screenDua">
+    <button type="button" class="back-btn back-btn-ico" id="duaBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_rabbana">🤲 40 ரப்பனா துஆ</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:-4px 0 12px" data-i18n="rabbana_sub">குர்ஆனில் வரும் ரப்பனா துஆக்கள் · தமிழ் பொருள்</p>
+    <input type="search" class="dua-search" id="duaSearch" placeholder="துஆ / பொருள் தேடுங்கள்..." data-i18n-placeholder="search_dua" enterkeyhint="search">
+    <div class="dua-list" id="duaList"></div>
+  </section>
+
+  
+  <section class="screen" id="screenSalawat">
+    <button type="button" class="back-btn-ico back-btn" id="salawatBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 class="salawat-title" data-i18n="title_salawat">ﷺ நபி மீது ஸலவாத் ஓதுவோம்</h2>
+    <p class="salawat-sub" data-i18n="salawat_sub">ஸலவாத்தின் வகைகள் · சிறப்புகள் · எண்ணிக்கை</p>
+
+    <div class="salawat-counter-card">
+      <div class="salawat-ar" id="salawatMainAr">اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ</div>
+      <div class="salawat-ta" id="salawatMainTa" data-lang="ta">அல்லாஹும்ம ஸல்லி அலா முஹம்மதின் வ அலா ஆலி முஹம்மத்</div>
+      <div class="salawat-ta" id="salawatMainEn" data-lang="en" style="display:none">Allahumma salli ala Muhammadin wa ala ali Muhammad</div>
+      <div class="salawat-count" id="salawatCount">0</div>
+      <button type="button" class="salawat-tap-btn" id="salawatTapBtn" data-i18n="salawat_tap">ஸலவாத் ஓது (தொடுங்கள்)</button>
+      <button type="button" class="salawat-reset-btn" id="salawatResetBtn" data-i18n="btn_reset">மீட்டமை</button>
+    </div>
+
+    <h3 class="salawat-sec-title" data-i18n="salawat_types">ஸலவாத்தின் வகைகள்</h3>
+    <div class="salawat-types" id="salawatTypes"></div>
+
+<h3 class="salawat-sec-title" data-i18n="salawat_virtues_title">ஸலவாத்தின் சிறப்புகள்</h3>
+    <div class="salawat-virtues" data-lang="ta">
+      <p class="salawat-intro">ஸலவாத் என்பது எங்கள் உயிரிலும் மேலான நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் அவர்களிடத்தில் நாம் சொல்லும் வாழ்த்தும் துதியும் ஆகும். ஸலவாத் ஒரு பொக்கிஷம் ஆகும். அதன் சிறப்புகளையும் நன்மைகளையும் எழுத்தில் எழுதி முடிக்க முடியாது. அந்தளவு நன்மைகளும் பரக்கத்துகளும் ஸலவாத் ஒதுபவருக்கு கிடைக்கின்றது. அவற்றில் சிலவற்றை கீழே பார்ப்போம்.</p>
+
+      <div class="salawat-hadith">
+        <p>அல்லாஹுதஆலா தான் எந்த ஒரு அமையும் செய்வதாக அல் குர்ஆனில் கூறவில்லை. எல்லா அமல்களும் மனிதர்களாகிய எங்களுக்கே கடமை. ஆனால், அல்லாஹ் தான் செய்வதாக சொல்லும் ஒரே ஒரு அமல் - <strong>ஸலவாத் மட்டும்</strong>. அதில் இருந்து விளங்கிக் கொள்ளலாம் ஸலவாத் எவ்வளவு சிறப்பு மிக்க அமல் என்று.</p>
+        <p class="salawat-quote">அல்லாஹ் அல் குர்ஆனில் கூறுகிறான்:<br>
+        "நிச்சயமாக அல்லாஹ்வும் அவனது மலக்குகளும் இந்த நபியின் மீது ஸலவாத் சொல்கின்றனர். ஈமான் கொண்ட மூஃமின்களே! நீங்களும் அவர்கள் மீது ஸலவாத் சொல்லுங்கள். இன்னும் அழகிய முறையில் ஸலாமும் சொல்லுங்கள்."<br>
+        <span class="salawat-ref">(அல்குர்ஆன் - 33:56)</span></p>
+      </div>
+
+      <div class="salawat-hadith">
+        <p>நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் கூறினார்கள்:</p>
+        <p class="salawat-quote">"யாரேனும் என் மீது ஒரு முறை ஸலவாத் சொன்னால், அவர் மீது அல்லாஹ் பத்து முறை ஸலவாத் சொல்வான்."<br>
+        <span class="salawat-ref">(நூல்: முஸ்லிம்)</span></p>
+      </div>
+
+      <div class="salawat-hadith">
+        <p>நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் கூறினார்கள்:</p>
+        <p class="salawat-quote">"ஒருவர் என் மீது ஒரு முறை ஸலவாத் சொல்வாரேயானின், அவர் மீது அல்லாஹ் பத்து முறை ஸலவாத் சொல்கிறான். அவர் பத்து முறை ஸலவாத் சொன்னால் அவர் மீது அல்லாஹ் நூறுமுறை ஸலவாத் சொல்கிறான். அவர் என் மீது நூறு முறை ஸலவாத் சொன்னால், அவர் மீது அல்லாஹ் ஆயிரம் தடவை ஸலவாத் சொல்கிறான். அதன்றி அவராது இரு புருவங்களுக்கு மத்தியிலும் இவர் 'நிஃபாக்' என்னும் கபட விசுவாசத்தை விட்டும் விடுதலை பெற்றவரென்றும் அல்லாஹ் பதிவு செய்து விடுகிறான்."<br>
+        <span class="salawat-ref">(நூல்: தப்ரானி)</span></p>
+      </div>
+
+      <div class="salawat-hadith">
+        <p>நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் அன்னார்கள் அதிகாலையில் மலர்ந்த முகத்துடனும், குளிர்ந்த இதயத்துடனும் வந்தார்கள். ஸஹாபாக்கள் கேட்டார்கள்: "யா ரசூலல்லாஹ்! அதிகாலையிலேயே தங்களை சிரித்த முகத்துடனும் மலர்ந்த இதயத்துடனும் காண்கிறோமே!" நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் அன்னார்கள் பதிலளித்தார்கள்: ஆம்! எனது ரப்பிடமிருந்து எனக்கு (சுப) செய்தி வந்தது. உங்கள் உம்மத்துக்களில் ஒருவர் உங்கள் மீது ஒரு ஸலவாத் ஓதினால், அவருக்கு பத்து நன்மைகள் எழுதப்படுகின்றன. பத்து தீமைகள் அழிக்கப்படுகின்றன. பத்து அந்தஸ்துகள் உயர்த்தப்படுகின்றன. அவர் மீது அதே ஸலவாத்தும் அருளப்படுகிறது (என்பதாக).<br>
+        <span class="salawat-ref">(நூல் - அஹமத், நஸயீ, தர்கீப் லிஸ் முன்திரி)</span></p>
+      </div>
+    </div>
+
+    
+    
+
+<div class="salawat-virtues" data-lang="en" style="display:none">
+      <p class="salawat-intro">Salawat is the greeting and praise we send upon our beloved Prophet Muhammad ﷺ. It is a treasure. Its virtues and rewards cannot be fully written. Below are some of them.</p>
+      <div class="salawat-hadith">
+        <p>Allah has not said in the Qur'an that He will perform any deed Himself for us — all deeds are our duty. The only deed Allah says He Himself does is <strong>Salawat</strong>. From this we understand how special Salawat is.</p>
+        <p class="salawat-quote">Allah says in the Qur'an:<br>
+        "Indeed, Allah and His angels send blessings upon the Prophet. O you who believe, send blessings upon him and greet him with peace."<br>
+        <span class="salawat-ref">(Qur'an — 33:56)</span></p>
+      </div>
+      <div class="salawat-hadith">
+        <p>The Prophet ﷺ said:</p>
+        <p class="salawat-quote">"Whoever sends salawat upon me once, Allah sends salawat upon him ten times."<br>
+        <span class="salawat-ref">(Muslim)</span></p>
+      </div>
+      <div class="salawat-hadith">
+        <p>The Prophet ﷺ said:</p>
+        <p class="salawat-quote">"If a person sends salawat upon me once, Allah sends salawat upon him ten times. If he sends it ten times, Allah sends it a hundred times. If he sends it a hundred times, Allah sends it a thousand times — and records that he is free from nifaq (hypocrisy)."<br>
+        <span class="salawat-ref">(Tabarani)</span></p>
+      </div>
+      <div class="salawat-hadith">
+        <p>The Prophet ﷺ came one morning with a bright face. The Companions asked why. He said: Good news from my Lord — if anyone from my ummah sends salawat upon me once, ten good deeds are written, ten sins erased, ten ranks raised, and the same salawat is returned upon him.<br>
+        <span class="salawat-ref">(Ahmad, Nasa'i)</span></p>
+      </div>
+    </div>
+<h3 class="salawat-sec-title" data-i18n="salawat_benefits_title">ஸலவாத் ஓதுவதால் கிடைக்கும் நன்மைகள்</h3>
+    <div class="salawat-virtues" data-lang="ta">
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>அல்லாஹ்வின் அன்பும் திருப்பொருத்தமும் கிடைக்கும்</li>
+        <li>நபிகள் நாயகம் ﷺ அன்னவர்களின் அன்பும் திருப்பொருத்தமும் கிடைக்கும்</li>
+        <li>ஸலவாத் சொல்பவரின் மீது அல்லாஹ் திரும்ப ஸலவாத் சொல்கிறான்</li>
+        <li>ஸலவாத் சொல்பவரின் மீது நபிகள் நாயகம் ﷺ திரும்ப ஸலவாத் சொல்கிறார்கள்</li>
+        <li>ஸலவாத் சொல்பவரின் மீது மலக்குகளும் திரும்ப ஸலவாத் சொல்கின்றனர்</li>
+        <li>நபிகள் நாயகம் ﷺ அன்னவர்களோடு சுவர்க்கத்திலே ஒன்றாக நெருங்கி இருக்க உதவும்</li>
+        <li>அதிகமான பாவங்கள் மன்னிக்கப்படும்</li>
+        <li>அதிகமான நன்மைகள் எழுதப்படும்</li>
+        <li>அதிகமான அந்தஸ்துகள் (தரஜா) உயர்த்தப்படும்</li>
+        <li>சுவர்க்கம் செல்ல துணை புரியும்</li>
+        <li>நரகத்தை விட்டு பாதுகாக்கும்</li>
+        <li>ஸலவாத் சொல்பவரின் அமல்கள் பரிசுத்தமாக்கப்படும்</li>
+        <li>துஆக்கள் (பிரார்த்தனைகள்) அங்கீகரிக்கப்பட உதவி செய்கிறது</li>
+        <li>வாழ்க்கையில் சந்தோசம், நிம்மதி ஏற்படுகிறது</li>
+        <li>வாழ்க்கையில் பரக்கத் (அபிவிருத்தி) ஏற்படுகிறது</li>
+        <li>உள்ளத்தில் அல்லாஹ்வின் ஒளி (நூர்) ஏற்படுகிறது</li>
+        <li>மனிதனின் கஷ்டங்கள், கவலைகள், பிரச்சினைகள் அனைத்தும் நீங்குகின்றன</li>
+        <li>ஆபத்துகள், நோய்கள், சூனியம், கண் திருஷ்டி ஆகியவற்றில் இருந்து பாதுகாப்பு தரும்</li>
+        <li>நாளை மறுமையில் நபிகள் நாயகம் ﷺ அன்னவர்களின் ஷபாஅத் (சிபாரிசு) கிடைக்க துணைப்புரிகிறது</li>
+        <li>மறுமையில் நபிகள் நாயகம் ﷺ அன்னவர்கள் ஸலவாத் சொல்பவருக்கு சாட்சியாக ஆவார்கள்</li>
+        <li>உள்ளத்திலே உள்ள முனாபிக் (நயவஞ்சக) தனத்தை நீக்குகிறது</li>
+        <li>ஸதகா (தர்மம்) செய்ய வசதியற்றவருக்கு ஸலவாத் தர்மத்தின் ஸ்தானத்தில் இருக்கிறது</li>
+        <li>இருபது தடவைகள் ஜிஹாது செய்ததைவிட அதிகமான நன்மைகள் கிடைப்பது</li>
+        <li>அடிமைகளை விடுதலைசெய்ததை விட அதிக நன்மைகளை பெறுத்தருவது</li>
+        <li>மற்றவருக்கு ஈஸால் ஸவாப் செய்வதற்கு ஓதும்போது, ஓதுபவருக்கும் ஓதப்படுவருக்கும் நன்மை கிடைப்பது</li>
+      </ul>
+    </div>
+
+    
+
+<div class="salawat-virtues" data-lang="en" style="display:none">
+      <ul class="salawat-benefits">
+        <li>Gain the love and pleasure of Allah</li>
+        <li>Gain the love and pleasure of the Prophet ﷺ</li>
+        <li>Allah sends salawat back upon the one who sends it</li>
+        <li>The Prophet ﷺ sends salawat back upon them</li>
+        <li>The angels also send salawat upon them</li>
+        <li>Helps you be close to the Prophet ﷺ in Paradise</li>
+        <li>Many sins are forgiven</li>
+        <li>Many good deeds are written</li>
+        <li>Ranks (darajat) are raised</li>
+        <li>Helps enter Paradise</li>
+        <li>Protection from Hellfire</li>
+        <li>Deeds are purified</li>
+        <li>Helps duas be accepted</li>
+        <li>Brings peace and happiness in life</li>
+        <li>Brings barakah (blessing) in life</li>
+        <li>Light (nur) enters the heart</li>
+        <li>Hardships, worries and problems are removed</li>
+        <li>Protection from dangers, illness, magic and evil eye</li>
+        <li>Helps gain the intercession (shafa'ah) of the Prophet ﷺ on the Day of Judgment</li>
+        <li>The Prophet ﷺ will testify for the one who sent salawat</li>
+        <li>Removes hypocrisy from the heart</li>
+        <li>For those who cannot give charity, salawat takes the place of sadaqah</li>
+        <li>Greater reward than fighting twenty battles</li>
+        <li>Greater reward than freeing slaves</li>
+        <li>When recited for others (isal al-thawab), both the reciter and the one intended receive reward</li>
+      </ul>
+    </div>
+<h3 class="salawat-sec-title" data-i18n="salawat_how_title">ஸலவாத் ஓதுவது எப்படி?</h3>
+    <div class="salawat-virtues" data-lang="ta">
+      <p>ஸலவாத் என்பது நபிகள் நாயகம் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்கள் மீது வாழ்த்து சொல்வதையும் துஆ பிரார்த்தனை புரிதலையும் குறிக்கும்.</p>
+      <p>ஸலவாத் பல்வேறு முறைகளில் சொல்லலாம். உதாரணமாக,</p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>அல்லாஹும்ம ஸல்லி அலா சைய்யிதினா முஹம்மத்</strong><br>
+          <span class="salawat-ta-line">(அல்லாஹ்வே! எங்கள் தலைவர் முஹம்மத் ﷺ மீது பிரார்த்தனை புரிவாயாக)</span>
+        </li>
+        <li>
+          <strong>அல்லாஹும்ம ஸல்லி வஸல்லிம் அலா சைய்யிதினா முஹம்மத்</strong><br>
+          <span class="salawat-ta-line">(அல்லாஹ்வே! எங்கள் தலைவர் முஹம்மத் ﷺ மீது பிரார்த்தனை புரிந்து அமைதியை பொழிவாயாக)</span>
+        </li>
+        <li>
+          <strong>அல்லாஹும்ம ஸல்லி வஸல்லிம் வபாரிக் அலா சைய்யிதினா முஹம்மத்</strong><br>
+          <span class="salawat-ta-line">(அல்லாஹ்வே! எங்கள் தலைவர் முஹம்மத் ﷺ மீது பிரார்த்தனை புரிந்து அமைதியை பொழிந்து அருள் புரிவாயாக)</span>
+        </li>
+        <li>
+          <strong>அல்லாஹும்ம ஸல்லி வஸல்லிம் அலா சைய்யிதினா முஹம்மதின் வஅலா ஆலிஹி வஸஹ்பிஹி</strong><br>
+          <span class="salawat-ta-line">(அல்லாஹ்வே! எங்கள் தலைவர் முஹம்மத் ﷺ மீதும் அவர்களின் குடும்பத்தார்கள் மற்றும் தோழர்கள் மீதும் நீ பிரார்த்தனை புரிந்து அமைதியை பொழிவாயாக)</span>
+        </li>
+        <li>
+          <strong>ஸல்லல்லாஹு அலா முஹம்மத்</strong><br>
+          <span class="salawat-ta-line">(முஹம்மத் ﷺ மீது அல்லாஹ்வின் பிரார்த்தனை பொழியட்டும்)</span>
+        </li>
+        <li>
+          <strong>ஸல்லல்லாஹு அலா முஹம்மத் ஸல்லல்லாஹு அலைஹி வஸல்லம்</strong><br>
+          <span class="salawat-ta-line">(முஹம்மத் ﷺ மீது அல்லாஹ்வின் பிரார்த்தனை மற்றும் அமைதி பொழியட்டும்)</span>
+        </li>
+      </ul>
+      <p>இவை யாவும் ஸலவாத் ஓதும் ஒரு சில முறைகளாகும். இதே போன்று பல்வேறு முறைகளில் இவற்றை விட வார்த்தைகளைக் கூட்டியோ குறைத்தோ வேறு முறைகளிலும் ஸலவாத் சொல்லலாம். அனைத்தும் சிறந்ததே. அனைத்துக்கும் நிறைய நற்கூலிகள் கிடைக்கப்பெறும்.</p>
+      <p>நாம் தொழுகையில் அத்தஹிய்யாத்தில் ஓதும் ஸலவாத் இப்ராஹீமிய்யா நபிகள் நாயகம் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களால் தொழுகையில் ஓத சொல்லி கொடுக்கப்பட்ட ஸலவாத் ஆகும்.</p>
+      <p>இவற்றை தவிர பல்வேறு சிறப்பு வாய்ந்த ஸலவாத்துகள் இஸ்லாமிய அறிஞர் பெருமக்களால் இயற்றப்பட்டு உலகளவில் ஓதப்பட்டு வருகின்றன. அந்த ஸலவாத்துகளில் பல நபிகள் நாயகம் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களால் அந்த இஸ்லாமிய அறிஞர் பெருமக்களுக்கு கனவின் மூலமோ வேறு வகையிலோ கற்பிக்கப்பட்டு அவை எழுதப்பட்டவையாகும். அதற்குரிய நன்மைகளும் நபிகள் நாயகம் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களால் அவர்களுக்கு எடுத்து கூறப்பட்டுள்ளன.</p>
+      <p>அவற்றில் ஒரு சில ஸலவாத்துகளையும் அதன் சிறப்புகளையும் கீழே பார்ப்போம்.</p>
+    </div>
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">1</span> <span data-lang="ta">ஸலவாத்துல் இப்ராஹீமிய்யா</span><span data-lang="en" style="display:none">Salawat Ibrahimiyya</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat Ibrahimiyya</strong></p>
+      <p>The classic salawat recited in prayer. Benefits include intercession on the Day of Judgment, seeing the Prophet ﷺ in a dream when recited 1000 times, and relief from illness.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ ٭ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ ٭ إِنَّكَ حَمِيدٌ مَجِيدٌ ٭ اللَّهُمَّ بَارِكْ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ ٭ كَمَا بَارَكْتَ عَلَىٰ إِبْرَاهِيمَ وَعَلَىٰ آلِ إِبْرَاهِيمَ ٭ إِنَّكَ حَمِيدٌ مَجِيدٌ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா சைய்யிதினா முஹம்மதின் வஅலா ஆலி சைய்யிதினா முஹம்மதின் கமா ஸல்லைத்த அலா சைய்யிதினா இப்ராஹீம வஅலா ஆலி சைய்யிதினா இப்ராஹீம இன்னக ஹமீதுன் மஜீத். அல்லாஹும்ம பாரிக் அலா சைய்யிதினா முஹம்மதின் வ அலா ஆலி சைய்யிதினா முஹம்மதின் கமா பாரக்த அலா சைய்யிதினா இப்ராஹீம வஅலா ஆலி சைய்யிதினா இப்ராஹீம இன்னக ஹமீதுன் மஜீத்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>மறுமையில் பெருமானாரின் பரிவுரை பெற:</strong><br>
+          இந்த ஸலவாத்தை ஒருவன் ஓதினதால் மறுமையில் அவனுக்குத் தாம் பிண ஏற்று இறைவனிடம் அவனுக்காகப் பரிந்துரைப்பதாகப் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்கள் கூறியுள்ளார்கள்.
+        </li>
+        <li>
+          <strong>பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் கனவில் காண:</strong><br>
+          இந்த ஸலவாத்தை ஒருவன் ஆயிரம் (1000) தடவை ஓதினதால் அவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் கனவில் காணும் பேறு பெறுவான்.
+        </li>
+        <li>
+          <strong>நோய்கள் நீங்கப்பெற:</strong><br>
+          இந்த ஸலவாத்தை ஒருவன் ஓதினதால் எல்லா நோய்களும் நீங்கப்பெறும்.
+        </li>
+      </ul>
+
+      <div class="salawat-tip-box" data-lang="ta">
+        <div class="salawat-tip-title"><span data-lang="ta">உங்களுக்கு தெரியுமா?</span><span data-lang="en" style="display:none">Did you know?</span></div>
+        <p>உங்களில் மரணித்தவர்களுக்காக நன்மைகளை சேர்த்து வைப்பதற்காக (அதாவது ஈஸால் ஸவாப் செய்வதற்காக) நீங்கள் புனித அல்குர்ஆன் மற்றும் திக்ர்கள் ஓதி அதன் நன்மைகளை அவர்களுக்கு அனுப்பி வைப்பது போலவும் அவர்கள் பெயரில் தர்மங்கள் (ஸதகா) செய்து அதன் நன்மைகளை அவர்களுக்கு அனுப்பி வைப்பது போலவும் நபிகள் நாயகம் ﷺ அன்னவர்களின் மீது ஸலவாத் ஓதி அதன் நன்மைகளை காராளியான உங்கள் அன்புக்குரியவர்களுக்கு சேர்த்து வைக்கலாம். உயிரோடு இருப்பவர் ஓதினால் என்னென்ன நன்மைகள் கிடைக்குமோ அவை அனைத்தும் மரணித்தவருக்கும் கிடைக்கும்.</p>
+      </div>
+      <div class="salawat-tip-box" data-lang="en" style="display:none">
+        <div class="salawat-tip-title">Did you know?</div>
+        <p>Just as you send reward (isal al-thawab) to the deceased by reciting Quran, dhikr, or giving charity in their name, you can also recite salawat upon the Prophet ﷺ and gift its reward to your loved ones. Whatever benefits the living receive, the deceased receive the same.</p>
+      </div>
+    </div>
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">2</span> <span data-lang="ta">ஸலவாத்துல் ஃபாத்திஹி</span><span data-lang="en" style="display:none">Salawat al-Fatih</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat al-Fatih</strong></p>
+      <p>Opens closed doors and guides to the straight path. Said to unlock divine secrets when recited regularly (e.g. 100 times).</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ ٭ الْفَاتِحِ لِمَا أُغْلِقَ ٭ وَالْخَاتِمِ لِمَا سَبَقَ ٭ نَاصِرِ الْحَقِّ بِالْحَقِّ ٭ وَالْهَادِي إِلَىٰ صِرَاطِكَ الْمُسْتَقِيمِ ٭ وَعَلَىٰ آلِهِ حَقَّ قَدْرِهِ وَمِقْدَارِهِ الْعَظِيمِ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா சைய்யிதினா முஹம்மதினில் ஃபாத்திஹி லிமா உக்லிக. வல் காத்திமி லிமா சபக. நாஸிரில் ஹக்கி பில்ஹக்கி. வல் ஹாதி இலா ஸிராதிக்க முஸ்தகீம். வஅலா ஆலிஹி ஹக்க கத்ரிஹி வமிக்தாரிஹில் அலீம்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>இறைஞான இரகசியங்களை அறிய:</strong><br>
+          இந்த ஸலவாத்தை ஒருவன் வழக்கமாக நூறு (100) தடவை ஓதிவந்தால் மறைவான இறைஞான இரகசியங்களை அறியலாம்.
+        </li>
+        <li>
+          <strong>விருப்பங்கள் நிறைவேற:</strong><br>
+          ஒரு விருப்பத்தை மனதிற் கொண்டு அது நிறைவேற பெறுவதற்காக இந்த ஸலவாத்தை ஒருவன் வழக்கமாக நூறு (100) தடவை ஓதிவந்தால் இறையருளால் அது நிறைவேறப்படும்.
+        </li>
+        <li>
+          <strong>பெருமானாரை காண:</strong><br>
+          ஒருவன் வெள்ளி அல்லது வியாழன் அல்லது திங்கள் இரவுகளில் முதல் ரக்அத்தில் சூரா ஃபாத்திஹாவுக்குப் பின் இன்னா அன்ஸல்னாஹு சூராவையும் இரண்டாம் ரக்அத்தில் இதா ஸுல்ஸிலத்துல் அர்ளு சூராவையும் மூன்றாம் ரக்அத்தில் குல்யா அய்யுஹல் காஃபிரூன் சூராவையும் நான்காம் ரக்அத்தில் குல் அஹுது பிரம்பில் ஃபலக், குல் அஹுது பிரம்பின்னாஸ் சூராக்களையும் ஓதி நான்கு ரக்அத் நஃபில் தொழுது, பின்னர் நறுமணம் நிறைந்த சூழலில் இந்த ஸலவாத்தை ஆயிரம் (1000) தடவை ஓதி வந்தால் அவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் காணும் பேறு பெறுவான்.
+        </li>
+        <li>
+          <strong>ஆறு இலட்சம் ஸலவாத்துகளுக்கு நிகரான ஸலவாத்:</strong><br>
+          இந்த ஸலவாத்தை ஒரு தடவை ஓதுவது ஏனைய ஸலவாத்துகளை ஆறு இலட்சம் (600,000) தடவை ஓதுவதற்கு சமமானது.
+        </li>
+        <li>
+          <strong>பாவ மன்னிப்பு பெற:</strong><br>
+          இந்த ஸலவாத்தை ஒருவன் நாற்பது நாட்களுக்கு தொடர்ச்சியாக ஓதி வந்தால் இறையருளால் அவனுடைய பாவங்கள் அனைத்தும் மன்னிக்கப்படும்.
+        </li>
+      </ul>
+    </div>
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">3</span> <span data-lang="ta">ஸலவாத்துன் நாரியா <span class="salawat-aka">(ஸலவாத்துல் தஃப்ரீஜிய்யா)</span></span><span data-lang="en" style="display:none">Salawat an-Nariya <span class="salawat-aka">(Tafrijiyya)</span></span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat an-Nariya</strong></p>
+      <p>Also called Tafrijiyya. Famous for relief from distress, expansion of rizq, and fulfillment of needs. Often recited 4444 times in a group or 11 times after each prayer.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ صَلَاةً كَامِلَةً ٭ وَسَلِّمْ سَلَامًا تَامًّا ٭ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ الَّذِي تَنْحَلُّ بِهِ الْعُقَدُ ٭ وَتَنْفَرِجُ بِهِ الْكُرَبُ ٭ وَتُقْضَىٰ بِهِ الْحَوَائِجُ ٭ وَتُنَالُ بِهِ الرَّغَائِبُ وَحُسْنُ الْخَوَاتِيمِ ٭ وَيُسْتَسْقَى الْغَمَامُ بِوَجْهِهِ الْكَرِيمِ ٭ وَعَلَىٰ آلِهِ وَصَحْبِهِ ٭ فِي كُلِّ لَمْحَةٍ وَنَفَسٍ بِعَدَدِ كُلِّ مَعْلُومٍ لَكَ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி ஸலாதன் காமிலதன். வஸல்லிம் ஸலாமன் தாமன். அலா சைய்யிதினா முஹம்மதின் அல்லதீ தன்ஹல்லு பிஹில் உகத். வதன்ஃபரிஜு பிஹில் குரப். வதுக்ளா பிஹில் ஹவாஇஜ். வதுனாலு பிஹிர் ரகாஇபு வஹுஸ்னுல் கவாதீம். வயுஸ்தஸ்கல் கமாமு பிவஜ்ஹிஹில் கரீம். வ அலா ஆலிஹி வஸஹ்பிஹி. ஃபீ குல்லி லம்ஹதின் வநஃபஸின் பிஅததி குல்லி மஅலூமின் லக.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>துன்பங்கள் நீங்கவும் அல்லாஹ்வின் புதையல்கள் கிடைக்கப்பெறவும்:</strong><br>
+          மாபெரும் இஸ்லாமிய அறிஞர் இமாம் குர்துபி கூறுகிறார்கள். எவரொருவர் இந்த ஸலவாத்தை தினமும் 141 அல்லது அதற்கு மேலதிகமாக ஓதி வருகிறாரோ அல்லாஹ் அவருடைய துன்பங்கள், கஷ்டங்கள், பிரச்சினைகள் யாவற்றையும் நீக்கி அவரது வாழ்க்கையை இலகுவாக்கி கொடுக்கிறான். அவருக்கு உள்ளத்தில் ஒளியை கொடுத்து, அவருடைய அந்தஸ்தை உயர்த்தி, உணவில் அபிவிருத்தியை ஏற்படுத்திகிறான். ஏராளமான நன்மைகளின் கதவுகளை திறக்கிறான். இவர் பட்டினி, பஞ்சம் போன்ற பேரழிவுகளை விட்டு பாதுகாக்கப்படுவார். மக்களின் உள்ளத்தில் இவர் மீதான அன்பு போடப்படும். இவர் எதை கேட்டாலும் அல்லாஹ் அதனை கொடுக்காமல் இருக்க மாட்டான். இதனை தினமும் ஓதி வந்தாலே இந்த எல்லா பலன்களையும் பெற முடியும். மேலும் இது அல்லாஹ்வின் புதையல்களில் ஒன்றாகும். இதனை வழக்கமாக ஓதி வருவது அந்த புதையலை திறப்பதற்கான திறவுகோலாகும் என இமாம் குர்துபி கூறுகிறார்கள்.
+        </li>
+        <li>
+          <strong>பெரும் துன்பங்கள் நீங்கப் பெற:</strong><br>
+          இதனைப் பலரும் ஒன்று சேர்ந்து அமர்ந்து 4444 தடவை ஓதினால் இறைவன் அருளால் அப்பெரும் துன்பம் பொங்கிச் சாம்பாகி நிவாரணம் ஏற்படும். எனவே தான் இதற்கு ஸலவாத்துன் நாரியா என்ற பெயரும் ஏற்பட்டது. இதனை ஒருவர் மட்டும் தனித்து ஓதின் நானொன்றுக்கு 440 ஸலவாத்து வீதம் பத்து நாட்களுக்கு ஓதிப் பதினொன்றாம் நாள் 44 ஸலவாத்துகளை ஓதி முடித்து இறைவனிடம் இறைஞ்ச வேண்டும்.
+        </li>
+        <li>
+          <strong>செல்வந்தனாக:</strong><br>
+          இந்த ஸலவாத்தை ஒவ்வொரு பர்ளான தொழுகைக்குப் பின்பும் பதினொரு (11) தடவை வழக்கமாக ஓதிவர்களின் அவனுக்குரிய இரணம் அதிகப்பட்டு அவன் விரைவில் பணக்காரனாவான் என்று இமாம் தைனூரி அவர்கள் கூறுகிறார்கள்.
+        </li>
+        <li>
+          <strong>சுகப்பிரசவம் ஏற்பட:</strong><br>
+          இதனைத் தட்டைப் பிங்கானில் எழுதிப் பிரசவ வேதனைக்கு ஆளான பெண்ணுக்கு கரைத்து குடிக்க வைத்தால் விரைவில் வேதனை நீங்கி சுகப் பிரசவம் ஏற்படும்.
+        </li>
+      </ul>
+    </div>
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">4</span> <span data-lang="ta">ஸலவாத்துல் முன்ஜியா <span class="salawat-aka">(ஸலவாத்துல் துன்ஜினா)</span></span><span data-lang="en" style="display:none">Salawat al-Munjiya <span class="salawat-aka">(Tunjina)</span></span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat al-Munjiya</strong></p>
+      <p>The rescuing salawat — protection from calamities and hardships.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ صَلَاةً تُنْجِينَا بِهَا مِنْ جَمِيعِ الْأَهْوَالِ وَالْآفَاتِ ٭ وَتَقْضِي لَنَا بِهَا جَمِيعَ الْحَاجَاتِ ٭ وَتُطَهِّرُنَا بِهَا مِنْ جَمِيعِ السَّيِّئَاتِ ٭ وَتَرْفَعُنَا بِهَا عِنْدَكَ أَعْلَى الدَّرَجَاتِ ٭ وَتُبَلِّغُنَا بِهَا أَقْصَى الْغَايَاتِ ٭ مِنْ جَمِيعِ الْخَيْرَاتِ ٭ فِي الْحَيَاةِ وَبَعْدَ الْمَمَاتِ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா சைய்யிதினா முஹம்மதின் ஸலாதன் துன்ஜினா பிஹா மின் ஜமீஇல் அஹ்வாலி வல் ஆஃபாத். வதக்லி லனா பிஹா ஜமீஅல் ஹாஜாத். வதுதஹ்ஹிருனா பிஹா மின் ஜமீஇஸ் சைய்யிஆத். வதர்ஃபஉனா பிஹா இந்தக அஅலத் தரஜாத். வதுபல்லிகுனா பிஹா அக்ஸல் காயாத். மின் ஜமீஇல் கைராத். ஃபில் ஹயாதி வபஅதல் மமாத்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>எண்ணங்கள் நிறைவேற:</strong><br>
+          இதனை ஆயிரம் தடவை ஓதின் இறையருளால் எண்ணிய எண்ணங்கள் நிறைவேறும்.
+        </li>
+        <li>
+          <strong>துன்பம் நீங்க:</strong><br>
+          இதனைத் துன்பத்தில் சிக்கிக் கொண்டிருப்பவன் ஆயிரம் தடவை ஓதினால் அவன் இறையருளால் துன்பம் நீங்கப் பெறுவான்.
+        </li>
+        <li>
+          <strong>இரணம் அதிகரிக்க:</strong><br>
+          இதனை ஒருவன் வழக்கமாக ஆயிரம் தடவை ஓதிவரின் அவனின் இரணம் அதிகரித்து அவன் செல்வனாவான்.
+        </li>
+        <li>
+          <strong>நாடிய நாட்டங்கள் நிறைவேற:</strong><br>
+          இதனை ஒருவன் நள்ளிரவு ஆயிரம் தடவை ஓதி இறைவனிடம் இறைஞ்சின் அவன் நாடிய நாட்டங்கள் நிறைவேறும், மின்னலின் வேகத்தில் அவனுடைய இறைஞ்சுதல் இறை சந்நிதானத்தை எய்தும் என்றும் கூறப்படுகிறது. ‘இது அர்ஷின் புதையல்களில் ஒன்று’ என ஷைகுல் அக்பர் இப்னு அரபி (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் கூறியுள்ளார்கள்.
+        </li>
+      </ul>
+    </div>
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">5</span> <span data-lang="ta">ஸலவாத்துத் தாஜ்</span><span data-lang="en" style="display:none">Salawat at-Taj</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat at-Taj</strong></p>
+      <p>The Crown salawat — praise of the Prophet ﷺ with many noble titles.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَىٰ سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ ٭ صَاحِبِ التَّاجِ وَالْمِعْرَاجِ وَالْبُرَاقِ وَالْعَلَمِ ٭ دَافِعِ الْبَلَاءِ وَالْوَبَاءِ وَالْقَحْطِ وَالْمَرَضِ وَالْأَلَمِ ٭ اسْمُهُ مَكْتُوبٌ مَرْفُوعٌ مَشْفُوعٌ مَنْقُوشٌ فِي اللَّوْحِ وَالْقَلَمِ ٭ سَيِّدِ الْعَرَبِ وَالْعَجَمِ ٭ جِسْمُهُ مُقَدَّسٌ مُعَطَّرٌ مُطَهَّرٌ مُنَوَّرٌ فِي الْبَيْتِ وَالْحَرَمِ ٭ شَمْسِ الضُّحَى ٭ بَدْرِ الدُّجَى ٭ صَدْرِ الْعُلَى ٭ نُورِ الْهُدَى ٭ كَهْفِ الْوَرَى ٭ مِصْبَاحِ الظُّلَمِ ٭ جَمِيلِ الشِّيَمِ ٭ شَفِيعِ الْأُمَمِ ٭ صَاحِبِ الْجُودِ وَالْكَرَمِ ٭ وَاللَّهُ عَاصِمُهُ ٭ وَجِبْرِيلُ خَادِمُهُ ٭ وَالْبُرَاقُ مَرْكَبُهُ ٭ وَالْمِعْرَاجُ سَفَرُهُ ٭ وَسِدْرَةُ الْمُنْتَهَى مَقَامُهُ ٭ وَقَابَ قَوْسَيْنِ مَطْلُوبُهُ ٭ وَالْمَطْلُوبُ مَقْصُودُهُ ٭ وَالْمَقْصُودُ مَوْجُودُهُ ٭ سَيِّدِ الْمُرْسَلِينَ ٭ خَاتَمِ النَّبِيِّينَ ٭ شَفِيعِ الْمُذْنِبِينَ ٭ أَنِيسِ الْغَرِيبِينَ ٭ رَحْمَةٍ لِّلْعَالَمِينَ ٭ رَاحَةِ الْعَاشِقِينَ ٭ مُرَادِ الْمُشْتَاقِينَ ٭ شَمْسِ الْعَارِفِينَ ٭ سِرَاجِ السَّالِكِينَ ٭ مِصْبَاحِ الْمُقَرَّبِينَ ٭ مُحِبِّ الْفُقَرَاءِ وَالْغُرَبَاءِ وَالْمَسَاكِينِ ٭ سَيِّدِ الثَّقَلَيْنِ ٭ نَبِيِّ الْحَرَمَيْنِ ٭ إِمَامِ الْقِبْلَتَيْنِ ٭ وَسِيلَتِنَا فِي الدَّارَيْنِ ٭ صَاحِبِ قَابَ قَوْسَيْنِ ٭ مَحْبُوبِ رَبِّ الْمَشْرِقَيْنِ وَالْمَغْرِبَيْنِ ٭ جَدِّ الْحَسَنِ وَالْحُسَيْنِ ٭ مَوْلَانَا وَمَوْلَى الثَّقَلَيْنِ ٭ أَبِي الْقَاسِمِ مُحَمَّدِ بْنِ عَبْدِ اللَّهِ ٭ نُورٍ مِنْ نُورِ اللَّهِ ٭ يَا أَيُّهَا الْمُشْتَاقُونَ بِنُورِ جَمَالِهِ ٭ صَلُّوا عَلَيْهِ وَآلِهِ وَأَصْحَابِهِ وَسَلِّمُوا تَسْلِيمًا
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா சைய்யிதினா வமவ்லானா முஹம்மதின் ஸாஹிபித் தாஜி வல் மிஃராஜி வல் புராகி வல் அலம். தாஃபிஇல் பலாஇ வல் வபாஇ வல் கஹ்தி வல் மரளி வல் அலம். இஸ்முஹு மக்தூபுன் மர்ஃபூஉன் மஷ்ஃபூஉன் மன்கூஷுன் ஃபில் லவ்ஹி வல் கலம். சைய்யிதில் அரபி வல் அஜமி. ஜிஸ்முஹு முகத்தஸுன் முஅத்தருன் முதஹ்ஹருன் முனவ்வருன் ஃபில் பைத்தி வல் ஹரம். ஷம்ஸிட் ளுஹா. பத்ரித் துஜா. ஸத்ரில் உலா. நூரில் ஹுதா. கஹ்ஃபில் வரா. மிஸ்பாஹிழ் ளுலம். ஜமீலிஷ் ஷியம். ஷஃபீஇல் உமம். ஸாஹிபில் ஜூதி வல் கரம். வல்லாஹு ஆஸிமுஹு. வஜிப்ரீலு காதிமுஹு. வல்புராகு மர்கபுஹு. வல்மிஃராஜு ஸஃபருஹு. வஸித்ரதுல் முன்தஹா மகாமுஹு. வகாப கவ்ஸைனி மத்லூபுஹு. வல்மத்லூபு மக்ஸூதுஹு. வல்மக்ஸூது மவ்ஜூதுஹு. சைய்யிதில் முர்ஸலீன். காதிமின் நபிய்யீன். ஷஃபீஇல் முத்னிபீன். அனீஸில் கரீபீன். ரஹ்மதில் லில்ஆலமீன். ராஹதில் ஆஷிகீன். முராதில் முஷ்தாகீன். ஷம்ஸில் ஆரிஃபீன். ஸிராஜிஸ் ஸாலிகீன். மிஸ்பாஹில் முகர்ரபீன். முஹிப்பில் ஃபுகராஇ வல் குரபாஇ வல் மஸாகீன். சைய்யிதித் தகலைன். நபிய்யில் ஹரமைன். இமாமில் கிப்லதைன். வஸீலதினா ஃபித் தாரயின். ஸாஹிபி காப கவ்ஸைன். மஹ்பூபி ரப்பில் மஷ்ரிகைனி வல் மக்ரிபைன். ஜத்தில் ஹஸனி வல் ஹுஸைன். மவ்லானா வமவ்லத் தகலைன். அபில் காஸிமி முஹம்மதி ப்னி அப்தில்லாஹி. நூரின் மின் நூரில்லாஹி. யா அய்யுஹல் முஷ்தாகூன பினூரி ஜமாலிஹி. ஸல்லூ அலைஹி வஆலிஹி வஅஸ்ஹாபிஹி வஸல்லிமூ தஸ்லீமா.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>குழந்தை பெற:</strong><br>
+          இருபத்தியொரு பேரீத்தம் பழங்களை ஒன்றாக வைத்து அவற்றின் மீது ஏழு தடவை இதனை ஓதி நாளொன்றுக்கு ஒன்று வீதம் இருபத்தியொரு நாட்கள் அந்தப் பேரீத்தம் பழங்களை ஒரு பெண் உண்டு அதன்பின் தன் கணவனுடன் மருவின் இறைவனருளால் கருவுறுவாள். அதன்பின் கருவில் ஏழேனும் கோளாறு ஏற்படின் தொடர்ந்து ஏழு நாட்களுக்கு இதனைத் தண்ணீரில் ஓதி ஊதிக்குடித்துவரின் கரு காக்கப் பெற்று குழந்தை பிறக்கும்.
+        </li>
+        <li>
+          <strong>குறிக்கோள் எய்தப் பெற:</strong><br>
+          நள்ளிரவில் விழித்தெழுந்து ‘உளூ’ ஷுடன் நாற்பத்து ஒரு தடவை வீதம் நாற்பது தடவை இதனை ஓதின் எண்ணிய குறிக்கோளை இறையருளால் எய்தப் பெறலாம்.
+        </li>
+        <li>
+          <strong>வறுமை நீங்க:</strong><br>
+          இதனை ஒருவன் இஷா தொழுப்பின் நாற்பத்து ஒரு தடவை வீதம் நாற்பது நாட்கள் ஓதிவரின் அவனைப் பிடித்த வறுமை தொலையும்.
+        </li>
+        <li>
+          <strong>இரணம் அதிகரிக்க:</strong><br>
+          இதனை ஒருவன் சுபஹ் தொழுகைக்குப் பின் வழக்கமாக ஒரு தடவை ஓதினால் அவருடைய இரணம் அதிகப்படிம்.
+        </li>
+        <li>
+          <strong>மனத் தெளிவு பெற:</strong><br>
+          இதனை ஒருவன் சுபஹ் தொழுகைக்குப் பின் ஏழு தடவையும் அஸர் தொழுகை, இஷாத் தொழுகை ஆகியவற்றிற்குப் பின் மும்மூன்று தடவையும் வழக்கமாக ஓதி வந்தால் அவனுடைய மனம் இருள் நீங்கி ஒளி பெறும்.
+        </li>
+        <li>
+          <strong>வஞ்சனை, பேய், தொத்து நோய் நீங்க:</strong><br>
+          வஞ்சனை வைக்கப்பட்டவர்களுக்கும் பேய் பிடித்த வர்களுக்கும் தொத்து நோயால் பிடிக்கப்பட்டவர்களுக்கும் இதனை பதினொரு தடவை தண்ணீரில் ஓதி ஊதி கொடுத்தால் நலம் ஏற்படும்.
+        </li>
+        <li>
+          <strong>பிறரின் பகைமை, பொறாமை, துன்பம் ஆகியவற்றிலிருந்து விடுதலை பெற:</strong><br>
+          இதனை ஒருவன் தொடர்ந்து ஓதி வந்தால் அவன் பிறரின் பகைமை, பொறாமை, தொல்லை, துன்பம் ஆகியவற்றிலிருந்து விடுதலை பெறுவான்.
+        </li>
+        <li>
+          <strong>பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் கனவில் காண:</strong><br>
+          ஒருவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் கனவில் காணவிரும்பின் வளர்ப்பிறையில் வரும் ஒரு வெள்ளி இரவில் தூய்மையான உடையணிந்து நறுமணம் பூசி இஷாத் தொழுகை முடித்து உளூவுடன் நூற்று எழுபது தடவை இந்த ஸலவாத்தை ஓதி விட்டு உறங்கவும். இவாறு தொடர்ந்து மொத்தம் பதினொரு இரவுகள் செய்துவரின் இவ்விரவுகளில் எதிலாவது அவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்களைக் கனவில் காணும் பேறு பெறுவான்.
+        </li>
+      </ul>
+    </div>
+
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">6</span> <span data-lang="ta">ஸலவாத்துன் நூரி ஸாத்தி</span><span data-lang="en" style="display:none">Salawat an-Nur adh-Dhati</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat an-Nur adh-Dhati</strong></p>
+      <p>Salawat of the essential light — focusing on the Prophetic light.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ النُّورِ الذَّاتِي وَالسِّرِّ السَّارِي فِي سَائِرِ الأَسْمَاءِ وَالصِّفَاتِ.
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி வஸல்லிம் வபாரிக் அலா ஸெய்யதினா முஹம்மதின் நூரி ஸாத்தி வஸிரரி அஸ்ஸாரி ஃபி ஸாஇரி அஸ்மாஇ வஸ் ஸிபாத்தி வஆலா ஆலிஹி வஸஹ்பிஹி வஸல்லிம்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>ஒரிலட்சம் ஸலவாத்துகளுக்கு நிகர்:</strong><br>
+          இதனை ஒரு தடவை ஓதுவது மற்ற ஸலவாத்துகளை ஒரிலட்சம் தடவை ஓதுவதற்கு நிகராகும்.
+        </li>
+        <li>
+          <strong>துன்பம், பீடை அகல:</strong><br>
+          இதனை ஒருவன் தினந்தோறும் ஐந்நூறு தடவை ஓதிவருன் அவனுடைய துன்பங்களும், அவனைப் பிடித்த பீடைகளும் அவனை விட்டகலும்.
+        </li>
+        <li>
+          <strong>கண் ஒளி, இதய ஒளி எய்தப் பெற:</strong><br>
+          இதனை வழக்கமாக ஓதி வருபவர்கள் கண் ஒளி, இதய ஒளி ஆயாவை எய்தப் பெறுவர். இதனைச் சிறு வயது முதல் வழக்கமாக ஓதி வருபவர்களுக்குக் கண் ஒளி மங்காது. இது சோதிக்கப்பட்ட ஒன்றாகும்.
+        </li>
+      </ul>
+    </div>
+
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">7</span> <span data-lang="ta">ஸலவாத்துஷ் ஷாபிய்</span><span data-lang="en" style="display:none">Salawat ash-Shafi</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat ash-Shafi</strong></p>
+      <p>Salawat of the intercessor — as many as those who remember and those who forget.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ عَدَدَ مَا ذَكَرَهُ الذَّاكِرُونَ وَغَفَلَ عَنْ ذِكْرِهِ الْغَافِلُونَ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா முஹம்மதின் அதத மா தகரஹுத் தாகிரூன வ (க)கபல அன் திக்ரிஹில் (க)காபிலூன்</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>மறுமையில் கேள்வி கணக்கின்றி சுவனம் புக:</strong><br>
+          இமாம் இப்னு புனான் அல் இஸ்பஹானி (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களைக் கனவில் கண்டு, “இமாம் ஷாபிய் (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் தங்களின் பெரிய தந்தையின் வழி வந்தவராய்றே. அவர்களுக்குத் தாங்கள் அளித்த தனிச் சிறப்பு யாது?” என்று வினவிய போது, அவரிடம் மறுமையில் கேள்வி கணக்குக் கேட்க வேண்டாமென்று இறைவனிடம் பரிந்துரைத்திருக்கின்றேன்” என்று பதிலிறுத்தனர். “அதற்கு பேற்றிறினை அவர்கள் எவ்வாறு எய்தப் பெற்றனர்?” என்று இஸ்பஹானெ இமாம் (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களை வினவ, “அவர் என் மீது எவருமே ஓதாத ஸலவாத்தை வழக்கமாக ஓதி வருவதன் காரணமாக நான் இறைவனிடம் அவருக்காக அவ்விதம் பரிந்துரைத்தேன்” என்று கூறி மேலே கூறப்பட்ட ஸலவாத்தை மொழிந்தனர்.
+        </li>
+      </ul>
+    </div>
+
+
+    
+    
+
+<h3 class="salawat-sec-title"><span class="salawat-num-badge">8</span> <span data-lang="ta">ஸலவாத்து திப்பில் குலூப்</span><span data-lang="en" style="display:none">Salawat Tibb al-Qulub</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat Tibb al-Qulub</strong></p>
+      <p>Medicine of the hearts — healing for hearts, bodies, and sight.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ طِبِّ الْقُلُوبِ وَدَوَائِهَا وَعَافِيَةِ الْأَبْدَانِ وَشِفَائِهَا وَنُورِ الْأَبْصَارِ وَضِيَائِهَا وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா ஸெய்யதினா முஹம்மதின் திப்பில் குலூபி வதவாஇஹா வஆஃபியத்தில் அப்தானி வஷிபாஇஹா வநூரில் அப்ஸாரி வளியாஇஹா வஅலா ஆலிஹி வஸஹ்பிஹி வஸல்லிம்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>நோய், ஆபத்து அணுகாதிருக்கு:</strong><br>
+          இதனை வழக்கமாக ஓதிவரின் நோய், ஆபத்து முதலியனவ அணுகாது.
+        </li>
+        <li>
+          <strong>உடல் வேதனை நீங்க:</strong><br>
+          உடலில் வேதனை, வலி ஏற்படின் இதனைத் தொடர்ந்து ஓதி ஊதினால் இறையருளால் நிவாரணம் கிடைக்கும்.
+        </li>
+        <li>
+          <strong>கண்ணொளி பெற:</strong><br>
+          பார்வை குறைந்தவர்கள் அல்லது பார்வையை இழந்தவர்கள் இதனைக் காலையில் நூறு தடவையும் மாலையில் நூறு தடவையும் வழக்கமாக ஓதிவரின் அவர்கள் கண்ணொளி எய்தப்பெறுவர்.
+        </li>
+        <li>
+          <strong>நோய் நீங்க:</strong><br>
+          நோயாளன் ஒருவன் தூய்மையாக அமர்ந்து நல்லெண்ணத்துடன் இதனை ஓதின் இதன் பொருட்டால் நோய் நீங்கப் பெறுவான் என இமாம் ஷாபியி (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் கூறினர். இதனை நோயுற்றவர் மீது ஓதி ஊதவும் தண்ணீரில் ஓதி ஊதிக் குடிக்கவும் கொடுப்பின் அவர்கள் விரைவில் நலம் பெறுவர்.
+        </li>
+        <li>
+          <strong>அகத்தூய்மை பெற:</strong><br>
+          இதனை வழக்கமாக ஓதி வருபவர் அகத் தூய்மை எய்தப் பெறுவர்.
+        </li>
+      </ul>
+    </div>
+
+
+    
+
+    
+    <h3 class="salawat-sec-title"><span class="salawat-num-badge">9</span> <span data-lang="ta">ஸலவாத்துஸ் ஸஆதா</span><span data-lang="en" style="display:none">Salawat as-Saada</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat as-Saada</strong></p>
+      <p>Salawat of everlasting bliss, continuous with the dominion of Allah.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَدَدَ مَا فِي عِلْمِ اللَّهِ صَلَاةً دَائِمَةً بِدَوَامِ مُلْكِ اللَّهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா ஸைய்யிதினா முஹம்மதின் அதத மாஃபி இல்மில்லாஹி ஸலாதன் தாயிமதன் பிதவாமி முல்கில்லாஹ். வஅலா ஆலிஹி வஸஹ்பிஹி வஸல்லிம்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>ஒரு லட்சம் ஸலவாத் ஓதிய நன்மை:</strong><br>
+          அன்னை ஆயிஷா (ரலியல்லாஹு அன்ஹா) அவர்கள் நாளொன்றுக்கு பத்தாயிரம் ஸலவாத்துகளை ஓதி வரும் வழக்கம் உடையவர்களாக இருந்தார்கள். அதை அறிந்த பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அன்னவர்கள் இதனை அவர்களுக்குச் சற்றுக் கொடுத்து இதனை ஒரு தடவை ஓதுவது மற்ற ஸலவாத்துகளை ஒரிலட்சம் தடவை ஓதுவதற்கு நிகராகும் என்று கூறினார்கள்.
+        </li>
+        <li>
+          <strong>இம்மை மறுமை நற்பேறு பெற:</strong><br>
+          இதனை வெள்ளியன்று வழக்கமாக ஆயிரம் தடவை ஓதி வந்தால் இம்மையிலும், மறுமையிலும் நற்பேறு பெறலாம்.
+        </li>
+        <li>
+          <strong>பாம்பு தேள் கடிக்காதிருக்க:</strong><br>
+          ஒவ்வொரு நாள் காலையிலும் மாலையிலும் அஸ்தக்ஃபிருல்லாஹ் என்று நூறு தடவை ஓதி, பின்னர் இந்த ஸலவாத்தை நூறு தடவை ஓதி பின்னர் 'லா இலாஹ இல்லல்லாஹு மலிகுல் ஹக்குல் முபீன்' என்று நூறு தடவையும் பின்னர் முஹம்மதுர் ரஸூலுல்லாஹி ஸாதிகுல் வஃதில் அமீன்' என்று ஒரு தடவை ஓதி, பின்னர் பெருமானார் சமூகத்திற்கு ஸூரத்துல் ஃபாத்திஹா ஒரு தடவை ஓதி ஹதியாச் செய்து அதே போன்று ரிபாயி ஆண்டகை மீதும் ரிபாயி தரீகாவின் ஷைகுமார்கள் மீதும் பின்னர் எல்லாத் தரீகாக்களின் ஷைகுமார்கள் மீதும் ஒவ்வொரு தடவை ஸூரா ஃபாத்திஹா ஓதி ஹதியா செய்து வந்தால் பாம்பு, தேள் ஆகியவை கடிக்காது. கடித்த போதிலும் அதனால் தீங்கு ஏற்படாது.
+        </li>
+      </ul>
+    </div>
+
+
+    
+    <h3 class="salawat-sec-title"><span class="salawat-num-badge">10</span> <span data-lang="ta">ஸலவாத்துல் உம்மிய்யி</span><span data-lang="en" style="display:none">Salawat al-Ummi</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat al-Ummi</strong></p>
+      <p>Salawat upon the unlettered Prophet ﷺ, His servant and messenger.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَنَبِيِّكَ وَرَسُولِكَ النَّبِيِّ الْأُمِّيِّ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா ஸைய்யிதினா முஹம்மதின் அப்திக வநபிய்யிக வரஸூலிகந் நபிய்யில் உம்மிய். வஅலா ஆலிஹி வஸஹ்பிஹி வஸல்லிம்.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>எண்பது வருட பாவங்கள் மன்னிக்க:</strong><br>
+          இதை ஒருவன் வெள்ளியன்று எண்பது தடவை ஓதினால் அவனுடைய எண்பது ஆண்டு பாவங்களை இறைவன் மன்னிப்பான் என்று ஸைய்யிது இப்னு அப்துல்லாஹ் (ரலியல்லாஹு அன்ஹு) அவர்கள் கூறியுள்ளார்கள்.
+        </li>
+        <li>
+          <strong>இறைவனைத் தரிசிக்க:</strong><br>
+          ஒருவன் வெள்ளியன்று பகலில் இந்த ஸலவாத்தை ஆயிரம் தடவை ஓதினால் அந்த இரவிலேயே அவன் இறைவனைத் தரிசிக்கும் வாய்ப்பு பெறுவான். இல்லையெனில் அவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களைக் காண்பான் அல்லது சுவனத்தில் அவனுக்குரிய இடத்தை காண்பான். அவ்விதம் காணாவிடின் இரண்டாம் ஜும்ஆ, மூன்றாம் ஜும்ஆ, நான்காம் ஜும்ஆ, ஐந்தாம் ஜும்ஆ வரை ஓதி வரவேண்டும். நிச்சயம் கண்டு கொள்வான்” என பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்கள் கூறியதாக புஸ்தானுல் புகராயிய்யா’ என்ற நூலில் இமாம் யாஃபி ரஹ்மதுல்லாஹி அலைஹி அவர்கள் மூலம் அறிவிக்கப்படுகிறது.
+        </li>
+        <li>
+          <strong>பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களை விழிப்பு நிலையில் காண:</strong><br>
+          ஒருவன் இதனை நாள்தோறும் ஐநூறு தடவை வழக்கமாக ஓதி வந்தால் அவன் பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களை விழிப்பு நிலையில் காணாமல் மரணிக்க மாட்டான். என முர்ஸிய்யி (ரஹ்மதுல்லாஹி அலைஹி) அவர்கள் கூறுகின்றார்கள்.
+        </li>
+        <li>
+          <strong>பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களை காண:</strong><br>
+          ஒருவன் வெள்ளி இரவில் ஒவ்வொரு ரக அத்தியும் (ஸூரா ஃபாத்திஹா ஒரு தடவையும் ஆயத்துல் குர்ஸி பதினேந்து தடவையும் ஓதி இரண்டு ரக்அத் நஃபில் தொழுது பின் ஆயிரம் தடவை இந்த ஸலவாத்தை ஓதுவானாயின் அவன் எண்ணைத் நிச்சயமாக கனவில் கண்டு கொள்வான். மறு ஜும்ஆ வருவதற்குள் எவனொருவன் எண்ணைக் கனவில் கண்டானோ அவனுக்கும் சுவர்க்கம் நிச்சயமாகி விட்டது. என்று பெருமானார் ஸல்லல்லாஹு அலைஹி வஸல்லம் அவர்கள் கூறியதாக அபூஹுரைரா (ரலியல்லாஹு அன்ஹு) அவர்கள் அறிவிக்கின்றார்கள். இச்செய்தி முஹ்யித்தீன் ஆண்டகை எழுதிய ‘குன்யத்துத் தாலிபீன் என்ற நூலிலும் அஃப்ஸலுஸ் ஸலவாத்’ என்ற நூலிலும் குறிப்பிடப்பட்டுள்ளது. இந்த ஸலவாத்தை தாம் தம் தந்தையின் ஆணைப்படி ஓதி வந்ததாகவும் ஒரிரவு பெருமானார் (ஸல்லல்லாஹு அலைஹி வஸல்லம்) அவர்களை கனவில் கண்டு இதனை ஓதிக் காட்டிய பொழுது அவர்கள் பெரிதும் மகிழ்ந்ததாகவும் ஷா வலியுல்லாஹ் தம் ஹிரீருஸ் ஸமீன் என்ற நூலில் எழுதியுள்ளார்கள்.
+        </li>
+      </ul>
+    </div>
+
+
+    
+    <h3 class="salawat-sec-title"><span class="salawat-num-badge">11</span> <span data-lang="ta">ஸலவாத் ஜும்ஆ</span><span data-lang="en" style="display:none">Salawat of Jumuah</span></h3>
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p><strong>Salawat of Jumuah</strong></p>
+      <p>Recommended especially on Friday — blessings upon the unlettered Prophet ﷺ.</p>
+      <p style="color:var(--text-dim);font-size:13px">Recite the Arabic text above with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+    <div class="salawat-virtues" data-lang="ta">
+      <div class="salawat-ar-block">
+        اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ النَّبِيِّ الْأُمِّيِّ وَعَلَى آلِهِ وَسَلِّمْ تَسْلِيمًا
+      </div>
+      <p><strong data-lang="ta">தமிழில்:</strong><strong data-lang="en" style="display:none">Transliteration:</strong><br>
+      <span data-lang="ta">அல்லாஹும்ம ஸல்லி அலா முஹம்மதினின் நபிய்யில் உம்மிய் வஅலா ஆலிஹி வஸல்லிம் தஸ்லீமா.</span><span data-lang="en" style="display:none">(See Arabic above — recite with presence of heart.)</span></p>
+
+      <p><strong data-lang="ta">ஓதுவதால் கிடைக்கும் பலன்கள்:</strong><strong data-lang="en" style="display:none">Benefits of reciting:</strong></p>
+      <ul class="salawat-benefits" data-lang="ta">
+        <li>
+          <strong>எண்பது வருட பாவங்கள் மன்னிக்கவும் நன்மைகளை சம்பாதிக்கவும்:</strong><br>
+          நபிகள் நாயகம் ஸல்லல்லாஹு அலைஹி வஸல்லம் அவர்கள் கூறியதாக அபூஹுரைரா (ரலியல்லாஹு அன்ஹு) அவர்கள் அறிவிக்கிறார்கள். எவரொருவர் இந்த ஸலவாத்தை வெள்ளிக்கிழமை அன்று அஸர் தொழுகைக்குப் பின் தொழுது இடத்தை விட்டு எழுந்திட முன்னர் எண்பது தடவை ஓதுகின்றாரோ அவருடைய எண்பது வருட பாவத்தை அல்லாஹ் மன்னித்து விடுகின்றான். மேலும் அவருக்கு எண்பது வருட நன்மைகளை வழங்குகிறான்.
+        </li>
+      </ul>
+    </div>
+
+
+<h3 class="salawat-sec-title">இஸ்லாமிய அறிஞர்கள் கூறுகிறார்கள்</h3>
+    <div class="salawat-virtues">
+      <div class="salawat-hadith salawat-scholar">
+        <p>எல்லா வணக்கங்களிலும் ஏற்றுக்கொள்ளப்படுவதற்கும் மறுக்கப்படுவதற்கும் சாத்தியம் உண்டு. ஆனால், நபிகள் நாயகம் ﷺ அன்னவர்களின் மீது சொல்லும் ஸலவாத்தில் <strong>மட்டும் ஏற்றுக்கொள்ளப்படுவதை தவிர மறுக்கப்படுவது இல்லை</strong>.</p>
+      </div>
+    </div>
+
+  
+
+    <div class="salawat-virtues" data-lang="en" style="display:none">
+      <p>Salawat means sending blessings and making dua upon Prophet Muhammad (ﷺ).</p>
+      <p>It can be recited in many ways. For example:</p>
+      <ul class="salawat-benefits">
+        <li><strong>Allahumma salli ala sayyidina Muhammad</strong><br>
+          <span class="salawat-ta-line">(O Allah, send blessings upon our master Muhammad ﷺ)</span></li>
+        <li><strong>Allahumma salli wa sallim ala sayyidina Muhammad</strong><br>
+          <span class="salawat-ta-line">(O Allah, send blessings and peace upon our master Muhammad ﷺ)</span></li>
+        <li><strong>Allahumma salli wa sallim wa barik ala sayyidina Muhammad</strong><br>
+          <span class="salawat-ta-line">(O Allah, send blessings, peace and barakah upon our master Muhammad ﷺ)</span></li>
+        <li><strong>Allahumma salli wa sallim ala sayyidina Muhammadin wa ala alihi wa sahbihi</strong><br>
+          <span class="salawat-ta-line">(O Allah, send blessings and peace upon our master Muhammad ﷺ and upon his family and companions)</span></li>
+      </ul>
+      <p>Use the counter above and recite with presence of heart. May Allah accept. Ameen.</p>
+    </div>
+</section>
+
+  <section class="screen" id="screenNabiDua">
+    <button type="button" class="back-btn back-btn-ico" id="nabiDuaBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    <h2 style="text-align:center;font-size:17px" data-i18n="title_nabi_dua">🌙 நபி துஆக்கள்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:-4px 0 10px" data-i18n="nabi_sub">நபி (ஸல்) கற்றுத்தந்த மஸ்னூன் துஆக்கள் · தமிழ் பொருள்</p>
+    <div id="nabiDuaCats" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px"></div>
+    <input type="search" class="dua-search" id="nabiDuaSearch" placeholder="துஆ / வகை தேடுங்கள்..." data-i18n-placeholder="search_nabi_dua">
+    <div class="dua-list" id="nabiDuaList"></div>
+  </section>
+
+  <section class="screen" id="screenHadees">
+    <button type="button" class="back-btn back-btn-ico" id="hadeesBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+    <h2 style="text-align:center;font-size:17px" id="hadeesTitle"><img src="icons/hadees.png" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:6px;object-fit:contain"> ஹதீஸ் கிதாப்கள்</h2>
+    <p style="text-align:center;font-size:12px;color:var(--text-dim);margin:-4px 0 10px" id="hadeesSub">ஸஹீஹ் புகாரி · ஸஹீஹ் முஸ்லிம் · ஸுனன் அபூ தாவூத் · ஜாமிஉத் திர்மிதி · ஸுனன் அந்நஸாயி · ஸுனன் இப்னு மாஜா</p>
+
+    <div class="hadees-dl-bar" id="hadeesDlBar">
+      <button type="button" class="hadees-dl-btn" id="hadeesDlBtn">⬇️ Offline பதிவிறக்கு</button>
+      <div class="hadees-dl-status" id="hadeesDlStatus">இணையம் தேவை · பதிவிறக்கிய பின் offline படிக்கலாம்</div>
+      <div class="hadees-dl-progress" id="hadeesDlProgress" style="display:none"><div class="hadees-dl-fill" id="hadeesDlFill"></div></div>
+    </div>
+
+    <div class="hadees-kitab-row" id="hadeesKitabRow">
+      <button type="button" class="hadees-kitab active" data-kitab="bukhari" id="kitabBukhari">📚 ஸஹீஹ் புகாரி</button>
+      <button type="button" class="hadees-kitab" data-kitab="muslim" id="kitabMuslim">📗 ஸஹீஹ் முஸ்லிம்</button>
+      <button type="button" class="hadees-kitab" data-kitab="abudawud" id="kitabAbuDawud">📘 ஸுனன் அபூ தாவூத்</button>
+      <button type="button" class="hadees-kitab" data-kitab="tirmidhi" id="kitabTirmidhi">📙 ஜாமிஉத் திர்மிதி</button>
+      <button type="button" class="hadees-kitab" data-kitab="nasai" id="kitabNasai">📕 ஸுனன் அந்நஸாயி</button>
+      <button type="button" class="hadees-kitab" data-kitab="ibnmajah" id="kitabIbnMajah">📓 ஸுனன் இப்னு மாஜா</button>
+    </div>
+
+    <div class="hadees-tabs" id="hadeesTabs">
+      <button type="button" class="hadees-tab active" data-htab="books" id="hadeesTabBooks">📚 புத்தகங்கள்</button>
+      <button type="button" class="hadees-tab" data-htab="featured" id="hadeesTabFeatured">⭐ குர்ஆன் ஹதீஸ்</button>
+      <button type="button" class="hadees-tab" data-htab="search" id="hadeesTabSearch">🔍 தேடல்</button>
+    </div>
+
+    <div id="hadeesPanelBooks" class="hadees-panel">
+      <div id="hadeesBooksList" class="hadees-books"></div>
+      <div id="hadeesHadithView" class="hadees-hadith-view" style="display:none">
+        <button type="button" class="hadees-back-sec" id="hadeesBackSec">← புத்தகங்கள்</button>
+        <div class="hadees-sec-title" id="hadeesSecTitle"></div>
+        <div id="hadeesHadithList" class="hadees-hadith-list"></div>
+        <div id="hadeesLoadMore" class="hadees-load-more" style="display:none">
+          <button type="button" id="hadeesMoreBtn">மேலும் ஏற்று…</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="hadeesPanelFeatured" class="hadees-panel" style="display:none">
+      <div id="hadeesList" class="hadees-list"></div>
+    </div>
+
+    <div id="hadeesPanelSearch" class="hadees-panel" style="display:none">
+      <div class="hadees-search-row">
+        <input type="number" id="hadeesNumInput" placeholder="ஹதீஸ் எண் (1–7563)" min="1" max="7563" inputmode="numeric">
+        <button type="button" id="hadeesNumGo">செல்</button>
+      </div>
+      <div id="hadeesSearchResult" class="hadees-hadith-list"></div>
+    </div>
+  </section>
+</main>
+
+
+
+  
+  
+  <section class="screen" id="screenDuel">
+    <style>
+      #screenDuel.screen.active{display:block!important;min-height:100vh;background:linear-gradient(180deg,#2e1065 0%,#1e1b4b 40%,#f5f0ff 40%,#f8f5ff 100%);position:relative;z-index:5;padding-bottom:40px}
+      .mp-wrap{max-width:420px;margin:0 auto;padding:8px 12px 30px;position:relative}
+      .mp-title{text-align:center;font-size:26px;font-weight:900;letter-spacing:.5px;margin:6px 0 2px;
+        background:linear-gradient(180deg,#ffe9a0,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        filter:drop-shadow(0 2px 0 rgba(0,0,0,.35))}
+      .mp-title span{background:linear-gradient(180deg,#e8eef8,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+      .mp-sub{text-align:center;color:#e9d5ff;font-size:13px;font-weight:700;margin:0 0 14px}
+      .mp-mode-title{text-align:center;font-size:12px;font-weight:800;color:#ffd54f;margin:0 0 8px}
+      .mp-step-title{text-align:center;font-size:13px;font-weight:900;color:#ffd54f;margin:10px 0 8px;letter-spacing:.3px}
+      .mp-room.on,.mp-room[style*="display:block"]{display:block!important}
+      .mp-joined-badge{margin:0 0 10px;padding:10px;border-radius:12px;background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.45);color:#bbf7d0;font-size:13px;font-weight:800;text-align:center}
+      .mp-mode-row{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+      .mp-mode{flex:1;min-width:100px;padding:10px 6px;border-radius:14px;border:2px solid rgba(212,175,55,.35);background:rgba(30,27,75,.9);color:#e9d5ff;font-size:11px;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.25;-webkit-tap-highlight-color:transparent}
+      .mp-mode-ico{font-size:22px;line-height:1.2}
+      .mp-mode-name{font-size:11px;font-weight:900;color:#fff}
+      .mp-mode-desc{font-size:9px;font-weight:700;color:#c4b5fd}
+      .mp-mode.active{border-color:#fbbf24;background:linear-gradient(180deg,#7c3aed,#4c1d95);color:#ffd54f;box-shadow:0 3px 0 #2e1065,0 0 12px rgba(251,191,36,.35);transform:scale(1.03)}
+      .mp-mode.active .mp-mode-name{color:#ffd54f}
+      .mp-mode.active .mp-mode-desc{color:#fde68a}
+      .mp-mode-help{font-size:11px;line-height:1.45;color:#c4b5fd;background:rgba(76,29,149,.35);border:1px solid rgba(167,139,250,.3);border-radius:12px;padding:8px 10px;margin:0 0 10px;text-align:center}
+      .mp-joined-badge{text-align:center;margin:0 0 12px;padding:8px 12px;border-radius:12px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.45);color:#86efac;font-size:12px;font-weight:800}
+
+      .mp-players{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:linear-gradient(180deg,#4c1d95,#2e1065);border:2px solid rgba(212,175,55,.55);border-radius:16px;padding:10px 6px;margin-bottom:12px;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 6px 0 rgba(0,0,0,.3),0 10px 20px rgba(0,0,0,.35)}
+      .mp-p{text-align:center;color:#f5e6b8;padding:4px 2px}
+      .mp-av{width:48px;height:48px;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-size:22px;
+        background:radial-gradient(circle at 30% 30%,#5b21b6,#1e1b4b);border:2px solid #fbbf24;
+        box-shadow:0 3px 0 rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.25)}
+      .mp-p name{display:block;font-size:9px;font-weight:800;color:#ffd54f;letter-spacing:.3px}
+      .mp-p .mp-lv{font-size:9px;color:#c4b5fd}
+      .mp-p .mp-sc{font-size:9px;color:#fde68a;font-weight:700}
+      .mp-lb{background:linear-gradient(180deg,#3b0764,#1e1b4b);border:2px solid rgba(212,175,55,.4);border-radius:14px;padding:8px;margin:0 auto 12px;max-width:300px;
+        box-shadow:0 5px 0 rgba(0,0,0,.28),0 8px 16px rgba(0,0,0,.3)}
+      .mp-lb-row{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;margin:4px 0;font-size:12px;font-weight:800}
+      .mp-lb-row.r1{background:linear-gradient(90deg,#b45309,#fbbf24);color:#1a1030}
+      .mp-lb-row.r2{background:linear-gradient(90deg,#64748b,#cbd5e1);color:#0f172a}
+      .mp-lb-row.r3{background:linear-gradient(90deg,#6b21a8,#a855f7);color:#fff}
+      .mp-lb-row span:last-child{margin-left:auto}
+      .mp-qcard{background:linear-gradient(165deg,#5b21b6,#3b0764 50%,#2e1065);border:2.5px solid #c9a227;border-radius:18px;padding:16px 12px 14px;margin:0 0 12px;position:relative;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 0 rgba(0,0,0,.3),0 14px 28px rgba(0,0,0,.4)}
+      .mp-qbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,#e2e8f0,#94a3b8);color:#1e1b4b;font-size:10px;font-weight:900;padding:4px 14px;border-radius:8px;border:1.5px solid #fff;white-space:nowrap}
+      .mp-qtext{color:#fff;font-size:15px;font-weight:800;text-align:center;line-height:1.45;margin:10px 0 14px}
+      .mp-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+      .mp-opt{appearance:none;border-radius:12px;padding:11px 8px;font-size:12px;font-weight:700;cursor:pointer;color:#f8fafc;text-align:left;
+        border:2px solid #e6c65c;border-top-color:#ffe9a8;border-bottom-color:#6b4e0a;
+        background:linear-gradient(180deg,#4c1d95,#2e1065);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 4px 0 rgba(0,0,0,.35)}
+      .mp-opt:active{transform:translateY(3px);box-shadow:inset 0 2px 6px rgba(0,0,0,.4),0 1px 0 rgba(0,0,0,.3)}
+      .mp-opt.ok{border-color:#22c55e!important;background:linear-gradient(180deg,#166534,#14532d)!important}
+      .mp-opt.bad{border-color:#ef4444!important;background:linear-gradient(180deg,#991b1b,#7f1d1d)!important}
+      .mp-opt b{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(180deg,#fde68a,#b45309);color:#1a1030;font-size:11px;margin-right:6px}
+      .mp-timer-wrap{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 14px}
+      .mp-timer{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:#1a1030;
+        background:radial-gradient(circle at 35% 30%,#ffe9a0,#d97706 60%,#92400e);border:3px solid #f0d078;
+        box-shadow:0 4px 0 #6b4e0a,0 8px 16px rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.4)}
+      .mp-live{font-size:11px;font-weight:800;color:#4c1d95}
+      .mp-live i{color:#ef4444;font-style:normal}
+      .mp-actions{display:flex;flex-direction:column;gap:8px;align-items:center}
+      .mp-btn-main{width:100%;max-width:280px;padding:14px;border-radius:14px;font-size:15px;font-weight:900;cursor:pointer;color:#1a1030;
+        border:2px solid #ffe9a8;border-bottom-color:#6b4e0a;
+        background:linear-gradient(180deg,#ffe08a,#d97706);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 5px 0 #6b4e0a,0 10px 18px rgba(0,0,0,.3)}
+      .mp-btn-main:active{transform:translateY(4px);box-shadow:inset 0 3px 8px rgba(0,0,0,.3),0 1px 0 #6b4e0a}
+      .mp-btn-row{display:flex;gap:8px;width:100%;max-width:280px}
+      .mp-btn-sec{flex:1;padding:11px 8px;border-radius:12px;font-size:12px;font-weight:800;cursor:pointer;color:#f8fafc;
+        border:2px solid rgba(212,175,55,.55);border-bottom-color:#3b0764;
+        background:linear-gradient(180deg,#6d28d9,#4c1d95);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 4px 0 rgba(0,0,0,.3)}
+      .mp-btn-sec.join{background:linear-gradient(180deg,#b45309,#92400e);border-color:#fbbf24}
+      .mp-room{display:none;margin-top:10px;padding:12px;background:rgba(46,16,101,.9);border-radius:12px;border:1px solid rgba(212,175,55,.4)}
+      .mp-room.on{display:block}
+      .mp-room input{width:100%;padding:10px;border-radius:10px;border:1px solid gold;background:#111;color:#fff;font-weight:700;box-sizing:border-box;margin:6px 0;text-align:center;letter-spacing:2px}
+      .mp-play{display:none}
+      .mp-play.on{display:block}
+      .mp-lobby{display:block}
+      .mp-lobby.off{display:none}
+      .mp-turn{text-align:center;font-size:12px;font-weight:800;color:#5b21b6;margin:0 0 8px}
+      .mp-res{display:none;text-align:center;padding:20px 10px}
+      .mp-res.on{display:block}
+    
+      .mp-wrap{max-width:420px;margin:0 auto;padding:4px 10px 20px;position:relative}
+      .mp-title{text-align:center;font-size:20px;font-weight:900;letter-spacing:.5px;margin:2px 0 0;
+        background:linear-gradient(180deg,#ffe9a0,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        filter:drop-shadow(0 2px 0 rgba(0,0,0,.35))}
+      .mp-sub{text-align:center;color:#e9d5ff;font-size:11px;font-weight:700;margin:0 0 8px}
+      .mp-players{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:linear-gradient(180deg,#4c1d95,#2e1065);border:2px solid rgba(212,175,55,.55);border-radius:12px;padding:6px 4px;margin-bottom:8px;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 4px 0 rgba(0,0,0,.3)}
+      .mp-p{text-align:center;color:#f5e6b8;padding:2px 1px}
+      .mp-av{width:36px;height:36px;border-radius:50%;margin:0 auto 2px;display:flex;align-items:center;justify-content:center;font-size:16px;
+        background:radial-gradient(circle at 30% 30%,#5b21b6,#1e1b4b);border:2px solid #fbbf24;
+        box-shadow:0 2px 0 rgba(0,0,0,.35)}
+      .mp-p name{display:block;font-size:8px;font-weight:800;color:#ffd54f;letter-spacing:.2px}
+      .mp-p .mp-lv{font-size:8px;color:#c4b5fd}
+      .mp-p .mp-sc{font-size:8px;color:#fde68a;font-weight:700}
+      .mp-lb{background:linear-gradient(180deg,#3b0764,#1e1b4b);border:2px solid rgba(212,175,55,.4);border-radius:12px;padding:4px;margin:0 auto 8px;max-width:300px;
+        box-shadow:0 3px 0 rgba(0,0,0,.28)}
+      .mp-lb-row{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:8px;margin:2px 0;font-size:11px;font-weight:800}
+      .mp-btn-main{width:100%;max-width:280px;padding:11px;border-radius:12px;font-size:14px;font-weight:900;cursor:pointer;color:#1a1030;
+        border:2px solid #ffe9a8;border-bottom-color:#6b4e0a;
+        background:linear-gradient(180deg,#ffe08a,#d97706);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 4px 0 #6b4e0a}
+      .mp-btn-sec{flex:1;padding:9px 6px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;color:#f8fafc;
+        border:2px solid rgba(212,175,55,.55);border-bottom-color:#3b0764;
+        background:linear-gradient(180deg,#6d28d9,#4c1d95);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 3px 0 rgba(0,0,0,.3)}
+      .mp-names-box{margin-top:8px;padding:6px 8px;background:rgba(30,27,75,.55);border:1px solid rgba(212,175,55,.35);border-radius:10px}
+      .mp-names-label{font-size:10px;color:#c4b5fd;font-weight:800;margin-bottom:4px}
+      .mp-names-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+      .mp-names-grid input{
+        padding:6px 8px !important;border-radius:8px !important;border:1px solid #c9a227 !important;
+        background:#1e1b4b !important;color:#fff !important;font-weight:700 !important;font-size:11px !important;
+        box-sizing:border-box;width:100%;
+      }
+      .mp-wrap img[alt="VS"]{width:64px !important;height:64px !important}
+</style>
+
+    <button type="button" class="back-btn back-btn-ico" id="duelBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+
+    <div class="mp-wrap">
+      <div style="text-align:center;margin:4px 0 6px">
+        <img src="icons/multiplayer-vs.png" alt="VS" style="width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.45))">
+      </div>
+      <div class="mp-title">MULTIPLAYER <span>QUIZ</span></div>
+      <div class="mp-sub">"யார் முதலிடம் பிடிப்பது?" 😈🔥</div>
+
+      <div class="mp-lobby" id="mpLobby">
+        <div class="mp-players" id="mpPlayers">
+          <div class="mp-p"><div class="mp-av">🌙</div><name>PLAYER 01</name><div class="mp-lv">You</div><div class="mp-sc">Score: 0</div></div>
+          <div class="mp-p"><div class="mp-av">⭐</div><name>PLAYER 02</name><div class="mp-lv">Local</div><div class="mp-sc">Score: 0</div></div>
+          <div class="mp-p"><div class="mp-av">🧕</div><name>PLAYER 03</name><div class="mp-lv">—</div><div class="mp-sc">Optional</div></div>
+          <div class="mp-p"><div class="mp-av">🧔</div><name>PLAYER 04</name><div class="mp-lv">—</div><div class="mp-sc">Optional</div></div>
+        </div>
+
+        <div class="mp-lb" id="mpLobbyLb">
+          <div class="mp-lb-row r1"><span>🥇 1st</span><span>PLAYER 01</span><span>0</span></div>
+          <div class="mp-lb-row r2"><span>🥈 2nd</span><span>PLAYER 02</span><span>0</span></div>
+          <div class="mp-lb-row r3"><span>🥉 3rd</span><span>—</span><span>0</span></div>
+        </div>
+
+        <div class="mp-mode-title">⚙️ Mode தேர்வு செய்க (click)</div>
+        <div class="mp-step-title">1️⃣ எந்த mode-ல் விளையாட வேண்டும்? <span style="color:#ffd54f">(click)</span></div>
+        <div class="mp-mode-row" id="mpModeRow">
+          <button type="button" class="mp-mode" data-mpmode="phone" id="mpModePhone">
+            <span class="mp-mode-ico">📱</span>
+            <span class="mp-mode-name">Same Phone</span>
+            <span class="mp-mode-desc">ஒரே போன் · 2–4 பேர்</span>
+          </button>
+          <button type="button" class="mp-mode active" data-mpmode="offline" id="mpModeOffline">
+            <span class="mp-mode-ico">🔒</span>
+            <span class="mp-mode-name">Offline Local</span>
+            <span class="mp-mode-desc">Hotspot · Data இல்லாமல் ✅</span>
+          </button>
+          <button type="button" class="mp-mode" data-mpmode="wifi" id="mpModeWifi">
+            <span class="mp-mode-ico">📶</span>
+            <span class="mp-mode-name">WiFi Live</span>
+            <span class="mp-mode-desc">Internet + live sync</span>
+          </button>
+        </div>
+        <div class="mp-mode-help" id="mpModeHelp">
+          🔒 Offline Local தேர்வு செய்யப்பட்டுள்ளது — Hotspot-க்கு சிறந்தது. CREATE அல்லது JOIN அழுத்துங்கள்.
+        </div>
+        <div class="mp-joined-badge" id="mpJoinedBadge" style="display:none">✅ Room ready: <b id="mpJoinedCode">—</b> · இப்போது START MATCH</div>
+
+        <div class="mp-step-title">2️⃣ Room</div>
+        <div class="mp-actions">
+          <div class="mp-btn-row">
+            <button type="button" class="mp-btn-sec" id="mpCreateBtn">🔗 CREATE ROOM</button>
+            <button type="button" class="mp-btn-sec join" id="mpJoinBtn">📲 JOIN ROOM</button>
+          </div>
+          <button type="button" class="mp-btn-main" id="mpStartBtn"><img src="icons/multiplayer-vs.png" alt="" style="width:22px;height:22px;vertical-align:middle;margin-right:6px;border-radius:50%"> START MATCH</button>
+        </div>
+        <div class="mp-room on" id="mpRoomBox" style="display:block">
+          <div style="color:#ffd54f;font-size:12px;font-weight:700;margin-bottom:6px" id="mpRoomLabel">Room code இங்கே</div>
+          <input id="mpRoomInput" maxlength="8" placeholder="எ.கா. ABC123" autocomplete="off" inputmode="text" style="text-transform:uppercase;font-size:20px;letter-spacing:3px;text-align:center;font-weight:900">
+          <button type="button" class="mp-btn-main" id="mpRoomGo" style="margin-top:10px;font-size:14px">✅ JOIN / CONFIRM</button>
+          <p style="font-size:11px;color:#c4b5fd;margin-top:8px;line-height:1.45" id="mpRoomHint">Host CREATE → code share. Friend code type செய்து JOIN/CONFIRM.</p>
+        </div>
+
+        <div class="mp-names-box">
+          <div class="mp-names-label">Players (2–4)</div>
+          <div class="mp-names-grid">
+            <input id="mpN1" value="Player 01" maxlength="12" placeholder="P1">
+            <input id="mpN2" value="Player 02" maxlength="12" placeholder="P2">
+            <input id="mpN3" value="" placeholder="P3 opt" maxlength="12">
+            <input id="mpN4" value="" placeholder="P4 opt" maxlength="12">
+          </div>
+        </div>
+      </div>
+
+      <div class="mp-play" id="mpPlay">
+        <div class="mp-turn" id="mpTurn">Player 01's turn</div>
+        <div class="mp-lb" id="mpLiveLb"></div>
+        <div class="mp-qcard">
+          <div class="mp-qbadge" id="mpQBadge">QUESTION 01</div>
+          <div class="mp-qtext" id="mpQText">?</div>
+          <div class="mp-opts" id="mpOpts"></div>
+        </div>
+        <div class="mp-timer-wrap">
+          <div class="mp-timer" id="mpTimer">00:15</div>
+          <div class="mp-live"><i>●</i> LIVE · <span id="mpCount">2</span> PLAYERS</div>
+        </div>
+      </div>
+
+      <div class="mp-res" id="mpRes">
+        <div style="font-size:48px">🏆</div>
+        <h3 id="mpWinner" style="color:#b45309;font-size:20px"></h3>
+        <div class="mp-lb" id="mpFinalLb" style="margin-top:12px"></div>
+        <button type="button" class="mp-btn-main" id="mpAgainBtn" style="margin-top:14px">மீண்டும் / Again</button>
+        <button type="button" class="mp-btn-sec" id="mpHomeBtn" style="margin-top:8px;width:100%;max-width:280px">முகப்பு</button>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      var Q = [{"q": "குர்ஆன் யாருடைய வார்த்தை?", "opts": ["நபி ﷺ அவர்களின் வார்த்தை", "ஸஹாபாக்களின் வார்த்தை", "அல்லாஹ்வின் வார்த்தை", "அறிஞர்களின் வார்த்தை"], "ans": 2}, {"q": "குர்ஆன் எந்த மொழியில் அருளப்பட்டது?", "opts": ["பாரசீகம்", "அரபி", "உருது", "ஹீப்ரு"], "ans": 1}, {"q": "குர்ஆன் எந்த மாதத்தில் முதன்முதலில் அருளத் தொடங்கியது?", "opts": ["முஹர்ரம்", "ஷவ்வால்", "ரமலான்", "துல்ஹஜ்"], "ans": 2}, {"q": "குர்ஆன் எந்த இரவில் அருளப்பட்டது என்று குர்ஆன் குறிப்பிடுகிறது?", "opts": ["லைலத்துல் கத்ர்", "லைலத்துல் பராஅத்", "ஆஷூரா இரவு", "வெள்ளிக்கிழமை இரவு"], "ans": 0}, {"q": "முதல் வஹீ எந்த சூராவில் உள்ளது?", "opts": ["அல்ஃபாத்திஹா", "அல்அலக்", "அல்பகரா", "அந்நாஸ்"], "ans": 1}, {"q": "முதல் வஹீயின் முதல் வார்த்தை என்ன?", "opts": ["الحمد", "اقرأ", "قل", "سبح"], "ans": 1}, {"q": "குர்ஆனை நபி ﷺ அவர்களுக்கு கொண்டு வந்த மலக்கு யார்?", "opts": ["மீகாயீல் عليه السلام", "இஸ்ராஃபீல் عليه السلام", "ஜிப்ரீல் عليه السلام", "மாலிக் عليه السلام"], "ans": 2}, {"q": "குர்ஆன் எந்த நபி ﷺ அவர்களுக்கு அருளப்பட்டது?", "opts": ["மூஸா عليه السلام", "ஈஸா عليه السلام", "இப்ராஹீம் عليه السلام", "முஹம்மது ﷺ"], "ans": 3}, {"q": "குர்ஆனில் மொத்தம் எத்தனை சூராக்கள் உள்ளன?", "opts": ["110", "112", "114", "116"], "ans": 2}, {"q": "குர்ஆனின் முதல் சூரா எது?", "opts": ["அல்பகரா", "அல்ஃபாத்திஹா", "அந்நாஸ்", "அல்இக்லாஸ்"], "ans": 1}, {"q": "குர்ஆனின் கடைசி சூரா எது?", "opts": ["அல்ஃபலக்", "அந்நாஸ்", "அந்நஸ்ர்", "அல்இக்லாஸ்"], "ans": 1}, {"q": "குர்ஆனின் மிக நீளமான சூரா எது?", "opts": ["ஆலு இம்ரான்", "அந்நிஸா", "அல்பகரா", "அல்-மாயிதா"], "ans": 2}, {"q": "குர்ஆனின் மிகச் சிறிய சூரா எது?", "opts": ["அல்இக்லாஸ்", "அந்நஸ்ர்", "அல்கௌஸர்", "அல்அஸ்ர்"], "ans": 2}, {"q": "அல்ஃபாத்திஹா சூராவில் எத்தனை ஆயத்துகள் உள்ளன?", "opts": ["5", "6", "7", "8"], "ans": 2}, {"q": "ஆயத்துல் குர்ஸி எந்த சூராவில் உள்ளது?", "opts": ["ஆலு இம்ரான்", "அல்பகரா", "அந்நிஸா", "அல்-மாயிதா"], "ans": 1}, {"q": "ஆயத்துல் குர்ஸி எந்த ஆயத்து எண்?", "opts": ["254", "255", "256", "257"], "ans": 1}, {"q": "குர்ஆனில் பெயரால் குறிப்பிடப்பட்ட ஒரே பெண் யார்?", "opts": ["ஆசியா", "ஹவ்வா", "மர்யம்", "சாரா"], "ans": 2}, {"q": "குர்ஆனில் பெயரால் குறிப்பிடப்பட்ட நபிமார்களில் ஒருவர் யார்?", "opts": ["முஹம்மது ﷺ", "ஹம்ஸா رضي الله عنه", "அபூபக்ர் رضي الله عنه", "உமர் رضي الله عنه"], "ans": 0}, {"q": "குர்ஆனில் அதிகமாக குறிப்பிடப்பட்ட நபி யார்?", "opts": ["இப்ராஹீம் عليه السلام", "மூஸா عليه السلام", "நூஹ் عليه السلام", "ஈஸா عليه السلام"], "ans": 1}, {"q": "குர்ஆனில் “முஹம்மது” என்ற பெயர் எத்தனை முறை வருகிறது?", "opts": ["2", "3", "4", "5"], "ans": 2}, {"q": "“முஹம்மது” என்ற பெயரைக் கொண்ட சூரா எது?", "opts": ["சூரா 47", "சூரா 48", "சூரா 49", "சூரா 50"], "ans": 0}, {"q": "குர்ஆன் எத்தனை ஜுஸ்வுகளாகப் பிரிக்கப்பட்டுள்ளது?", "opts": ["20", "25", "30", "40"], "ans": 2}, {"q": "குர்ஆனில் “பிஸ்மில்லாஹிர் ரஹ்மானிர் ரஹீம்” எத்தனை முறை எழுதப்பட்டுள்ளது?", "opts": ["112", "113", "114", "115"], "ans": 2}, {"q": "பிஸ்மில்லாஹ் இல்லாமல் தொடங்கும் சூரா எது?", "opts": ["அத்தவ்பா", "யூனுஸ்", "அல்-அன்ஃபால்", "ஹூத்"], "ans": 0}, {"q": "இரண்டு முறை “பிஸ்மில்லாஹ்” இடம்பெறும் சூரா எது?", "opts": ["அந்நம்ல்", "அந்நஹ்ல்", "அல்கஹ்ஃப்", "மர்யம்"], "ans": 0}, {"q": "குர்ஆனின் மிக நீளமான ஆயத்து எது?", "opts": ["ஆயத்துல் குர்ஸி", "கடன் ஆயத்து", "நூர் ஆயத்து", "சப்ர் ஆயத்து"], "ans": 1}, {"q": "கடன் தொடர்பான நீளமான ஆயத்து எந்த சூராவில் உள்ளது?", "opts": ["அல்பகரா", "ஆலு இம்ரான்", "அந்நிஸா", "அல்-மாயிதா"], "ans": 0}, {"q": "சூரா அல்ஃபாத்திஹாவின் மற்றொரு பிரபலமான பெயர் என்ன?", "opts": ["உம்முல் கிதாப்", "உம்முல் முஃமினீன்", "ஸையிதுல் கிதாப்", "நூருல் கிதாப்"], "ans": 0}, {"q": "“குர்ஆனின் இதயம்” என்று பிரபலமாக அழைக்கப்படும் சூரா எது?", "opts": ["யாஸீன்", "அல்முல்க்", "அல்கஹ்ஃப்", "அர்-ரஹ்மான்"], "ans": 0}, {"q": "சூரா யாஸீன் எந்த எண்?", "opts": ["34", "35", "36", "37"], "ans": 2}, {"q": "சூரா அல்-முல்க் எந்த எண்?", "opts": ["65", "66", "67", "68"], "ans": 2}, {"q": "சூரா அர்-ரஹ்மான் எந்த எண்?", "opts": ["53", "54", "55", "56"], "ans": 2}, {"q": "“அர்ரஹ்மான்” என்ற பெயரில் உள்ள சூரா எது?", "opts": ["53", "54", "55", "56"], "ans": 2}, {"q": "சூரா அல்இக்லாஸ் எந்த எண்?", "opts": ["110", "111", "112", "113"], "ans": 2}, {"q": "சூரா அல்ஃபலக் எந்த எண்?", "opts": ["111", "112", "113", "114"], "ans": 2}, {"q": "சூரா அந்நாஸ் எந்த எண்?", "opts": ["112", "113", "114", "115"], "ans": 2}, {"q": "அல்இக்லாஸ், அல்ஃபலக், அந்நாஸ் ஆகிய மூன்று சூராக்களும் சேர்ந்து என்ன என்று அழைக்கப்படுகின்றன?", "opts": ["முஅவ்விதாத்", "முஃபஸ்ஸலாத்", "முஷாபிஹாத்", "முன்ஜியாத்"], "ans": 0}, {"q": "குர்ஆன் பாதுகாக்கப்படும் என்று அல்லாஹ் எந்த சூராவில் கூறுகிறான்?", "opts": ["அல்ஹிஜ்ர்", "அந்நஹ்ல்", "யூனுஸ்", "அல்-அன்பியா"], "ans": 0}, {"q": "“நிச்சயமாக நாமே இந்த நினைவூட்டலை இறக்கினோம்; நிச்சயமாக நாமே அதைப் பாதுகாப்போம்” என்ற பொருள் கொண்ட ஆயத்து எந்த சூராவில் உள்ளது?", "opts": ["அல்பகரா", "அல்ஹிஜ்ர்", "அல்-கஹ்ஃப்", "மர்யம்"], "ans": 1}, {"q": "குர்ஆன் ஓதும்போது சஜ்தா ஆயத்து வந்தால் செய்யப்படும் சஜ்தா என்ன என்று அழைக்கப்படுகிறது?", "opts": ["சஜ்தத்துத் திலாவத்", "சஜ்தத்துஷ் ஷுக்ர்", "சஜ்தத்துஸ் ஸஹ்வ்", "சஜ்தத்துல் ஹஜ்"], "ans": 0}, {"q": "குர்ஆனில் “அல்லாஹ்” என்ற பெயர் அதிகமாக வருகிறதா?", "opts": ["ஆம்", "இல்லை", "ஒருமுறை மட்டும்", "பெயரே இல்லை"], "ans": 0}, {"q": "குர்ஆனை மனனம் செய்தவரை அரபியில் என்ன அழைக்கிறார்கள்?", "opts": ["முஃபஸ்ஸிர்", "ஹாஃபிழ்", "முஹத்தித்", "ஃபகீஹ்"], "ans": 1}, {"q": "குர்ஆனை முதலில் மனனம் செய்தவர்களில் முக்கியமானவர் யார்?", "opts": ["நபி முஹம்மது ﷺ", "அபூ லஹப்", "அபூ ஜஹ்ல்", "கைசர்"], "ans": 0}, {"q": "குர்ஆன் வசனங்களை எழுதி வைத்த ஸஹாபாக்களில் ஒருவர் யார்?", "opts": ["ஸைத் இப்னு ஸாபித் رضي الله عنه", "அபூ லஹப்", "அபூ ஜஹ்ல்", "உமைய்யா"], "ans": 0}, {"q": "குர்ஆன் ஒரே முஷ்ஹஃபாக தொகுக்கப்பட்ட முயற்சி எந்த கலீஃபாவின் காலத்தில் தொடங்கியது?", "opts": ["அபூபக்ர் رضي الله عنه", "உமர் رضي الله عنه", "உஸ்மான் رضي الله عنه", "அலி رضي الله عنه"], "ans": 0}, {"q": "முஷ்ஹஃபின் நகல்களை பல பகுதிகளுக்கு அனுப்பி ஓதல் முறையில் ஒருமைப்பாட்டை ஏற்படுத்திய கலீஃபா யார்?", "opts": ["அபூபக்ர் رضي الله عنه", "உமர் رضي الله عنه", "உஸ்மான் رضي الله عنه", "அலி رضي الله عنه"], "ans": 2}, {"q": "குர்ஆனில் மிக நீளமான சூராவான அல்பகரா எந்த எண்?", "opts": ["1", "2", "3", "4"], "ans": 1}, {"q": "சூரா அல்பகராவின் கடைசி இரண்டு ஆயத்துகள் எந்த பெயரால் பிரபலமாக அறியப்படுகின்றன?", "opts": ["ஆமனர்ரஸூல்", "ஆயத்துல் நூர்", "ஆயத்துல் குர்ஸி", "ஆயத்துல் சப்ர்"], "ans": 0}, {"q": "குர்ஆன் ஓதுவதற்கு முன் ஷைத்தானிடமிருந்து பாதுகாப்பு கேட்பது என்ன என்று அழைக்கப்படுகிறது?", "opts": ["இஸ்திஆதா", "இஸ்திக்ஃபார்", "தக்பீர்", "தஹ்லீல்"], "ans": 0}, {"q": "குர்ஆன் முஸ்லிம்களுக்கு எவ்வாறு வர்ணிக்கப்படுகிறது?", "opts": ["வெறும் வரலாற்றுப் புத்தகம்", "அல்லாஹ்விடமிருந்து வந்த வழிகாட்டி", "கவிதை நூல்", "மனிதர்களின் சட்டப் புத்தகம் மட்டும்"], "ans": 1}];
+      var G = null, timer = null, timeLeft = 15;
+      var mpMode = 'offline'; // phone | wifi | offline
+      var mpSeed = '';
+      function seedFromCode(code){
+        var s = String(code||'LOCAL1').toUpperCase();
+        var hv = 2166136261;
+        for(var i=0;i<s.length;i++){ hv ^= s.charCodeAt(i); hv = Math.imul(hv, 16777619); }
+        return (hv>>>0) || 1;
+      }
+      function mulberry32(a){
+        return function(){
+          var t = a += 0x6D2B79F5;
+          t = Math.imul(t ^ t >>> 15, t | 1);
+          t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+          return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+      }
+      function mpHelpText(){
+        if(mpMode==='wifi') return '✅ Mode: WiFi/Hotspot — Host CREATE → code share. Friend JOIN → code type → OK. (Internet உதவும்)';
+        if(mpMode==='offline') return '✅ Mode: Offline Local — Host CREATE → code share. Friend JOIN → same code → OK → START. Internet தேவையில்லை.';
+        return '✅ Mode: Same Phone — Names நிரப்புங்கள் → START. தனி phones ஆனால் Offline அல்லது WiFi mode click பண்ணுங்கள்.';
+      }
+      function setMpMode(mode){
+        mpMode = mode || 'phone';
+        try{ localStorage.setItem('qg_mp_mode', mpMode); }catch(e){}
+        document.querySelectorAll('.mp-mode').forEach(function(b){
+          b.classList.toggle('active', b.getAttribute('data-mpmode')===mpMode);
+        });
+        var help = document.getElementById('mpModeHelp');
+        if(help) help.textContent = mpHelpText();
+        var hint = document.getElementById('mpRoomHint');
+        if(hint){
+          if(mpMode==='wifi') hint.textContent = 'WiFi/Hotspot room · code share பண்ணுங்கள் · PeerJS connect';
+          else if(mpMode==='offline') hint.textContent = 'Offline Local · same code = same questions · no internet';
+          else hint.textContent = 'Same phone-ல 2–4 players turn-by-turn. Room code local save.';
+        }
+        var cr = document.getElementById('mpCreateBtn');
+        var jn = document.getElementById('mpJoinBtn');
+        if(cr) cr.style.opacity = (mpMode==='phone') ? '0.55' : '1';
+        if(jn) jn.style.opacity = (mpMode==='phone') ? '0.55' : '1';
+      }
+      function $(id){ return document.getElementById(id); }
+      function sh(a, seedStr){
+        var x=a.slice();
+        var rnd = (seedStr && typeof mulberry32==='function') ? mulberry32(seedFromCode(seedStr)) : null;
+        for(var i=x.length-1;i>0;i--){
+          var j = rnd ? ((rnd()*(i+1))|0) : ((Math.random()*(i+1))|0);
+          var t=x[i];x[i]=x[j];x[j]=t;
+        }
+        return x;
+      }
+      function names(){
+        var arr=[];
+        ['mpN1','mpN2','mpN3','mpN4'].forEach(function(id,i){
+          var v=(($(id)||{}).value||'').trim().slice(0,12);
+          if(i<2 && !v) v = 'Player 0'+(i+1);
+          if(v) arr.push(v);
+        });
+        if(arr.length<2) arr = ['Player 01','Player 02'];
+        return arr;
+      }
+      function renderLobbyPlayers(){
+        var ns=names();
+        var av=['🌙','⭐','🧕','🧔'];
+        var html='';
+        for(var i=0;i<4;i++){
+          var n=ns[i]||('P'+(i+1));
+          var on=!!ns[i];
+          html+='<div class="mp-p" style="opacity:'+(on?1:0.45)+'"><div class="mp-av">'+av[i]+'</div><name>'+(on?n.toUpperCase():'—')+'</name><div class="mp-lv">'+(on?(i===0?'You':'Local'):'Empty')+'</div><div class="mp-sc">'+(on?'Ready':'—')+'</div></div>';
+        }
+        if($('mpPlayers')) $('mpPlayers').innerHTML=html;
+        if($('mpCount')) $('mpCount').textContent=String(ns.length);
+      }
+      function lbHtml(players){
+        var s=players.slice().sort(function(a,b){return b.score-a.score});
+        var cls=['r1','r2','r3'];
+        var med=['🥇 1st','🥈 2nd','🥉 3rd'];
+        var h='';
+        for(var i=0;i<Math.min(3,s.length);i++){
+          h+='<div class="mp-lb-row '+cls[i]+'"><span>'+med[i]+'</span><span>'+s[i].name+'</span><span>'+s[i].score+'</span></div>';
+        }
+        return h;
+      }
+      function startMatch(){
+        var ns=names();
+        var code = mpSeed || (($('mpRoomInput')||{}).value||'').trim().toUpperCase() || '';
+        if(!code){
+          try{
+            var raw=localStorage.getItem('qg_mp_room');
+            if(raw){ var room=JSON.parse(raw); code = room.code || ''; }
+          }catch(e){}
+        }
+        if(mpMode==='offline' && !code){
+          code = Math.random().toString(36).slice(2,8).toUpperCase();
+          mpSeed = code;
+          if($('mpRoomInput')) $('mpRoomInput').value = code;
+        }
+        try{
+          if(window.MPNet && MPNet.isHost() && mpMode==='wifi'){
+            MPNet.send({ type:'mp-start', names: ns, seed: code, mode: mpMode });
+          }
+        }catch(e){}
+        var useSeed = (mpMode==='offline' || mpMode==='wifi') ? code : '';
+        G={
+          players: ns.map(function(n){ return {name:n, score:0}; }),
+          turn:0,
+          qi:0,
+          deck: sh(Q, useSeed),
+          over:false,
+          answering:false,
+          seed: useSeed,
+          mode: mpMode
+        };
+        $('mpLobby').classList.add('off');
+        $('mpRes').classList.remove('on');
+        $('mpPlay').classList.add('on');
+        if($('mpCount')) $('mpCount').textContent=String(G.players.length);
+        nextQ();
+      }
+      function nextQ(){
+        if(!G||G.over) return;
+        if(G.qi>=G.deck.length){ G.deck=sh(Q); G.qi=0; }
+        // win check: first to 10 points for quicker match (or after each full round)
+        G.answering=false;
+        var q=G.deck[G.qi];
+        var p=G.players[G.turn];
+        $('mpTurn').textContent = '🎯 '+p.name+' · your turn';
+        $('mpQBadge').textContent = 'QUESTION '+String(G.qi+1).padStart(2,'0');
+        $('mpQText').textContent = q.q;
+        $('mpLiveLb').innerHTML = lbHtml(G.players);
+        var box=$('mpOpts'); box.innerHTML='';
+        var L=['A','B','C','D'];
+        q.opts.forEach(function(opt,idx){
+          var b=document.createElement('button');
+          b.type='button'; b.className='mp-opt';
+          b.innerHTML='<b>'+L[idx]+'</b>'+opt;
+          b.onclick=function(e){ e.preventDefault(); answer(idx); };
+          box.appendChild(b);
+        });
+        startTimer();
+      }
+      function startTimer(){
+        clearInterval(timer);
+        timeLeft=15;
+        $('mpTimer').textContent='00:'+String(timeLeft).padStart(2,'0');
+        timer=setInterval(function(){
+          timeLeft--;
+          if(timeLeft<0){ clearInterval(timer); answer(-1); return; }
+          $('mpTimer').textContent='00:'+String(timeLeft).padStart(2,'0');
+        },1000);
+      }
+      function answer(pick){
+        if(!G||G.over||G.answering) return;
+        G.answering=true;
+        clearInterval(timer);
+        var q=G.deck[G.qi];
+        var p=G.players[G.turn];
+        var box=$('mpOpts');
+        var btns=box.querySelectorAll('.mp-opt');
+        btns.forEach(function(b,bi){
+          b.disabled=true;
+          if(bi===q.ans) b.classList.add('ok');
+          if(pick===bi && pick!==q.ans) b.classList.add('bad');
+        });
+        if(pick===q.ans){ p.score+=1; }
+        $('mpLiveLb').innerHTML=lbHtml(G.players);
+        // first to 15 wins (good for 50q pool)
+        if(p.score>=15){ setTimeout(finish, 600); return; }
+        G.qi++;
+        G.turn=(G.turn+1)%G.players.length;
+        // end after 40 questions total
+        if(G.qi>=40){ setTimeout(finish, 600); return; }
+        setTimeout(nextQ, 700);
+      }
+      function finish(){
+        G.over=true; clearInterval(timer);
+        $('mpPlay').classList.remove('on');
+        $('mpRes').classList.add('on');
+        var s=G.players.slice().sort(function(a,b){return b.score-a.score});
+        $('mpWinner').textContent='🏆 '+s[0].name+' Wins!';
+        $('mpFinalLb').innerHTML=lbHtml(G.players);
+      }
+      function bind(){
+        var st=$('mpStartBtn'); if(st) st.onclick=function(e){e.preventDefault(); startMatch();};
+        var cr=$('mpCreateBtn'); if(cr) cr.onclick=async function(){
+          $('mpRoomBox').classList.add('on');
+          if(mpMode==='offline' || mpMode==='phone'){
+            var code = Math.random().toString(36).slice(2,8).toUpperCase();
+            mpSeed = code;
+            try{ localStorage.setItem('qg_mp_room', JSON.stringify({code:code, mode:mpMode, names:names(), at:Date.now()})); }catch(e){}
+            $('mpRoomLabel').textContent = mpMode==='offline' ? '🔒 Offline room · share this code' : '📱 Local room code';
+            $('mpRoomInput').value = code;
+            try{ showJoined(code); }catch(e){}
+            if(mpMode==='offline'){
+              alert('Offline room: '+code+'\n\nFriends same code enter பண்ணட்டும்.\nInternet தேவையில்லை.\nSTART MATCH → same questions இரு devices-லும்.');
+            }
+            return;
+          }
+          // WiFi / Hotspot (PeerJS)
+          $('mpRoomLabel').textContent='📶 Creating WiFi/Hotspot room…';
+          $('mpRoomInput').value='…';
+          try{
+            if(!window.MPNet){ throw new Error('PeerJS not ready'); }
+            var code = await MPNet.createRoom(names()[0]||'Host');
+            mpSeed = code;
+            try{ localStorage.setItem('qg_mp_room', JSON.stringify({code:code, mode:'wifi', names:names(), at:Date.now()})); }catch(e){}
+            $('mpRoomLabel').textContent='✅ WiFi room · share this code';
+            $('mpRoomInput').value=code;
+            try{ showJoined(code); }catch(e){}
+            MPNet.on(function(ev){
+              if(ev.type==='join' || ev.type==='peer-joined'){
+                if($('mpCount')) $('mpCount').textContent=String((MPNet.peers()||0)+1);
+                if(ev.name){
+                  for(var i=2;i<=4;i++){
+                    var el=$('mpN'+i);
+                    if(el && !el.value){ el.value=ev.name; break; }
+                  }
+                  renderLobbyPlayers();
+                }
+              }
+              if(ev.type==='mp-answer' && MPNet.isHost()){
+                try{ MPNet.relay(ev); }catch(e){}
+              }
+            });
+            alert('Room: '+code+'\n\nHotspot tip:\n1) Host phone: Hotspot ON\n2) Friend: Hotspot-க்கு connect\n3) Code share → JOIN\n(Connect-க்கு internet உதவும்)');
+          }catch(err){
+            console.warn(err);
+            var code=Math.random().toString(36).slice(2,8).toUpperCase();
+            mpSeed = code;
+            $('mpRoomLabel').textContent='🔒 Offline fallback (no PeerJS)';
+            $('mpRoomInput').value=code;
+            setMpMode('offline');
+            alert('Online/PeerJS fail. Offline Local code: '+code+'\nSame code enter → same questions.');
+          }
+        };
+        function showJoined(code){
+          var b = document.getElementById('mpJoinedBadge');
+          var c = document.getElementById('mpJoinedCode');
+          if(c) c.textContent = code || '—';
+          if(b) b.style.display = code ? 'block' : 'none';
+        }
+        var jn=$('mpJoinBtn'); if(jn) jn.onclick=function(){
+          if(mpMode==='phone') setMpMode('offline');
+          try{
+            $('mpRoomBox').classList.add('on');
+            $('mpRoomBox').style.display = 'block';
+            $('mpRoomLabel').textContent = (mpMode==='wifi')
+              ? '📶 Host code type பண்ணி JOIN/CONFIRM அழுத்துங்கள்'
+              : '🔒 Host code type பண்ணி JOIN/CONFIRM அழுத்துங்கள்';
+            $('mpRoomInput').value = '';
+            $('mpRoomInput').focus();
+            $('mpRoomBox').scrollIntoView({behavior:'smooth', block:'center'});
+          }catch(e){}
+          alert('Host code-ஐ கீழே type செய்து\n✅ JOIN / CONFIRM அழுத்துங்கள்');
+        };
+        var go=$('mpRoomGo'); if(go) go.onclick=async function(){
+          var code=($('mpRoomInput').value||'').trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+          if(!code || code.length < 4){
+            alert('சரியான Room code enter பண்ணுங்கள் (எ.கா. ABC123)');
+            try{ $('mpRoomInput').focus(); }catch(e){}
+            return;
+          }
+          mpSeed = code;
+          if(mpMode==='phone') setMpMode('offline');
+
+          try{ localStorage.setItem('qg_mp_room', JSON.stringify({code:code, mode:mpMode, names:names(), at:Date.now()})); }catch(e){}
+
+          // Offline / phone path — always works
+          if(mpMode==='offline' || mpMode==='phone'){
+            $('mpRoomLabel').textContent='✅ Joined · code '+code;
+            $('mpRoomInput').value = code;
+            showJoined(code);
+            try{ $('mpRoomBox').classList.add('on'); $('mpRoomBox').style.display='block'; }catch(e){}
+            renderLobbyPlayers();
+            alert('✅ JOIN வெற்றி!\n\nRoom: '+code+'\nMode: Offline Local\n\nஇப்போது START MATCH அழுத்துங்கள்.\nHost-உம் same code-ல் START பண்ணட்டும்.');
+            return;
+          }
+
+          // WiFi path
+          $('mpRoomLabel').textContent='📶 Joining… காத்திருங்கள்';
+          try{
+            if(!window.MPNet) throw new Error('PeerJS not ready');
+            await MPNet.joinRoom(code, names()[0]||'Player');
+            MPNet.on(function(ev){
+              if(ev.type==='mp-start'){
+                try{
+                  if(ev.seed) mpSeed = ev.seed;
+                  if(ev.mode) setMpMode(ev.mode);
+                  startMatch();
+                }catch(e){}
+              }
+            });
+            $('mpRoomLabel').textContent='✅ Joined '+code;
+            showJoined(code);
+            $('mpRoomBox').classList.remove('on');
+            renderLobbyPlayers();
+            alert('✅ WiFi room joined: '+code+'\nHost START MATCH அழுத்தும்போது game தொடங்கும்.');
+            return;
+          }catch(err){
+            console.warn('join fail', err);
+            // Auto fallback offline so user can still play
+            setMpMode('offline');
+            mpSeed = code;
+            showJoined(code);
+            $('mpRoomLabel').textContent='🔒 Offline joined '+code;
+            $('mpRoomBox').classList.remove('on');
+            renderLobbyPlayers();
+            alert('WiFi connect ஆகவில்லை.\n\n🔒 Offline Local-க்கு switch ஆனது.\nCode: '+code+'\n\nSTART MATCH அழுத்தி same questions-ல் விளையாடுங்கள்.');
+          }
+        };
+
+        // Mode buttons — clear click choice
+        document.querySelectorAll('.mp-mode').forEach(function(btn){
+          btn.onclick = function(){
+            var m = btn.getAttribute('data-mpmode');
+            setMpMode(m);
+            try{
+              btn.style.transform = 'scale(1.08)';
+              setTimeout(function(){ btn.style.transform = ''; }, 180);
+              $('mpRoomBox').classList.add('on');
+              $('mpRoomBox').style.display = 'block';
+              $('mpRoomBox').scrollIntoView({behavior:'smooth', block:'center'});
+            }catch(e){}
+            var msg = '';
+            if(m==='offline') msg = '🔒 Offline Local தேர்வு!\n\nHost: CREATE ROOM அழுத்தி code share செய்யுங்கள்.\nFriend: code type செய்து JOIN/CONFIRM.\nபிறகு இருவரும் START MATCH.';
+            else if(m==='wifi') msg = '📶 WiFi Live தேர்வு!\n\nInternet ON வைத்து CREATE / JOIN பண்ணுங்கள்.';
+            else msg = '📱 Same Phone தேர்வு!\n\nNames நிரப்பி START MATCH அழுத்துங்கள்.';
+            try{ alert(msg); }catch(e){}
+          };
+        });
+        try{
+          var saved = localStorage.getItem('qg_mp_mode');
+          if(saved === 'phone' || saved === 'wifi' || saved === 'offline') mpMode = saved;
+          else mpMode = 'offline';
+        }catch(e){ mpMode = 'offline'; }
+        setMpMode(mpMode);
+
+        var ag=$('mpAgainBtn'); if(ag) ag.onclick=function(){
+          $('mpRes').classList.remove('on');
+          $('mpLobby').classList.remove('off');
+          renderLobbyPlayers();
+        };
+        var hm=$('mpHomeBtn'); if(hm) hm.onclick=function(){
+          if(typeof switchScreen==='function') switchScreen('screenSelect');
+          if(typeof showHomeHub==='function') showHomeHub(true);
+        };
+        var bk=$('duelBackBtn'); if(bk) bk.onclick=function(){
+          clearInterval(timer);
+          if(typeof switchScreen==='function') switchScreen('screenSelect');
+          if(typeof showHomeHub==='function') showHomeHub(true);
+        };
+        ['mpN1','mpN2','mpN3','mpN4'].forEach(function(id){
+          var el=$(id); if(el) el.oninput=renderLobbyPlayers;
+        });
+        renderLobbyPlayers();
+      }
+      window.initDuel=bind;
+      window.startDuel=startMatch;
+      if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bind);
+      else bind();
+      setTimeout(bind, 400);
+    })();
+    </script>
+  </section>
+
+
+
+<section class="screen" id="screenMilad">
+  <button type="button" class="back-btn-ico back-btn" id="miladBackBtn" aria-label="Back"><img src="icons/back.png" alt="Back" class="back-ico"></button>
+  <h2 style="text-align:center;font-size:17px;margin:8px 0" data-i18n="title_milad">🌙 மீலாது நிகழ்வு</h2>
+  <p style="text-align:center;color:#94a3b8;font-size:13px;margin-bottom:10px" data-i18n="milad_sub">நபிகள் நாயகம் (ஸல்) அவர்களின் பிறந்த நாள் கொண்டாட்டம்</p>
+
+  <div class="milad-note" style="margin:0 12px 14px;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,rgba(74,40,112,.4),rgba(30,40,80,.35));border:1.5px solid rgba(212,175,55,.45);text-align:center;line-height:1.55">
+    <div style="font-size:12px;font-weight:700;color:#ffd54f;margin-bottom:6px" data-i18n="milad_note_title">📌 குறிப்பு</div>
+    <div style="font-size:12px;color:#fff8e8" data-i18n="milad_note_body">நீங்கள் இதில் <b style="color:#ffd54f">முதல் இடம்</b> வர வேண்டும் என்றால் டெலிகிராம் சேனலில் சேர வேண்டும். லிங்க் கீழே உள்ளது.</div>
+    <a href="https://t.me/islamic_post_1704" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;padding:8px 16px;border-radius:12px;background:linear-gradient(180deg,#2AABEE,#229ED9);color:#fff;font-size:13px;font-weight:800;text-decoration:none;box-shadow:0 3px 0 #1a7aab" data-i18n="milad_tg_btn">
+      ✈️ டெலிகிராம் சேனல் சேர
+    </a>
+    <div style="margin-top:6px;font-size:10px;color:#94a3b8;word-break:break-all">https://t.me/islamic_post_1704</div>
+  </div>
+
+  <div class="plb" id="miladLeaderboard">
+    <div class="plb-bg"></div>
+    <header class="plb-header">
+      <div class="plb-crown">👑</div>
+      <h1 class="plb-title" data-i18n="title_leaderboard">🏆 தரவரிசை</h1>
+      <p class="plb-sub" data-i18n="plb_sub_milad">கேள்வி &amp; பதில் · 100 கேள்வி மதிப்பெண்</p>
+    </header>
+    <div class="plb-filters" id="miladLbFilters">
+      <button type="button" class="plb-filter" data-filter="daily" data-i18n="filter_daily">தினசரி</button>
+      <button type="button" class="plb-filter" data-filter="weekly" data-i18n="filter_weekly">வாராந்திர</button>
+      <button type="button" class="plb-filter active" data-filter="all" data-i18n="filter_all">மொத்தம்</button>
+    </div>
+
+    <!-- Podium exactly like சாதனைகள் -->
+    <div class="plb-podium" id="miladLbPodium">
+      <div class="podium-slot">
+        <img src="icons/rank2.png" alt="2" class="podium-rank-img">
+        <div class="podium-name">உமர்</div>
+        <div class="podium-score">⭐ 1100</div>
+      </div>
+      <div class="podium-slot podium-first">
+        <img src="icons/rank1.png" alt="1" class="podium-rank-img">
+        <div class="podium-name">அபூபக்கர்</div>
+        <div class="podium-score">⭐ 1250</div>
+      </div>
+      <div class="podium-slot">
+        <img src="icons/rank3.png" alt="3" class="podium-rank-img">
+        <div class="podium-name">உஸ்மான்</div>
+        <div class="podium-score">⭐ 980</div>
+      </div>
+    </div>
+
+    <div class="plb-list" id="miladLbList">
+      <div class="plb-row"><span class="plb-pos">4</span><span class="plb-name">அலீ</span><span class="plb-pts">⭐ 850</span></div>
+      <div class="plb-row"><span class="plb-pos">5</span><span class="plb-name">பலால்</span><span class="plb-pts">⭐ 720</span></div>
+      <div class="plb-row"><span class="plb-pos">6</span><span class="plb-name">தல்ஹா</span><span class="plb-pts">⭐ 680</span></div>
+      <div class="plb-row"><span class="plb-pos">7</span><span class="plb-name">ஸுபைர்</span><span class="plb-pts">⭐ 640</span></div>
+      <div class="plb-row"><span class="plb-pos">8</span><span class="plb-name">அப்துர் ரஹ்மான்</span><span class="plb-pts">⭐ 590</span></div>
+    </div>
+
+    <div class="plb-you" id="miladLbYou">
+      <span class="plb-pos">#—</span>
+      <div class="plb-you-avatar">M</div>
+      <div class="plb-you-info">
+        <div class="plb-you-name" data-i18n="you_label">நீங்கள்</div>
+        <div class="plb-you-meta">100 கேள்வி முடித்தால் இங்கே சேரும்</div>
+      </div>
+      <span class="plb-pts">⭐ 0</span>
+    </div>
+  </div>
+</section>
+
+<div class="menu-overlay" id="menuOverlay" style="display:none!important" hidden></div>
+<aside class="side-menu" id="sideMenu" style="display:none!important" hidden aria-hidden="true">
+  <button class="side-menu-close" id="closeMenuBtn">➜</button>
+  <div class="side-profile">
+    <div class="side-avatar"></div>
+    <div>
+      <div class="side-profile-name" data-i18n="app_title_h1">🌸 குர்ஆன் தோட்டம் 🌸</div>
+      <div class="side-profile-sub"><span class="coin-spin coin-spin-sm" aria-hidden="true"><img src="icons/coin.png" alt=""></span> <span id="sideCoins">0</span>  · <img src="icons/fire.png" alt="" class="streak-fire-icon-sm"> <span id="sideStreak">0</span></div>
+    </div>
+  </div>
+  <nav>
+    <button class="side-nav-item active" data-screen="screenSelect"><span class="side-nav-icon-garden"><img src="icons/garden.png" alt=""></span><span class="side-nav-label" data-i18n="nav_garden">தோட்டம்</span></button>
+    <button class="side-nav-item" data-screen="screenMilad"><span class="side-nav-icon-img"><img src="icons/badge.png" alt=""></span><span class="side-nav-label" data-i18n="nav_milad">மீலாது நிகழ்வு</span></button>
+    <button class="side-nav-item" data-screen="screenSelect"><span class="side-nav-icon-img"><img src="icons/surah.png" alt=""></span><span class="side-nav-label" data-i18n="nav_surahs">சூராக்கள்</span></button>
+    <button class="side-nav-item" id="sideJuzFilterBtn" data-screen="screenJuz"><span class="side-nav-icon-img"><img src="icons/juz.png" alt=""></span><span class="side-nav-label" data-i18n="nav_juz">ஜுஸ்வு</span></button>
+    <button class="side-nav-item" data-screen="screenGames"><span class="side-nav-icon-img"><img src="icons/games.png" alt=""></span><span class="side-nav-label" data-i18n="nav_games">விளையாட்டு</span></button>
+    <button class="side-nav-item" data-screen="screenQuiz" id="sideQuizBtn"><span class="side-nav-icon-img"><img src="icons/quiz.png" alt=""></span><span class="side-nav-label" data-i18n="nav_quiz">கேள்வி &amp; பதில்</span></button>
+    <button class="side-nav-item" data-screen="screenBadges"><span class="side-nav-icon-img"><img src="icons/badge.png" alt=""></span><span class="side-nav-label" data-i18n="nav_badges">சாதனைகள்</span></button>
+    <button class="side-nav-item" data-screen="screenDhikr"><span class="side-nav-icon-img"><img src="icons/dhikr.png" alt=""></span><span class="side-nav-label" data-i18n="nav_dhikr">திக்ர்</span></button>
+    <button class="side-nav-item" data-screen="screenDua"><span class="side-nav-icon-img"><img src="icons/dua.png" alt=""></span><span class="side-nav-label" data-i18n="nav_rabbana">ரப்பனா துஆ</span></button>
+    <button class="side-nav-item" data-screen="screenNabiDua"><span class="side-nav-icon-img"><img src="icons/nabi-dua.png" alt=""></span><span class="side-nav-label" data-i18n="nav_nabi_dua">நபி துஆக்கள்</span></button>
+    <button class="side-nav-item" data-screen="screenSalawat"><span class="side-nav-icon-img"><img src="icons/nabi-dua.png" alt=""></span><span class="side-nav-label" data-i18n="nav_salawat">நபி மீது ஸலவாத்</span></button>
+<button class="side-nav-item" id="sidePrayerBtn" data-screen="screenPrayer"><span class="side-nav-icon-img"><img src="icons/prayer.png" alt=""></span><span class="side-nav-label" data-i18n="nav_prayer">தொழுகை நேரம்</span></button>
+    <button class="side-nav-item" id="sideFontBtn" data-screen="screenFont"><span class="side-nav-icon-img"><img src="icons/font.png" alt=""></span><span class="side-nav-label" data-i18n="nav_font">எழுத்து வடிவம்</span></button>
+    <button class="side-nav-item" data-screen="screenProfile"><span class="side-nav-icon-img"><img src="icons/theme.png" alt=""></span><span class="side-nav-label" data-i18n="nav_themes">தீம்கள்</span></button>
+    <button class="side-nav-item" id="sideAdminBtn"><span class="side-nav-icon-img"><img src="icons/contact.png" alt=""></span><span class="side-nav-label" data-i18n="nav_about">என்னை பற்றி</span></button>
+    <button class="side-nav-item" id="sideSoundBtn"><span class="side-nav-icon-img"><img src="icons/sound.png" alt=""></span><span class="side-nav-label" data-i18n="nav_sound">சப்தம்</span></button>
+    <button class="side-nav-item" id="sideLangBtn" type="button"><span class="side-nav-icon-img"><img src="icons/lang-globe.png" alt="Language" class="side-lang-globe"></span><span class="side-nav-label" data-i18n="nav_lang">Language · மொழி</span></button>
+  </nav>
+</aside>
+
+<div class="overlay" id="adminOverlay">
+  <div class="modal" style="text-align:center;max-height:85vh;overflow-y:auto">
+    <h3 style="margin-top:0;color:var(--blue-glow)" data-i18n="title_about">💚 என்னை பற்றி</h3>
+
+    <div style="background:rgba(124,58,237,.15);border:1.5px solid rgba(167,139,250,.4);border-radius:14px;padding:14px;margin:10px 0 12px;text-align:center;line-height:1.6">
+      <div style="font-size:18px;font-weight:800;color:#e9d5ff;margin-bottom:4px">முஹம்மது முஸ்ஸம்மில்</div>
+      <div style="font-size:13px;color:#c4b5fd;margin-bottom:6px" data-i18n="about_name_sub">📍 ராம்நாடு</div>
+      <div style="font-size:12px;color:#ffd54f;font-weight:700" data-i18n="about_future">✨ வருங்கால 2027 உஸ்மானி</div>
+    </div>
+
+    <div style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:14px;padding:14px;margin:0 0 14px;text-align:right;line-height:1.7;font-size:13px;color:#e2e8f0">
+      <div data-lang="ta">
+        <p style="margin:0 0 10px">இதை உருவாக்க யோசனை கொடுத்த <b style="color:#7dd3fc">அல்லாஹ்வுக்கு எல்லா புகழும்</b>.</p>
+        <p style="margin:0 0 10px">நபி (ஸல்) அவர்கள் பரக்கத்தால் அல்லாஹ் இதை பரவ செய்வானாக <b style="color:#ffd54f">ஆமீன்</b>.</p>
+        <p style="margin:0">அன்பானவர்களே, என் குடும்பத்திற்கு நோய், நெடி இல்லாத வாழ்க்கைக்காக அனைவரும் துஆ செய்யுங்கள் 🤲</p>
+      </div>
+      <div data-lang="en" style="display:none;text-align:left">
+        <p style="margin:0 0 10px">All praise is for <b style="color:#7dd3fc">Allah</b> who inspired the idea to create this.</p>
+        <p style="margin:0 0 10px">By the barakah of the Prophet (ﷺ), may Allah spread this. <b style="color:#ffd54f">Ameen</b>.</p>
+        <p style="margin:0">Dear friends, please make dua for my family — a life free from illness and hardship 🤲</p>
+      </div>
+    </div>
+
+    <div style="background:rgba(212,175,55,.12);border:1.5px solid rgba(212,175,55,.4);border-radius:14px;padding:14px;margin-bottom:14px;text-align:center;line-height:1.65">
+      <div style="font-size:12px;font-weight:800;color:#ffd54f;margin-bottom:8px" data-i18n="about_help_title">🤲 உதவி கோரிக்கை</div>
+      <p style="margin:0 0 10px;font-size:13px;color:#fff8e8" data-i18n="about_help_body">உங்களால் முடிந்த உதவி செய்யுங்கள். அல்லாஹ் பரக்கத் செய்வானாக ஆமீன்.</p>
+      <div style="font-size:22px;font-weight:800;letter-spacing:1px;color:#fff;margin:8px 0 4px" id="adminWaNumber">+91 84281 41919</div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px">India · WhatsApp / Call</div>
+      <a id="adminWaLink" href="https://wa.me/918428141919" target="_blank" rel="noopener"
+         class="submit-btn" style="display:block;text-decoration:none;background:linear-gradient(135deg,#25D366,#128C7E);margin-bottom:8px" data-i18n="wa_open">
+        💬 WhatsApp திற
+      </a>
+      <button type="button" class="submit-btn" id="adminWaCopyBtn" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);margin-bottom:0" data-i18n="num_copy">
+        📋 Number Copy
+      </button>
+    </div>
+
+    <div style="background:rgba(239,68,68,.1);border:1.5px solid rgba(239,68,68,.35);border-radius:14px;padding:14px;margin-bottom:14px;text-align:center;line-height:1.65">
+      <div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:8px" data-i18n="about_bug_title">⚠️ தவறுகள் தெரியப்படுத்த</div>
+      <p style="margin:0 0 10px;font-size:13px;color:#fff8e8" data-i18n="about_bug_body">இந்த website-ல் தவறுகள் இருந்தால் தெரியப்படுத்த வேண்டும்</p>
+      <div style="font-size:20px;font-weight:800;letter-spacing:1px;color:#fff;margin:8px 0 4px" id="adminBugNumber">+91 70924 27154</div>
+      <div style="font-size:11px;color:var(--text-dim);margin-bottom:10px">India · WhatsApp</div>
+      <a href="https://wa.me/917092427154" target="_blank" rel="noopener"
+         class="submit-btn" style="display:block;text-decoration:none;background:linear-gradient(135deg,#25D366,#128C7E);margin-bottom:8px" data-i18n="wa_open">
+        💬 WhatsApp திற
+      </a>
+      <button type="button" class="submit-btn" id="adminBugCopyBtn" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);margin-bottom:0" data-i18n="num_copy">
+        📋 Number Copy
+      </button>
+    </div>
+
+    <button type="button" class="modal-close" id="closeAdminBtn" data-i18n="close">மூடு</button>
+  </div>
+</div>
+
+<div class="overlay" id="quizOverlay">
+  <div class="modal" id="quizModal">
+    <div class="modal-sticky-top">
+      <div style="font-size:12px;font-weight:bold;color:var(--blue-glow);flex:1" id="quizLabel" data-i18n="pick_ayah">ஆயத்தைத் தேர்ந்தெடுக்கவும்</div>
+      <button type="button" class="modal-close" id="quizCancel" data-i18n="btn_close_x">✖ மூடு</button>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">
+      <button type="button" class="tajweed-btn on" id="tajweedToggleBtn" data-i18n="btn_tajweed">🎨 தஜ்வீத்</button>
+      <button type="button" class="tajweed-btn on" id="meaningToggleBtn" data-i18n="btn_meaning">பொருள்</button>
+    </div>
+    <div class="context-ayah" id="contextAyah"></div>
+    <div class="tajweed-legend show" id="tajweedLegend">
+      <span><i class="dot" style="background:#22c55e"></i>குன்னா</span>
+      <span><i class="dot" style="background:#ef4444"></i>கல்கலா</span>
+      <span><i class="dot" style="background:#3b82f6"></i>சின்ன மத்து</span>
+      <span><i class="dot" style="background:#dc2626"></i>பெரிய மத்து</span>
+      <span><i class="dot" style="background:#a855f7"></i>இட்காம்</span>
+      <span><i class="dot" style="background:#06b6d4"></i>இக்லாப்</span>
+      <span><i class="dot" style="background:#ec4899"></i>இக்ஃபா</span>
+      <span><i class="dot" style="background:#eab308"></i>சத்தா</span>
+    </div>
+    <div id="audioWrap" style="text-align:center"></div>
+    <div id="optionsWrap"></div>
+    
+  </div>
+</div>
+
+
+
+  
+<script src="js/nabi-quiz.js"></script>
+<script src="js/app.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/fx-premium.js" defer></script>
+<audio id="bismillahAudioTag" src="audio/bismillah.mp3" preload="auto" playsinline></audio>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js?v=12').then(function(reg) {
+      console.log('Quran Garden SW ready', reg.scope);
+    }).catch(function(err) {
+      console.warn('SW register failed', err);
+    });
+  });
+}
+</script>
+
+
+<script>
+(function(){
+  var deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  function setOfflineStatus(txt, color){
+    var el = document.getElementById('offlineStatus');
+    if(el){ el.textContent = txt; if(color) el.style.color = color; }
+  }
+
+  function updateOnlineBadge(){
+    setOfflineStatus(navigator.onLine ? 'Online' : 'Offline', navigator.onLine ? '#86efac' : '#fbbf24');
+  }
+  window.addEventListener('online', updateOnlineBadge);
+  window.addEventListener('offline', updateOnlineBadge);
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', updateOnlineBadge);
+  else updateOnlineBadge();
+
+  async function cacheOffline(){
+    var wrap = document.getElementById('offlineProgressWrap');
+    var bar = document.getElementById('offlineProgressBar');
+    var txt = document.getElementById('offlineProgressText');
+    if(wrap) wrap.style.display = 'block';
+    if(txt) txt.textContent = 'Offline files download ஆகிறது…';
+    if(bar) bar.style.width = '15%';
+    setOfflineStatus('…', '#fbbf24');
+
+    try{
+      if(!('serviceWorker' in navigator)){
+        alert('இந்த browser Service Worker support பண்ணாது');
+        return;
+      }
+      var reg = await navigator.serviceWorker.register('./sw.js?v=12');
+      await navigator.serviceWorker.ready;
+      if(bar) bar.style.width = '40%';
+
+      // Message SW to re-cache all
+      if(reg.active){
+        await new Promise(function(resolve){
+          var ch = new MessageChannel();
+          ch.port1.onmessage = function(ev){
+            if(bar) bar.style.width = '100%';
+            resolve(ev.data);
+          };
+          reg.active.postMessage({ type: 'CACHE_ALL' }, [ch.port2]);
+          setTimeout(resolve, 8000);
+        });
+      }
+
+      // Also cache key pages via fetch so they're in cache
+      var files = ['./index.html','./css/style.css','./css/fx-premium.css','./js/app.js','./js/nabi-quiz.js','./js/animations.js','./js/fx-premium.js','./manifest.webmanifest'];
+      var done = 0;
+      for(var i=0;i<files.length;i++){
+        try{ await fetch(files[i], { cache: 'reload' }); }catch(e){}
+        done++;
+        if(bar) bar.style.width = (40 + Math.round(done/files.length*55)) + '%';
+      }
+      if(bar) bar.style.width = '100%';
+      if(txt) txt.textContent = '✅ Offline ready — internet இல்லாமல் play செய்யலாம்';
+      setOfflineStatus('Ready', '#86efac');
+      try{ localStorage.setItem('qg_offline_ready', '1'); }catch(e){}
+      alert('✅ Offline download முடிந்தது!\nAirplane mode-லயும் app திறக்கும்.');
+    }catch(err){
+      console.warn(err);
+      if(txt) txt.textContent = 'Download fail — online-ல மீண்டும் try பண்ணுங்க';
+      setOfflineStatus('Fail', '#fca5a5');
+    }
+  }
+
+  async function installApp(){
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      try{ await deferredPrompt.userChoice; }catch(e){}
+      deferredPrompt = null;
+      return;
+    }
+    // Fallback instructions
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if(isIOS){
+      alert('iPhone: Share → Add to Home Screen அழுத்துங்க');
+    } else {
+      alert('Browser menu-ல "Install app" / "Add to Home screen" தேர்ந்தெடுக்கவும்.\nமுதலில் Offline download முடித்திருக்க வேண்டும்.');
+    }
+  }
+
+  document.addEventListener('click', function(ev){
+    var tile = ev.target.closest && ev.target.closest('.settings-tile');
+    if(!tile) return;
+    var set = tile.getAttribute('data-set');
+    if(set === 'offline'){ ev.preventDefault(); cacheOffline(); }
+    if(set === 'install'){ ev.preventDefault(); installApp(); }
+  }, true);
+
+  // Auto register SW early
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('./sw.js?v=12').catch(function(){});
+      try{
+        if(localStorage.getItem('qg_offline_ready')==='1') setOfflineStatus('Ready', '#86efac');
+      }catch(e){}
+    });
+  }
+})();
+</script>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
+<script>
+/* ===== PeerJS Real-time Multiplayer Bridge ===== */
+(function(){
+  if (window.MPNet) return;
+
+  var HOST_PREFIX = 'qg-mp-';
+  var peer = null;
+  var connMap = {}; // peerId -> DataConnection
+  var isHost = false;
+  var roomCode = null;
+  var myName = 'Player';
+  var onEvent = function(){};
+
+  function log(){ try{ console.log.apply(console, ['[MPNet]'].concat([].slice.call(arguments))); }catch(e){} }
+
+  function randomCode(){
+    var s = '';
+    var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    for(var i=0;i<6;i++) s += chars.charAt((Math.random()*chars.length)|0);
+    return s;
+  }
+
+  function ensurePeer(id){
+    return new Promise(function(resolve, reject){
+      if(typeof Peer === 'undefined'){
+        reject(new Error('PeerJS library not loaded (need internet once)'));
+        return;
+      }
+      try{ if(peer){ try{ peer.destroy(); }catch(e){} peer=null; } }catch(e){}
+      var opts = {
+        debug: 1,
+        config: {
+          iceServers: [
+            { urls: 'stun:stun.l.google.com:19302' },
+            { urls: 'stun:global.stun.twilio.com:3478' }
+          ]
+        }
+      };
+      peer = id ? new Peer(id, opts) : new Peer(opts);
+      var done = false;
+      var to = setTimeout(function(){
+        if(done) return;
+        done = true;
+        try{ peer.destroy(); }catch(e){}
+        reject(new Error('Peer open timeout — internet / firewall check'));
+      }, 10000);
+      peer.on('open', function(pid){
+        if(done) return;
+        done = true; clearTimeout(to);
+        log('open', pid); resolve(pid);
+      });
+      peer.on('error', function(err){
+        if(done) return;
+        done = true; clearTimeout(to);
+        log('error', err); reject(err);
+      });
+      peer.on('connection', function(conn){ wireConn(conn); });
+    });
+  }
+
+  function wireConn(conn){
+    connMap[conn.peer] = conn;
+    conn.on('open', function(){
+      log('conn open', conn.peer);
+      onEvent({ type: 'peer-joined', peerId: conn.peer, count: Object.keys(connMap).length + 1 });
+      if(isHost){
+        // host can send welcome/state
+        try{ conn.send({ type: 'welcome', room: roomCode }); }catch(e){}
+      }
+    });
+    conn.on('data', function(data){
+      try{
+        if(typeof data === 'string') data = JSON.parse(data);
+      }catch(e){}
+      onEvent(Object.assign({ from: conn.peer }, data || {}));
+    });
+    conn.on('close', function(){
+      delete connMap[conn.peer];
+      onEvent({ type: 'peer-left', peerId: conn.peer, count: Object.keys(connMap).length + 1 });
+    });
+    conn.on('error', function(err){ log('conn err', err); });
+  }
+
+  function broadcast(msg){
+    var payload = typeof msg === 'string' ? msg : msg;
+    Object.keys(connMap).forEach(function(id){
+      try{
+        if(connMap[id].open) connMap[id].send(payload);
+      }catch(e){}
+    });
+  }
+
+  window.MPNet = {
+    isHost: function(){ return isHost; },
+    room: function(){ return roomCode; },
+    peers: function(){ return Object.keys(connMap).length; },
+    on: function(fn){ onEvent = fn || function(){}; },
+
+    /** Create room → returns room code (6 chars) */
+    createRoom: async function(playerName){
+      myName = playerName || 'Host';
+      roomCode = randomCode();
+      isHost = true;
+      var hostId = HOST_PREFIX + roomCode;
+      await ensurePeer(hostId);
+      onEvent({ type: 'room-created', room: roomCode, peerId: peer.id });
+      return roomCode;
+    },
+
+    /** Join room by code */
+    joinRoom: async function(code, playerName){
+      myName = playerName || 'Player';
+      roomCode = String(code || '').trim().toUpperCase();
+      isHost = false;
+      if(!roomCode || roomCode.length < 4) throw new Error('Invalid room code');
+      await ensurePeer(); // random client id
+      var hostId = HOST_PREFIX + roomCode;
+      var conn = peer.connect(hostId, { reliable: true });
+      wireConn(conn);
+      return new Promise(function(resolve, reject){
+        var to = setTimeout(function(){ reject(new Error('Host not found / timeout')); }, 12000);
+        conn.on('open', function(){
+          clearTimeout(to);
+          try{ conn.send({ type: 'join', name: myName }); }catch(e){}
+          onEvent({ type: 'joined', room: roomCode });
+          resolve(roomCode);
+        });
+        conn.on('error', function(err){ clearTimeout(to); reject(err); });
+      });
+    },
+
+    send: function(msg){
+      if(isHost){
+        broadcast(msg);
+      } else {
+        var ids = Object.keys(connMap);
+        if(ids.length){
+          try{ connMap[ids[0]].send(msg); }catch(e){}
+        }
+      }
+    },
+
+    /** Host relays to all (call from host when receiving client msg) */
+    relay: function(msg){ if(isHost) broadcast(msg); },
+
+    destroy: function(){
+      try{
+        Object.keys(connMap).forEach(function(id){ try{ connMap[id].close(); }catch(e){} });
+        connMap = {};
+        if(peer) peer.destroy();
+      }catch(e){}
+      peer = null; isHost = false; roomCode = null;
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
